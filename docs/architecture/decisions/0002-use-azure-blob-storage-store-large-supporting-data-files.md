@@ -1,4 +1,4 @@
-# 1. Use Microsoft Dynamics 365 to support contact, case and document management capabilities
+# 2. Use Azure blob storage to store large supporting data files
 
 Date: 2019-09-16
 
