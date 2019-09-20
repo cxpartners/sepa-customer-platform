@@ -3,9 +3,6 @@ FROM node:10
 # Prevent privilege escalation attacks by configuring container to use unprivileged user (XDXjfwtfYYymOfrX)
 RUN groupadd -r XDXjfwtfYYymOfrX && useradd -r -g XDXjfwtfYYymOfrX XDXjfwtfYYymOfrX
 
-# Set the working directory to pre-existing folder /home/deploy/app
-WORKDIR /home/deploy/app
-
 # best practice is to copy your package.json and package-lock.json before you copy your code into the container
 COPY package*.json ./
 
@@ -21,5 +18,5 @@ USER XDXjfwtfYYymOfrX
 # Make port 3000 available to the world outside this container
 EXPOSE 3000
 
-# Run app.js when the container launches
-CMD [ "node", "app.js" ]
+# Run when the container launches
+CMD npm run start

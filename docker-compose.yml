@@ -1,9 +1,9 @@
 version: '3'
 services:
-  api:
+  web:
     build: .
     command: npm run start
-    image: '985122549210.dkr.ecr.eu-west-2.amazonaws.com/ec2-test:latest'
+    image: 'sepa-prototype:latest'
     env_file:
       - .env
     ports:
