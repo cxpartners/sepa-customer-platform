@@ -5,12 +5,12 @@
 - Docker installed on your machine
 
 ## Setup
-For Docker:
+For Docker (staging):
 - `docker build --tag=sepa-prototype`
 - `docker-compose up -d`
-else:
+else ():
 - `npm install`
-- `npm run start`
+- `npm run dev`
 
 ## Development
 

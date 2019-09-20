@@ -10,9 +10,9 @@
   },
   "scripts": {
     "build": "webpack --config webpack.config.prod.js",
-    "dev-server-hot": "webpack-dev-server --hot --config webpack.config.dev.js",
+    "dev": "webpack-dev-server --hot --config webpack.config.dev.js",
     "serve": "nodemon ./app/server/index.js localhost 5000",
-    "start": "concurrently --kill-others \"npm run serve\" \"npm run dev-server-hot\"",
+    "start": "concurrently --kill-others \"npm run serve\" \"npm run dev\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
