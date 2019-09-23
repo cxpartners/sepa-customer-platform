@@ -2,7 +2,6 @@ version: '3'
 services:
   web:
     build: .
-    command: npm run start
     image: 'sepa-prototype:latest'
     env_file:
       - .env
