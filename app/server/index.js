@@ -14,21 +14,22 @@ app.use(webpackDevMiddleware(compiler, {
   publicPath: config.output.publicPath,
 }));
 
-app.use('/api/v1', apiRoutes)
+app.use('/api/v1', apiRoutes);
 
-app.use(function (err, req, res, next) {
-  let status = err.status || 500
+app.use((err, req, res) => {
+  const status = err.status || 500;
 
   /* eslint-disable */
-  console.log(err)
+  console.log(err);
   /* eslint-enable */
 
-  let msg = err.message || err.stack || err.name || 'General error'
+  const msg = err.message || err.stack || err.name || 'General error';
 
   res.status(status)
     .json({
-      error: msg
-    })
+      error: msg,
+    });
 });
-
+/* eslint-disable */
 app.listen(port, () => console.log(`API listening on port ${port}!`));
+/* eslint-enable */

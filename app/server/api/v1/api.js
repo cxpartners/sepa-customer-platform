@@ -14,7 +14,7 @@ router.get('/contacts/:contactId/licenses', async (req, res) => {
 });
 
 router.use((err, req, res) => {
-  let status = err.status || 500;
+  const status = err.status || 500;
 
   /* eslint-disable */
   console.log(err);
@@ -24,8 +24,8 @@ router.use((err, req, res) => {
 
   res.status(status)
     .json({
-      error: msg
-    })
+      error: msg,
+    });
 });
 
 module.exports = router;
