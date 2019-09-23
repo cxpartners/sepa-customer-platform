@@ -12,8 +12,8 @@ module.exports = merge(baseConfig, {
     proxy: {
       '/api/*': {
         target: 'http://localhost:5000/',
-        secure: false
-      }
-    }
+        secure: false,
+      },
+    },
   },
 });
