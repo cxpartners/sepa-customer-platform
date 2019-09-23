@@ -6,8 +6,9 @@
 
 ## Setup
 For Docker (staging):
-- `docker build --tag=sepa-prototype`
+- `docker build --tag=sepa-prototype .`
 - `docker-compose up -d`
+
 else ():
 - `npm install`
 - `npm run dev`
