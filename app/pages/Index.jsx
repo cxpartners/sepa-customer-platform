@@ -22,35 +22,35 @@ class Index extends React.PureComponent {
             <Row>
               <Column columnWidth="full">
                 <Heading level="h1" caption="Navigation for prototype">Index page</Heading>
-              </Column>
-              <Heading level="h2">Create account</Heading>
-              <List ordered>
-                <li>
-                  <Link href="/start">Start page</Link>
+                <Heading level="h2">Create account</Heading>
+                <List ordered>
+                  <li>
+                    <Link href="/start">Start page</Link>
+                    &nbsp;&mdash;&nbsp;
+                    <Tag>TO DO</Tag>
+                  </li>
+                  <li>
+                    <Link href="/sign-up">Sign up</Link>
                   &nbsp;&mdash;&nbsp;
-                  <Tag>TO DO</Tag>
-                </li>
-                <li>
-                  <Link href="/sign-up">Sign up</Link>
-                 &nbsp;&mdash;&nbsp;
-                  <Tag>TO DO</Tag>
-                </li>
-                <li>
-                  <Link href="/email-notification">Email notification</Link>
-                 &nbsp;&mdash;&nbsp;
-                  <Tag>TO DO</Tag>
-                </li>
-                <li>
-                  <Link href="/create-account">Create account</Link>
-                 &nbsp;&mdash;&nbsp;
-                  <Tag>TO DO</Tag>
-                </li>
-                <li>
-                  <Link href="/account-details">Account details</Link>
-                 &nbsp;&mdash;&nbsp;
-                  <Tag>TO DO</Tag>
-                </li>
-              </List>
+                    <Tag>TO DO</Tag>
+                  </li>
+                  <li>
+                    <Link href="/email-notification">Email notification</Link>
+                  &nbsp;&mdash;&nbsp;
+                    <Tag>TO DO</Tag>
+                  </li>
+                  <li>
+                    <Link href="/create-account">Create account</Link>
+                  &nbsp;&mdash;&nbsp;
+                    <Tag>TO DO</Tag>
+                  </li>
+                  <li>
+                    <Link href="/account-details">Account details</Link>
+                  &nbsp;&mdash;&nbsp;
+                    <Tag>TO DO</Tag>
+                  </li>
+                </List>
+              </Column>
             </Row>
           </Main>
         </Container>
