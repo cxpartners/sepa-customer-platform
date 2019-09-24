@@ -8,8 +8,7 @@ import Column from '../components/Column/component';
 import Heading from '../components/Heading/component';
 import Footer from '../components/Footer/component';
 import List from '../components/List/component';
-import Link from '../components/Link/component';
-import Tag from '../components/Tag/component';
+import IndexListItem from '../components/IndexList/component';
 
 class Index extends React.PureComponent {
   render() {
@@ -24,31 +23,15 @@ class Index extends React.PureComponent {
                 <Heading level="h1" caption="Navigation for prototype">Index page</Heading>
                 <Heading level="h2">Create account</Heading>
                 <List ordered>
-                  <li>
-                    <Link href="/start">Start page</Link>
-                    &nbsp;&mdash;&nbsp;
-                    <Tag>TO DO</Tag>
-                  </li>
-                  <li>
-                    <Link href="/sign-up">Sign up</Link>
-                  &nbsp;&mdash;&nbsp;
-                    <Tag>TO DO</Tag>
-                  </li>
-                  <li>
-                    <Link href="/email-notification">Email notification</Link>
-                  &nbsp;&mdash;&nbsp;
-                    <Tag>TO DO</Tag>
-                  </li>
-                  <li>
-                    <Link href="/create-account">Create account</Link>
-                  &nbsp;&mdash;&nbsp;
-                    <Tag>TO DO</Tag>
-                  </li>
-                  <li>
-                    <Link href="/account-details">Account details</Link>
-                  &nbsp;&mdash;&nbsp;
-                    <Tag>TO DO</Tag>
-                  </li>
+                  <IndexListItem href="/start-page">Start Page</IndexListItem>
+                  <IndexListItem href="/sign-up">Sign up</IndexListItem>
+                  <IndexListItem href="/sign-up-confirmation">Sign up confirmation</IndexListItem>
+                  <IndexListItem href="/sign-up-time-passes">Sign up time passes</IndexListItem>
+                  <IndexListItem href="/sign-up-email-notification">Sign up email notification</IndexListItem>
+                  <IndexListItem href="/create-account-choose-password">Create account: choose password</IndexListItem>
+                  <IndexListItem href="/create-account-add-company-details">Create account: add company details</IndexListItem>
+                  <IndexListItem href="/create-account-your-details">Create account: your details</IndexListItem>
+                  <IndexListItem href="/create-account-confirmation">Create account: confirmation</IndexListItem>
                 </List>
               </Column>
             </Row>
