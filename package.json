@@ -11,7 +11,8 @@
   "scripts": {
     "build": "webpack --config webpack.config.prod.js",
     "dev": "webpack-dev-server --hot --config webpack.config.dev.js",
-    "start": "webpack-dev-server --config webpack.config.dev.js",
+    "serve": "node ./app/server/index.js localhost 5000",
+    "start": "concurrently --kill-others \"npm run dev\" \"npm run serve\"",
     "test": "eslint ."
   },
   "repository": {
@@ -29,6 +30,7 @@
   "license": "ISC",
   "dependencies": {
     "@hot-loader/react-dom": "^16.9.0",
+    "axios": "^0.19.0",
     "classnames": "^2.2.6",
     "core-js": "^2.6.9",
     "express": "^4.17.1",

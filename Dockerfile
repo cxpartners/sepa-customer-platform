@@ -19,4 +19,4 @@ USER XDXjfwtfYYymOfrX
 EXPOSE 3000
 
 # Run when the container launches
-CMD npm run start
+ENTRYPOINT ["npm", "run", "start"]
