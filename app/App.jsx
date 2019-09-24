@@ -2,6 +2,7 @@ import { hot } from 'react-hot-loader/root';
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Index from './pages/Index';
+import StartPage from './pages/StartPage';
 import Check from './pages/Check';
 import RadioForm from './pages/RadioForm';
 import TextForm from './pages/TextForm';
@@ -10,6 +11,7 @@ const App = () => (
   <Router>
     <Switch>
       <Route exact path="/" component={Index} />
+      <Route path="/start-page" component={StartPage} />
       <Route path="/radioform" component={RadioForm} />
       <Route path="/textform" component={TextForm} />
       <Route path="/check" component={Check} />

@@ -11,8 +11,7 @@
   "scripts": {
     "build": "webpack --config webpack.config.prod.js",
     "dev": "webpack-dev-server --hot --config webpack.config.dev.js",
-    "serve": "nodemon ./app/server/index.js localhost 5000",
-    "start": "concurrently --kill-others \"npm run serve\" \"npm run dev\"",
+    "start": "webpack-dev-server --config webpack.config.dev.js",
     "test": "eslint ."
   },
   "repository": {
