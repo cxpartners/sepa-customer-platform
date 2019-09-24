@@ -23,7 +23,7 @@ class Index extends React.PureComponent {
                 <Heading level="h1" caption="Navigation for prototype">Index page</Heading>
                 <Heading level="h2">Create account</Heading>
                 <List ordered>
-                  <IndexListItem href="/start-page">Start Page</IndexListItem>
+                  <IndexListItem href="/start-page">Start page</IndexListItem>
                   <IndexListItem href="/sign-up">Sign up</IndexListItem>
                   <IndexListItem href="/sign-up-confirmation">Sign up confirmation</IndexListItem>
                   <IndexListItem href="/sign-up-time-passes">Sign up time passes</IndexListItem>
