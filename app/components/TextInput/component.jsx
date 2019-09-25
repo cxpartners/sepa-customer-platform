@@ -72,7 +72,14 @@ const TextInput = (props) => {
     <div className="govuk-form-group">
       {isLabel}
       {isHint}
-      <input className={textInputClassNames} id={id} name={id} type={type} value={value} onChange={onChange} />
+      <input
+        className={textInputClassNames}
+        id={id}
+        name={id}
+        type={type}
+        value={value}
+        onChange={onChange}
+      />
     </div>
   );
 };

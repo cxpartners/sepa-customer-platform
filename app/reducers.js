@@ -5,6 +5,8 @@ export const TOGGLE_REDIRECT_RADIO = 'TOGGLE_REDIRECT_RADIO';
 export const UPDATE_RADIO = 'UPDATE_RADIO';
 export const TOGGLE_RADIO_ERROR = 'TOGGLE_RADIO_ERROR';
 export const TOGGLE_CREATE_ACCOUNT_CHOOSE_PASSWORD = 'TOGGLE_CREATE_ACCOUNT_CHOOSE_PASSWORD';
+export const TOGGLE_CREATE_ACCOUNT_COMPANY_DETAILS_FOUND = 'TOGGLE_CREATE_ACCOUNT_COMPANY_DETAILS_FOUND';
+export const UPDATE_CREATE_ACCOUNT_COMPANY_DETAILS = 'UPDATE_CREATE_ACCOUNT_COMPANY_DETAILS';
 
 const initialState = {
   radioValue: '',
@@ -14,6 +16,8 @@ const initialState = {
   yourNameError: false,
   yourNameRedirect: false,
   createAccountChoosePasswordFilled: false,
+  createAccountCompanyDetailsFound: false,
+  createAccountCompanyDetailsValue: '',
 };
 
 export default (state = initialState, action) => {
@@ -43,6 +47,16 @@ export default (state = initialState, action) => {
         ...state,
         createAccountChoosePasswordFilled: !state.createAccountChoosePasswordFilled,
       };
+    case TOGGLE_CREATE_ACCOUNT_COMPANY_DETAILS_FOUND:
+      return {
+        ...state,
+        createAccountCompanyDetailsFound: !state.createAccountCompanyDetailsFound,
+      };
+    case UPDATE_CREATE_ACCOUNT_COMPANY_DETAILS:
+      return {
+        ...state,
+        createAccountCompanyDetailsValue: action.payload,
+      };
     default:
       return state;
   }
@@ -66,4 +80,8 @@ export const toggleRadioError = () => (dispatch) => {
 
 export const toggleCreateAccountChoosePassword = () => (dispatch) => {
   dispatch({ type: TOGGLE_CREATE_ACCOUNT_CHOOSE_PASSWORD });
+};
+
+export const updateCreateAccountCompanyDetails = () => (dispatch) => {
+  dispatch({ type: UPDATE_CREATE_ACCOUNT_COMPANY_DETAILS });
 };

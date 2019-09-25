@@ -3,7 +3,12 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
 const SummaryListRow = (props) => {
-  const { listKey, children, href } = props;
+  const {
+    listKey,
+    children,
+    href,
+    addLinks,
+  } = props;
 
   return (
     <div className="govuk-summary-list__row">
@@ -13,12 +18,18 @@ const SummaryListRow = (props) => {
       <dd className="govuk-summary-list__value">
         {children}
       </dd>
-      <dd className="govuk-summary-list__actions">
-        <NavLink className="govuk-link" to={href}>
-          Change
-          <span className="govuk-visually-hidden">{listKey}</span>
-        </NavLink>
-      </dd>
+      {
+        addLinks
+          ? (
+            <dd className="govuk-summary-list__actions">
+              <NavLink className="govuk-link" to={href}>
+                Change
+                <span className="govuk-visually-hidden">{listKey}</span>
+              </NavLink>
+            </dd>
+          )
+          : ''
+      }
     </div>
   );
 };
@@ -29,8 +40,10 @@ SummaryListRow.propTypes = {
   listKey: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
   href: PropTypes.string,
+  addLinks: PropTypes.bool,
 };
 
 SummaryListRow.defaultProps = {
   href: '#',
+  addLinks: false,
 };
