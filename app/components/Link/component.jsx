@@ -4,7 +4,12 @@ import classNames from 'classnames';
 import { Link as RouterLink } from 'react-router-dom';
 
 const Link = (props) => {
-  const { children, href, noVisitedState } = props;
+  const {
+    children,
+    href,
+    noVisitedState,
+    onClick,
+  } = props;
 
   const linkClassNames = classNames({
     'govuk-link': true,
@@ -12,7 +17,7 @@ const Link = (props) => {
   });
 
   return (
-    <RouterLink to={href} className={linkClassNames}>
+    <RouterLink to={href} className={linkClassNames} onClick={onClick}>
       {children}
     </RouterLink>
   );
@@ -24,8 +29,10 @@ Link.propTypes = {
   children: PropTypes.node.isRequired,
   href: PropTypes.string.isRequired,
   noVisitedState: PropTypes.bool,
+  onClick: PropTypes.func,
 };
 
 Link.defaultProps = {
   noVisitedState: false,
+  onClick: null,
 };
