@@ -90,7 +90,7 @@ TextInput.propTypes = {
   label: PropTypes.string,
   id: PropTypes.string.isRequired,
   inputWidth: PropTypes.oneOf(['2', '3', '4', '5', '10', '20', 'full', 'three-quarters', 'two-thirds', 'one-half', 'one-third', 'one-quarter']),
-  type: PropTypes.oneOf(['text', 'password', 'number']).isRequired,
+  type: PropTypes.oneOf(['text', 'password', 'number', 'email']).isRequired,
   hint: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   value: PropTypes.string,
   onChange: PropTypes.func.isRequired,

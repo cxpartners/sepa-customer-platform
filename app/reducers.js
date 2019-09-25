@@ -9,6 +9,7 @@ export const TOGGLE_CREATE_ACCOUNT_COMPANY_DETAILS_FOUND = 'TOGGLE_CREATE_ACCOUN
 export const UPDATE_CREATE_ACCOUNT_COMPANY_DETAILS = 'UPDATE_CREATE_ACCOUNT_COMPANY_DETAILS';
 export const UPDATE_CREATE_ACCOUNT_YOUR_DETAILS_NAME = 'UPDATE_CREATE_ACCOUNT_YOUR_DETAILS_NAME';
 export const UPDATE_CREATE_ACCOUNT_YOUR_DETAILS_NUMBER = 'UPDATE_CREATE_ACCOUNT_YOUR_DETAILS_NUMBER';
+export const UPDATE_SIGN_UP_EMAIL_VALUE = 'UPDATE_SIGN_UP_EMAIL_VALUE';
 
 const initialState = {
   radioValue: '',
@@ -17,6 +18,7 @@ const initialState = {
   yourNameValue: '',
   yourNameError: false,
   yourNameRedirect: false,
+  signUpEmailValue: '',
   createAccountChoosePasswordFilled: false,
   createAccountCompanyDetailsFound: false,
   createAccountCompanyDetailsValue: '',
@@ -26,16 +28,6 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case UPDATE_YOUR_NAME:
-      return {
-        ...state,
-        yourNameValue: action.payload,
-      };
-    case TOGGLE_YOUR_NAME_ERROR:
-      return {
-        ...state,
-        yourNameError: !state.yourNameError,
-      };
     case UPDATE_RADIO:
       return {
         ...state,
@@ -45,6 +37,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         radioError: !state.radioError,
+      };
+    case UPDATE_SIGN_UP_EMAIL_VALUE:
+      return {
+        ...state,
+        signUpEmailValue: action.payload,
       };
     case TOGGLE_CREATE_ACCOUNT_CHOOSE_PASSWORD:
       return {
@@ -76,12 +73,8 @@ export default (state = initialState, action) => {
   }
 };
 
-export const updateYourName = () => (dispatch) => {
-  dispatch({ type: UPDATE_YOUR_NAME });
-};
-
-export const toggleYourNameError = () => (dispatch) => {
-  dispatch({ type: TOGGLE_YOUR_NAME_ERROR });
+export const updateSignUpEmailValue = () => (dispatch) => {
+  dispatch({ type: UPDATE_SIGN_UP_EMAIL_VALUE });
 };
 
 export const updateRadio = () => (dispatch) => {

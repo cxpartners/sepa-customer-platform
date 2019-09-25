@@ -34,8 +34,8 @@ const CreateAccountYourDetails = () => {
               <Heading caption="Step 3/3 - Create account" level="h1">Your details</Heading>
               <Paragraph>Please provide us with your details so we can contact you.</Paragraph>
               <FieldSet>
-                <TextInput inputWidth="two-thirds" type="text" label="Full name" onChange={(e) => dispatch({ type: UPDATE_CREATE_ACCOUNT_YOUR_DETAILS_NAME, payload: e.target.value })} value={createAccountYourDetailsNameValue} />
-                <TextInput inputWidth="two-thirds" type="number" label="Phone number (preferred)" onChange={(e) => dispatch({ type: UPDATE_CREATE_ACCOUNT_YOUR_DETAILS_NUMBER, payload: e.target.value })} value={createAccountYourDetailsNumberValue} />
+                <TextInput id="full-name" inputWidth="two-thirds" type="text" label="Full name" onChange={(e) => dispatch({ type: UPDATE_CREATE_ACCOUNT_YOUR_DETAILS_NAME, payload: e.target.value })} value={createAccountYourDetailsNameValue} />
+                <TextInput id="phone-number" inputWidth="two-thirds" type="number" label="Phone number (preferred)" onChange={(e) => dispatch({ type: UPDATE_CREATE_ACCOUNT_YOUR_DETAILS_NUMBER, payload: e.target.value })} value={createAccountYourDetailsNumberValue} />
                 <Button href="/create-account-confirmation">Create account</Button>
               </FieldSet>
             </Column>
