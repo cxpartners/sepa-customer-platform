@@ -1,5 +1,35 @@
 # SEPA Corporate Customer Platform - Alpha
 
+
+
+| Prototype data                    | CLAS table (api)      | Entity field              |   
+|-----------------------------------|-----------------------|---------------------------|
+| Contact name                      | V_ALL_CONTACT_DETAILS | CONTACT_NAME              | 
+| Contact reference number          | V_ALL_CONTACT_DETAILS | CONTACT_NAME              | 
+| Contact - organisation name       | V_ALL_CONTACT_DETAILS | ORGANISATION_NAME         | 
+| Contact - organisation address    | V_ALL_CONTACT_DETAILS | ADDRESS                   | 
+| Contact - organisation post_code  | V_ALL_CONTACT_DETAILS | POST_CODE                 | 
+| License - id                      | RR01_LICENCES         | LICENCE_NUMBER            | 
+| License - site name               | RR01_LICENCES         | SITE_NAME                 | 
+| License - water body              | RR01_LICENCES         | RIVER_NUMBER ?            | 
+| License - Last updated            | RR01_LICENCES         | LICENCE_STATUS_DATE       |   
+| OR                                | RR03_LICENCE_TASKS    | TASK_END_DATE             |   
+| License - Review date             | RR01_LICENCES         | LICENCE_STATUS_DATE       |  
+| OR                                | RR03_LICENCE_TASKS    | TASK_END_DATE             | 
+
+
+
+
+
+Notes
+               
+Does this date represent the last 'status update'?
+Could the last 'task end date' be used for last update?
+The prototype is looking to show a date by which the license will expire / need to be reviewed
+  
+
+
+
 ## Dependencies
 
 - Docker installed on your machine

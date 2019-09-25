@@ -19,4 +19,8 @@ USER XDXjfwtfYYymOfrX
 EXPOSE 3000
 
 # Run when the container launches
-ENTRYPOINT ["npm", "run", "start"]
+
+#ENTRYPOINT ["npm", "run", "start-int"]
+COPY ./provisioning/keepalive.sh /tmp/keepalive.sh
+
+CMD [ "/tmp/keepalive.sh"]
