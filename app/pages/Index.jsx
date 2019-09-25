@@ -49,11 +49,6 @@ class Index extends React.PureComponent {
                   &nbsp;&mdash;&nbsp;
                     <Tag>TO DO</Tag>
                   </li>
-                  <li>
-                    <Link href="/account-details">Test page for deployment</Link>
-                  &nbsp;&mdash;&nbsp;
-                    <Tag>TO DO</Tag>
-                  </li>
                 </List>
               </Column>
             </Row>
