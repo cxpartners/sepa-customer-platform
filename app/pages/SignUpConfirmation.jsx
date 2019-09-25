@@ -11,29 +11,25 @@ import Footer from '../components/Footer/component';
 import Panel from '../components/Panel/component';
 import Paragraph from '../components/Paragraph/component';
 
-class SignUpConfirmation extends React.PureComponent {
-  render() {
-    return (
-      <>
-        <Header />
-        <Container>
-          <PhaseBanner />
-          <Main>
-            <Row>
-              <Column columnWidth="two-thirds">
-                <RouterLink className="govuk-routerlink" to="/sign-up-time-passes">
-                  <Panel title="Verify email address" />
-                </RouterLink>
-                <Paragraph size="large">We have sent you an email to the address you provided.</Paragraph>
-                <Paragraph>You will need to open that email and click on the link so you can create an account.</Paragraph>
-              </Column>
-            </Row>
-          </Main>
-        </Container>
-        <Footer />
-      </>
-    );
-  }
-}
+const SignUpConfirmation = () => (
+  <>
+    <Header />
+    <Container>
+      <PhaseBanner />
+      <Main>
+        <Row>
+          <Column columnWidth="two-thirds">
+            <RouterLink className="govuk-routerlink" to="/sign-up-time-passes">
+              <Panel title="Verify email address" />
+            </RouterLink>
+            <Paragraph size="large">We have sent you an email to the address you provided.</Paragraph>
+            <Paragraph>You will need to open that email and click on the link so you can create an account.</Paragraph>
+          </Column>
+        </Row>
+      </Main>
+    </Container>
+    <Footer />
+  </>
+);
 
 export default SignUpConfirmation;
