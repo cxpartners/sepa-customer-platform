@@ -56,7 +56,7 @@ const CreateAccountAddCompanyDetails = () => {
                 : (
                   <>
                     <FieldSet>
-                      <TextInput inputWidth="two-thirds" hint="Type in your organisation’s Companies House number to find and verify the organisation you represent." label="Companies house number" type="text" id="companies-house-number" onChange={(e) => dispatch({ type: UPDATE_CREATE_ACCOUNT_COMPANY_DETAILS, payload: e.target.value })} value={createAccountCompanyDetailsValue} />
+                      <TextInput inputWidth="two-thirds" hint="Type in your organisation’s Companies House number to find and verify the organisation you represent." label="Companies house number" type="number" id="companies-house-number" onChange={(e) => dispatch({ type: UPDATE_CREATE_ACCOUNT_COMPANY_DETAILS, payload: e.target.value })} value={createAccountCompanyDetailsValue} />
                     </FieldSet>
                     <Button onClick={() => dispatch({ type: TOGGLE_CREATE_ACCOUNT_COMPANY_DETAILS_FOUND })}>Find</Button>
                   </>
