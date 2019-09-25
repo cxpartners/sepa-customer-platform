@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Header from '../components/Header/component';
