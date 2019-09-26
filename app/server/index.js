@@ -16,21 +16,17 @@ app.use(webpackDevMiddleware(compiler, {
 
 app.use('/api/v1', apiRoutes);
 
+/* eslint-disable */
 app.use((err, req, res, next) => {
   const status = err.status || 500;
-
-  /* eslint-disable */
   console.log(err);
-  /* eslint-enable */
-
   const msg = err.message || err.stack || err.name || 'General error';
-
   res.status(status)
     .json({
       error: msg,
     });
 });
 
-/* eslint-disable */
+
 app.listen(port, () => console.log(`API listening on port ${port}!`));
 /* eslint-enable */
