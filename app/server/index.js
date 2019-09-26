@@ -16,7 +16,7 @@ app.use(webpackDevMiddleware(compiler, {
 
 app.use('/api/v1', apiRoutes);
 
-app.use((err, req, res) => {
+app.use((err, req, res, next) => {
   const status = err.status || 500;
 
   /* eslint-disable */
@@ -30,6 +30,7 @@ app.use((err, req, res) => {
       error: msg,
     });
 });
+
 /* eslint-disable */
 app.listen(port, () => console.log(`API listening on port ${port}!`));
 /* eslint-enable */
