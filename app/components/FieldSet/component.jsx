@@ -53,11 +53,13 @@ FieldSet.propTypes = {
   children: PropTypes.node.isRequired,
   legend: PropTypes.string,
   hint: PropTypes.string,
-  errorMessage: PropTypes.string.isRequired,
-  error: PropTypes.bool.isRequired,
+  errorMessage: PropTypes.string,
+  error: PropTypes.bool,
 };
 
 FieldSet.defaultProps = {
   legend: null,
   hint: null,
+  errorMessage: '',
+  error: false,
 };
