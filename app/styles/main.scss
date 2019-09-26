@@ -17,10 +17,18 @@ $govuk-assets-path: '/assets';
 @import "overrides/all";
 
 /**
+* set custom overrides
+**/
+
+@import "./variables.scss";
+
+/**
 * bring in custom component styles
 **/
 
+@import "../components/Button/style.scss";
 @import "../components/FakePage/style.scss";
+@import "../components/Panel/style.scss";
 @import "../components/PhaseBanner/style.scss";
 @import "../components/TimePasses/style.scss";
 
