@@ -4,8 +4,7 @@ const axios = require('axios');
 const router = express.Router();
 
 router.get('/organisations', async (req, res) => {
-  const response =
-    await axios.get('https://online.sepa.org.uk/apex/sepaapps/AQPilot/contacts');
+  const response = await axios.get('https://online.sepa.org.uk/apex/sepaapps/AQPilot/contacts');
   return res.send({ organisations: response.data.items });
 });
 
@@ -23,11 +22,11 @@ router.get('/organisations/:orgName/contacts', async (req, res, next) => {
 
     const organisationName = decodeURIComponent(req.params.orgName.toLowerCase());
 
-    const response =
-      await axios.get('https://online.sepa.org.uk/apex/sepaapps/AQPilot/contacts');
+    const response = await axios
+      .get('https://online.sepa.org.uk/apex/sepaapps/AQPilot/contacts');
     data = response.data.items.filter(item => item.organisation_name.toLowerCase() === organisationName);
   } catch (error) {
-    error.status = 500
+    error.status = 500;
     return next(error)
   }
 
@@ -47,11 +46,11 @@ router.get('/organisations/:orgName/licences', async (req, res, next) => {
 
     const organisationName = decodeURIComponent(req.params.orgName.toLowerCase());
 
-    const response =
-      await axios.get('https://online.sepa.org.uk/apex/sepaapps/AQPilot/licences');
+    const response = await axios
+      .get('https://online.sepa.org.uk/apex/sepaapps/AQPilot/licences');
     data = response.data.items.filter(item => item.principal_contact.toLowerCase() === organisationName);
   } catch (error) {
-    error.status = 500
+    error.status = 500;
     return next(error)
   }
 
@@ -70,11 +69,11 @@ router.get('/licences/:licenceId', async (req, res, next) => {
     }
 
     const licenceId = decodeURIComponent(req.params.licenceId);
-    let response =
-      await axios.get(`https://online.sepa.org.uk/apex/sepaapps/AQPilot/licences/${licenceId}`);
+    const response = await axios
+      .get(`https://online.sepa.org.uk/apex/sepaapps/AQPilot/licences/${licenceId}`);
     data = response.data.items && response.data.items.length ? response.data.items[0] : {};
   } catch (error) {
-    error.status = 500
+    error.status = 500;
     return next(error)
   }
 
@@ -93,12 +92,11 @@ router.get('/licences/:licenceId/contacts', async (req, res, next) => {
     }
 
     const licenceId = decodeURIComponent(req.params.licenceId);
-
-    let response =
-      await axios.get(`https://online.sepa.org.uk/apex/sepaapps/AQPilot/contacts/${licenceId}`);
+    const response = await axios
+      .get(`https://online.sepa.org.uk/apex/sepaapps/AQPilot/contacts/${licenceId}`);
     data = response.data.items && response.data.items.length ? response.data.items : {};
   } catch (error) {
-    error.status = 500
+    error.status = 500;
     return next(error)
   }
 
@@ -118,12 +116,11 @@ router.get('/licences/:licenceId/locations', async (req, res, next) => {
     }
 
     const licenceId = decodeURIComponent(req.params.licenceId);
-
-    let response =
-      await axios.get(`https://online.sepa.org.uk/apex/sepaapps/AQPilot/licensed-locations/${licenceId}`);
+    const response = await axios
+      .get(`https://online.sepa.org.uk/apex/sepaapps/AQPilot/licensed-locations/${licenceId}`);
     data = response.data.items && response.data.items.length ? response.data.items : {};
   } catch (error) {
-    error.status = 500
+    error.status = 500;
     return next(error)
   }
 
@@ -144,12 +141,11 @@ router.get('/licences/:licenceId/activities', async (req, res, next) => {
     }
 
     const licenceId = decodeURIComponent(req.params.licenceId);
-
-    let response =
-      await axios.get(`https://online.sepa.org.uk/apex/sepaapps/AQPilot/licensed-activities/${licenceId}`);
+    const response = await axios
+        .get(`https://online.sepa.org.uk/apex/sepaapps/AQPilot/licensed-activities/${licenceId}`);
     data = response.data.items && response.data.items.length ? response.data.items : {};
   } catch (error) {
-    error.status = 500
+    error.status = 500;
     return next(error)
   }
 
@@ -168,12 +164,11 @@ router.get('/licences/:licenceId/conditions', async (req, res, next) => {
     }
 
     const licenceId = decodeURIComponent(req.params.licenceId);
-
-    let response =
-      await axios.get(`https://online.sepa.org.uk/apex/sepaapps/AQPilot/licensed-conditions/${licenceId}`);
+    const response = await axios
+      .get(`https://online.sepa.org.uk/apex/sepaapps/AQPilot/licensed-conditions/${licenceId}`);
     data = response.data.items && response.data.items.length ? response.data.items : {};
   } catch (error) {
-    error.status = 500
+    error.status = 500;
     return next(error)
   }
 
@@ -193,12 +188,11 @@ router.get('/licences/:licenceId/tasks', async (req, res, next) => {
     }
 
     const licenceId = decodeURIComponent(req.params.licenceId);
-
-    let response =
-      await axios.get(`https://online.sepa.org.uk/apex/sepaapps/AQPilot/licence-tasks/${licenceId}`);
+    const response = await axios
+      .get(`https://online.sepa.org.uk/apex/sepaapps/AQPilot/licence-tasks/${licenceId}`);
     data = response.data.items && response.data.items.length ? response.data.items : {};
   } catch (error) {
-    error.status = 500
+    error.status = 500;
     return next(error)
   }
 
