@@ -24,10 +24,11 @@ router.get('/organisations/:orgName/contacts', async (req, res, next) => {
 
     const response = await axios
       .get('https://online.sepa.org.uk/apex/sepaapps/AQPilot/contacts');
-    data = response.data.items.filter(item => item.organisation_name.toLowerCase() === organisationName);
+    data = response.data.items
+      .filter(item => item.organisation_name.toLowerCase() === organisationName);
   } catch (error) {
     error.status = 500;
-    return next(error)
+    return next(error);
   }
 
   return res.send({ contacts: data });
@@ -48,10 +49,11 @@ router.get('/organisations/:orgName/licences', async (req, res, next) => {
 
     const response = await axios
       .get('https://online.sepa.org.uk/apex/sepaapps/AQPilot/licences');
-    data = response.data.items.filter(item => item.principal_contact.toLowerCase() === organisationName);
+    data = response.data.items
+      .filter(item => item.principal_contact.toLowerCase() === organisationName);
   } catch (error) {
     error.status = 500;
-    return next(error)
+    return next(error);
   }
 
   return res.send({ licences: data });
@@ -74,7 +76,7 @@ router.get('/licences/:licenceId', async (req, res, next) => {
     data = response.data.items && response.data.items.length ? response.data.items[0] : {};
   } catch (error) {
     error.status = 500;
-    return next(error)
+    return next(error);
   }
 
   return res.send(data);
@@ -97,7 +99,7 @@ router.get('/licences/:licenceId/contacts', async (req, res, next) => {
     data = response.data.items && response.data.items.length ? response.data.items : {};
   } catch (error) {
     error.status = 500;
-    return next(error)
+    return next(error);
   }
 
   return res.send({ contacts: data });
@@ -121,7 +123,7 @@ router.get('/licences/:licenceId/locations', async (req, res, next) => {
     data = response.data.items && response.data.items.length ? response.data.items : {};
   } catch (error) {
     error.status = 500;
-    return next(error)
+    return next(error);
   }
 
   return res.send({ locations: data });
@@ -146,7 +148,7 @@ router.get('/licences/:licenceId/activities', async (req, res, next) => {
     data = response.data.items && response.data.items.length ? response.data.items : {};
   } catch (error) {
     error.status = 500;
-    return next(error)
+    return next(error);
   }
 
   return res.send({ activities: data });
@@ -169,7 +171,7 @@ router.get('/licences/:licenceId/conditions', async (req, res, next) => {
     data = response.data.items && response.data.items.length ? response.data.items : {};
   } catch (error) {
     error.status = 500;
-    return next(error)
+    return next(error);
   }
 
   return res.send({ conditions: data });
@@ -193,23 +195,19 @@ router.get('/licences/:licenceId/tasks', async (req, res, next) => {
     data = response.data.items && response.data.items.length ? response.data.items : {};
   } catch (error) {
     error.status = 500;
-    return next(error)
+    return next(error);
   }
 
   return res.send({ tasks: data });
 });
 
-
+/* eslint-disable */
 router.use((err, req, res, next) => {
   const status = err.status || 500;
-
-  /* eslint-disable */
   console.log(err);
-  /* eslint-enable */
-
   const msg = err.message || err.stack || err.name || 'General error';
-
-  return res.status(status).send({error: msg});
+  return res.status(status).send({ error: msg });
 });
+/* eslint-enable */
 
 module.exports = router;
