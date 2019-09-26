@@ -6,6 +6,7 @@ module.exports = merge(baseConfig, {
   devtool: 'source-map',
   devServer: {
     publicPath: '/',
+    disableHostCheck: true,
     historyApiFallback: true,
     host: '0.0.0.0',
     port: 3000,

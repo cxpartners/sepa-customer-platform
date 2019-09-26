@@ -63,7 +63,7 @@ A feature branch branching strategy is in use, specifically:
 
 ## CI
 
-BuddyCI is used for the CI server (see `buddy.yaml`). ***TO DO***
+BuddyCI is used for the CI server (see `buddy.yaml`)
 
 Buddy uses a key to SSH into an AWS EC-2 instance and deploy via rsync.
 
