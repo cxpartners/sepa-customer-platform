@@ -1,15 +1,5 @@
 # SEPA Corporate Customer Platform - Alpha
 
-
-Notes
-               
-Does this date represent the last 'status update'?
-Could the last 'task end date' be used for last update?
-The prototype is looking to show a date by which the license will expire / need to be reviewed
-  
-
-
-
 ## Dependencies
 
 - Docker installed on your machine
