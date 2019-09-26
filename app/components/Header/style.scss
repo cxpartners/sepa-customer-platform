@@ -1,6 +1,6 @@
-
-
 .govuk-header {
+
+    background-color: $sepa-dark-blue;
     border-bottom: 0;
 }
 
@@ -14,5 +14,6 @@
 }
 
 
-.white { color: govuk-colour("white")
+.white {
+    color: govuk-colour("white")
 }
