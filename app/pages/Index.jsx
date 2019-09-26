@@ -32,6 +32,7 @@ class Index extends React.PureComponent {
                   <IndexListItem href="/create-account-add-company-details">Create account: add company details</IndexListItem>
                   <IndexListItem href="/create-account-your-details">Create account: your details</IndexListItem>
                   <IndexListItem href="/create-account-confirmation">Create account: confirmation</IndexListItem>
+                  <IndexListItem href="/create-account-confirmation"CLAS license list</IndexListItem>
                 </List>
               </Column>
             </Row>
