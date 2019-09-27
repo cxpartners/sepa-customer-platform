@@ -5,7 +5,7 @@ const Header = () => (
   <header className="govuk-header " role="banner" data-module="govuk-header">
     <div className="govuk-header__container govuk-width-container">
       <div className="govuk-header__logo">
-        <a href="/" className="govuk-header__link govuk-header__link--homepage">
+        <a href="/" className="govuk-header govuk-header--homepage">
           <span className="govuk-header__logotype">
             <svg role="presentation" focusable="false" className="govuk-header__logotype-crown" width="92" height="58" xmlns="http://www.w3.org/2000/svg">
               <g fill="#FFF" fillRule="nonzero">
@@ -16,7 +16,7 @@ const Header = () => (
         </a>
       </div>
       <div className="govuk-header__content govuk-!-padding-top-3">
-        <a href="/" className="govuk-header__link govuk-header__link--service-name">Apply for a marine pen fish farm permit</a>
+        <span className="govuk-header govuk-header__link--service-name">Apply for a marine pen fish farm permit</span>
         <div className="govuk-header__links govuk-!-padding-top-1">
           <span className="govuk-header__logotype-text">
             <a className="govuk-!-font-size-14 govuk-!-font-weight-bold white" href="/">Sign in</a>

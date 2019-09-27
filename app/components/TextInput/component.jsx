@@ -13,7 +13,7 @@ const TextInput = (props) => {
   } = props;
 
   const isLabel = label ? (
-    <label className="govuk-label" htmlFor={id}>
+    <label className="govuk-label govuk-!-font-size-24 govuk-!-font-weight-bold" htmlFor={id}>
       {label}
     </label>
   ) : '';

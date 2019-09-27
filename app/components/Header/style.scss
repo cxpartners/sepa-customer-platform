@@ -1,19 +1,24 @@
 .govuk-header {
-
     background-color: $sepa-dark-blue;
     border-bottom: 0;
 }
 
 .govuk-header__links {
     float: right;
+    span a {
+        color: govuk-colour("white");
+    }
+}
+
+.govuk-header__logo {
+    width: 25%;
+}
+
+.govuk-header__content {
+    width: 75%;
 }
 
 .govuk-header__container {
     margin-bottom: 0;
     border-bottom: 0;
-}
-
-
-.white {
-    color: govuk-colour("white");
 }
