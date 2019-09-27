@@ -25,7 +25,7 @@ const CreateAccountConfirmation = () => (
               <strong>860120</strong>
             </Panel>
             <Paragraph>We have sent you an email confirming the creation of your account.</Paragraph>
-            <Button href="/">Go to account dashboard</Button>
+            <Button href="/permits">Go to account dashboard</Button>
           </Column>
         </Row>
       </Main>

@@ -5,7 +5,6 @@ import Index from './pages/Index';
 import StartPage from './pages/StartPage';
 import Check from './pages/Check';
 import RadioForm from './pages/RadioForm';
-import TextForm from './pages/TextForm';
 import SignUp from './pages/SignUp';
 import SignUpConfirmation from './pages/SignUpConfirmation';
 import SignUpTimePasses from './pages/SignUpTimePasses';
@@ -16,6 +15,7 @@ import CreateAccountYourDetails from './pages/CreateAccountYourDetails';
 import CreateAccountConfirmation from './pages/CreateAccountConfirmation';
 import LicencesListPage from './pages/LicencesListPage';
 import LicencesItemPage from './pages/LicencesItemPage';
+import Permits from './pages/Permits';
 
 const App = () => (
   <Router>
@@ -32,8 +32,8 @@ const App = () => (
       <Route path="/create-account-confirmation" component={CreateAccountConfirmation} />
       <Route path="/clas-licences" exact component={LicencesListPage} />
       <Route path="/clas-licences/:licenceId" exact component={LicencesItemPage} />
+      <Route path="/permits" component={Permits} />
       <Route path="/radioform" component={RadioForm} />
-      <Route path="/textform" component={TextForm} />
       <Route path="/check" component={Check} />
     </Switch>
   </Router>
