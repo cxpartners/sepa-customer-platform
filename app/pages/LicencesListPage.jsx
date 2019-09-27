@@ -44,7 +44,7 @@ const LicencesListPage = () => {
 
   return (
     <>
-      <Header />
+      <Header isNotification={false} userName="" />
       <Container>
         <PhaseBanner />
         <Main>

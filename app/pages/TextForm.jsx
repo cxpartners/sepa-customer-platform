@@ -23,7 +23,7 @@ const TextForm = () => {
 
   return (
     <>
-      <Header />
+      <Header isNotification={false} userName="" />
       <Container>
         <PhaseBanner />
         <Breadcrumbs>

@@ -14,7 +14,7 @@ import Paragraph from '../components/Paragraph/component';
 
 const SignUpConfirmation = () => (
   <>
-    <Header />
+    <Header isNotification={false} userName="" />
     <Container>
       <PhaseBanner />
       <Main>

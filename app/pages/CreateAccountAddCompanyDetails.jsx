@@ -27,7 +27,7 @@ const CreateAccountAddCompanyDetails = () => {
 
   return (
     <>
-      <Header />
+      <Header isNotification={false} userName="" />
       <Container>
         <PhaseBanner />
         <Main>

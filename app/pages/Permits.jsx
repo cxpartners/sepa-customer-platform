@@ -47,7 +47,7 @@ const Permit = () => {
 
   return (
     <>
-      <Header />
+      <Header isNotification={false} userName="Rory McCulloch" />
       <Container>
         <PhaseBanner />
         <Main>

@@ -24,7 +24,7 @@ const CreateAccountYourDetails = () => {
 
   return (
     <>
-      <Header />
+      <Header isNotification={false} userName="" />
       <Container>
         <PhaseBanner />
         <BackLink href="/create-account-add-company-details" />
