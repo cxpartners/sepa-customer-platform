@@ -32,7 +32,7 @@ import Tag from '../components/Tag/component';
 
 const Example = () => (
   <>
-    <Header />
+    <Header isNotification={false} userName="" />
     <Container>
       <PhaseBanner />
       <Breadcrumbs>

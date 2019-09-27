@@ -17,7 +17,7 @@ const Check = () => {
   const yourNameValue = useSelector((state) => state.yourNameValue);
   return (
     <>
-      <Header />
+      <Header isNotification={false} userName="" />
       <Container>
         <PhaseBanner />
         <BackLink href="/textform" />

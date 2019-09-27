@@ -13,7 +13,7 @@ import Button from '../components/Button/component';
 
 const CreateAccountConfirmation = () => (
   <>
-    <Header />
+    <Header isNotification={false} userName="" />
     <Container>
       <PhaseBanner />
       <Main>

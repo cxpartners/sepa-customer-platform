@@ -8,7 +8,7 @@ import Row from '../components/Row/component';
 import Column from '../components/Column/component';
 import Footer from '../components/Footer/component';
 import Link from '../components/Link/component';
-import Paragraph from '../components/Paragraph/component';
+import Spinner from '../components/Spinner/component';
 
 const axios = require('axios');
 
@@ -44,14 +44,14 @@ const LicencesListPage = () => {
 
   return (
     <>
-      <Header />
+      <Header isNotification={false} userName="" />
       <Container>
         <PhaseBanner />
         <Main>
           <Row>
             <Column columnWidth="full">
               {!data.licences || !data.licences.length ? (
-                <Paragraph>Loading</Paragraph>
+                <Spinner />
               ) : (
                 <table>
                   <thead>

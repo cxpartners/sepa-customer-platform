@@ -23,7 +23,7 @@ const SignUp = () => {
   const dispatch = useDispatch();
   return (
     <>
-      <Header />
+      <Header isNotification={false} userName="" />
       <Container>
         <PhaseBanner />
         <BackLink href="/start-page" />
