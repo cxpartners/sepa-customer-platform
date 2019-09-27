@@ -5,7 +5,12 @@ import Tag from '../Tag/component';
 
 
 const IndexListItem = (props) => {
-  const { children, done, href } = props;
+  const {
+    children,
+    done,
+    href,
+    image,
+  } = props;
 
   return (
     <li>
@@ -18,6 +23,14 @@ const IndexListItem = (props) => {
           </>
         )
       }
+      {
+        image ? (
+          <>
+            &nbsp;
+            <Tag isActive>IMAGE</Tag>
+          </>
+        ) : ''
+      }
     </li>
   );
 };
@@ -27,9 +40,11 @@ export default IndexListItem;
 IndexListItem.propTypes = {
   children: PropTypes.string.isRequired,
   done: PropTypes.bool,
+  image: PropTypes.bool,
   href: PropTypes.string.isRequired,
 };
 
 IndexListItem.defaultProps = {
+  image: false,
   done: false,
 };

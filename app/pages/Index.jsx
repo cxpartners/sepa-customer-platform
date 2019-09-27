@@ -21,19 +21,66 @@ class Index extends React.PureComponent {
             <Row>
               <Column columnWidth="full">
                 <Heading level="h1" caption="Navigation for prototype">Index page</Heading>
+                <Heading level="h2">Set the scene</Heading>
+                <List>
+                  <IndexListItem image href="/actors">Actors</IndexListItem>
+                </List>
                 <Heading level="h2">Create account</Heading>
                 <List>
-                  <IndexListItem href="/start-page">Start page</IndexListItem>
+                  <IndexListItem image href="/arrives-at-start-page">Arrives at start page</IndexListItem>
+                  <IndexListItem image done href="/start-page">Start page</IndexListItem>
                   <IndexListItem done href="/sign-up">Sign up</IndexListItem>
                   <IndexListItem done href="/sign-up-confirmation">Sign up confirmation</IndexListItem>
-                  <IndexListItem done href="/sign-up-time-passes">Sign up time passes</IndexListItem>
+                  <IndexListItem done href="/sign-up-switch-context">Switch to email</IndexListItem>
                   <IndexListItem done href="/sign-up-email-notification">Sign up email notification</IndexListItem>
+                  <IndexListItem done href="/sign-up-email-link">Switch from email</IndexListItem>
                   <IndexListItem done href="/create-account-choose-password">Create account: choose password</IndexListItem>
                   <IndexListItem done href="/create-account-add-company-details">Create account: add company details</IndexListItem>
                   <IndexListItem done href="/create-account-your-details">Create account: your details</IndexListItem>
                   <IndexListItem done href="/create-account-confirmation">Create account: confirmation</IndexListItem>
-                  <IndexListItem href="/clas-licences">CLAS license list</IndexListItem>
                   <IndexListItem href="/permits">Permits</IndexListItem>
+                </List>
+                <Heading level="h2">Add variation</Heading>
+                <List>
+                  <IndexListItem image href="/returns-to-add-variation">Returns to add variation</IndexListItem>
+                  <IndexListItem href="/permits-with-notifications">Permits (with Notifications)</IndexListItem>
+                  <IndexListItem href="/permit-page">Permit page</IndexListItem>
+                  <IndexListItem href="/pre-app-form-start">Pre-application form start</IndexListItem>
+                  <Heading level="h3">Pre-application form:</Heading>
+                  <List>
+                    <IndexListItem href="/pre-app-form-contact-details">Contact details</IndexListItem>
+                    <IndexListItem href="/pre-app-form-site-name">Site name</IndexListItem>
+                    <IndexListItem href="/pre-app-form-water-body-name">Water body name</IndexListItem>
+                    <IndexListItem href="/pre-app-form-eastings-northings">Eastings; Northings</IndexListItem>
+                    <IndexListItem href="/pre-app-form-species">Species</IndexListItem>
+                    <IndexListItem href="/pre-app-form-weight">Weight</IndexListItem>
+                    <IndexListItem href="/pre-app-form-feeding-rate">Feeding rate</IndexListItem>
+                    <IndexListItem href="/pre-app-form-bath-medicines">Bath medicines</IndexListItem>
+                    <IndexListItem href="/pre-app-form-feed-medicines">Feed medicines</IndexListItem>
+                    <IndexListItem href="/pre-app-form-additional">Additional</IndexListItem>
+                  </List>
+                  <IndexListItem href="/pre-app-form-check">Check your answers</IndexListItem>
+                  <IndexListItem href="/pre-app-form-enter-card-details">Enter card details</IndexListItem>
+                  <IndexListItem href="/pre-app-form-confirmation">Pre-application form confirmation</IndexListItem>
+                </List>
+                <Heading level="h2">Complete review</Heading>
+                <List>
+                  <IndexListItem image href="/receives-pre-app-form-email">Receives pre-application form notification</IndexListItem>
+                  <IndexListItem image href="/pre-app-form-email-notification">Pre-application form notification</IndexListItem>
+                  <IndexListItem image href="/pre-app-form-link">Switch from email</IndexListItem>
+                  <IndexListItem href="/pre-app-review">Pre-application review</IndexListItem>
+                </List>
+                <Heading level="h2">Complete screening</Heading>
+                <List>
+                  <IndexListItem image href="/receives-pre-app-review-email">Receives pre-application review notification</IndexListItem>
+                  <IndexListItem image href="/pre-app-review-email-notification">Pre-application review notification</IndexListItem>
+                  <IndexListItem image href="/pre-app-review-link">Switch from email</IndexListItem>
+                  <IndexListItem href="/pre-app-screening">Pre-application screening</IndexListItem>
+                </List>
+                <Heading level="h2">Workload management</Heading>
+                <List>
+                  <IndexListItem image href="/arrives-at-management-dashboard">Arrives at Management Dashboard</IndexListItem>
+                  <IndexListItem image href="/management-dashboard">Management Dashboard</IndexListItem>
                 </List>
               </Column>
             </Row>
