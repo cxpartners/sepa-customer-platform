@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable max-len */
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
@@ -36,7 +37,7 @@ const SignUp = () => {
               </FieldSet>
               <Button href="/sign-up-confirmation">Sign up</Button>
               <div>
-                <Link href="/">Get help with this page</Link>
+                <Paragraph>Already have an account? Then please <Link href="/">login</Link></Paragraph>
               </div>
             </Column>
           </Row>
