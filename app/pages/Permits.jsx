@@ -11,7 +11,6 @@ import Footer from '../components/Footer/component';
 import Button from '../components/Button/component';
 import PermitList from '../components/PermitList/component';
 import PermitListRow from '../components/PermitListRow/component';
-import Warning from '../components/Warning/component';
 
 const Permit = () => {
   const name = 'Salmon & Salmon Ltd';
@@ -53,7 +52,6 @@ const Permit = () => {
         <Main>
           <Row>
             <Column columnWidth="full">
-              <Warning>Notification</Warning>
               <Heading caption="Account reference number: 860120" level="h1">{name}</Heading>
               <Button>Create new permit</Button>
               <Heading level="h2">Your permits</Heading>
@@ -78,7 +76,7 @@ const Permit = () => {
           </Row>
         </Main>
       </Container>
-      <Footer />
+      <Footer href="/permits-time-passes" />
     </>
   );
 };
