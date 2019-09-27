@@ -8,7 +8,7 @@ const Tag = (props) => {
   const tagClassNames = classNames({
     'govuk-tag': true,
     'govuk-tag--inactive': isStatus && !isActive,
-    'govuk-tag--active': isStatus && isActive,
+    'govuk-tag--active': isActive,
   });
 
   return (
