@@ -34,12 +34,12 @@ const Header = (props) => {
             {
               userName
                 ? (
-                  <span className="govuk-header__logotype-text">
-                    <a className="govuk-!-font-size-14 govuk-!-font-weight-bold white" href="/">{userName}</a>
+                  <span className="govuk-header__logotype-text govuk-header__logotype-text--signed-in">
+                    <a className="govuk-!-font-size-14 govuk-!-font-weight-bold" href="/">{userName}</a>
                   </span>
                 ) : (
                   <span className="govuk-header__logotype-text">
-                    <a className="govuk-!-font-size-14 govuk-!-font-weight-bold white" href="/">Sign in</a>
+                    <a className="govuk-!-font-size-14 govuk-!-font-weight-bold" href="/">Sign in</a>
                   </span>
                 )
             }

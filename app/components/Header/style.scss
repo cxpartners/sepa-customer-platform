@@ -22,3 +22,12 @@
     margin-bottom: 0;
     border-bottom: 0;
 }
+
+.govuk-header__logotype-text--signed-in {
+    a {
+        text-decoration: none;
+        &::after {
+            content: '▼';
+        }
+    }
+}
