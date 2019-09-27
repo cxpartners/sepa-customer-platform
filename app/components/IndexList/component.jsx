@@ -10,8 +10,14 @@ const IndexListItem = (props) => {
   return (
     <li>
       <Link href={href}>{children}</Link>
-      &nbsp;&mdash;&nbsp;
-      { done ? '' : <Tag>TO DO</Tag> }
+      {
+        done ? '' : (
+          <>
+            &nbsp;&mdash;&nbsp;
+            <Tag>TO DO</Tag>
+          </>
+        )
+      }
     </li>
   );
 };
