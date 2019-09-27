@@ -13,6 +13,8 @@ import CreateAccountChoosePassword from './pages/CreateAccountChoosePassword';
 import CreateAccountAddCompanyDetails from './pages/CreateAccountAddCompanyDetails';
 import CreateAccountYourDetails from './pages/CreateAccountYourDetails';
 import CreateAccountConfirmation from './pages/CreateAccountConfirmation';
+import LicencesListPage from './pages/LicencesListPage';
+import LicencesItemPage from './pages/LicencesItemPage';
 import Permits from './pages/Permits';
 
 const App = () => (
@@ -28,6 +30,8 @@ const App = () => (
       <Route path="/create-account-add-company-details" component={CreateAccountAddCompanyDetails} />
       <Route path="/create-account-your-details" component={CreateAccountYourDetails} />
       <Route path="/create-account-confirmation" component={CreateAccountConfirmation} />
+      <Route path="/clas-licences" exact component={LicencesListPage} />
+      <Route path="/clas-licences/:licenceId" exact component={LicencesItemPage} />
       <Route path="/permits" component={Permits} />
       <Route path="/radioform" component={RadioForm} />
       <Route path="/check" component={Check} />
