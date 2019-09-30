@@ -5,7 +5,7 @@ import FakePage from '../components/FakePage/component';
 
 const SignUpEmailNotification = () => (
   <>
-    <RouterLink to="/create-account-choose-password">
+    <RouterLink to="/account-page-switch-context">
       <FakePage src={Image} />
     </RouterLink>
   </>
