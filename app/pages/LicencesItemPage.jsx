@@ -49,7 +49,7 @@ const LicencesItemPage = ({ match }) => {
         conditions: conditions.data.conditions,
         locations: locations.data.locations,
       };
-console.log(responseData);
+
       setData(responseData);
     };
     fetchData();
