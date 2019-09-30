@@ -60,7 +60,7 @@ class Index extends React.PureComponent {
                     <IndexListItem href="/pre-app-form-additional">Additional</IndexListItem>
                   </List>
                   <IndexListItem href="/pre-app-form-check">Check your answers</IndexListItem>
-                  <IndexListItem href="/pre-app-form-enter-card-details">Enter card details</IndexListItem>
+                  <IndexListItem image href="/pre-app-form-enter-card-details">Enter card details</IndexListItem>
                   <IndexListItem href="/pre-app-form-confirmation">Pre-application form confirmation</IndexListItem>
                 </List>
                 <Heading level="h2">Complete review</Heading>
