@@ -20,7 +20,7 @@ const SignUpConfirmation = () => (
       <Main>
         <Row>
           <Column columnWidth="two-thirds">
-            <RouterLink className="govuk-routerlink" to="/sign-up-time-passes">
+            <RouterLink className="govuk-routerlink" to="/sign-up-switch-context">
               <Panel title="Verify email address" />
             </RouterLink>
             <Heading level="h3">We have sent you an email to the address you provided.</Heading>
