@@ -16,6 +16,7 @@ import CreateAccountConfirmation from './pages/CreateAccountConfirmation';
 import LicencesListPage from './pages/LicencesListPage';
 import LicencesItemPage from './pages/LicencesItemPage';
 import Permits from './pages/Permits';
+import PermitPage from './pages/PermitPage';
 
 const App = () => (
   <Router>
@@ -33,6 +34,7 @@ const App = () => (
       <Route path="/clas-licences" exact component={LicencesListPage} />
       <Route path="/clas-licences/:licenceId" exact component={LicencesItemPage} />
       <Route path="/permits" component={Permits} />
+      <Route path="/permit/:licenceId" exact component={PermitPage} />
       <Route path="/radioform" component={RadioForm} />
       <Route path="/check" component={Check} />
     </Switch>
