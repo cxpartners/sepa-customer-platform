@@ -55,22 +55,22 @@ const LicencesListPage = () => {
               ) : (
                 <table>
                   <thead>
-                  <tr>
-                    <th>CAR Number</th>
-                    <th>Site name</th>
-                    <th>Water body</th>
-                    <th>Review date</th>
-                  </tr>
+                    <tr>
+                      <th>CAR Number</th>
+                      <th>Site name</th>
+                      <th>Water body</th>
+                      <th>Review date</th>
+                    </tr>
                   </thead>
                   <tbody>
-                  {data.licences && data.licences.map((item) => (
-                    <tr key={item.licence_number}>
-                      <td><Link href={`/clas-licences/${encodeURIComponent(item.licence_number)}`}>{item.licence_number}</Link></td>
-                      <td>{item.site_name}</td>
-                      <td>Loch Mhòrair</td>
-                      <td>{getReviewDate(item.licence_status_date)}</td>
-                    </tr>
-                  ))}
+                    {data.licences && data.licences.map((item) => (
+                      <tr key={item.licence_number}>
+                        <td><Link href={`/clas-licences/${encodeURIComponent(item.licence_number)}`}>{item.licence_number}</Link></td>
+                        <td>{item.site_name}</td>
+                        <td>Loch Mhòrair</td>
+                        <td>{getReviewDate(item.licence_status_date)}</td>
+                      </tr>
+                    ))}
                   </tbody>
                 </table>
               )}

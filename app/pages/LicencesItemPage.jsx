@@ -49,7 +49,7 @@ const LicencesItemPage = ({ match }) => {
         conditions: conditions.data.conditions,
         locations: locations.data.locations,
       };
-
+console.log(responseData);
       setData(responseData);
     };
     fetchData();
@@ -75,14 +75,15 @@ const LicencesItemPage = ({ match }) => {
                   <Heading level="h2">{data.license.licence_number}</Heading>
                   <>
                     { data.contacts
-                      .filter(contact => contact.contact_type === 'Responsible Person')
+                      .filter(contact => contact.contact_type === 'Responsible Person' && contact.contact_name)
                       .slice(0)
                       .map(contact => {
+                        if (contacts.filter(e => e.contact_name === contact.contact_name).length !== 0) return;
                         contacts.push(contact);
                         return (
                           <SummaryList>
                             <SummaryListRow listKey="Name">{contact.contact_name}</SummaryListRow>
-                            <SummaryListRow listKey="Email">{contact.contact_name.replace(' ', '.').toLowerCase()}@salmonandsalmon.com</SummaryListRow>
+                            <SummaryListRow listKey="Email">{contact.contact_name && `${contact.contact_name.replace(' ', '.').toLowerCase()}@salmonandsalmon.com`}</SummaryListRow>
                             <SummaryListRow listKey="Phone number">07824325572</SummaryListRow>
                           </SummaryList>
                         )})
