@@ -16,5 +16,5 @@ const Reference = (props) => {
 export default Reference;
 
 Reference.propTypes = {
-  children: PropTypes.element.isRequired,
+  children: PropTypes.string.isRequired,
 };

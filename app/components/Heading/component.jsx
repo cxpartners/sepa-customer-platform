@@ -47,7 +47,7 @@ export default Heading;
 
 Heading.propTypes = {
   caption: PropTypes.string,
-  children: PropTypes.string.isRequired,
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
   level: PropTypes.string.isRequired,
 };
 

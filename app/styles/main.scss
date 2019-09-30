@@ -26,6 +26,7 @@ $govuk-assets-path: '/assets';
 * bring in custom component styles
 **/
 
+@import "../components/AccordionSection/style.scss";
 @import "../components/Button/style.scss";
 @import "../components/FakePage/style.scss";
 @import "../components/Footer/style.scss";
@@ -34,6 +35,7 @@ $govuk-assets-path: '/assets';
 @import "../components/PhaseBanner/style.scss";
 @import "../components/Reference/style.scss";
 @import "../components/Spinner/style.scss";
+@import "../components/TabPanel/style.scss";
 @import "../components/Tag/style.scss";
 @import "../components/TimePasses/style.scss";
 

@@ -14,6 +14,13 @@ import SummaryList from '../components/SummaryList/component';
 import SummaryListRow from '../components/SummaryListRow/component';
 import Button from '../components/Button/component';
 import Reference from '../components/Reference/component';
+import Tabs from '../components/Tabs/component';
+import TabList from '../components/TabList/component';
+import Tab from '../components/Tab/component';
+import TabPanel from '../components/TabPanel/component';
+import Accordion from '../components/Accordion/component';
+import AccordionSection from '../components/AccordionSection/component';
+import Link from '../components/Link/component';
 
 const axios = require('axios');
 
@@ -71,27 +78,61 @@ const PermitPage = ({ match }) => {
               </Heading>
               <Button href="pre-app-form-start">Add permit variation</Button>
             </Column>
-            <Column columnWidth="one-third">
-            </Column>
           </Row>
           <Row>
             <Column columnWidth="full">
-              <SummaryList>
-                <SummaryListRow listKey="Name">flksdjflds</SummaryListRow>
-                <SummaryListRow listKey="Email">[TBD]</SummaryListRow>
-                <SummaryListRow listKey="Phone number">[TBD]</SummaryListRow>
-              </SummaryList>
-              <Paragraph>Total number of responsible person contacts for this licence</Paragraph>
-              <Heading level="h2">Marine pen fish farm details</Heading>
-              <SummaryList>
-                <SummaryListRow listKey="Site name">flasdjflkjd</SummaryListRow>
-                <SummaryListRow listKey="Water body name">TBD</SummaryListRow>
-              </SummaryList>
-              <Heading level="h2">Fish details</Heading>
-              <Paragraph>[TBD] - discuss how/where this kind of info is stored in CLAS.</Paragraph>
-              <Heading level="h2">Medicine details</Heading>
-              <Paragraph>[TBD] - discuss how/where this kind of info is stored in CLAS.</Paragraph>
-              <Heading level="h2">Conditions</Heading>
+              <Tabs title="Tab List">
+                <TabList>
+                  <Tab href="overview" title="Overview" selected />
+                  <Tab href="application" title="Application" />
+                  <Tab href="assessment" title="Assessment" />
+                  <Tab href="consultation" title="Consultation" />
+                  <Tab href="permit" title="Permit" />
+                  <Tab href="monitoring" title="Monitoring" />
+                </TabList>
+                <TabPanel id="overview" title="">
+                  <Accordion>
+                    <AccordionSection expanded sectionKey="1" heading="Pre-application details" aria-expanded="true">
+                      <Row>
+                        <Column columnWidth="two-thirds">
+                          <Heading level="h3">Contact details</Heading>
+                          <SummaryList>
+                            <SummaryListRow listKey="Name">Ewan Gregory</SummaryListRow>
+                            <SummaryListRow listKey="Email">e.gregory@salmonandsalmon.com</SummaryListRow>
+                            <SummaryListRow listKey="Phone number">07824 325 572</SummaryListRow>
+                          </SummaryList>
+                          <Heading level="h3">Marine pen fish farm details</Heading>
+                          <SummaryList>
+                            <SummaryListRow listKey="Site name">{}</SummaryListRow>
+                            <SummaryListRow listKey="Water body name">{}</SummaryListRow>
+                            <SummaryListRow listKey="Number of pens">10</SummaryListRow>
+                          </SummaryList>
+                          <Heading level="h3">Fish details</Heading>
+                          <SummaryList>
+                            <SummaryListRow listKey="Species of fish to be farmed">{}</SummaryListRow>
+                            <SummaryListRow listKey="Maximum weight of fish (tonnes)">{}</SummaryListRow>
+                            <SummaryListRow listKey="Maximum feeding rate (kf/t/d)">{}</SummaryListRow>
+                          </SummaryList>
+                          <Heading level="h3">Medicine details</Heading>
+                          <SummaryList>
+                            <SummaryListRow listKey="Bath sea lice medicines required">{}</SummaryListRow>
+                            <SummaryListRow listKey="In-feed sea lice medicine required">{}</SummaryListRow>
+                            <SummaryListRow listKey="Additional information">&nbsp;</SummaryListRow>
+                          </SummaryList>
+                        </Column>
+                        <Column columnWidth="one-third">
+                          <Link href="/">Marine pen farm guidance</Link>
+                        </Column>
+                      </Row>
+                    </AccordionSection>
+                    <AccordionSection expanded={false} sectionKey="2" heading="Current data" />
+                    <AccordionSection expanded={false} sectionKey="3" heading="Modelling" />
+                    <AccordionSection expanded={false} sectionKey="4" heading="Baseline Suvey" />
+                  </Accordion>
+                </TabPanel>
+              </Tabs>
+              <Paragraph>Email permitting team</Paragraph>
+              <Paragraph><Link href="/mailto:permitting@sepa.co.uk">permitting@sepa.co.uk</Link></Paragraph>
             </Column>
           </Row>
         </Main>
