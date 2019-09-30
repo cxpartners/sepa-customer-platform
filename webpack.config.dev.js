@@ -6,9 +6,10 @@ module.exports = merge(baseConfig, {
   devtool: 'source-map',
   devServer: {
     publicPath: '/',
+    public: 'sepa-ccp-alpha.cxp.io',
     disableHostCheck: true,
     historyApiFallback: true,
-    host: process.env.IP,
+    host: '0.0.0.0',
     port: 3000,
     proxy: {
       '/api/*': {
