@@ -1,14 +1,14 @@
 import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import FakePage from '../components/FakePage/component';
-import Image from '../assets/images/pages/time-passes.png';
+import Image from '../assets/images/pages/returns-to-add-variation.png';
 
-const SignUpTimePasses = () => (
+const ReturnsToAddVariation = () => (
   <>
-    <RouterLink to="/returns-to-add-variation">
+    <RouterLink to="/permits-with-notifications">
       <FakePage src={Image} />
     </RouterLink>
   </>
 );
 
-export default SignUpTimePasses;
+export default ReturnsToAddVariation;
