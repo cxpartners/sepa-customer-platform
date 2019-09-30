@@ -12,6 +12,7 @@ import Heading from '../components/Heading/component';
 import Paragraph from '../components/Paragraph/component';
 import SummaryList from '../components/SummaryList/component';
 import SummaryListRow from '../components/SummaryListRow/component';
+import Spinner from '../components/Spinner/component';
 
 const axios = require('axios');
 
@@ -54,6 +55,7 @@ const LicencesItemPage = ({ match }) => {
     fetchData();
   }, [match]);
 
+  const contacts = [];
   /* eslint-disable */
   return (
     <>
@@ -64,7 +66,7 @@ const LicencesItemPage = ({ match }) => {
           <Row>
             <Column columnWidth="full">
               {!data.license.licence_number && !data.loaded ? (
-                <Paragraph>Loading</Paragraph>
+                <Spinner />
               ) : (!data.license.licence_number && data.loaded) ? (
                 <Paragraph>License not found</Paragraph>
               ) : (
@@ -72,41 +74,52 @@ const LicencesItemPage = ({ match }) => {
                   <Heading level="h1">{data.license.site_name}</Heading>
                   <Heading level="h2">{data.license.licence_number}</Heading>
                   <>
-                  { data.contacts
-                    .filter(contact => contact.contact_type === 'Responsible Person')
-                    .slice(0)
-                    .map(contact => (
-                      <SummaryList>
-                        <SummaryListRow listKey="Name">{contact.contact_name}</SummaryListRow>
-                        <SummaryListRow listKey="Email">[TBD]</SummaryListRow>
-                        <SummaryListRow listKey="Phone number">[TBD]</SummaryListRow>
-                      </SummaryList>
-                    ))}
+                    { data.contacts
+                      .filter(contact => contact.contact_type === 'Responsible Person')
+                      .slice(0)
+                      .map(contact => {
+                        contacts.push(contact);
+                        return (
+                          <SummaryList>
+                            <SummaryListRow listKey="Name">{contact.contact_name}</SummaryListRow>
+                            <SummaryListRow listKey="Email">{contact.contact_name.replace(' ', '.').toLowerCase()}@salmonandsalmon.com</SummaryListRow>
+                            <SummaryListRow listKey="Phone number">07824325572</SummaryListRow>
+                          </SummaryList>
+                        )})
+                    }
                   </>
-                  <Paragraph>Total number of 'responsible person' contacts for this licence {data.contacts.filter(contact => contact.contact_type === 'Responsible Person').length}</Paragraph>
+                  <Paragraph>Total number of 'responsible person' contacts for this licence {contacts.length}</Paragraph>
                   <Heading level="h2">Marine pen fish farm details</Heading>
                   <SummaryList>
                     <SummaryListRow listKey="Site name">{data.license.site_name}</SummaryListRow>
-                    <SummaryListRow listKey="Water body name">TBD</SummaryListRow>
-                    <SummaryListRow listKey="Number of pens">{ data.locations.length }</SummaryListRow>
+                    <SummaryListRow listKey="Water body name">Loch Mhòrair</SummaryListRow>
+                    <SummaryListRow listKey="Number of pens">{ data.locations.filter(location => location.activity_actual === 'Fish Farm Marine Cage').length }</SummaryListRow>
                     { data.locations
+                      .filter(location => location.activity_actual === 'Fish Farm Marine Cage')
                       .sort((a, b) => a.location_number < b.location_number ? -1 : 1)
                       .map((location, key) => (
-                        <SummaryListRow key={`location-${key}`}  listKey={`Location ${key+1} (type: ${location.location_type})`}>X {location.easting} (Eastings), Y {location.northing} (Northing)</SummaryListRow>
-                      )
-                    )}
+                          <SummaryListRow key={`location-${key}`}  listKey={`Pen ${key+1}`}>X {location.easting} (Eastings), Y {location.northing} (Northing)</SummaryListRow>
+                        )
+                      )}
                   </SummaryList>
                   <Heading level="h2">Fish details</Heading>
-                  <Paragraph>[TBD] - discuss how/where this kind of info is stored in CLAS.</Paragraph>
+                  <SummaryList>
+                    <SummaryListRow listKey='Species of fish to be farmed'>Salmon</SummaryListRow>
+                    { data.conditions
+                      .filter(condition => condition.measurement === 'Tonnes')
+                      .map((condition, key) => (
+                          <SummaryListRow key={`condition-${key}`} listKey={`${condition.condition} (${condition.measurement.toLowerCase()}/${condition.frequency.toLowerCase()})`}>{condition.value}</SummaryListRow>
+                        )
+                      )}
+                  </SummaryList>
                   <Heading level="h2">Medicine details</Heading>
-                  <Paragraph>[TBD] - discuss how/where this kind of info is stored in CLAS.</Paragraph>
-                  <Heading level="h2">Conditions</Heading>
                   <SummaryList>
                     { data.conditions
+                      .filter(condition => condition.measurement === 'YesNo')
                       .map((condition, key) => (
-                        <SummaryListRow key={`condition-${key}`} listKey={condition.condition}>Measurement: {condition.measurement}, Frequency: {condition.frequency}</SummaryListRow>
-                      )
-                    )}
+                          <SummaryListRow key={`condition-${key}`} listKey={condition.condition}>{condition.value === 'Y' ? 'Yes' : 'No'}</SummaryListRow>
+                        )
+                      )}
                   </SummaryList>
                 </>
               )}
