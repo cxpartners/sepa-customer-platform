@@ -8,7 +8,7 @@ module.exports = merge(baseConfig, {
     publicPath: '/',
     disableHostCheck: true,
     historyApiFallback: true,
-    host: '0.0.0.0',
+    host: process.env.IP,
     port: 3000,
     proxy: {
       '/api/*': {
