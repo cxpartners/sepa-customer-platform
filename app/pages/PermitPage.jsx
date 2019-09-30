@@ -12,6 +12,8 @@ import Heading from '../components/Heading/component';
 import Paragraph from '../components/Paragraph/component';
 import SummaryList from '../components/SummaryList/component';
 import SummaryListRow from '../components/SummaryListRow/component';
+import Button from '../components/Button/component';
+import Reference from '../components/Reference/component';
 
 const axios = require('axios');
 
@@ -47,6 +49,7 @@ const PermitPage = ({ match }) => {
         contacts: contacts.data.contacts,
         conditions: conditions.data.conditions,
         locations: locations.data.locations,
+        water_body_name: 'TBD',
       };
 
       setData(responseData);
@@ -54,62 +57,41 @@ const PermitPage = ({ match }) => {
     fetchData();
   }, [match]);
 
-  /* eslint-disable */
   return (
     <>
-      <Header isNotification={false} userName="" />
+      <Header isNotification={false} userName="Rory McCulloch" />
       <Container>
         <PhaseBanner />
         <Main>
           <Row>
             <Column columnWidth="full">
-              {!data.license.licence_number && !data.loaded ? (
-                <Paragraph>Loading</Paragraph>
-              ) : (!data.license.licence_number && data.loaded) ? (
-                <Paragraph>License not found</Paragraph>
-              ) : (
-                <>
-                  <Heading level="h1">{data.license.site_name}</Heading>
-                  <Heading level="h2">{data.license.licence_number}</Heading>
-                  <>
-                  { data.contacts
-                    .filter(contact => contact.contact_type === 'Responsible Person')
-                    .slice(0)
-                    .map(contact => (
-                      <SummaryList>
-                        <SummaryListRow listKey="Name">{contact.contact_name}</SummaryListRow>
-                        <SummaryListRow listKey="Email">[TBD]</SummaryListRow>
-                        <SummaryListRow listKey="Phone number">[TBD]</SummaryListRow>
-                      </SummaryList>
-                    ))}
-                  </>
-                  <Paragraph>Total number of 'responsible person' contacts for this licence {data.contacts.filter(contact => contact.contact_type === 'Responsible Person').length}</Paragraph>
-                  <Heading level="h2">Marine pen fish farm details</Heading>
-                  <SummaryList>
-                    <SummaryListRow listKey="Site name">{data.license.site_name}</SummaryListRow>
-                    <SummaryListRow listKey="Water body name">TBD</SummaryListRow>
-                    <SummaryListRow listKey="Number of pens">{ data.locations.length }</SummaryListRow>
-                    { data.locations
-                      .sort((a, b) => a.location_number < b.location_number ? -1 : 1)
-                      .map((location, key) => (
-                        <SummaryListRow key={`location-${key}`}  listKey={`Location ${key+1} (type: ${location.location_type})`}>X {location.easting} (Eastings), Y {location.northing} (Northing)</SummaryListRow>
-                      )
-                    )}
-                  </SummaryList>
-                  <Heading level="h2">Fish details</Heading>
-                  <Paragraph>[TBD] - discuss how/where this kind of info is stored in CLAS.</Paragraph>
-                  <Heading level="h2">Medicine details</Heading>
-                  <Paragraph>[TBD] - discuss how/where this kind of info is stored in CLAS.</Paragraph>
-                  <Heading level="h2">Conditions</Heading>
-                  <SummaryList>
-                    { data.conditions
-                      .map((condition, key) => (
-                        <SummaryListRow key={`condition-${key}`} listKey={condition.condition}>Measurement: {condition.measurement}, Frequency: {condition.frequency}</SummaryListRow>
-                      )
-                    )}
-                  </SummaryList>
-                </>
-              )}
+              <Heading caption={data.water_body_name || 'Loch Mhòrair'} level="h1">
+                {data.license.site_name || 'Loch Mhòrair Salmon Farm'}
+                <Reference>{data.license.site_name || 'CAR/L/4336581'}</Reference>
+              </Heading>
+              <Button href="pre-app-form-start">Add permit variation</Button>
+            </Column>
+            <Column columnWidth="one-third">
+            </Column>
+          </Row>
+          <Row>
+            <Column columnWidth="full">
+              <SummaryList>
+                <SummaryListRow listKey="Name">flksdjflds</SummaryListRow>
+                <SummaryListRow listKey="Email">[TBD]</SummaryListRow>
+                <SummaryListRow listKey="Phone number">[TBD]</SummaryListRow>
+              </SummaryList>
+              <Paragraph>Total number of responsible person contacts for this licence</Paragraph>
+              <Heading level="h2">Marine pen fish farm details</Heading>
+              <SummaryList>
+                <SummaryListRow listKey="Site name">flasdjflkjd</SummaryListRow>
+                <SummaryListRow listKey="Water body name">TBD</SummaryListRow>
+              </SummaryList>
+              <Heading level="h2">Fish details</Heading>
+              <Paragraph>[TBD] - discuss how/where this kind of info is stored in CLAS.</Paragraph>
+              <Heading level="h2">Medicine details</Heading>
+              <Paragraph>[TBD] - discuss how/where this kind of info is stored in CLAS.</Paragraph>
+              <Heading level="h2">Conditions</Heading>
             </Column>
           </Row>
         </Main>
@@ -118,7 +100,6 @@ const PermitPage = ({ match }) => {
     </>
   );
 };
-/* eslint-enable */
 
 export default PermitPage;
 
