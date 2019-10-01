@@ -47,8 +47,8 @@ class Index extends React.PureComponent {
                   <IndexListItem done href="/permits-time-passes">Time passes</IndexListItem>
                   <IndexListItem done href="/returns-to-add-variation">Returns to add variation</IndexListItem>
                   <IndexListItem done href="/permits-with-notifications">Permits (with Notifications)</IndexListItem>
-                  <IndexListItem hdone ref="/permit-page">Permit page</IndexListItem>
-                  <IndexListItem href="/pre-app-form-start">Pre-application form start</IndexListItem>
+                  <IndexListItem done href="/permit-page">Permit page</IndexListItem>
+                  <IndexListItem done href="/pre-app-form-start">Pre-application form start</IndexListItem>
                   <Heading level="h3">Pre-application form:</Heading>
                   <List>
                     <IndexListItem href="/pre-app-form-contact-details">Contact details</IndexListItem>
