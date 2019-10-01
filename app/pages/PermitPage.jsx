@@ -3,7 +3,7 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable no-nested-ternary */
 /* eslint-disable max-len */
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Header from '../components/Header/component';
 import Container from '../components/Container/component';
@@ -25,52 +25,21 @@ import TabPanel from '../components/TabPanel/component';
 import Accordion from '../components/Accordion/component';
 import AccordionSection from '../components/AccordionSection/component';
 import Link from '../components/Link/component';
-import Spinner from '../components/Spinner/component';
 import BackLink from '../components/BackLink/component';
 
-const axios = require('axios');
-
-const PermitPage = ({ match }) => {
-  const [data, setData] = useState({
-    loaded: false,
-    license: {},
-    contacts: [],
-    conditions: [],
-    locations: [],
-  });
-  useEffect(() => {
-    const fetchData = async () => {
-      const license = await axios(
-        `/api/v1/licences/${match.params.licenceId}`,
-      );
-
-      const contacts = await axios(
-        `/api/v1/licences/${match.params.licenceId}/contacts`,
-      );
-
-      const conditions = await axios(
-        `/api/v1/licences/${match.params.licenceId}/conditions`,
-      );
-
-      const locations = await axios(
-        `/api/v1/licences/${match.params.licenceId}/locations`,
-      );
-
-      const responseData = {
-        loaded: true,
-        license: license.data,
-        contacts: contacts.data.contacts,
-        conditions: conditions.data.conditions,
-        locations: locations.data.locations,
-        water_body_name: 'Loch Mhòrair',
-      };
-
-      setData(responseData);
-    };
-    fetchData();
-  }, [match]);
-
-  const contacts = [];
+const PermitPage = () => {
+  let easting = 182980;
+  let northing = 790973;
+  const locationArray = [];
+  let x = 0;
+  do {
+    locationArray.push({
+      pen: x + 1,
+      easting: easting += x * 2,
+      northing: northing += x * 3,
+    });
+    x += 1;
+  } while (x < 10);
 
   return (
     <>
@@ -81,20 +50,10 @@ const PermitPage = ({ match }) => {
         <Main>
           <Row>
             <Column columnWidth="full">
-              {!data.license.licence_number && !data.loaded ? (
-                <Heading>
-                  <Spinner />
-                </Heading>
-              ) : (!data.license.licence_number && data.loaded) ? (
-                <Paragraph>License not found</Paragraph>
-              ) : (
-                <>
-                  <Heading caption={data.water_body_name || 'Loch Mhòrair'} level="h1">
-                    {data.license.site_name || 'Loch Mhòrair Salmon Farm'}
-                    <Reference>{data.license.licence_number || 'CAR/L/4336581'}</Reference>
-                  </Heading>
-                </>
-              )}
+              <Heading caption="Loch Mhòrair" level="h1">
+                Loch Mhòrair Salmon Farm
+                <Reference>CAR/L/4336581</Reference>
+              </Heading>
               <Button href="pre-app-form-start">Add permit variation</Button>
             </Column>
           </Row>
@@ -116,77 +75,39 @@ const PermitPage = ({ match }) => {
                         <Column columnWidth="two-thirds">
                           <Heading level="h3">Contact details</Heading>
                           <SummaryList>
-                            <>
-                              { data.contacts
-                                .filter((contact) => contact.contact_type === 'Responsible Person' && contact.contact_name)
-                                .slice(0)
-                                .map((contact) => {
-                                  if (contacts.filter((e) => e.contact_name === contact.contact_name).length !== 0) return;
-                                  contacts.push(contact);
-                                  // eslint-disable-next-line consistent-return
-                                  return (
-                                    <SummaryList>
-                                      <SummaryListRow listKey="Name">{contact.contact_name}</SummaryListRow>
-                                      <SummaryListRow listKey="Email">{contact.contact_name && `${contact.contact_name.replace(' ', '.').toLowerCase()}@salmonandsalmon.com`}</SummaryListRow>
-                                      <SummaryListRow listKey="Phone number">07824325572</SummaryListRow>
-                                    </SummaryList>
-                                  );
-                                })}
-                            </>
-                            {!data.license.licence_number && !data.loaded ? (
-                              <Paragraph>
-                                <Spinner />
-                              </Paragraph>
-                            ) : (
-                              <Paragraph>{`Total number of 'responsible person' contacts for this licence ${contacts.length}`}</Paragraph>
-                            )}
+                            <SummaryListRow listKey="Name">Ewan Gregory</SummaryListRow>
+                            <SummaryListRow listKey="Email">e.gregory@salmonandsalmon.com</SummaryListRow>
+                            <SummaryListRow listKey="Phone number">07824 325 572</SummaryListRow>
                           </SummaryList>
                           <Heading level="h3">Marine pen fish farm details</Heading>
-                          {!data.license.licence_number && !data.loaded ? (
-                            <SummaryList>
-                              <Spinner />
-                            </SummaryList>
-                          ) : (
-                            <SummaryList>
-                              <SummaryListRow listKey="Site name">{data.license.site_name}</SummaryListRow>
-                              <SummaryListRow listKey="Water body name">Loch Mhòrair</SummaryListRow>
-                              <SummaryListRow listKey="Number of pens">{ data.locations.filter((location) => location.activity_actual === 'Fish Farm Marine Cage').length }</SummaryListRow>
-                              { data.locations
-                                .filter((location) => location.activity_actual === 'Fish Farm Marine Cage')
-                                .sort((a, b) => a.location_number < b.location_number ? -1 : 1)
-                                .map((location, key) => (<SummaryListRow key={`location-${key}`} listKey={`Pen ${key + 1}`}>X {location.easting} (Eastings), Y {location.northing} (Northing)</SummaryListRow>))}
-                            </SummaryList>
-                          )}
+                          <SummaryList>
+                            <SummaryListRow listKey="Site name">Loch Mhòrair Salmon Farm</SummaryListRow>
+                            <SummaryListRow listKey="Water body name">Loch Mhòrair</SummaryListRow>
+                            <SummaryListRow listKey="Number of pens">10</SummaryListRow>
+                            {locationArray
+                              .map((location) => (
+                                <SummaryListRow listKey={`Pen ${location.pen}`}>{`X ${location.easting} (Eastings), Y ${location.northing} (Northing)`}</SummaryListRow>
+                              ))}
+                          </SummaryList>
                           <Heading level="h3">Fish details</Heading>
-                          {!data.license.licence_number && !data.loaded ? (
-                            <SummaryList>
-                              <Spinner />
-                            </SummaryList>
-                          ) : (
-                            <SummaryList>
-                              <SummaryListRow listKey="Species of fish to be farmed">Salmon</SummaryListRow>
-                              { data.conditions
-                                .filter((condition) => condition.measurement === 'Tonnes')
-                                .map((condition, key) => (
-                                  <SummaryListRow key={`condition-${key}`} listKey={`${condition.condition} (${condition.measurement.toLowerCase()}/${condition.frequency.toLowerCase()})`}>{condition.value}</SummaryListRow>))}
-                              <SummaryListRow listKey="Maximum feeding rate (kf/t/d)">{}</SummaryListRow>
-                            </SummaryList>
-                          )}
+                          <SummaryList>
+                            <SummaryListRow listKey="Species of fish to be farmed">Salmon</SummaryListRow>
+                            <SummaryListRow listKey="Maximum weight of fish (tonnes)">186,786</SummaryListRow>
+                            <SummaryListRow listKey="Maximum feeding rate (kf/t/d)">8</SummaryListRow>
+                          </SummaryList>
                           <Heading level="h3">Medicine details</Heading>
-                          {!data.license.licence_number && !data.loaded ? (
-                            <SummaryList>
-                              <Spinner />
-                            </SummaryList>
-                          ) : (
-                            <SummaryList>
-                              { data.conditions
-                                .filter((condition) => condition.measurement === 'YesNo')
-                                .map((condition, key) => (
-                                  <SummaryListRow key={`condition-${key}`} listKey={condition.condition}>{condition.value === 'Y' ? 'Yes' : 'No'}</SummaryListRow>
-                                ))}
-                              <SummaryListRow listKey="Additional information">&nbsp;</SummaryListRow>
-                            </SummaryList>
-                          )}
+                          <SummaryList>
+                            <SummaryListRow listKey="Bath sea lice medicines required">
+                              cypermetrin
+                              <br />
+                              deltametrin
+                              <br />
+                              azamethiphos
+                            </SummaryListRow>
+                            <SummaryListRow listKey="In-feed sea lice medicine required">Emamectin benzoate</SummaryListRow>
+                          </SummaryList>
+                          <Heading level="h3">Additional information</Heading>
+                          <br />
                         </Column>
                       </Row>
                     </AccordionSection>
