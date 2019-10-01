@@ -73,11 +73,17 @@ const PermitPage = () => {
                     <AccordionSection expanded sectionKey="1" heading="Pre-application details" aria-expanded="true">
                       <Row>
                         <Column columnWidth="two-thirds">
-                          <Heading level="h3">Contact details</Heading>
+                          <Heading level="h3">Company secretary contact</Heading>
                           <SummaryList>
                             <SummaryListRow listKey="Name">Ewan Gregory</SummaryListRow>
-                            <SummaryListRow listKey="Email">e.gregory@salmonandsalmon.com</SummaryListRow>
+                            <SummaryListRow listKey="Email">company.secretary@salmonandsalmon.com</SummaryListRow>
                             <SummaryListRow listKey="Phone number">07824 325 572</SummaryListRow>
+                          </SummaryList>
+                          <Heading level="h3">Application contact</Heading>
+                          <SummaryList>
+                            <SummaryListRow listKey="Name">Oliver Allen</SummaryListRow>
+                            <SummaryListRow listKey="Email">o.allen@salmonandsalmon.com</SummaryListRow>
+                            <SummaryListRow listKey="Phone number">07824 327 552</SummaryListRow>
                           </SummaryList>
                           <Heading level="h3">Marine pen fish farm details</Heading>
                           <SummaryList>
@@ -98,11 +104,11 @@ const PermitPage = () => {
                           <Heading level="h3">Medicine details</Heading>
                           <SummaryList>
                             <SummaryListRow listKey="Bath sea lice medicines required">
-                              cypermetrin
+                              Cypermetrin
                               <br />
-                              deltametrin
+                              Deltametrin
                               <br />
-                              azamethiphos
+                              Azamethiphos
                             </SummaryListRow>
                             <SummaryListRow listKey="In-feed sea lice medicine required">Emamectin benzoate</SummaryListRow>
                           </SummaryList>
