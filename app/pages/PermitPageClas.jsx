@@ -182,9 +182,10 @@ const PermitPage = ({ match }) => {
                                 .map((condition, key) => (
                                   <SummaryListRow key={`condition-${key}`} listKey={condition.condition}>{condition.value === 'Y' ? 'Yes' : 'No'}</SummaryListRow>
                                 ))}
-                              <SummaryListRow listKey="Additional information">&nbsp;</SummaryListRow>
                             </SummaryList>
                           )}
+                          <Heading level="h3">Additional information</Heading>
+                          <br />
                         </Column>
                       </Row>
                     </AccordionSection>
