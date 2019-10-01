@@ -1,6 +1,7 @@
 import { hot } from 'react-hot-loader/root';
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import ScrollToTop from './components/ScrollToTop/component';
 import Index from './pages/Index';
 import UserTypes from './pages/UserTypes';
 import ArrivesAtStartPage from './pages/ArrivesAtStartPage';
@@ -39,6 +40,7 @@ import PermitsTimePasses from './pages/PermitsTimePasses';
 
 const App = () => (
   <Router>
+    <ScrollToTop />
     <Switch>
       <Route exact path="/" component={Index} />
       <Route exact path="/user-types" component={UserTypes} />
