@@ -80,11 +80,16 @@ const PermitPage = () => {
                     <AccordionSection expanded sectionKey="1" heading="Pre-application details" aria-expanded="true">
                       <Row>
                         <Column columnWidth="two-thirds">
-                          <Heading level="h3">Contact details</Heading>
                           <SummaryList>
-                            <SummaryListRow listKey="Name">Rory McCulloch</SummaryListRow>
-                            <SummaryListRow listKey="Email">r.mcculloch@salmonandsalmon.com</SummaryListRow>
-                            <SummaryListRow listKey="Phone number">07811 240 890</SummaryListRow>
+                            <SummaryListRow listKey="Name">Ewan Gregory</SummaryListRow>
+                            <SummaryListRow listKey="Email">company.secretary@salmonandsalmon.com</SummaryListRow>
+                            <SummaryListRow listKey="Phone number">07824 325 572</SummaryListRow>
+                          </SummaryList>
+                          <Heading level="h3">Application contact</Heading>
+                          <SummaryList>
+                            <SummaryListRow listKey="Name">Oliver Allen</SummaryListRow>
+                            <SummaryListRow listKey="Email">o.allen@salmonandsalmon.com</SummaryListRow>
+                            <SummaryListRow listKey="Phone number">07824 327 552</SummaryListRow>
                           </SummaryList>
                           <Heading level="h3">Marine pen fish farm details</Heading>
                           <SummaryList>
