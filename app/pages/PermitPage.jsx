@@ -191,7 +191,7 @@ const PermitPage = ({ match }) => {
                         </Column>
                         <Column columnWidth="one-third">
                           <Guidance>
-                            <Link href="/">Marine pen farm guidance</Link>
+                            
                           </Guidance>
                         </Column>
                       </Row>
@@ -202,8 +202,11 @@ const PermitPage = ({ match }) => {
                   </Accordion>
                 </TabPanel>
               </Tabs>
-              <Paragraph>Email permitting team</Paragraph>
-              <Paragraph><Link href="/mailto:permitting@sepa.co.uk">permitting@sepa.co.uk</Link></Paragraph>
+              <Paragraph>Email permitting team
+                <br />
+                <Link href="/mailto:permitting@sepa.co.uk">permitting@sepa.co.uk</Link>
+              </Paragraph>
+              <Link href="/">Marine pen farm guidance</Link>
             </Column>
           </Row>
         </Main>
