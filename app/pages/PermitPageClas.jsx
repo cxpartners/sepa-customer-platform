@@ -127,8 +127,6 @@ const PermitPage = ({ match }) => {
                                   return (
                                     <SummaryList>
                                       <SummaryListRow listKey="Name">{contact.contact_name}</SummaryListRow>
-                                      <SummaryListRow listKey="Email">{contact.contact_name && `${contact.contact_name.replace(' ', '.').toLowerCase()}@salmonandsalmon.com`}</SummaryListRow>
-                                      <SummaryListRow listKey="Phone number">07824325572</SummaryListRow>
                                     </SummaryList>
                                   );
                                 })}
@@ -149,12 +147,12 @@ const PermitPage = ({ match }) => {
                           ) : (
                             <SummaryList>
                               <SummaryListRow listKey="Site name">{data.license.site_name}</SummaryListRow>
-                              <SummaryListRow listKey="Water body name">Loch Mhòrair</SummaryListRow>
                               <SummaryListRow listKey="Number of pens">{ data.locations.filter((location) => location.activity_actual === 'Fish Farm Marine Cage').length }</SummaryListRow>
                               { data.locations
-                                .filter((location) => location.activity_actual === 'Fish Farm Marine Cage')
                                 .sort((a, b) => a.location_number < b.location_number ? -1 : 1)
-                                .map((location, key) => (<SummaryListRow key={`location-${key}`} listKey={`Pen ${key + 1}`}>X {location.easting} (Eastings), Y {location.northing} (Northing)</SummaryListRow>))}
+                                .map((location, key) => (
+                                  <SummaryListRow key={`location-${key}`} listKey={`Location ${key + 1} (type: ${location.location_type})`}>X {location.easting} (Eastings), Y {location.northing} (Northing)</SummaryListRow>
+                                ))}
                             </SummaryList>
                           )}
                           <Heading level="h3">Fish details</Heading>
