@@ -9,11 +9,13 @@ const Link = (props) => {
     href,
     noVisitedState,
     onClick,
+    modifier,
   } = props;
 
   const linkClassNames = classNames({
     'govuk-link': true,
     'govuk-link--no-visited-state': noVisitedState,
+    [`${modifier}`]: modifier,
   });
 
   return (
@@ -30,9 +32,11 @@ Link.propTypes = {
   href: PropTypes.string.isRequired,
   noVisitedState: PropTypes.bool,
   onClick: PropTypes.func,
+  modifier: PropTypes.string,
 };
 
 Link.defaultProps = {
   noVisitedState: false,
   onClick: null,
+  modifier: '',
 };

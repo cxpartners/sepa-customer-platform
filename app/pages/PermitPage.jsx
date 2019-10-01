@@ -13,7 +13,6 @@ import Row from '../components/Row/component';
 import Column from '../components/Column/component';
 import Footer from '../components/Footer/component';
 import Heading from '../components/Heading/component';
-import Paragraph from '../components/Paragraph/component';
 import SummaryList from '../components/SummaryList/component';
 import SummaryListRow from '../components/SummaryListRow/component';
 import Button from '../components/Button/component';
@@ -24,8 +23,8 @@ import Tab from '../components/Tab/component';
 import TabPanel from '../components/TabPanel/component';
 import Accordion from '../components/Accordion/component';
 import AccordionSection from '../components/AccordionSection/component';
-import Link from '../components/Link/component';
 import BackLink from '../components/BackLink/component';
+import Guidance from '../components/Guidance/component';
 
 const PermitPage = () => {
   let easting = 182980;
@@ -43,7 +42,7 @@ const PermitPage = () => {
 
   return (
     <>
-      <Header isNotification={false} userName="Rory McCulloch" />
+      <Header isNotification={false} userName="Oliver Allen" />
       <Container>
         <PhaseBanner />
         <BackLink href="/permits" />
@@ -73,11 +72,17 @@ const PermitPage = () => {
                     <AccordionSection expanded sectionKey="1" heading="Pre-application details" aria-expanded="true">
                       <Row>
                         <Column columnWidth="two-thirds">
-                          <Heading level="h3">Contact details</Heading>
+                          <Heading level="h3">Company secretary contact</Heading>
                           <SummaryList>
                             <SummaryListRow listKey="Name">Ewan Gregory</SummaryListRow>
-                            <SummaryListRow listKey="Email">e.gregory@salmonandsalmon.com</SummaryListRow>
+                            <SummaryListRow listKey="Email">company.secretary@salmonandsalmon.com</SummaryListRow>
                             <SummaryListRow listKey="Phone number">07824 325 572</SummaryListRow>
+                          </SummaryList>
+                          <Heading level="h3">Application contact</Heading>
+                          <SummaryList>
+                            <SummaryListRow listKey="Name">Oliver Allen</SummaryListRow>
+                            <SummaryListRow listKey="Email">o.allen@salmonandsalmon.com</SummaryListRow>
+                            <SummaryListRow listKey="Phone number">07824 327 552</SummaryListRow>
                           </SummaryList>
                           <Heading level="h3">Marine pen fish farm details</Heading>
                           <SummaryList>
@@ -98,11 +103,11 @@ const PermitPage = () => {
                           <Heading level="h3">Medicine details</Heading>
                           <SummaryList>
                             <SummaryListRow listKey="Bath sea lice medicines required">
-                              cypermetrin
+                              Cypermetrin
                               <br />
-                              deltametrin
+                              Deltametrin
                               <br />
-                              azamethiphos
+                              Azamethiphos
                             </SummaryListRow>
                             <SummaryListRow listKey="In-feed sea lice medicine required">Emamectin benzoate</SummaryListRow>
                           </SummaryList>
@@ -117,11 +122,7 @@ const PermitPage = () => {
                   </Accordion>
                 </TabPanel>
               </Tabs>
-              <Paragraph>Email permitting team
-                <br />
-                <Link href="/mailto:permitting@sepa.co.uk">permitting@sepa.co.uk</Link>
-              </Paragraph>
-              <Link href="/">Marine pen farm guidance</Link>
+              <Guidance />
             </Column>
           </Row>
         </Main>

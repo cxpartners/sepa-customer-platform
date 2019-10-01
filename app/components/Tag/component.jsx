@@ -3,12 +3,18 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 const Tag = (props) => {
-  const { children, isStatus, isActive } = props;
+  const {
+    children,
+    isStatus,
+    isActive,
+    modifier,
+  } = props;
 
   const tagClassNames = classNames({
     'govuk-tag': true,
     'govuk-tag--inactive': isStatus && !isActive,
     'govuk-tag--active': isActive,
+    [`${modifier}`]: modifier,
   });
 
   return (
@@ -24,9 +30,11 @@ Tag.propTypes = {
   children: PropTypes.string.isRequired,
   isStatus: PropTypes.bool,
   isActive: PropTypes.bool,
+  modifier: PropTypes.string,
 };
 
 Tag.defaultProps = {
   isStatus: false,
   isActive: false,
+  modifier: '',
 };

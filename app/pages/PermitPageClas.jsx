@@ -24,9 +24,9 @@ import Tab from '../components/Tab/component';
 import TabPanel from '../components/TabPanel/component';
 import Accordion from '../components/Accordion/component';
 import AccordionSection from '../components/AccordionSection/component';
-import Link from '../components/Link/component';
 import Spinner from '../components/Spinner/component';
 import BackLink from '../components/BackLink/component';
+import Guidance from '../components/Guidance/component';
 
 const axios = require('axios');
 
@@ -74,10 +74,10 @@ const PermitPage = ({ match }) => {
 
   return (
     <>
-      <Header isNotification={false} userName="Rory McCulloch" />
+      <Header isNotification={false} userName="Oliver Allen" />
       <Container>
         <PhaseBanner />
-        <BackLink href="/permits" />
+        <BackLink href="../permits" />
         <Main>
           <Row>
             <Column columnWidth="full">
@@ -127,8 +127,6 @@ const PermitPage = ({ match }) => {
                                   return (
                                     <SummaryList>
                                       <SummaryListRow listKey="Name">{contact.contact_name}</SummaryListRow>
-                                      <SummaryListRow listKey="Email">{contact.contact_name && `${contact.contact_name.replace(' ', '.').toLowerCase()}@salmonandsalmon.com`}</SummaryListRow>
-                                      <SummaryListRow listKey="Phone number">07824325572</SummaryListRow>
                                     </SummaryList>
                                   );
                                 })}
@@ -149,12 +147,12 @@ const PermitPage = ({ match }) => {
                           ) : (
                             <SummaryList>
                               <SummaryListRow listKey="Site name">{data.license.site_name}</SummaryListRow>
-                              <SummaryListRow listKey="Water body name">Loch Mhòrair</SummaryListRow>
                               <SummaryListRow listKey="Number of pens">{ data.locations.filter((location) => location.activity_actual === 'Fish Farm Marine Cage').length }</SummaryListRow>
                               { data.locations
-                                .filter((location) => location.activity_actual === 'Fish Farm Marine Cage')
                                 .sort((a, b) => a.location_number < b.location_number ? -1 : 1)
-                                .map((location, key) => (<SummaryListRow key={`location-${key}`} listKey={`Pen ${key + 1}`}>X {location.easting} (Eastings), Y {location.northing} (Northing)</SummaryListRow>))}
+                                .map((location, key) => (
+                                  <SummaryListRow key={`location-${key}`} listKey={`Location ${key + 1} (type: ${location.location_type})`}>X {location.easting} (Eastings), Y {location.northing} (Northing)</SummaryListRow>
+                                ))}
                             </SummaryList>
                           )}
                           <Heading level="h3">Fish details</Heading>
@@ -184,9 +182,10 @@ const PermitPage = ({ match }) => {
                                 .map((condition, key) => (
                                   <SummaryListRow key={`condition-${key}`} listKey={condition.condition}>{condition.value === 'Y' ? 'Yes' : 'No'}</SummaryListRow>
                                 ))}
-                              <SummaryListRow listKey="Additional information">&nbsp;</SummaryListRow>
                             </SummaryList>
                           )}
+                          <Heading level="h3">Additional information</Heading>
+                          <br />
                         </Column>
                       </Row>
                     </AccordionSection>
@@ -196,11 +195,7 @@ const PermitPage = ({ match }) => {
                   </Accordion>
                 </TabPanel>
               </Tabs>
-              <Paragraph>Email permitting team
-                <br />
-                <Link href="/mailto:permitting@sepa.co.uk">permitting@sepa.co.uk</Link>
-              </Paragraph>
-              <Link href="/">Marine pen farm guidance</Link>
+              <Guidance />
             </Column>
           </Row>
         </Main>
