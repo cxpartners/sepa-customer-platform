@@ -31,6 +31,7 @@ import PreAppFormLink from './pages/PreAppFormLink';
 import ReceivesPreAppReviewEmail from './pages/ReceivesPreAppReviewEmail';
 import PreAppReviewEmailNotification from './pages/PreAppReviewEmailNotification';
 import PreAppReviewLink from './pages/PreAppReviewLink';
+import PreAppReview from './pages/PreAppReview';
 import ArrivesAtManagementDashboard from './pages/ArrivesAtManagementDashboard';
 import ManagementDashboard from './pages/ManagementDashboard';
 import PermitsTimePasses from './pages/PermitsTimePasses';
@@ -65,6 +66,7 @@ const App = () => (
       <Route exact path="/receives-pre-app-form-email" component={ReceivesPreAppFormEmail} />
       <Route exact path="/pre-app-form-email-notification" component={PreAppFormEmailNotification} />
       <Route exact path="/pre-app-form-link" component={PreAppFormLink} />
+      <Route exact path="/pre-app-review" component={PreAppReview} />
       <Route exact path="/receives-pre-app-review-email" component={ReceivesPreAppReviewEmail} />
       <Route exact path="/pre-app-review-email-notification" component={PreAppReviewEmailNotification} />
       <Route exact path="/pre-app-review-link" component={PreAppReviewLink} />
