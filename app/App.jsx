@@ -26,6 +26,7 @@ import PermitPageClas from './pages/PermitPageClas';
 import PreAppFormEnterCardDetails from './pages/PreAppFormEnterCardDetails';
 import PreAppFormConfirmation from './pages/PreAppFormConfirmation';
 import ReceivesPreAppFormEmail from './pages/ReceivesPreAppFormEmail';
+import PreAppFormStart from './pages/PreAppFormStart';
 import PreAppFormEmailNotification from './pages/PreAppFormEmailNotification';
 import PreAppFormLink from './pages/PreAppFormLink';
 import ReceivesPreAppReviewEmail from './pages/ReceivesPreAppReviewEmail';
@@ -59,6 +60,7 @@ const App = () => (
       <Route exact path="/permits-time-passes" component={PermitsTimePasses} />
       <Route exact path="/returns-to-add-variation" component={ReturnsToAddVariation} />
       <Route exact path="/permits-with-notifications" component={PermitsWithNotifications} />
+      <Route exact path="/pre-app-form-start" component={PreAppFormStart} />
       <Route exact path="/permit-page" component={PermitPage} />
       <Route exact path="/pre-app-form-enter-card-details" component={PreAppFormEnterCardDetails} />
       <Route exact path="/pre-app-form-confirmation" component={PreAppFormConfirmation} />
