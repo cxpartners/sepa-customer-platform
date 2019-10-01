@@ -77,7 +77,7 @@ const PermitPage = ({ match }) => {
       <Header isNotification={false} userName="Oliver Allen" />
       <Container>
         <PhaseBanner />
-        <BackLink href="/permits" />
+        <BackLink href="../permits" />
         <Main>
           <Row>
             <Column columnWidth="full">
