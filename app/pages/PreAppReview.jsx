@@ -1,5 +1,6 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable max-len */
-import React from 'react';
+import React, { useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import Header from '../components/Header/component';
@@ -30,8 +31,11 @@ import ActionBox from '../components/ActionBox/component';
 import FieldSet from '../components/FieldSet/component';
 import { UPDATE_REVIEW_RADIO } from '../reducers';
 
+const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop);
 
 const PermitPage = () => {
+  const completeRegistration = useRef(null);
+  const scroll = () => scrollToRef(completeRegistration);
   const radioReviewValue = useSelector((state) => state.radioReviewValue);
   const dispatch = useDispatch();
 
@@ -80,8 +84,9 @@ const PermitPage = () => {
                     <AccordionSection expanded sectionKey="1" heading="Pre-application details" aria-expanded="true">
                       <Row>
                         <Column columnWidth="two-thirds">
+                          <Heading level="h3">Company Secretary contact</Heading>
                           <SummaryList>
-                            <SummaryListRow listKey="Name">Ewan Gregory</SummaryListRow>
+                            <SummaryListRow listKey="Name">Company Secretary</SummaryListRow>
                             <SummaryListRow listKey="Email">company.secretary@salmonandsalmon.com</SummaryListRow>
                             <SummaryListRow listKey="Phone number">07824 325 572</SummaryListRow>
                           </SummaryList>
@@ -120,9 +125,9 @@ const PermitPage = () => {
                             <SummaryListRow listKey="In-feed sea lice medicine required">Emamectin benzoate</SummaryListRow>
                           </SummaryList>
                           <Heading level="h3">Additional information</Heading>
-                          <br />
+                          <br ref={completeRegistration} />
                           <ActionBox>
-                            <Heading level="h3" id="complete-review">Complete your pre-application review</Heading>
+                            <Heading level="h3">Complete your pre-application review</Heading>
                             <FieldSet legend="Does the pre-application meet the requirements to move to the next stage?" inPage error={false} errorMessage="">
                               <RadioGroup inline>
                                 <Radio value="Yes" checked={radioReviewValue === 'Yes'} onChange={(e) => dispatch({ type: UPDATE_REVIEW_RADIO, payload: e.target.value })} />
@@ -155,6 +160,10 @@ const PermitPage = () => {
                           <ActionBox>
                             <Heading level="h3">Initial screening report</Heading>
                           </ActionBox>
+                        </Column>
+                        <Column>
+                          <Heading level="h3">Workflow tasks:</Heading>
+                          <Link modifier="govuk-right" onClick={scroll}>Complete pre-application review</Link>
                         </Column>
                       </Row>
                     </AccordionSection>
