@@ -189,11 +189,6 @@ const PermitPage = ({ match }) => {
                             </SummaryList>
                           )}
                         </Column>
-                        <Column columnWidth="one-third">
-                          <Guidance>
-                            
-                          </Guidance>
-                        </Column>
                       </Row>
                     </AccordionSection>
                     <AccordionSection expanded={false} sectionKey="2" heading="Current data" />
