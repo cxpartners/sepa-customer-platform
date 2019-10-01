@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable max-len */
 import React, { useRef } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import Header from '../components/Header/component';
 import Container from '../components/Container/component';
@@ -11,7 +10,6 @@ import Row from '../components/Row/component';
 import Column from '../components/Column/component';
 import Footer from '../components/Footer/component';
 import Heading from '../components/Heading/component';
-import Paragraph from '../components/Paragraph/component';
 import SummaryList from '../components/SummaryList/component';
 import SummaryListRow from '../components/SummaryListRow/component';
 import Button from '../components/Button/component';
@@ -20,7 +18,6 @@ import Tabs from '../components/Tabs/component';
 import TabList from '../components/TabList/component';
 import Tab from '../components/Tab/component';
 import TabPanel from '../components/TabPanel/component';
-import Textarea from '../components/Textarea/component';
 import Accordion from '../components/Accordion/component';
 import AccordionSection from '../components/AccordionSection/component';
 import Link from '../components/Link/component';
@@ -28,15 +25,13 @@ import RadioGroup from '../components/RadioGroup/component';
 import Radio from '../components/Radio/component';
 import ActionBox from '../components/ActionBox/component';
 import FieldSet from '../components/FieldSet/component';
-import { UPDATE_REVIEW_RADIO } from '../reducers';
+import ActionBoxComplete from '../components/ActionBoxComplete/component';
 
 const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop);
 
 const PermitPage = () => {
   const completeRegistration = useRef(null);
   const scroll = () => scrollToRef(completeRegistration);
-  const radioReviewValue = useSelector((state) => state.radioReviewValue);
-  const dispatch = useDispatch();
 
   let easting = 182980;
   let northing = 790973;
@@ -124,44 +119,21 @@ const PermitPage = () => {
                           </SummaryList>
                           <Heading level="h3">Additional information</Heading>
                           <br ref={completeRegistration} />
+                          <ActionBoxComplete>Pre-application review</ActionBoxComplete>
                           <ActionBox>
-                            <Heading level="h3">Complete your pre-application review</Heading>
+                            <Heading level="h3">Initial screening report</Heading>
                             <FieldSet legend="Does the pre-application meet the requirements to move to the next stage?" inPage error={false} errorMessage="">
                               <RadioGroup inline>
-                                <Radio value="Yes" checked={radioReviewValue === 'Yes'} onChange={(e) => dispatch({ type: UPDATE_REVIEW_RADIO, payload: e.target.value })} />
-                                <Radio value="No" checked={radioReviewValue === 'No'} onChange={(e) => dispatch({ type: UPDATE_REVIEW_RADIO, payload: e.target.value })} />
+                                <Radio value="Yes" />
+                                <Radio value="No" />
                               </RadioGroup>
                               <br />
                             </FieldSet>
-                            {
-                              radioReviewValue === 'Yes'
-                                ? (
-                                  <>
-                                    <Button href="/receives-pre-app-review-email">Complete pre-application review</Button>
-                                    <Paragraph>By completing this review, the pre-application will be sent to modelling.</Paragraph>
-                                  </>
-                                ) : (
-                                  <>
-                                    {
-                                      radioReviewValue === 'No'
-                                        ? (
-                                          <>
-                                            <Textarea label="Please provide the applicant with feedback and request further information if needed." />
-                                            <Button href="/receives-pre-app-review-email">Send feedback</Button>
-                                          </>
-                                        ) : ''
-                                    }
-                                  </>
-                                )
-                            }
-                          </ActionBox>
-                          <ActionBox>
-                            <Heading level="h3">Initial screening report</Heading>
                           </ActionBox>
                         </Column>
                         <Column>
                           <Heading level="h3">Workflow tasks:</Heading>
-                          <Link modifier="govuk-right" onClick={scroll}>Complete pre-application review</Link>
+                          <Link modifier="govuk-right" onClick={scroll}>Complete initial screening report</Link>
                         </Column>
                       </Row>
                     </AccordionSection>
@@ -175,7 +147,7 @@ const PermitPage = () => {
           </Row>
         </Main>
       </Container>
-      <Footer />
+      <Footer href="/arrives-at-management-dashboard" />
     </>
   );
 };
