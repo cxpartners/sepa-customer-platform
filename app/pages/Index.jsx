@@ -48,7 +48,7 @@ class Index extends React.PureComponent {
                   <IndexListItem done href="/returns-to-add-variation">Returns to add variation</IndexListItem>
                   <IndexListItem done href="/permits-with-notifications">Permits (with Notifications)</IndexListItem>
                   <IndexListItem done href="/permit-page">Permit page</IndexListItem>
-                  <IndexListItem href="/pre-app-form-start">Pre-application form start</IndexListItem>
+                  <IndexListItem done href="/pre-app-form-start">Pre-application form start</IndexListItem>
                   <Heading level="h3">Pre-application form:</Heading>
                   <List>
                     <IndexListItem href="/pre-app-form-contact-details">Contact details</IndexListItem>
@@ -71,7 +71,7 @@ class Index extends React.PureComponent {
                   <IndexListItem done href="/receives-pre-app-form-email">Receives pre-application form notification</IndexListItem>
                   <IndexListItem done href="/pre-app-form-email-notification">Pre-application form notification</IndexListItem>
                   <IndexListItem done href="/pre-app-form-link">Switch from email</IndexListItem>
-                  <IndexListItem href="/pre-app-review">Pre-application review</IndexListItem>
+                  <IndexListItem done href="/pre-app-review">Pre-application review</IndexListItem>
                 </List>
                 <Heading level="h2">Complete screening</Heading>
                 <List>
