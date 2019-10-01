@@ -1,0 +1,14 @@
+.govuk-warning-text {
+    background-color: govuk-colour("light-grey");
+    border-left: 7px solid govuk-colour("blue");
+}
+
+.govuk-warning-text__icon {
+    background-color: govuk-colour("blue");
+    border: none;
+    margin-top: -15px;
+}
+
+.govuk-warning-information-icon {
+    padding-bottom: 4px
+}
