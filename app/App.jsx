@@ -21,6 +21,7 @@ import CreateAccountConfirmation from './pages/CreateAccountConfirmation';
 import LicencesListPage from './pages/LicencesListPage';
 import LicencesItemPage from './pages/LicencesItemPage';
 import Permits from './pages/Permits';
+import PermitPage from './pages/PermitPage';
 import PreAppFormEnterCardDetails from './pages/PreAppFormEnterCardDetails';
 import PreAppFormConfirmation from './pages/PreAppFormConfirmation';
 import ReceivesPreAppFormEmail from './pages/ReceivesPreAppFormEmail';
@@ -53,6 +54,7 @@ const App = () => (
       <Route path="/clas-licences" exact component={LicencesListPage} />
       <Route path="/clas-licences/:licenceId" exact component={LicencesItemPage} />
       <Route path="/permits" component={Permits} />
+      <Route path="/permit/:licenceId" exact component={PermitPage} />
       <Route path="/pre-app-form-enter-card-details" component={PreAppFormEnterCardDetails} />
       <Route path="/pre-app-form-confirmation" component={PreAppFormConfirmation} />
       <Route path="/receives-pre-app-form-email" component={ReceivesPreAppFormEmail} />

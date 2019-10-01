@@ -1,0 +1,4 @@
+.govuk-accordion__section-key {
+  @include govuk-font($size: 24);
+  color: $govuk-secondary-text-colour;
+}
