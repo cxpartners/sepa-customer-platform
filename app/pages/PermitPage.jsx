@@ -27,7 +27,6 @@ import AccordionSection from '../components/AccordionSection/component';
 import Link from '../components/Link/component';
 import Spinner from '../components/Spinner/component';
 import BackLink from '../components/BackLink/component';
-import Guidance from '../components/Guidance/component';
 
 const axios = require('axios');
 

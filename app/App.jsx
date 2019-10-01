@@ -32,6 +32,7 @@ import PreAppReviewEmailNotification from './pages/PreAppReviewEmailNotification
 import PreAppReviewLink from './pages/PreAppReviewLink';
 import ArrivesAtManagementDashboard from './pages/ArrivesAtManagementDashboard';
 import ManagementDashboard from './pages/ManagementDashboard';
+import PermitsTimePasses from './pages/PermitsTimePasses';
 
 const App = () => (
   <Router>
@@ -44,7 +45,6 @@ const App = () => (
       <Route path="/sign-up-confirmation" component={SignUpConfirmation} />
       <Route path="/sign-up-switch-context" component={SignUpSwitchContext} />
       <Route path="/sign-up-time-passes" component={SignUpTimePasses} />
-      <Route path="/returns-to-add-variation" component={ReturnsToAddVariation} />
       <Route path="/sign-up-email-notification" component={SignUpEmailNotification} />
       <Route path="/account-page-switch-context" component={AccountPageSwitchContext} />
       <Route path="/create-account-choose-password" component={CreateAccountChoosePassword} />
@@ -54,6 +54,8 @@ const App = () => (
       <Route path="/clas-licences" exact component={LicencesListPage} />
       <Route path="/clas-licences/:licenceId" exact component={LicencesItemPage} />
       <Route path="/permits" component={Permits} />
+      <Route path="/permits-time-passes" component={PermitsTimePasses} />
+      <Route path="/returns-to-add-variation" component={ReturnsToAddVariation} />
       <Route path="/permit/:licenceId" exact component={PermitPage} />
       <Route path="/pre-app-form-enter-card-details" component={PreAppFormEnterCardDetails} />
       <Route path="/pre-app-form-confirmation" component={PreAppFormConfirmation} />
