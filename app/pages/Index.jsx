@@ -28,6 +28,7 @@ class Index extends React.PureComponent {
                 <Heading level="h2">Create account</Heading>
                 <List>
                   <IndexListItem done href="/arrives-at-start-page">Arrives at start page</IndexListItem>
+                  <IndexListItem done href="/sepa-home-page">Sepa home page</IndexListItem>
                   <IndexListItem done href="/start-page">Start page</IndexListItem>
                   <IndexListItem done href="/sign-up">Sign up</IndexListItem>
                   <IndexListItem done href="/sign-up-confirmation">Sign up confirmation</IndexListItem>

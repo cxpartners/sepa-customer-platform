@@ -5,6 +5,7 @@ import Index from './pages/Index';
 import UserTypes from './pages/UserTypes';
 import ArrivesAtStartPage from './pages/ArrivesAtStartPage';
 import StartPage from './pages/StartPage';
+import SepaHomePage from './pages/SepaHomePage';
 import SignUpSwitchContext from './pages/SignUpSwitchContext';
 import AccountPageSwitchContext from './pages/AccountPageSwitchContext';
 import Check from './pages/Check';
@@ -41,6 +42,7 @@ const App = () => (
       <Route exact path="/user-types" component={UserTypes} />
       <Route exact path="/arrives-at-start-page" component={ArrivesAtStartPage} />
       <Route exact path="/start-page" component={StartPage} />
+      <Route exact path="/sepa-home-page" component={SepaHomePage} />
       <Route exact path="/sign-up" component={SignUp} />
       <Route exact path="/sign-up-confirmation" component={SignUpConfirmation} />
       <Route exact path="/sign-up-switch-context" component={SignUpSwitchContext} />
