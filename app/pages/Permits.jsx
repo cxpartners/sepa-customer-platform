@@ -66,7 +66,7 @@ const Permit = () => {
                     <PermitList caption={`Awarded permits (${data.licences.length})`} dateColumn="Review date">
                       {
                       data.licences && data.licences.map((item) => (
-                        <PermitListRow href={`/permit/${encodeURIComponent(item.licence_number)}`} listKey={item.licence_number} siteName={item.site_name} waterBody="TBD" date={getReviewDate(item.licence_status_date)} />
+                        <PermitListRow href={`/permit/${encodeURIComponent(item.licence_number)}`} listKey={item.licence_number} siteName={item.site_name} waterBody="Loch Mhòrair" date={getReviewDate(item.licence_status_date)} />
                       ))
                     }
                     </PermitList>
