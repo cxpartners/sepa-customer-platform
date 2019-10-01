@@ -24,9 +24,9 @@ import Tab from '../components/Tab/component';
 import TabPanel from '../components/TabPanel/component';
 import Accordion from '../components/Accordion/component';
 import AccordionSection from '../components/AccordionSection/component';
-import Link from '../components/Link/component';
 import Spinner from '../components/Spinner/component';
 import BackLink from '../components/BackLink/component';
+import Guidance from '../components/Guidance/component';
 
 const axios = require('axios');
 
@@ -195,11 +195,7 @@ const PermitPage = ({ match }) => {
                   </Accordion>
                 </TabPanel>
               </Tabs>
-              <Paragraph>Email permitting team
-                <br />
-                <Link href="/mailto:permitting@sepa.co.uk">permitting@sepa.co.uk</Link>
-              </Paragraph>
-              <Link href="/">Marine pen farm guidance</Link>
+              <Guidance />
             </Column>
           </Row>
         </Main>

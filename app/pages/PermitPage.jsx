@@ -13,7 +13,6 @@ import Row from '../components/Row/component';
 import Column from '../components/Column/component';
 import Footer from '../components/Footer/component';
 import Heading from '../components/Heading/component';
-import Paragraph from '../components/Paragraph/component';
 import SummaryList from '../components/SummaryList/component';
 import SummaryListRow from '../components/SummaryListRow/component';
 import Button from '../components/Button/component';
@@ -24,8 +23,8 @@ import Tab from '../components/Tab/component';
 import TabPanel from '../components/TabPanel/component';
 import Accordion from '../components/Accordion/component';
 import AccordionSection from '../components/AccordionSection/component';
-import Link from '../components/Link/component';
 import BackLink from '../components/BackLink/component';
+import Guidance from '../components/Guidance/component';
 
 const PermitPage = () => {
   let easting = 182980;
@@ -123,11 +122,7 @@ const PermitPage = () => {
                   </Accordion>
                 </TabPanel>
               </Tabs>
-              <Paragraph>Email permitting team
-                <br />
-                <Link href="/mailto:permitting@sepa.co.uk">permitting@sepa.co.uk</Link>
-              </Paragraph>
-              <Link href="/">Marine pen farm guidance</Link>
+              <Guidance />
             </Column>
           </Row>
         </Main>
