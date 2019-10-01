@@ -3,6 +3,7 @@ export const UPDATE_YOUR_NAME = 'UPDATE_YOUR_NAME';
 export const TOGGLE_YOUR_NAME_ERROR = 'TOGGLE_YOUR_NAME_ERROR';
 export const TOGGLE_REDIRECT_RADIO = 'TOGGLE_REDIRECT_RADIO';
 export const UPDATE_RADIO = 'UPDATE_RADIO';
+export const UPDATE_REVIEW_RADIO = 'UPDATE_REVIEW_RADIO';
 export const TOGGLE_RADIO_ERROR = 'TOGGLE_RADIO_ERROR';
 export const TOGGLE_CREATE_ACCOUNT_CHOOSE_PASSWORD = 'TOGGLE_CREATE_ACCOUNT_CHOOSE_PASSWORD';
 export const TOGGLE_CREATE_ACCOUNT_COMPANY_DETAILS_FOUND = 'TOGGLE_CREATE_ACCOUNT_COMPANY_DETAILS_FOUND';
@@ -15,6 +16,7 @@ const initialState = {
   radioValue: '',
   radioError: false,
   radioRedirect: false,
+  radioReviewValue: null,
   yourNameValue: '',
   yourNameError: false,
   yourNameRedirect: false,
@@ -28,6 +30,11 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
+    case UPDATE_REVIEW_RADIO:
+      return {
+        ...state,
+        radioReviewValue: action.payload,
+      };
     case UPDATE_RADIO:
       return {
         ...state,
@@ -79,6 +86,10 @@ export const updateSignUpEmailValue = () => (dispatch) => {
 
 export const updateRadio = () => (dispatch) => {
   dispatch({ type: UPDATE_RADIO });
+};
+
+export const updateReviewRadio = () => (dispatch) => {
+  dispatch({ type: UPDATE_REVIEW_RADIO });
 };
 
 export const toggleRadioError = () => (dispatch) => {

@@ -71,7 +71,7 @@ class Index extends React.PureComponent {
                   <IndexListItem done href="/receives-pre-app-form-email">Receives pre-application form notification</IndexListItem>
                   <IndexListItem done href="/pre-app-form-email-notification">Pre-application form notification</IndexListItem>
                   <IndexListItem done href="/pre-app-form-link">Switch from email</IndexListItem>
-                  <IndexListItem href="/pre-app-review">Pre-application review</IndexListItem>
+                  <IndexListItem done href="/pre-app-review">Pre-application review</IndexListItem>
                 </List>
                 <Heading level="h2">Complete screening</Heading>
                 <List>
