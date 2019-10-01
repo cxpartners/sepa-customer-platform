@@ -95,7 +95,7 @@ const PermitPage = ({ match }) => {
                   </Heading>
                 </>
               )}
-              <Button href="pre-app-form-start">Add permit variation</Button>
+              <Button href="permits-time-passes">Add permit variation</Button>
             </Column>
           </Row>
           <Row>

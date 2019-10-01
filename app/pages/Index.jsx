@@ -39,10 +39,11 @@ class Index extends React.PureComponent {
                   <IndexListItem done href="/create-account-your-details">Create account: your details</IndexListItem>
                   <IndexListItem done href="/create-account-confirmation">Create account: confirmation</IndexListItem>
                   <IndexListItem href="/permits">Permits</IndexListItem>
+                  <IndexListItem href="/permit-page-clas">Permit page (with CLAS data)</IndexListItem>
                 </List>
                 <Heading level="h2">Add variation</Heading>
                 <List>
-                  <IndexListItem done href="/sign-up-time-passes">Time passes</IndexListItem>
+                  <IndexListItem done href="/permits-time-passes">Time passes</IndexListItem>
                   <IndexListItem done href="/returns-to-add-variation">Returns to add variation</IndexListItem>
                   <IndexListItem href="/permits-with-notifications">Permits (with Notifications)</IndexListItem>
                   <IndexListItem href="/permit-page">Permit page</IndexListItem>
