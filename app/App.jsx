@@ -18,10 +18,10 @@ import CreateAccountChoosePassword from './pages/CreateAccountChoosePassword';
 import CreateAccountAddCompanyDetails from './pages/CreateAccountAddCompanyDetails';
 import CreateAccountYourDetails from './pages/CreateAccountYourDetails';
 import CreateAccountConfirmation from './pages/CreateAccountConfirmation';
-import LicencesListPage from './pages/LicencesListPage';
-import LicencesItemPage from './pages/LicencesItemPage';
 import Permits from './pages/Permits';
+import PermitsWithNotifications from './pages/PermitsWithNotifications';
 import PermitPage from './pages/PermitPage';
+import PermitPageClas from './pages/PermitPageClas';
 import PreAppFormEnterCardDetails from './pages/PreAppFormEnterCardDetails';
 import PreAppFormConfirmation from './pages/PreAppFormConfirmation';
 import ReceivesPreAppFormEmail from './pages/ReceivesPreAppFormEmail';
@@ -40,35 +40,36 @@ const App = () => (
       <Route exact path="/" component={Index} />
       <Route exact path="/user-types" component={UserTypes} />
       <Route exact path="/arrives-at-start-page" component={ArrivesAtStartPage} />
-      <Route path="/start-page" component={StartPage} />
-      <Route path="/sign-up" component={SignUp} />
-      <Route path="/sign-up-confirmation" component={SignUpConfirmation} />
-      <Route path="/sign-up-switch-context" component={SignUpSwitchContext} />
-      <Route path="/sign-up-time-passes" component={SignUpTimePasses} />
-      <Route path="/sign-up-email-notification" component={SignUpEmailNotification} />
-      <Route path="/account-page-switch-context" component={AccountPageSwitchContext} />
-      <Route path="/create-account-choose-password" component={CreateAccountChoosePassword} />
-      <Route path="/create-account-add-company-details" component={CreateAccountAddCompanyDetails} />
-      <Route path="/create-account-your-details" component={CreateAccountYourDetails} />
-      <Route path="/create-account-confirmation" component={CreateAccountConfirmation} />
-      <Route path="/clas-licences" exact component={LicencesListPage} />
-      <Route path="/clas-licences/:licenceId" exact component={LicencesItemPage} />
-      <Route path="/permits" component={Permits} />
-      <Route path="/permits-time-passes" component={PermitsTimePasses} />
-      <Route path="/returns-to-add-variation" component={ReturnsToAddVariation} />
-      <Route path="/permit/:licenceId" exact component={PermitPage} />
-      <Route path="/pre-app-form-enter-card-details" component={PreAppFormEnterCardDetails} />
-      <Route path="/pre-app-form-confirmation" component={PreAppFormConfirmation} />
-      <Route path="/receives-pre-app-form-email" component={ReceivesPreAppFormEmail} />
-      <Route path="/pre-app-form-email-notification" component={PreAppFormEmailNotification} />
-      <Route path="/pre-app-form-link" component={PreAppFormLink} />
-      <Route path="/receives-pre-app-review-email" component={ReceivesPreAppReviewEmail} />
-      <Route path="/pre-app-review-email-notification" component={PreAppReviewEmailNotification} />
-      <Route path="/pre-app-review-link" component={PreAppReviewLink} />
-      <Route path="/arrives-at-management-dashboard" component={ArrivesAtManagementDashboard} />
-      <Route path="/management-dashboard" component={ManagementDashboard} />
-      <Route path="/radioform" component={RadioForm} />
-      <Route path="/check" component={Check} />
+      <Route exact path="/start-page" component={StartPage} />
+      <Route exact path="/sign-up" component={SignUp} />
+      <Route exact path="/sign-up-confirmation" component={SignUpConfirmation} />
+      <Route exact path="/sign-up-switch-context" component={SignUpSwitchContext} />
+      <Route exact path="/sign-up-time-passes" component={SignUpTimePasses} />
+      <Route exact path="/sign-up-email-notification" component={SignUpEmailNotification} />
+      <Route exact path="/account-page-switch-context" component={AccountPageSwitchContext} />
+      <Route exact path="/create-account-choose-password" component={CreateAccountChoosePassword} />
+      <Route exact path="/create-account-add-company-details" component={CreateAccountAddCompanyDetails} />
+      <Route exact path="/create-account-your-details" component={CreateAccountYourDetails} />
+      <Route exact path="/create-account-confirmation" component={CreateAccountConfirmation} />
+      <Route exact path="/permits" component={Permits} />
+      <Route exact path="/permit/:licenceId" component={PermitPageClas} />
+      <Route exact path="/permit-page-clas" component={PermitPageClas} />
+      <Route exact path="/permits-time-passes" component={PermitsTimePasses} />
+      <Route exact path="/returns-to-add-variation" component={ReturnsToAddVariation} />
+      <Route exact path="/permits-with-notifications" component={PermitsWithNotifications} />
+      <Route exact path="/permit-page" component={PermitPage} />
+      <Route exact path="/pre-app-form-enter-card-details" component={PreAppFormEnterCardDetails} />
+      <Route exact path="/pre-app-form-confirmation" component={PreAppFormConfirmation} />
+      <Route exact path="/receives-pre-app-form-email" component={ReceivesPreAppFormEmail} />
+      <Route exact path="/pre-app-form-email-notification" component={PreAppFormEmailNotification} />
+      <Route exact path="/pre-app-form-link" component={PreAppFormLink} />
+      <Route exact path="/receives-pre-app-review-email" component={ReceivesPreAppReviewEmail} />
+      <Route exact path="/pre-app-review-email-notification" component={PreAppReviewEmailNotification} />
+      <Route exact path="/pre-app-review-link" component={PreAppReviewLink} />
+      <Route exact path="/arrives-at-management-dashboard" component={ArrivesAtManagementDashboard} />
+      <Route exact path="/management-dashboard" component={ManagementDashboard} />
+      <Route exact path="/radioform" component={RadioForm} />
+      <Route exact path="/check" component={Check} />
     </Switch>
   </Router>
 );

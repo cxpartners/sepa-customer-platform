@@ -39,6 +39,7 @@ class Index extends React.PureComponent {
                   <IndexListItem done href="/create-account-your-details">Create account: your details</IndexListItem>
                   <IndexListItem done href="/create-account-confirmation">Create account: confirmation</IndexListItem>
                   <IndexListItem href="/permits">Permits</IndexListItem>
+                  <IndexListItem href="/permit-page-clas">Permit page (with CLAS data)</IndexListItem>
                 </List>
                 <Heading level="h2">Add variation</Heading>
                 <List>
