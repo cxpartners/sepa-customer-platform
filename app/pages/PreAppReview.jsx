@@ -23,14 +23,16 @@ import TabPanel from '../components/TabPanel/component';
 import Textarea from '../components/Textarea/component';
 import Accordion from '../components/Accordion/component';
 import AccordionSection from '../components/AccordionSection/component';
-import Link from '../components/Link/component';
 import RadioGroup from '../components/RadioGroup/component';
 import Radio from '../components/Radio/component';
 import ActionBox from '../components/ActionBox/component';
 import FieldSet from '../components/FieldSet/component';
-import { UPDATE_REVIEW_RADIO } from '../reducers';
+import { UPDATE_REVIEW_RADIO, TOGGLE_PRE_APP_REVIEW_SCROLL } from '../reducers';
+import ScrollTo from '../components/ScrollTo/component';
+import Toggle from '../components/Toggle/component';
 
 const PermitPage = () => {
+  const showPreAppReviewScroll = useSelector((state) => state.showPreAppReviewScroll);
   const radioReviewValue = useSelector((state) => state.radioReviewValue);
   const eastingValue = useSelector((state) => state.eastingValue);
   const northingValue = useSelector((state) => state.northingValue);
@@ -126,7 +128,11 @@ const PermitPage = () => {
                             <SummaryListRow listKey="In-feed sea lice medicine required">Emamectin benzoate</SummaryListRow>
                           </SummaryList>
                           <Heading level="h3">Additional information</Heading>
-                          <br id="complete-registration" />
+                          <br />
+                          {
+                            showPreAppReviewScroll
+                              ? <ScrollTo /> : ''
+                          }
                           <ActionBox>
                             <Heading level="h3">Complete your pre-application review</Heading>
                             <FieldSet legend="Does the pre-application meet the requirements to move to the next stage?" inBox error={false} errorMessage="">
@@ -164,7 +170,7 @@ const PermitPage = () => {
                         </Column>
                         <Column>
                           <Heading level="h3">Workflow tasks:</Heading>
-                          <Link modifier="govuk-right" href="#complete-registration">Complete pre-application review</Link>
+                          <Toggle modifier="govuk-right govuk-clear-margin" href="/" className="" onClick={(e) => { e.preventDefault(); dispatch({ type: TOGGLE_PRE_APP_REVIEW_SCROLL }); }}>Complete pre-application review</Toggle>
                         </Column>
                       </Row>
                     </AccordionSection>
