@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable max-len */
-import React, { useRef } from 'react';
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import Header from '../components/Header/component';
 import Container from '../components/Container/component';
@@ -20,18 +21,18 @@ import Tab from '../components/Tab/component';
 import TabPanel from '../components/TabPanel/component';
 import Accordion from '../components/Accordion/component';
 import AccordionSection from '../components/AccordionSection/component';
-import Link from '../components/Link/component';
 import RadioGroup from '../components/RadioGroup/component';
 import Radio from '../components/Radio/component';
+import ScrollTo from '../components/ScrollTo/component';
 import ActionBox from '../components/ActionBox/component';
 import FieldSet from '../components/FieldSet/component';
 import ActionBoxComplete from '../components/ActionBoxComplete/component';
-
-const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop);
+import Toggle from '../components/Toggle/component';
+import { TOGGLE_PRE_APP_SCREENING_SCROLL } from '../reducers';
 
 const PermitPage = () => {
-  const completeRegistration = useRef(null);
-  const scroll = () => scrollToRef(completeRegistration);
+  const showPreAppScreeningScroll = useSelector((state) => state.showPreAppScreeningScroll);
+  const dispatch = useDispatch();
 
   let easting = 182980;
   let northing = 790973;
@@ -118,7 +119,11 @@ const PermitPage = () => {
                             <SummaryListRow listKey="In-feed sea lice medicine required">Emamectin benzoate</SummaryListRow>
                           </SummaryList>
                           <Heading level="h3">Additional information</Heading>
-                          <br ref={completeRegistration} />
+                          <br />
+                          {
+                            showPreAppScreeningScroll
+                              ? <ScrollTo /> : ''
+                          }
                           <ActionBoxComplete>Pre-application review</ActionBoxComplete>
                           <ActionBox>
                             <Heading level="h3">Initial screening report</Heading>
@@ -133,7 +138,7 @@ const PermitPage = () => {
                         </Column>
                         <Column>
                           <Heading level="h3">Workflow tasks:</Heading>
-                          <Link modifier="govuk-right" onClick={scroll}>Complete initial screening report</Link>
+                          <Toggle modifier="govuk-right govuk-clear-margin" href="/" className="" onClick={(e) => { e.preventDefault(); dispatch({ type: TOGGLE_PRE_APP_SCREENING_SCROLL }); }}>Complete initial screening report</Toggle>
                         </Column>
                       </Row>
                     </AccordionSection>

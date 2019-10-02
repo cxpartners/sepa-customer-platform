@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable max-len */
-import React, { useRef } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import Header from '../components/Header/component';
@@ -23,19 +23,19 @@ import TabPanel from '../components/TabPanel/component';
 import Textarea from '../components/Textarea/component';
 import Accordion from '../components/Accordion/component';
 import AccordionSection from '../components/AccordionSection/component';
-import Link from '../components/Link/component';
 import RadioGroup from '../components/RadioGroup/component';
 import Radio from '../components/Radio/component';
 import ActionBox from '../components/ActionBox/component';
 import FieldSet from '../components/FieldSet/component';
-import { UPDATE_REVIEW_RADIO } from '../reducers';
-
-const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop);
+import { UPDATE_REVIEW_RADIO, TOGGLE_PRE_APP_REVIEW_SCROLL } from '../reducers';
+import ScrollTo from '../components/ScrollTo/component';
+import Toggle from '../components/Toggle/component';
 
 const PermitPage = () => {
-  const completeRegistration = useRef(null);
-  const scroll = () => scrollToRef(completeRegistration);
+  const showPreAppReviewScroll = useSelector((state) => state.showPreAppReviewScroll);
   const radioReviewValue = useSelector((state) => state.radioReviewValue);
+  const eastingValue = useSelector((state) => state.eastingValue);
+  const northingValue = useSelector((state) => state.northingValue);
   const dispatch = useDispatch();
 
   let easting = 182980;
@@ -101,9 +101,14 @@ const PermitPage = () => {
                             <SummaryListRow listKey="Number of pens">11</SummaryListRow>
                             {locationArray
                               .map((location) => (
-                                <SummaryListRow listKey={`Pen ${location.pen}`}>{`X ${location.easting} (Eastings), Y ${location.northing} (Northing)`}</SummaryListRow>
+                                <SummaryListRow listKey={`Pen ${location.pen}`}>{`X ${location.easting} (Eastings), Y ${location.northing} (Northings)`}</SummaryListRow>
                               ))}
-                            <SummaryListRow listKey="Pen 11">X 182980 (Eastings), Y 790973 (Northing)</SummaryListRow>
+                            {
+                              eastingValue && northingValue
+                                ? (
+                                  <SummaryListRow listKey="Pen 11">{`X ${eastingValue} (Eastings), Y ${northingValue} (Northing)`}</SummaryListRow>
+                                ) : ''
+                            }
                           </SummaryList>
                           <Heading level="h3">Fish details</Heading>
                           <SummaryList>
@@ -123,7 +128,11 @@ const PermitPage = () => {
                             <SummaryListRow listKey="In-feed sea lice medicine required">Emamectin benzoate</SummaryListRow>
                           </SummaryList>
                           <Heading level="h3">Additional information</Heading>
-                          <br ref={completeRegistration} />
+                          <br />
+                          {
+                            showPreAppReviewScroll
+                              ? <ScrollTo /> : ''
+                          }
                           <ActionBox>
                             <Heading level="h3">Complete your pre-application review</Heading>
                             <FieldSet legend="Does the pre-application meet the requirements to move to the next stage?" inBox error={false} errorMessage="">
@@ -161,7 +170,7 @@ const PermitPage = () => {
                         </Column>
                         <Column>
                           <Heading level="h3">Workflow tasks:</Heading>
-                          <Link modifier="govuk-right" onClick={scroll}>Complete pre-application review</Link>
+                          <Toggle modifier="govuk-right govuk-clear-margin" href="/" className="" onClick={(e) => { e.preventDefault(); dispatch({ type: TOGGLE_PRE_APP_REVIEW_SCROLL }); }}>Complete pre-application review</Toggle>
                         </Column>
                       </Row>
                     </AccordionSection>

@@ -31,7 +31,7 @@ const Permit = () => {
                 <PermitListRow listKey="CAR/L/4336591" status="pre-application (2)" isActive href="/" siteName="Kimelford" waterBody="Loch Tarbot Gallaway" date="17/02/2020" />
                 <PermitListRow listKey="CAR/L/4336592" status="pre-application" href="/" siteName="Carpford" waterBody="Loch Mhòrair" date="17/02/2020" />
               </PermitList>
-              <PermitList caption="Awarded permits (24)" dateColumn="Review date">
+              <PermitList caption="Awarded permits (2)" dateColumn="Review date">
                 <PermitListRow listKey="CAR/L/4336544" href="/permit-page" siteName="Kimelford" waterBody="Loch Tarbot Gallaway" date="17/02/2020" />
                 <PermitListRow listKey="CAR/L/4336322" href="/permit-page" siteName="Carpford" waterBody="Loch Mhòrair" date="17/02/2020" />
               </PermitList>
