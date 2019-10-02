@@ -11,6 +11,7 @@ import Button from '../components/Button/component';
 import PermitList from '../components/PermitList/component';
 import PermitListRow from '../components/PermitListRow/component';
 import Warning from '../components/Warning/component';
+import Details from '../components/Details/component';
 
 const Permit = () => {
   const name = 'Salmon & Salmon Ltd';
@@ -29,12 +30,15 @@ const Permit = () => {
               <Heading level="h2">Your permits</Heading>
               <PermitList caption="In progress (2)" dateColumn="Last updated">
                 <PermitListRow listKey="CAR/L/4336591" status="pre-application (2)" isActive href="/" siteName="Kimelford" waterBody="Loch Tarbot Gallaway" date="17/02/2020" />
-                <PermitListRow listKey="CAR/L/4336592" status="pre-application" href="/" siteName="Carpford" waterBody="Loch Mhòrair" date="17/02/2020" />
+                <PermitListRow listKey="CAR/L/4336592" status="pre-application" href="/" siteName="Loch Katrine Salmon Farm" waterBody="Loch Katrine" date="17/02/2020" />
               </PermitList>
-              <PermitList caption="Awarded permits (2)" dateColumn="Review date">
+              <PermitList caption="Awarded permits (4)" dateColumn="Review date">
+                <PermitListRow listKey="CAR/L/4336581" href="/permit-page" siteName="Loch Mhòrair Salmon Farm" waterBody="Loch Mhòrair" date="17/02/2020" />
                 <PermitListRow listKey="CAR/L/4336544" href="/permit-page" siteName="Kimelford" waterBody="Loch Tarbot Gallaway" date="17/02/2020" />
                 <PermitListRow listKey="CAR/L/4336322" href="/permit-page" siteName="Carpford" waterBody="Loch Mhòrair" date="17/02/2020" />
+                <PermitListRow listKey="CAR/L/4336322" href="/permit-page" siteName="Carradale (north)" waterBody="Loch Tarbot Gallaway" date="17/02/2020" />
               </PermitList>
+              <Details modifier="govuk-!-font-weight-bold" title="Expired permits" />
             </Column>
           </Row>
         </Main>
