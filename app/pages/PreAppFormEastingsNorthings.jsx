@@ -58,7 +58,7 @@ const PreAppFormEastingNorthing = () => {
                 <SummaryList>
                   {locationArray
                     .map((location) => (
-                      <SummaryListRow addLinks addEdit listKey={`Pen ${location.pen}`}>{`X ${location.easting} (Eastings), Y ${location.northing} (Northing)`}</SummaryListRow>
+                      <SummaryListRow addLinks addEdit listKey={`Pen ${location.pen}`}>{`X ${location.easting} (Eastings), Y ${location.northing} (Northings)`}</SummaryListRow>
                     ))}
                 </SummaryList>
                 {
@@ -82,7 +82,7 @@ const PreAppFormEastingNorthing = () => {
                 }
               </FieldSet>
               <Toggle href="/" className="" onClick={(e) => { e.preventDefault(); dispatch({ type: TOGGLE_LOCATION_INPUT }); }}>Add one more pen</Toggle>
-              <Button href="/pre-app-form-species ">Save and continue</Button>
+              <Button href="/pre-app-form-species">Save and continue</Button>
               <Paragraph>If you cannot finish the form now, all your previously completed answers will be saved.</Paragraph>
             </Column>
           </Row>
