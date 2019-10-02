@@ -15,6 +15,7 @@ export const UPDATE_CONTACT_DETAILS_RADIO = 'UPDATE_CONTACT_DETAILS_RADIO';
 export const UPDATE_EASTINGS_VALUE = 'UPDATE_EASTINGS_VALUE';
 export const UPDATE_NORTHINGS_VALUE = 'UPDATE_NORTHINGS_VALUE';
 export const TOGGLE_LOCATION_INPUT = 'TOGGLE_LOCATION_INPUT';
+export const TOGGLE_PRE_APP_SCREENING_SCROLL = 'TOGGLE_PRE_APP_SCREENING_SCROLL';
 
 const initialState = {
   radioValue: '',
@@ -39,6 +40,7 @@ const initialState = {
   weightValue: '186,786',
   fishValue: 'Salmon',
   feedingRateValue: '7',
+  showPreAppScreeningScroll: false,
 };
 
 export default (state = initialState, action) => {
@@ -108,6 +110,11 @@ export default (state = initialState, action) => {
         ...state,
         showLocationInput: !state.showLocationInput,
       };
+    case TOGGLE_PRE_APP_SCREENING_SCROLL:
+      return {
+        ...state,
+        showPreAppScreeningScroll: !state.showPreAppScreeningScroll,
+      };
     default:
       return state;
   }
@@ -151,6 +158,10 @@ export const updateContactDetailsRadio = () => (dispatch) => {
 
 export const toggleLocationInput = () => (dispatch) => {
   dispatch({ type: TOGGLE_LOCATION_INPUT });
+};
+
+export const togglePreAppScreeningScroll = () => (dispatch) => {
+  dispatch({ type: TOGGLE_PRE_APP_SCREENING_SCROLL });
 };
 
 export const updateEastingsValue = () => (dispatch) => {
