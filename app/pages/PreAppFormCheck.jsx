@@ -70,7 +70,7 @@ const PreAppFormCheck = () => {
                 <SummaryListRow addLinks listKey="Number of pens">11</SummaryListRow>
                 {locationArray
                   .map((location) => (
-                    <SummaryListRow listKey={`Pen ${location.pen}`}>{`X ${location.easting} (Eastings), Y ${location.northing} (Northing)`}</SummaryListRow>
+                    <SummaryListRow listKey={`Pen ${location.pen}`}>{`X ${location.easting} (Eastings), Y ${location.northing} (Northings)`}</SummaryListRow>
                   ))}
                 <SummaryListRow listKey="Pen 11">{`X ${eastingValue} (Eastings), Y ${northingValue} (Northing)`}</SummaryListRow>
               </SummaryList>

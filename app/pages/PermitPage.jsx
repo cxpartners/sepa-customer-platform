@@ -91,7 +91,7 @@ const PermitPage = () => {
                             <SummaryListRow listKey="Number of pens">10</SummaryListRow>
                             {locationArray
                               .map((location) => (
-                                <SummaryListRow listKey={`Pen ${location.pen}`}>{`X ${location.easting} (Eastings), Y ${location.northing} (Northing)`}</SummaryListRow>
+                                <SummaryListRow listKey={`Pen ${location.pen}`}>{`X ${location.easting} (Eastings), Y ${location.northing} (Northings)`}</SummaryListRow>
                               ))}
                           </SummaryList>
                           <Heading level="h3">Fish details</Heading>
