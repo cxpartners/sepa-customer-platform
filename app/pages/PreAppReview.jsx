@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable max-len */
-import React, { useRef } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import Header from '../components/Header/component';
@@ -30,11 +30,7 @@ import ActionBox from '../components/ActionBox/component';
 import FieldSet from '../components/FieldSet/component';
 import { UPDATE_REVIEW_RADIO } from '../reducers';
 
-const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop);
-
 const PermitPage = () => {
-  const completeRegistration = useRef(null);
-  const scroll = () => scrollToRef(completeRegistration);
   const radioReviewValue = useSelector((state) => state.radioReviewValue);
   const dispatch = useDispatch();
 
@@ -101,7 +97,7 @@ const PermitPage = () => {
                             <SummaryListRow listKey="Number of pens">11</SummaryListRow>
                             {locationArray
                               .map((location) => (
-                                <SummaryListRow listKey={`Pen ${location.pen}`}>{`X ${location.easting} (Eastings), Y ${location.northing} (Northing)`}</SummaryListRow>
+                                <SummaryListRow listKey={`Pen ${location.pen}`}>{`X ${location.easting} (Eastings), Y ${location.northing} (Northings)`}</SummaryListRow>
                               ))}
                             <SummaryListRow listKey="Pen 11">X 182980 (Eastings), Y 790973 (Northing)</SummaryListRow>
                           </SummaryList>
@@ -123,7 +119,7 @@ const PermitPage = () => {
                             <SummaryListRow listKey="In-feed sea lice medicine required">Emamectin benzoate</SummaryListRow>
                           </SummaryList>
                           <Heading level="h3">Additional information</Heading>
-                          <br ref={completeRegistration} />
+                          <br id="complete-registration" />
                           <ActionBox>
                             <Heading level="h3">Complete your pre-application review</Heading>
                             <FieldSet legend="Does the pre-application meet the requirements to move to the next stage?" inBox error={false} errorMessage="">
@@ -161,7 +157,7 @@ const PermitPage = () => {
                         </Column>
                         <Column>
                           <Heading level="h3">Workflow tasks:</Heading>
-                          <Link modifier="govuk-right" onClick={scroll}>Complete pre-application review</Link>
+                          <Link modifier="govuk-right" href="#complete-registration">Complete pre-application review</Link>
                         </Column>
                       </Row>
                     </AccordionSection>

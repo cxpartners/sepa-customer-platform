@@ -3,292 +3,289 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Loadable from 'react-loadable';
 
-const ScrollToTop = Loadable({
-  loader: () => import('./components/ScrollToTop/component'),
-  loading() {
-    return <div>Loading...</div>;
-  },
-});
+import ScrollToTop from './components/ScrollToTop/component';
+import Spinner from './components/Spinner/component';
+
 const Index = Loadable({
   loader: () => import('./pages/Index'),
   loading() {
-    return <div>Loading...</div>;
+    return <Spinner />;
   },
 });
 const UserTypes = Loadable({
   loader: () => import('./pages/UserTypes'),
   loading() {
-    return <div>Loading...</div>;
+    return <Spinner />;
   },
 });
 const ArrivesAtStartPage = Loadable({
   loader: () => import('./pages/ArrivesAtStartPage'),
   loading() {
-    return <div>Loading...</div>;
+    return <Spinner />;
   },
 });
 const StartPage = Loadable({
   loader: () => import('./pages/StartPage'),
   loading() {
-    return <div>Loading...</div>;
+    return <Spinner />;
   },
 });
 const SepaHomePage = Loadable({
   loader: () => import('./pages/SepaHomePage'),
   loading() {
-    return <div>Loading...</div>;
+    return <Spinner />;
   },
 });
 const SignUpSwitchContext = Loadable({
   loader: () => import('./pages/SignUpSwitchContext'),
   loading() {
-    return <div>Loading...</div>;
+    return <Spinner />;
   },
 });
 const AccountPageSwitchContext = Loadable({
   loader: () => import('./pages/AccountPageSwitchContext'),
   loading() {
-    return <div>Loading...</div>;
+    return <Spinner />;
   },
 });
 const Check = Loadable({
   loader: () => import('./pages/Check'),
   loading() {
-    return <div>Loading...</div>;
+    return <Spinner />;
   },
 });
 const RadioForm = Loadable({
   loader: () => import('./pages/RadioForm'),
   loading() {
-    return <div>Loading...</div>;
+    return <Spinner />;
   },
 });
 const SignUp = Loadable({
   loader: () => import('./pages/SignUp'),
   loading() {
-    return <div>Loading...</div>;
+    return <Spinner />;
   },
 });
 const SignUpConfirmation = Loadable({
   loader: () => import('./pages/SignUpConfirmation'),
   loading() {
-    return <div>Loading...</div>;
+    return <Spinner />;
   },
 });
 const SignUpTimePasses = Loadable({
   loader: () => import('./pages/SignUpTimePasses'),
   loading() {
-    return <div>Loading...</div>;
+    return <Spinner />;
   },
 });
 const ReturnsToAddVariation = Loadable({
   loader: () => import('./pages/ReturnsToAddVariation'),
   loading() {
-    return <div>Loading...</div>;
+    return <Spinner />;
   },
 });
 const SignUpEmailNotification = Loadable({
   loader: () => import('./pages/SignUpEmailNotification'),
   loading() {
-    return <div>Loading...</div>;
+    return <Spinner />;
   },
 });
 const CreateAccountChoosePassword = Loadable({
   loader: () => import('./pages/CreateAccountChoosePassword'),
   loading() {
-    return <div>Loading...</div>;
+    return <Spinner />;
   },
 });
 const CreateAccountAddCompanyDetails = Loadable({
   loader: () => import('./pages/CreateAccountAddCompanyDetails'),
   loading() {
-    return <div>Loading...</div>;
+    return <Spinner />;
   },
 });
 const CreateAccountYourDetails = Loadable({
   loader: () => import('./pages/CreateAccountYourDetails'),
   loading() {
-    return <div>Loading...</div>;
+    return <Spinner />;
   },
 });
 const CreateAccountConfirmation = Loadable({
   loader: () => import('./pages/CreateAccountConfirmation'),
   loading() {
-    return <div>Loading...</div>;
+    return <Spinner />;
   },
 });
 const Permits = Loadable({
   loader: () => import('./pages/Permits'),
   loading() {
-    return <div>Loading...</div>;
+    return <Spinner />;
   },
 });
 const PermitsWithNotifications = Loadable({
   loader: () => import('./pages/PermitsWithNotifications'),
   loading() {
-    return <div>Loading...</div>;
+    return <Spinner />;
   },
 });
 const PermitPage = Loadable({
   loader: () => import('./pages/PermitPage'),
   loading() {
-    return <div>Loading...</div>;
+    return <Spinner />;
   },
 });
 const PermitPageClas = Loadable({
   loader: () => import('./pages/PermitPageClas'),
   loading() {
-    return <div>Loading...</div>;
+    return <Spinner />;
   },
 });
 const PreAppFormEnterCardDetails = Loadable({
   loader: () => import('./pages/PreAppFormEnterCardDetails'),
   loading() {
-    return <div>Loading...</div>;
+    return <Spinner />;
   },
 });
 const PreAppFormConfirmation = Loadable({
   loader: () => import('./pages/PreAppFormConfirmation'),
   loading() {
-    return <div>Loading...</div>;
+    return <Spinner />;
   },
 });
 const ReceivesPreAppFormEmail = Loadable({
   loader: () => import('./pages/ReceivesPreAppFormEmail'),
   loading() {
-    return <div>Loading...</div>;
+    return <Spinner />;
   },
 });
 const PreAppFormStart = Loadable({
   loader: () => import('./pages/PreAppFormStart'),
   loading() {
-    return <div>Loading...</div>;
+    return <Spinner />;
   },
 });
 const PreAppFormEmailNotification = Loadable({
   loader: () => import('./pages/PreAppFormEmailNotification'),
   loading() {
-    return <div>Loading...</div>;
+    return <Spinner />;
   },
 });
 const PreAppFormLink = Loadable({
   loader: () => import('./pages/PreAppFormLink'),
   loading() {
-    return <div>Loading...</div>;
+    return <Spinner />;
   },
 });
 const ReceivesPreAppReviewEmail = Loadable({
   loader: () => import('./pages/ReceivesPreAppReviewEmail'),
   loading() {
-    return <div>Loading...</div>;
+    return <Spinner />;
   },
 });
 const PreAppReviewEmailNotification = Loadable({
   loader: () => import('./pages/PreAppReviewEmailNotification'),
   loading() {
-    return <div>Loading...</div>;
+    return <Spinner />;
   },
 });
 const PreAppReviewLink = Loadable({
   loader: () => import('./pages/PreAppReviewLink'),
   loading() {
-    return <div>Loading...</div>;
+    return <Spinner />;
   },
 });
 const PreAppReview = Loadable({
   loader: () => import('./pages/PreAppReview'),
   loading() {
-    return <div>Loading...</div>;
+    return <Spinner />;
   },
 });
 const PreAppScreening = Loadable({
   loader: () => import('./pages/PreAppScreening'),
   loading() {
-    return <div>Loading...</div>;
+    return <Spinner />;
   },
 });
 const ArrivesAtManagementDashboard = Loadable({
   loader: () => import('./pages/ArrivesAtManagementDashboard'),
   loading() {
-    return <div>Loading...</div>;
+    return <Spinner />;
   },
 });
 const ManagementDashboard = Loadable({
   loader: () => import('./pages/ManagementDashboard'),
   loading() {
-    return <div>Loading...</div>;
+    return <Spinner />;
   },
 });
 const PermitsTimePasses = Loadable({
   loader: () => import('./pages/PermitsTimePasses'),
   loading() {
-    return <div>Loading...</div>;
+    return <Spinner />;
   },
 });
 const PreAppFormContactDetails = Loadable({
   loader: () => import('./pages/PreAppFormContactDetails'),
   loading() {
-    return <div>Loading...</div>;
+    return <Spinner />;
   },
 });
 const PreAppFormSiteName = Loadable({
   loader: () => import('./pages/PreAppFormSiteName'),
   loading() {
-    return <div>Loading...</div>;
+    return <Spinner />;
   },
 });
 const PreAppFormWaterBodyName = Loadable({
   loader: () => import('./pages/PreAppFormWaterBodyName'),
   loading() {
-    return <div>Loading...</div>;
+    return <Spinner />;
   },
 });
 const PreAppFormEastingNorthing = Loadable({
   loader: () => import('./pages/PreAppFormEastingsNorthings'),
   loading() {
-    return <div>Loading...</div>;
+    return <Spinner />;
   },
 });
 const PreAppFormSpecies = Loadable({
   loader: () => import('./pages/PreAppFormSpecies'),
   loading() {
-    return <div>Loading...</div>;
+    return <Spinner />;
   },
 });
 const PreAppFormWeight = Loadable({
   loader: () => import('./pages/PreAppFormWeight'),
   loading() {
-    return <div>Loading...</div>;
+    return <Spinner />;
   },
 });
 const PreAppFormFeedingRate = Loadable({
   loader: () => import('./pages/PreAppFormFeedingRate'),
   loading() {
-    return <div>Loading...</div>;
+    return <Spinner />;
   },
 });
 const PreAppFormFeedMedicines = Loadable({
   loader: () => import('./pages/PreAppFormFeedMedicines'),
   loading() {
-    return <div>Loading...</div>;
+    return <Spinner />;
   },
 });
 const PreAppFormBathMedicines = Loadable({
   loader: () => import('./pages/PreAppFormBathMedicines'),
   loading() {
-    return <div>Loading...</div>;
+    return <Spinner />;
   },
 });
 const PreAppFormAdditional = Loadable({
   loader: () => import('./pages/PreAppFormAdditional'),
   loading() {
-    return <div>Loading...</div>;
+    return <Spinner />;
   },
 });
 const PreAppFormCheck = Loadable({
   loader: () => import('./pages/PreAppFormCheck'),
   loading() {
-    return <div>Loading...</div>;
+    return <Spinner />;
   },
 });
 
