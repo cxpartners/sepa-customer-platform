@@ -17,7 +17,12 @@ import FieldSet from '../components/FieldSet/component';
 import Details from '../components/Details/component';
 import SummaryListRow from '../components/SummaryListRow/component';
 import SummaryList from '../components/SummaryList/component';
-import { UPDATE_EASTINGS_VALUE, UPDATE_NORTHINGS_VALUE, TOGGLE_LOCATION_INPUT } from '../reducers';
+import {
+  UPDATE_EASTINGS_VALUE,
+  UPDATE_NORTHINGS_VALUE,
+  TOGGLE_LOCATION_INPUT,
+  TOGGLE_LOCATION_ROW,
+} from '../reducers';
 import TextInput from '../components/TextInput/component';
 import Button from '../components/Button/component';
 import Paragraph from '../components/Paragraph/component';
@@ -29,6 +34,7 @@ const PreAppFormEastingNorthing = () => {
   const eastingValue = useSelector((state) => state.eastingValue);
   const northingValue = useSelector((state) => state.northingValue);
   const showLocationInput = useSelector((state) => state.showLocationInput);
+  const showLocationRow = useSelector((state) => state.showLocationRow);
   const dispatch = useDispatch();
 
   let easting = 182980;
@@ -62,7 +68,7 @@ const PreAppFormEastingNorthing = () => {
                       <SummaryListRow addLinks addEdit listKey={`Pen ${location.pen}`}>{`X ${location.easting} (Eastings), Y ${location.northing} (Northings)`}</SummaryListRow>
                     ))}
                   {
-                    eastingValue && northingValue
+                    eastingValue && northingValue && showLocationRow
                       ? (
                         <SummaryListRow addLinks addEdit listKey="Pen 11">{`X ${eastingValue} (Eastings), Y ${northingValue} (Northings)`}</SummaryListRow>
                       ) : ''
@@ -93,7 +99,7 @@ const PreAppFormEastingNorthing = () => {
                               onChange={(e) => dispatch({ type: UPDATE_NORTHINGS_VALUE, payload: e.target.value })}
                             />
                           </div>
-                          <Button modifier="govuk-button--secondary" onClick={(e) => { e.preventDefault(); dispatch({ type: TOGGLE_LOCATION_INPUT }); }}>Add</Button>
+                          <Button modifier="govuk-button--secondary" onClick={(e) => { e.preventDefault(); dispatch({ type: TOGGLE_LOCATION_INPUT }); dispatch({ type: TOGGLE_LOCATION_ROW }); }}>Add</Button>
                         </FormGroup>
                       </div>
                     </FieldSet>
