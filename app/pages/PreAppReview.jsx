@@ -155,7 +155,7 @@ const PermitPage = () => {
                                 )
                             }
                           </ActionBox>
-                          <ActionBox>
+                          <ActionBox locked>
                             <Heading level="h3">Initial screening report</Heading>
                           </ActionBox>
                         </Column>
@@ -165,9 +165,9 @@ const PermitPage = () => {
                         </Column>
                       </Row>
                     </AccordionSection>
-                    <AccordionSection expanded={false} sectionKey="2" heading="Current data" />
-                    <AccordionSection expanded={false} sectionKey="3" heading="Modelling" />
-                    <AccordionSection expanded={false} sectionKey="4" heading="Baseline Suvey" />
+                    <AccordionSection expanded={false} sectionKey="2" heading="Current data" locked />
+                    <AccordionSection expanded={false} sectionKey="3" heading="Modelling" locked />
+                    <AccordionSection expanded={false} sectionKey="4" heading="Baseline Suvey" locked />
                   </Accordion>
                 </TabPanel>
               </Tabs>

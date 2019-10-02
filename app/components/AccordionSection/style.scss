@@ -2,3 +2,10 @@
   @include govuk-font($size: 24);
   color: $govuk-secondary-text-colour;
 }
+
+.govuk-accordion__lock-icon {
+  position: absolute;
+  top: 50%;
+  right: 45px;
+  margin-top: -17px;
+}
