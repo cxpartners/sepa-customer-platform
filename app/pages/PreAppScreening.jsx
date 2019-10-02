@@ -122,7 +122,7 @@ const PermitPage = () => {
                           <ActionBoxComplete>Pre-application review</ActionBoxComplete>
                           <ActionBox>
                             <Heading level="h3">Initial screening report</Heading>
-                            <FieldSet legend="Does the pre-application meet the requirements to move to the next stage?" inPage error={false} errorMessage="">
+                            <FieldSet legend="Does the pre-application meet the requirements to move to the next stage?" inBox error={false} errorMessage="">
                               <RadioGroup inline>
                                 <Radio value="Yes" />
                                 <Radio value="No" />

@@ -26,7 +26,7 @@ const Header = (props) => {
               isNotification
                 ? (
                   <span className="govuk-header__logotype-text">
-                    <a className="govuk-!-font-size-14 govuk-!-font-weight-bold white" href="/">Notifications (2)</a>
+                    <a className="govuk-!-font-size-14 govuk-!-font-weight-bold govuk-routerlink" href="/">Notifications (2)</a>
                   </span>
                 )
                 : ''

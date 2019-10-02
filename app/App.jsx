@@ -38,6 +38,17 @@ import PreAppScreening from './pages/PreAppScreening';
 import ArrivesAtManagementDashboard from './pages/ArrivesAtManagementDashboard';
 import ManagementDashboard from './pages/ManagementDashboard';
 import PermitsTimePasses from './pages/PermitsTimePasses';
+import PreAppFormContactDetails from './pages/PreAppFormContactDetails';
+import PreAppFormSiteName from './pages/PreAppFormSiteName';
+import PreAppFormWaterBodyName from './pages/PreAppFormWaterBodyName';
+import PreAppFormEastingNorthing from './pages/PreAppFormEastingsNorthings';
+import PreAppFormSpecies from './pages/PreAppFormSpecies';
+import PreAppFormWeight from './pages/PreAppFormWeight';
+import PreAppFormFeedingRate from './pages/PreAppFormFeedingRate';
+import PreAppFormFeedMedicines from './pages/PreAppFormFeedMedicines';
+import PreAppFormBathMedicines from './pages/PreAppFormBathMedicines';
+import PreAppFormAdditional from './pages/PreAppFormAdditional';
+import PreAppFormCheck from './pages/PreAppFormCheck';
 
 const App = () => (
   <Router>
@@ -71,6 +82,17 @@ const App = () => (
       <Route exact path="/receives-pre-app-form-email" component={ReceivesPreAppFormEmail} />
       <Route exact path="/pre-app-form-email-notification" component={PreAppFormEmailNotification} />
       <Route exact path="/pre-app-form-link" component={PreAppFormLink} />
+      <Route exact path="/pre-app-form-contact-details" component={PreAppFormContactDetails} />
+      <Route exact path="/pre-app-form-site-name" component={PreAppFormSiteName} />
+      <Route exact path="/pre-app-form-water-body-name" component={PreAppFormWaterBodyName} />
+      <Route exact path="/pre-app-form-eastings-northings" component={PreAppFormEastingNorthing} />
+      <Route exact path="/pre-app-form-species" component={PreAppFormSpecies} />
+      <Route exact path="/pre-app-form-weight" component={PreAppFormWeight} />
+      <Route exact path="/pre-app-form-feeding-rate" component={PreAppFormFeedingRate} />
+      <Route exact path="/pre-app-form-bath-medicines" component={PreAppFormBathMedicines} />
+      <Route exact path="/pre-app-form-feed-medicines" component={PreAppFormFeedMedicines} />
+      <Route exact path="/pre-app-form-additional" component={PreAppFormAdditional} />
+      <Route exact path="/pre-app-form-check" component={PreAppFormCheck} />
       <Route exact path="/pre-app-review" component={PreAppReview} />
       <Route exact path="/receives-pre-app-review-email" component={ReceivesPreAppReviewEmail} />
       <Route exact path="/pre-app-review-email-notification" component={PreAppReviewEmailNotification} />
