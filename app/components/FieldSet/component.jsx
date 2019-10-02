@@ -7,6 +7,7 @@ const FieldSet = (props) => {
     children,
     legend,
     inPage,
+    inBox,
     hint,
     errorMessage,
     error,
@@ -20,6 +21,8 @@ const FieldSet = (props) => {
 
   if (legend) {
     if (inPage) {
+      isLegend = <legend className="govuk-fieldset__legend govuk-!-font-weight-bold govuk-!-font-size-24">{legend}</legend>;
+    } else if (inBox) {
       isLegend = <legend className="govuk-fieldset__legend">{legend}</legend>;
     } else {
       isLegend = (
@@ -65,12 +68,14 @@ FieldSet.propTypes = {
   errorMessage: PropTypes.string,
   error: PropTypes.bool,
   inPage: PropTypes.bool,
+  inBox: PropTypes.bool,
 };
 
 FieldSet.defaultProps = {
   legend: null,
   hint: null,
   inPage: false,
+  inBox: false,
   errorMessage: '',
   error: false,
 };

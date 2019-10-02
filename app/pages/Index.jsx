@@ -51,18 +51,18 @@ class Index extends React.PureComponent {
                   <IndexListItem done href="/pre-app-form-start">Pre-application form start</IndexListItem>
                   <Heading level="h3">Pre-application form:</Heading>
                   <List>
-                    <IndexListItem href="/pre-app-form-contact-details">Contact details</IndexListItem>
-                    <IndexListItem href="/pre-app-form-site-name">Site name</IndexListItem>
-                    <IndexListItem href="/pre-app-form-water-body-name">Water body name</IndexListItem>
-                    <IndexListItem href="/pre-app-form-eastings-northings">Eastings; Northings</IndexListItem>
-                    <IndexListItem href="/pre-app-form-species">Species</IndexListItem>
-                    <IndexListItem href="/pre-app-form-weight">Weight</IndexListItem>
-                    <IndexListItem href="/pre-app-form-feeding-rate">Feeding rate</IndexListItem>
-                    <IndexListItem href="/pre-app-form-bath-medicines">Bath medicines</IndexListItem>
-                    <IndexListItem href="/pre-app-form-feed-medicines">Feed medicines</IndexListItem>
-                    <IndexListItem href="/pre-app-form-additional">Additional</IndexListItem>
+                    <IndexListItem done href="/pre-app-form-contact-details">Contact details</IndexListItem>
+                    <IndexListItem done href="/pre-app-form-site-name">Site name</IndexListItem>
+                    <IndexListItem done href="/pre-app-form-water-body-name">Water body name</IndexListItem>
+                    <IndexListItem done href="/pre-app-form-eastings-northings">Eastings; Northings</IndexListItem>
+                    <IndexListItem done href="/pre-app-form-species">Species</IndexListItem>
+                    <IndexListItem done href="/pre-app-form-weight">Weight</IndexListItem>
+                    <IndexListItem done href="/pre-app-form-feeding-rate">Feeding rate</IndexListItem>
+                    <IndexListItem done href="/pre-app-form-bath-medicines">Bath medicines</IndexListItem>
+                    <IndexListItem done href="/pre-app-form-feed-medicines">Feed medicines</IndexListItem>
+                    <IndexListItem done href="/pre-app-form-additional">Additional</IndexListItem>
                   </List>
-                  <IndexListItem href="/pre-app-form-check">Check your answers</IndexListItem>
+                  <IndexListItem done href="/pre-app-form-check">Check your answers</IndexListItem>
                   <IndexListItem done href="/pre-app-form-enter-card-details">Enter card details</IndexListItem>
                   <IndexListItem done href="/pre-app-form-confirmation">Pre-application form confirmation</IndexListItem>
                 </List>

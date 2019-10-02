@@ -42,7 +42,7 @@ const PermitPage = () => {
 
   return (
     <>
-      <Header isNotification={false} userName="Oliver Allen" />
+      <Header isNotification userName="Oliver Allen" />
       <Container>
         <PhaseBanner />
         <BackLink href="/permits" />

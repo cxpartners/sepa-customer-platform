@@ -11,6 +11,10 @@ export const UPDATE_CREATE_ACCOUNT_COMPANY_DETAILS = 'UPDATE_CREATE_ACCOUNT_COMP
 export const UPDATE_CREATE_ACCOUNT_YOUR_DETAILS_NAME = 'UPDATE_CREATE_ACCOUNT_YOUR_DETAILS_NAME';
 export const UPDATE_CREATE_ACCOUNT_YOUR_DETAILS_NUMBER = 'UPDATE_CREATE_ACCOUNT_YOUR_DETAILS_NUMBER';
 export const UPDATE_SIGN_UP_EMAIL_VALUE = 'UPDATE_SIGN_UP_EMAIL_VALUE';
+export const UPDATE_CONTACT_DETAILS_RADIO = 'UPDATE_CONTACT_DETAILS_RADIO';
+export const UPDATE_EASTINGS_VALUE = 'UPDATE_EASTINGS_VALUE';
+export const UPDATE_NORTHINGS_VALUE = 'UPDATE_NORTHINGS_VALUE';
+export const TOGGLE_LOCATION_INPUT = 'TOGGLE_LOCATION_INPUT';
 
 const initialState = {
   radioValue: '',
@@ -26,6 +30,15 @@ const initialState = {
   createAccountCompanyDetailsValue: '',
   createAccountYourDetailsNameValue: '',
   createAccountYourDetailsNumberValue: '',
+  contactDetailsValue: 'Oliver Allen',
+  siteNameValue: 'Loch Mhòrair Salmon Farm',
+  waterBobyNameValue: 'Loch Mhòrair',
+  eastingValue: '',
+  northingValue: '',
+  showLocationInput: false,
+  weightValue: '186,786',
+  fishValue: 'Salmon',
+  feedingRateValue: '7',
 };
 
 export default (state = initialState, action) => {
@@ -75,6 +88,26 @@ export default (state = initialState, action) => {
         ...state,
         createAccountYourDetailsNumberValue: action.payload,
       };
+    case UPDATE_CONTACT_DETAILS_RADIO:
+      return {
+        ...state,
+        contactDetailsValue: action.payload,
+      };
+    case UPDATE_EASTINGS_VALUE:
+      return {
+        ...state,
+        eastingValue: action.payload,
+      };
+    case UPDATE_NORTHINGS_VALUE:
+      return {
+        ...state,
+        northingValue: action.payload,
+      };
+    case TOGGLE_LOCATION_INPUT:
+      return {
+        ...state,
+        showLocationInput: !state.showLocationInput,
+      };
     default:
       return state;
   }
@@ -110,4 +143,20 @@ export const updateCreateAccountYourDetailsName = () => (dispatch) => {
 
 export const updateCreateAccountYourDetailsNumber = () => (dispatch) => {
   dispatch({ type: UPDATE_CREATE_ACCOUNT_YOUR_DETAILS_NUMBER });
+};
+
+export const updateContactDetailsRadio = () => (dispatch) => {
+  dispatch({ type: UPDATE_CONTACT_DETAILS_RADIO });
+};
+
+export const toggleLocationInput = () => (dispatch) => {
+  dispatch({ type: TOGGLE_LOCATION_INPUT });
+};
+
+export const updateEastingsValue = () => (dispatch) => {
+  dispatch({ type: UPDATE_EASTINGS_VALUE });
+};
+
+export const updateNorthingsValue = () => (dispatch) => {
+  dispatch({ type: UPDATE_NORTHINGS_VALUE });
 };

@@ -126,7 +126,7 @@ const PermitPage = () => {
                           <br ref={completeRegistration} />
                           <ActionBox>
                             <Heading level="h3">Complete your pre-application review</Heading>
-                            <FieldSet legend="Does the pre-application meet the requirements to move to the next stage?" inPage error={false} errorMessage="">
+                            <FieldSet legend="Does the pre-application meet the requirements to move to the next stage?" inBox error={false} errorMessage="">
                               <RadioGroup inline>
                                 <Radio value="Yes" checked={radioReviewValue === 'Yes'} onChange={(e) => dispatch({ type: UPDATE_REVIEW_RADIO, payload: e.target.value })} />
                                 <Radio value="No" checked={radioReviewValue === 'No'} onChange={(e) => dispatch({ type: UPDATE_REVIEW_RADIO, payload: e.target.value })} />

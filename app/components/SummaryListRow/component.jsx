@@ -8,6 +8,7 @@ const SummaryListRow = (props) => {
     children,
     href,
     addLinks,
+    addEdit,
   } = props;
 
   return (
@@ -22,10 +23,28 @@ const SummaryListRow = (props) => {
         addLinks
           ? (
             <dd className="govuk-summary-list__actions">
-              <NavLink className="govuk-link" to={href}>
-                Change
-                <span className="govuk-visually-hidden">{listKey}</span>
-              </NavLink>
+              {
+                addEdit
+                  ? (
+                    <>
+                      <NavLink className="govuk-link" to={href}>
+                        Edit
+                        <span className="govuk-visually-hidden">{listKey}</span>
+                      </NavLink>
+                      &nbsp;
+                      &nbsp;
+                      <NavLink className="govuk-link" to={href}>
+                        Remove
+                        <span className="govuk-visually-hidden">{listKey}</span>
+                      </NavLink>
+                    </>
+                  ) : (
+                    <NavLink className="govuk-link" to={href}>
+                      Change
+                      <span className="govuk-visually-hidden">{listKey}</span>
+                    </NavLink>
+                  )
+              }
             </dd>
           )
           : ''
@@ -41,9 +60,11 @@ SummaryListRow.propTypes = {
   children: PropTypes.node.isRequired,
   href: PropTypes.string,
   addLinks: PropTypes.bool,
+  addEdit: PropTypes.bool,
 };
 
 SummaryListRow.defaultProps = {
   href: '#',
   addLinks: false,
+  addEdit: false,
 };
