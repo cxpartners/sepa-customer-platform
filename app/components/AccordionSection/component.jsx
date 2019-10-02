@@ -8,6 +8,7 @@ const AccordionSection = (props) => {
     heading,
     expanded,
     sectionKey,
+    locked,
   } = props;
 
   const accordionSectionClassNames = classNames({
@@ -26,6 +27,16 @@ const AccordionSection = (props) => {
           <span className="govuk-accordion__section-button" id={heading}>
             {heading}
           </span>
+          {
+            locked
+              ? (
+                <span className="govuk-accordion__lock-icon">
+                  <svg role="presentation" focusable="false" width="11px" height="13px" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5.5 0C3.474 0 1.833 1.662 1.833 3.714v1.857H0V13h11V5.571H9.167V3.714C9.167 1.662 7.526 0 5.5 0zm0 1.857c1.09 0 1.833.752 1.833 1.857v1.857H3.667V3.714c0-1.105.742-1.857 1.833-1.857z" fill="#000" fillRule="nonzero" />
+                  </svg>
+                </span>
+              ) : ''
+          }
           <span className="govuk-accordion__icon" aria-hidden="true" />
         </h2>
       </div>
@@ -43,5 +54,6 @@ AccordionSection.propTypes = {
   children: PropTypes.array.isRequired,
   heading: PropTypes.string.isRequired,
   expanded: PropTypes.bool.isRequired,
+  locked: PropTypes.bool.isRequired,
   sectionKey: PropTypes.string.isRequired,
 };
