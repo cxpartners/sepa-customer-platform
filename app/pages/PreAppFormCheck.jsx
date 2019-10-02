@@ -72,7 +72,12 @@ const PreAppFormCheck = () => {
                   .map((location) => (
                     <SummaryListRow listKey={`Pen ${location.pen}`}>{`X ${location.easting} (Eastings), Y ${location.northing} (Northings)`}</SummaryListRow>
                   ))}
-                <SummaryListRow listKey="Pen 11">{`X ${eastingValue} (Eastings), Y ${northingValue} (Northing)`}</SummaryListRow>
+                {
+                  eastingValue && northingValue
+                    ? (
+                      <SummaryListRow listKey="Pen 11">{`X ${eastingValue} (Eastings), Y ${northingValue} (Northing)`}</SummaryListRow>
+                    ) : ''
+                }
               </SummaryList>
               <Heading level="h3">Fish details</Heading>
               <SummaryList>
