@@ -94,7 +94,6 @@ const PreAppFormEastingNorthing = () => {
                             />
                           </div>
                           <Button modifier="govuk-button--secondary" onClick={(e) => { e.preventDefault(); dispatch({ type: TOGGLE_LOCATION_INPUT }); }}>Add</Button>
-                          <Toggle href="/" className="" onClick={(e) => { e.preventDefault(); dispatch({ type: TOGGLE_LOCATION_INPUT }); }}>Cancel</Toggle>
                         </FormGroup>
                       </div>
                     </FieldSet>
