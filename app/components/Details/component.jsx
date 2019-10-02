@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Details = (props) => {
-  const { children, title } = props;
+  const { children, title, modifier } = props;
 
   return (
     <details className="govuk-details" data-module="govuk-details">
       <summary className="govuk-details__summary">
-        <span className="govuk-details__summary-text">
+        <span className={`govuk-details__summary-text ${modifier}`}>
           {title}
         </span>
       </summary>
@@ -23,4 +23,9 @@ export default Details;
 Details.propTypes = {
   children: PropTypes.node.isRequired,
   title: PropTypes.string.isRequired,
+  modifier: PropTypes.string,
+};
+
+Details.defaultProps = {
+  modifier: '',
 };

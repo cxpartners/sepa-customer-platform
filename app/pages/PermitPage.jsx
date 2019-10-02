@@ -25,6 +25,7 @@ import Accordion from '../components/Accordion/component';
 import AccordionSection from '../components/AccordionSection/component';
 import BackLink from '../components/BackLink/component';
 import Guidance from '../components/Guidance/component';
+import ActionBoxComplete from '../components/ActionBoxComplete/component';
 
 const PermitPage = () => {
   let easting = 182980;
@@ -45,7 +46,7 @@ const PermitPage = () => {
       <Header isNotification userName="Oliver Allen" />
       <Container>
         <PhaseBanner />
-        <BackLink href="/permits" />
+        <BackLink href="/permits-with-notifications" />
         <Main>
           <Row>
             <Column columnWidth="full">
@@ -113,12 +114,14 @@ const PermitPage = () => {
                           </SummaryList>
                           <Heading level="h3">Additional information</Heading>
                           <br />
+                          <ActionBoxComplete>Pre-application review</ActionBoxComplete>
+                          <ActionBoxComplete>Initial screening report</ActionBoxComplete>
                         </Column>
                       </Row>
                     </AccordionSection>
                     <AccordionSection expanded={false} sectionKey="2" heading="Current data" />
                     <AccordionSection expanded={false} sectionKey="3" heading="Modelling" />
-                    <AccordionSection expanded={false} sectionKey="4" heading="Baseline Suvey" />
+                    <AccordionSection expanded={false} sectionKey="4" heading="Baseline Survey" />
                   </Accordion>
                 </TabPanel>
               </Tabs>

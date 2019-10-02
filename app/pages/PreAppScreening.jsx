@@ -144,7 +144,7 @@ const PermitPage = () => {
                     </AccordionSection>
                     <AccordionSection locked expanded={false} sectionKey="2" heading="Current data" />
                     <AccordionSection locked expanded={false} sectionKey="3" heading="Modelling" />
-                    <AccordionSection locked expanded={false} sectionKey="4" heading="Baseline Suvey" />
+                    <AccordionSection locked expanded={false} sectionKey="4" heading="Baseline Survey" />
                   </Accordion>
                 </TabPanel>
               </Tabs>

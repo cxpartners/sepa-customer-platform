@@ -191,7 +191,7 @@ const PermitPage = ({ match }) => {
                     </AccordionSection>
                     <AccordionSection expanded={false} sectionKey="2" heading="Current data" />
                     <AccordionSection expanded={false} sectionKey="3" heading="Modelling" />
-                    <AccordionSection expanded={false} sectionKey="4" heading="Baseline Suvey" />
+                    <AccordionSection expanded={false} sectionKey="4" heading="Baseline Survey" />
                   </Accordion>
                 </TabPanel>
               </Tabs>
