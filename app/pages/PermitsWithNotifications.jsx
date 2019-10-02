@@ -34,9 +34,9 @@ const Permit = () => {
               </PermitList>
               <PermitList caption="Awarded permits (4)" dateColumn="Review date">
                 <PermitListRow listKey="CAR/L/4336581" href="/permit-page" siteName="Loch Mhòrair Salmon Farm" waterBody="Loch Mhòrair" date="17/02/2020" />
-                <PermitListRow listKey="CAR/L/4336544" href="/permit-page" siteName="Kimelford" waterBody="Loch Tarbot Gallaway" date="17/02/2020" />
+                <PermitListRow listKey="CAR/L/4336591" href="/permit-page" siteName="Kimelford" waterBody="Loch Tarbot Gallaway" date="17/02/2020" />
                 <PermitListRow listKey="CAR/L/4336322" href="/permit-page" siteName="Carpford" waterBody="Loch Mhòrair" date="17/02/2020" />
-                <PermitListRow listKey="CAR/L/4336322" href="/permit-page" siteName="Carradale (north)" waterBody="Loch Tarbot Gallaway" date="17/02/2020" />
+                <PermitListRow listKey="CAR/L/4336323" href="/permit-page" siteName="Carradale (north)" waterBody="Loch Tarbot Gallaway" date="17/02/2020" />
               </PermitList>
               <Details modifier="govuk-!-font-weight-bold" title="Expired permits" />
             </Column>

@@ -49,7 +49,7 @@ const PermitPage = () => {
 
   return (
     <>
-      <Header isNotification={false} userName="Oliver Allen" />
+      <Header isNotification={false} userName="Craig Reid" />
       <Container>
         <PhaseBanner />
         <Main>

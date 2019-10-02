@@ -41,7 +41,7 @@ const CreateAccountAddCompanyDetails = () => {
                     <Paragraph size="small">120934434&nbsp;<Link href="/create-account-add-company-details" onClick={(e) => { e.preventDefault(); dispatch({ type: TOGGLE_CREATE_ACCOUNT_COMPANY_DETAILS_FOUND }); }}>Change</Link></Paragraph>
                     <SummaryList>
                       <SummaryListRow listKey="Organisation name">Salmon &amp; Salmon Ltd</SummaryListRow>
-                      <SummaryListRow listKey="Company secretary name">Jonathan Morris</SummaryListRow>
+                      <SummaryListRow listKey="Company secretary name">{}</SummaryListRow>
                       <SummaryListRow listKey="Building or street">32 Rowton Drive</SummaryListRow>
                       <SummaryListRow listKey="Town or city">Balmeanach</SummaryListRow>
                       <SummaryListRow listKey="County">Isle of Mull</SummaryListRow>

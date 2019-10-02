@@ -75,7 +75,7 @@ const PermitPage = () => {
                         <Column columnWidth="two-thirds">
                           <Heading level="h3">Company secretary contact</Heading>
                           <SummaryList>
-                            <SummaryListRow listKey="Name">Ewan Gregory</SummaryListRow>
+                            <SummaryListRow listKey="Name">Company Secretary</SummaryListRow>
                             <SummaryListRow listKey="Email">company.secretary@salmonandsalmon.com</SummaryListRow>
                             <SummaryListRow listKey="Phone number">07824 325 572</SummaryListRow>
                           </SummaryList>
