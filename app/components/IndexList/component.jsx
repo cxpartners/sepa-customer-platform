@@ -10,6 +10,7 @@ const IndexListItem = (props) => {
     done,
     href,
     image,
+    tech,
   } = props;
 
   return (
@@ -31,6 +32,14 @@ const IndexListItem = (props) => {
           </>
         ) : ''
       }
+      {
+        tech ? (
+          <>
+            &nbsp;
+            <Tag isStatus>TECH</Tag>
+          </>
+        ) : ''
+      }
     </li>
   );
 };
@@ -41,10 +50,12 @@ IndexListItem.propTypes = {
   children: PropTypes.string.isRequired,
   done: PropTypes.bool,
   image: PropTypes.bool,
+  tech: PropTypes.bool,
   href: PropTypes.string.isRequired,
 };
 
 IndexListItem.defaultProps = {
   image: false,
   done: false,
+  tech: false,
 };
