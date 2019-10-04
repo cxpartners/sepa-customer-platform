@@ -61,11 +61,11 @@ const PreAppFormEastingNorthing = () => {
             <Column columnWidth="full">
               <Heading caption="4/10 – Pre-application form" level="h1">Marine pen fish farm details</Heading>
               <FieldSet inPage legend="Add the Eastings and Northings (at the centre) for each pen">
-                <Details title="Question guidance" />
+                <Details title="Question guidance">&nbsp;</Details>
                 <SummaryList>
                   {locationArray
                     .map((location) => (
-                      <SummaryListRow addLinks addEdit listKey={`Pen ${location.pen}`}>{`X ${location.easting} (Eastings), Y ${location.northing} (Northings)`}</SummaryListRow>
+                      <SummaryListRow addLinks addEdit key={location.pen} listKey={`Pen ${location.pen}`}>{`X ${location.easting} (Eastings), Y ${location.northing} (Northings)`}</SummaryListRow>
                     ))}
                   {
                     eastingValue && northingValue && showLocationRow

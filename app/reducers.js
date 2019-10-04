@@ -4,6 +4,7 @@ export const TOGGLE_YOUR_NAME_ERROR = 'TOGGLE_YOUR_NAME_ERROR';
 export const TOGGLE_REDIRECT_RADIO = 'TOGGLE_REDIRECT_RADIO';
 export const UPDATE_RADIO = 'UPDATE_RADIO';
 export const UPDATE_REVIEW_RADIO = 'UPDATE_REVIEW_RADIO';
+export const UPDATE_SCREENING_RADIO = 'UPDATE_SCREENING_RADIO';
 export const TOGGLE_RADIO_ERROR = 'TOGGLE_RADIO_ERROR';
 export const TOGGLE_CREATE_ACCOUNT_CHOOSE_PASSWORD = 'TOGGLE_CREATE_ACCOUNT_CHOOSE_PASSWORD';
 export const TOGGLE_CREATE_ACCOUNT_COMPANY_DETAILS_FOUND = 'TOGGLE_CREATE_ACCOUNT_COMPANY_DETAILS_FOUND';
@@ -18,12 +19,22 @@ export const TOGGLE_LOCATION_INPUT = 'TOGGLE_LOCATION_INPUT';
 export const TOGGLE_PRE_APP_SCREENING_SCROLL = 'TOGGLE_PRE_APP_SCREENING_SCROLL';
 export const TOGGLE_PRE_APP_REVIEW_SCROLL = 'TOGGLE_PRE_APP_REVIEW_SCROLL';
 export const TOGGLE_LOCATION_ROW = 'TOGGLE_LOCATION_ROW';
+export const UPDATE_PRE_APP_FORM_SITE_NAME = 'UPDATE_PRE_APP_FORM_SITE_NAME';
+export const UPDATE_PRE_APP_FORM_WATER_BODY_NAME = 'UPDATE_PRE_APP_FORM_WATER_BODY_NAME';
+export const UPDATE_PRE_APP_FORM_FISH_VALUE_NAME = 'UPDATE_PRE_APP_FORM_FISH_VALUE_NAME';
+export const UPDATE_PRE_APP_FORM_WEIGHT_VALUE = 'UPDATE_PRE_APP_FORM_WEIGHT_VALUE';
+export const UPDATE_PRE_APP_FORM_FEEDING_RATE_VALUE = 'UPDATE_PRE_APP_FORM_FEEDING_RATE_VALUE';
+export const TOGGLE_AZAMETHIPHOS_CHECKED = 'TOGGLE_AZAMETHIPHOS_CHECKED';
+export const TOGGLE_CYPERMETHRIN_CHECKED = 'TOGGLE_CYPERMETHRIN_CHECKED';
+export const TOGGLE_DELTAMETHRIN_CHECKED = 'TOGGLE_DELTAMETHRIN_CHECKED';
+export const TOGGLE_EMAMECTIN_BENZOATE_CHECKED = 'TOGGLE_EMAMECTIN_BENZOATE_CHECKED';
 
 const initialState = {
   radioValue: '',
   radioError: false,
   radioRedirect: false,
   radioReviewValue: null,
+  radioScreeningValue: null,
   yourNameValue: '',
   yourNameError: false,
   yourNameRedirect: false,
@@ -35,7 +46,7 @@ const initialState = {
   createAccountYourDetailsNumberValue: '',
   contactDetailsValue: 'Oliver Allen',
   siteNameValue: 'Loch Mhòrair Salmon Farm',
-  waterBobyNameValue: 'Loch Mhòrair',
+  waterBodyNameValue: 'Loch Mhòrair',
   eastingValue: '',
   northingValue: '',
   showLocationInput: false,
@@ -45,6 +56,10 @@ const initialState = {
   feedingRateValue: '7',
   showPreAppScreeningScroll: false,
   showPreAppReviewScroll: false,
+  azamethiphosChecked: true,
+  cypermethrinChecked: true,
+  deltamethrinChecked: true,
+  emamectinBenzoateChecked: true,
 };
 
 export default (state = initialState, action) => {
@@ -53,6 +68,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         radioReviewValue: action.payload,
+      };
+    case UPDATE_SCREENING_RADIO:
+      return {
+        ...state,
+        radioScreeningValue: action.payload,
       };
     case UPDATE_RADIO:
       return {
@@ -99,6 +119,31 @@ export default (state = initialState, action) => {
         ...state,
         contactDetailsValue: action.payload,
       };
+    case UPDATE_PRE_APP_FORM_SITE_NAME:
+      return {
+        ...state,
+        siteNameValue: action.payload,
+      };
+    case UPDATE_PRE_APP_FORM_WATER_BODY_NAME:
+      return {
+        ...state,
+        waterBodyNameValue: action.payload,
+      };
+    case UPDATE_PRE_APP_FORM_FISH_VALUE_NAME:
+      return {
+        ...state,
+        fishValue: action.payload,
+      };
+    case UPDATE_PRE_APP_FORM_WEIGHT_VALUE:
+      return {
+        ...state,
+        weightValue: action.payload,
+      };
+    case UPDATE_PRE_APP_FORM_FEEDING_RATE_VALUE:
+      return {
+        ...state,
+        feedingRateValue: action.payload,
+      };
     case UPDATE_EASTINGS_VALUE:
       return {
         ...state,
@@ -129,6 +174,26 @@ export default (state = initialState, action) => {
         ...state,
         showPreAppReviewScroll: !state.showPreAppReviewScroll,
       };
+    case TOGGLE_AZAMETHIPHOS_CHECKED:
+      return {
+        ...state,
+        azamethiphosChecked: !state.azamethiphosChecked,
+      };
+    case TOGGLE_CYPERMETHRIN_CHECKED:
+      return {
+        ...state,
+        cypermethrinChecked: !state.cypermethrinChecked,
+      };
+    case TOGGLE_DELTAMETHRIN_CHECKED:
+      return {
+        ...state,
+        deltamethrinChecked: !state.deltamethrinChecked,
+      };
+    case TOGGLE_EMAMECTIN_BENZOATE_CHECKED:
+      return {
+        ...state,
+        emamectinBenzoateChecked: !state.emamectinBenzoateChecked,
+      };
     default:
       return state;
   }
@@ -146,6 +211,10 @@ export const updateReviewRadio = () => (dispatch) => {
   dispatch({ type: UPDATE_REVIEW_RADIO });
 };
 
+export const updateScreeningRadio = () => (dispatch) => {
+  dispatch({ type: UPDATE_SCREENING_RADIO });
+};
+
 export const toggleRadioError = () => (dispatch) => {
   dispatch({ type: TOGGLE_RADIO_ERROR });
 };
@@ -160,6 +229,26 @@ export const updateCreateAccountCompanyDetails = () => (dispatch) => {
 
 export const updateCreateAccountYourDetailsName = () => (dispatch) => {
   dispatch({ type: UPDATE_CREATE_ACCOUNT_YOUR_DETAILS_NAME });
+};
+
+export const updatePreAppFormSiteName = () => (dispatch) => {
+  dispatch({ type: UPDATE_PRE_APP_FORM_SITE_NAME });
+};
+
+export const updatePreAppFormWaterBodyName = () => (dispatch) => {
+  dispatch({ type: UPDATE_PRE_APP_FORM_WATER_BODY_NAME });
+};
+
+export const updatePreAppFormFishValueName = () => (dispatch) => {
+  dispatch({ type: UPDATE_PRE_APP_FORM_FISH_VALUE_NAME });
+};
+
+export const updatePreAppFormWeightValue = () => (dispatch) => {
+  dispatch({ type: UPDATE_PRE_APP_FORM_WEIGHT_VALUE });
+};
+
+export const updatePreAppFormFeedingRateValue = () => (dispatch) => {
+  dispatch({ type: UPDATE_PRE_APP_FORM_FEEDING_RATE_VALUE });
 };
 
 export const updateCreateAccountYourDetailsNumber = () => (dispatch) => {
@@ -184,6 +273,22 @@ export const togglePreAppScreeningScroll = () => (dispatch) => {
 
 export const togglePreAppReviewScroll = () => (dispatch) => {
   dispatch({ type: TOGGLE_PRE_APP_REVIEW_SCROLL });
+};
+
+export const toggleAzamethiphosChecked = () => (dispatch) => {
+  dispatch({ type: TOGGLE_AZAMETHIPHOS_CHECKED });
+};
+
+export const toggleCypermethrinChecked = () => (dispatch) => {
+  dispatch({ type: TOGGLE_CYPERMETHRIN_CHECKED });
+};
+
+export const toggleDeltamethrinChecked = () => (dispatch) => {
+  dispatch({ type: TOGGLE_DELTAMETHRIN_CHECKED });
+};
+
+export const toggleEmamectinBenzoateChecked = () => (dispatch) => {
+  dispatch({ type: TOGGLE_EMAMECTIN_BENZOATE_CHECKED });
 };
 
 export const updateEastingsValue = () => (dispatch) => {

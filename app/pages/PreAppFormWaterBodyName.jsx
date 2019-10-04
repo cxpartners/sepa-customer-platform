@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import Header from '../components/Header/component';
 import Container from '../components/Container/component';
 import PhaseBanner from '../components/PhaseBanner/component';
@@ -15,10 +15,11 @@ import Details from '../components/Details/component';
 import TextInput from '../components/TextInput/component';
 import Button from '../components/Button/component';
 import Paragraph from '../components/Paragraph/component';
-
+import { UPDATE_PRE_APP_FORM_WATER_BODY_NAME } from '../reducers';
 
 const PreAppFormWaterBodyName = () => {
-  const waterBobyNameValue = useSelector((state) => state.waterBobyNameValue);
+  const waterBodyNameValue = useSelector((state) => state.waterBodyNameValue);
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -31,8 +32,8 @@ const PreAppFormWaterBodyName = () => {
             <Column columnWidth="two-thirds">
               <Heading caption="3/10 – Pre-application form" level="h1">Marine pen fish farm details</Heading>
               <FieldSet inPage legend="Water body name">
-                <Details title="Question guidance" />
-                <TextInput inputWidth="two-thirds" value={waterBobyNameValue} />
+                <Details title="Question guidance">&nbsp;</Details>
+                <TextInput id="water-body-name" type="text" inputWidth="two-thirds" value={waterBodyNameValue} onChange={(e) => dispatch({ type: UPDATE_PRE_APP_FORM_WATER_BODY_NAME, payload: e.target.value })} />
               </FieldSet>
               <Button href="/pre-app-form-eastings-northings">Save and continue</Button>
               <Paragraph>If you cannot finish the form now, all your previously completed answers will be saved.</Paragraph>

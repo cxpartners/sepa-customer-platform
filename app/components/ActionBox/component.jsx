@@ -27,6 +27,10 @@ const ActionBox = (props) => {
 export default ActionBox;
 
 ActionBox.propTypes = {
-  children: PropTypes.element.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+    PropTypes.string,
+  ]).isRequired,
   locked: PropTypes.bool.isRequired,
 };

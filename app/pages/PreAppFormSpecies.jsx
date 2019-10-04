@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import Header from '../components/Header/component';
 import Container from '../components/Container/component';
 import PhaseBanner from '../components/PhaseBanner/component';
@@ -16,9 +16,12 @@ import RadioGroup from '../components/RadioGroup/component';
 import Radio from '../components/Radio/component';
 import Button from '../components/Button/component';
 import Paragraph from '../components/Paragraph/component';
+import { UPDATE_PRE_APP_FORM_FISH_VALUE_NAME } from '../reducers';
+
 
 const PreAppFormSpecies = () => {
   const fishValue = useSelector((state) => state.fishValue);
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -31,11 +34,11 @@ const PreAppFormSpecies = () => {
             <Column columnWidth="two-thirds">
               <Heading caption="5/10 – Pre-application form" level="h1">Fish details</Heading>
               <FieldSet inPage legend="Species to be farmed">
-                <Details title="Question guidance" />
+                <Details title="Question guidance">&nbsp;</Details>
                 <RadioGroup>
-                  <Radio name="fishRadio" id="salmon" value="Salmon" checked={fishValue === 'Salmon'} />
-                  <Radio name="fishRadio" id="trout" value="Trout" checked={fishValue === 'Trout'} />
-                  <Radio name="fishRadio" id="other" value="Other" checked={fishValue === 'Other'} />
+                  <Radio name="fishRadio" id="salmon" value="Salmon" checked={fishValue === 'Salmon'} onChange={(e) => dispatch({ type: UPDATE_PRE_APP_FORM_FISH_VALUE_NAME, payload: e.target.value })} />
+                  <Radio name="fishRadio" id="trout" value="Trout" checked={fishValue === 'Trout'} onChange={(e) => dispatch({ type: UPDATE_PRE_APP_FORM_FISH_VALUE_NAME, payload: e.target.value })} />
+                  <Radio name="fishRadio" id="other" value="Other" checked={fishValue === 'Other'} onChange={(e) => dispatch({ type: UPDATE_PRE_APP_FORM_FISH_VALUE_NAME, payload: e.target.value })} />
                 </RadioGroup>
               </FieldSet>
               <Button href="/pre-app-form-weight">Save and continue</Button>

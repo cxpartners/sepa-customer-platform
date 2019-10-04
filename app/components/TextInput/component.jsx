@@ -10,6 +10,7 @@ const TextInput = (props) => {
     value,
     onChange,
     type,
+    placeholder,
   } = props;
 
   const isLabel = label ? (
@@ -79,6 +80,7 @@ const TextInput = (props) => {
         type={type}
         value={value}
         onChange={onChange}
+        placeholder={placeholder}
       />
     </div>
   );
@@ -93,7 +95,9 @@ TextInput.propTypes = {
   type: PropTypes.oneOf(['text', 'password', 'number', 'email']).isRequired,
   hint: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   value: PropTypes.string,
-  onChange: PropTypes.func.isRequired,
+  placeholder: PropTypes.string,
+  // eslint-disable-next-line react/require-default-props
+  onChange: PropTypes.func,
 };
 
 TextInput.defaultProps = {
@@ -101,4 +105,5 @@ TextInput.defaultProps = {
   inputWidth: false,
   hint: false,
   value: '',
+  placeholder: '',
 };

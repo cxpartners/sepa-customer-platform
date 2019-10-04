@@ -36,18 +36,22 @@ const PermitListRow = (props) => {
 export default PermitListRow;
 
 PermitListRow.propTypes = {
-  date: PropTypes.string.isRequired,
+  date: PropTypes.string,
   href: PropTypes.string,
   isActive: PropTypes.bool,
   loading: PropTypes.bool,
-  listKey: PropTypes.string.isRequired,
-  siteName: PropTypes.string.isRequired,
-  status: PropTypes.oneOfType(PropTypes.string, PropTypes.bool),
-  waterBody: PropTypes.string.isRequired,
+  listKey: PropTypes.string,
+  siteName: PropTypes.string,
+  status: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+  waterBody: PropTypes.string,
 };
 
 PermitListRow.defaultProps = {
   href: '/',
+  date: null,
+  listKey: null,
+  siteName: null,
+  waterBody: null,
   isActive: false,
   loading: false,
   status: false,

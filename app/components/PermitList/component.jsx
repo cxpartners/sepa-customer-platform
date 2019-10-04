@@ -26,7 +26,10 @@ const PermitList = (props) => {
 export default PermitList;
 
 PermitList.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]).isRequired,
   caption: PropTypes.string.isRequired,
   dateColumn: PropTypes.string.isRequired,
 };

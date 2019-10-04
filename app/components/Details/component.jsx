@@ -21,7 +21,10 @@ const Details = (props) => {
 export default Details;
 
 Details.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]).isRequired,
   title: PropTypes.string.isRequired,
   modifier: PropTypes.string,
 };

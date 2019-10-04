@@ -15,6 +15,9 @@ const Column = (props) => {
 export default Column;
 
 Column.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]).isRequired,
   columnWidth: PropTypes.oneOf(['full', 'one-half', 'one-third', 'two-thirds', 'one-quarter']).isRequired,
 };

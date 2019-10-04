@@ -21,7 +21,7 @@ import Reference from '../components/Reference/component';
 const PreAppFormCheck = () => {
   const contactDetailsValue = useSelector((state) => state.contactDetailsValue);
   const siteNameValue = useSelector((state) => state.siteNameValue);
-  const waterBobyNameValue = useSelector((state) => state.waterBobyNameValue);
+  const waterBodyNameValue = useSelector((state) => state.waterBobyNameValue);
   const eastingValue = useSelector((state) => state.eastingValue);
   const northingValue = useSelector((state) => state.northingValue);
   const fishValue = useSelector((state) => state.fishValue);
@@ -58,48 +58,48 @@ const PreAppFormCheck = () => {
               <Heading level="h2">Pre-application details</Heading>
               <Heading level="h3">Company Secretary contact</Heading>
               <SummaryList>
-                <SummaryListRow listKey="Name">Company Secretary</SummaryListRow>
-                <SummaryListRow listKey="Email">company.secretary@salmonandsalmon.com</SummaryListRow>
-                <SummaryListRow listKey="Phone number">07824 325 572</SummaryListRow>
+                <SummaryListRow key="1" listKey="Name">Company Secretary</SummaryListRow>
+                <SummaryListRow key="2" listKey="Email">company.secretary@salmonandsalmon.com</SummaryListRow>
+                <SummaryListRow key="3" listKey="Phone number">07824 325 572</SummaryListRow>
               </SummaryList>
               <Heading level="h3">Application contact</Heading>
               <SummaryList>
-                <SummaryListRow addLinks listKey="Name">{contactDetailsValue}</SummaryListRow>
-                <SummaryListRow addLinks listKey="Email">{`${contactDetailsValue.replace(' ', '.').toLowerCase()}@salmonandsalmon.com`}</SummaryListRow>
-                <SummaryListRow addLinks listKey="Phone number">07824 327 552</SummaryListRow>
+                <SummaryListRow key="1" addLinks listKey="Name">{contactDetailsValue}</SummaryListRow>
+                <SummaryListRow key="2" addLinks listKey="Email">{`${contactDetailsValue.replace(' ', '.').toLowerCase()}@salmonandsalmon.com`}</SummaryListRow>
+                <SummaryListRow key="3" addLinks listKey="Phone number">07824 327 552</SummaryListRow>
               </SummaryList>
               <Heading level="h3">Marine pen fish farm details</Heading>
               <SummaryList>
-                <SummaryListRow addLinks listKey="Site name">{siteNameValue}</SummaryListRow>
-                <SummaryListRow addLinks listKey="Water body name">{waterBobyNameValue}</SummaryListRow>
-                <SummaryListRow addLinks listKey="Number of pens">11</SummaryListRow>
+                <SummaryListRow key="-2" addLinks listKey="Site name">{siteNameValue}</SummaryListRow>
+                <SummaryListRow key="-1" addLinks listKey="Water body name">{waterBodyNameValue}</SummaryListRow>
+                <SummaryListRow key="0" addLinks listKey="Number of pens">11</SummaryListRow>
                 {locationArray
                   .map((location) => (
-                    <SummaryListRow listKey={`Pen ${location.pen}`}>{`X ${location.easting} (Eastings), Y ${location.northing} (Northings)`}</SummaryListRow>
+                    <SummaryListRow key={location.pen} listKey={`Pen ${location.pen}`}>{`X ${location.easting} (Eastings), Y ${location.northing} (Northings)`}</SummaryListRow>
                   ))}
                 {
                   eastingValue && northingValue
                     ? (
-                      <SummaryListRow listKey="Pen 11">{`X ${eastingValue} (Eastings), Y ${northingValue} (Northing)`}</SummaryListRow>
+                      <SummaryListRow key="11" listKey="Pen 11">{`X ${eastingValue} (Eastings), Y ${northingValue} (Northing)`}</SummaryListRow>
                     ) : ''
                 }
               </SummaryList>
               <Heading level="h3">Fish details</Heading>
               <SummaryList>
-                <SummaryListRow addLinks listKey="Species of fish to be farmed">{fishValue}</SummaryListRow>
-                <SummaryListRow addLinks listKey="Maximum weight of fish (tonnes)">{weightValue}</SummaryListRow>
-                <SummaryListRow addLinks listKey="Maximum feeding rate (kf/t/d)">{feedingRateValue}</SummaryListRow>
+                <SummaryListRow key="1" addLinks listKey="Species of fish to be farmed">{fishValue}</SummaryListRow>
+                <SummaryListRow key="2" addLinks listKey="Maximum weight of fish (tonnes)">{weightValue}</SummaryListRow>
+                <SummaryListRow key="3" addLinks listKey="Maximum feeding rate (kf/t/d)">{feedingRateValue}</SummaryListRow>
               </SummaryList>
               <Heading level="h3">Medicine details</Heading>
               <SummaryList>
-                <SummaryListRow addLinks listKey="Bath sea lice medicines required">
+                <SummaryListRow key="1" addLinks listKey="Bath sea lice medicines required">
                   Cypermetrin
                   <br />
                   Deltametrin
                   <br />
                   Azamethiphos
                 </SummaryListRow>
-                <SummaryListRow addLinks listKey="In-feed sea lice medicine required">Emamectin benzoate</SummaryListRow>
+                <SummaryListRow key="2" addLinks listKey="In-feed sea lice medicine required">Emamectin benzoate</SummaryListRow>
               </SummaryList>
               <Heading level="h3">Additional information <Link href="/" modifier="govuk-right govuk-body">Change</Link></Heading>
               <br />

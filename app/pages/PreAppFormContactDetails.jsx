@@ -34,12 +34,12 @@ const PreAppFormContactDetails = () => {
             <Column columnWidth="two-thirds">
               <Heading caption="1/10 – Pre-application form" level="h1">Contact details</Heading>
               <FieldSet inPage legend="Pre-application owner" hint="Who will be the main point of contact for this application?">
-                <Details title="Question guidance" />
+                <Details title="Question guidance">&nbsp;</Details>
                 <RadioGroup>
-                  <Radio name="contactDetailsRadio" value="Oliver Allen" checked={contactDetailsValue === 'Oliver Allen'} onChange={(e) => dispatch({ type: UPDATE_CONTACT_DETAILS_RADIO, payload: e.target.value })} />
-                  <Radio name="contactDetailsRadio" value="Aileen Gray" checked={contactDetailsValue === 'Aileen Gray'} onChange={(e) => dispatch({ type: UPDATE_CONTACT_DETAILS_RADIO, payload: e.target.value })} />
-                  <Radio name="contactDetailsRadio" value="Ewan Gregory" checked={contactDetailsValue === 'Ewan Gregory'} onChange={(e) => dispatch({ type: UPDATE_CONTACT_DETAILS_RADIO, payload: e.target.value })} />
-                  <Radio name="contactDetailsRadio" value="Isobel Livingston" checked={contactDetailsValue === 'Isobel Livingston'} onChange={(e) => dispatch({ type: UPDATE_CONTACT_DETAILS_RADIO, payload: e.target.value })} />
+                  <Radio id="contact1" name="contactDetailsRadio" value="Oliver Allen" checked={contactDetailsValue === 'Oliver Allen'} onChange={(e) => dispatch({ type: UPDATE_CONTACT_DETAILS_RADIO, payload: e.target.value })} />
+                  <Radio id="contact2" name="contactDetailsRadio" value="Aileen Gray" checked={contactDetailsValue === 'Aileen Gray'} onChange={(e) => dispatch({ type: UPDATE_CONTACT_DETAILS_RADIO, payload: e.target.value })} />
+                  <Radio id="contact3" name="contactDetailsRadio" value="Ewan Gregory" checked={contactDetailsValue === 'Ewan Gregory'} onChange={(e) => dispatch({ type: UPDATE_CONTACT_DETAILS_RADIO, payload: e.target.value })} />
+                  <Radio id="contact4" name="contactDetailsRadio" value="Isobel Livingston" checked={contactDetailsValue === 'Isobel Livingston'} onChange={(e) => dispatch({ type: UPDATE_CONTACT_DETAILS_RADIO, payload: e.target.value })} />
                 </RadioGroup>
               </FieldSet>
               <Button href="/pre-app-form-site-name">Save and continue</Button>

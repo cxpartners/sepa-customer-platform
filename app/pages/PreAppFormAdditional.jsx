@@ -27,8 +27,8 @@ const PreAppFormAdditional = () => (
           <Column columnWidth="two-thirds">
             <Heading caption="10/10 – Pre-application form" level="h1">Additional details</Heading>
             <FieldSet inPage legend="Please provide SEPA with further information to support your pre-application">
-              <Details title="Question guidance" />
-              <Textarea rows="8" inputWidth="two-thirds" />
+              <Details title="Question guidance">&nbsp;</Details>
+              <Textarea id="additional details" label="" hint="" rows="8" inputWidth="two-thirds" />
             </FieldSet>
             <Paragraph>You have now completed the pre-application form. Next you will be asked to check your answers.</Paragraph>
             <Button href="/pre-app-form-check">Save and continue</Button>

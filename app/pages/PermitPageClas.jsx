@@ -111,7 +111,7 @@ const PermitPage = ({ match }) => {
                 </TabList>
                 <TabPanel id="overview" title="">
                   <Accordion>
-                    <AccordionSection expanded sectionKey="1" heading="Pre-application details" aria-expanded="true">
+                    <AccordionSection expanded locked={false} sectionKey="1" heading="Pre-application details" aria-expanded="true">
                       <Row>
                         <Column columnWidth="two-thirds">
                           <Heading level="h3">Contact details</Heading>
@@ -189,9 +189,9 @@ const PermitPage = ({ match }) => {
                         </Column>
                       </Row>
                     </AccordionSection>
-                    <AccordionSection expanded={false} sectionKey="2" heading="Current data" />
-                    <AccordionSection expanded={false} sectionKey="3" heading="Modelling" />
-                    <AccordionSection expanded={false} sectionKey="4" heading="Baseline Survey" />
+                    <AccordionSection expanded={false} locked={false} sectionKey="2" heading="Current data" />
+                    <AccordionSection expanded={false} locked={false} sectionKey="3" heading="Modelling" />
+                    <AccordionSection expanded={false} locked={false} sectionKey="4" heading="Baseline Survey" />
                   </Accordion>
                 </TabPanel>
               </Tabs>

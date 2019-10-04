@@ -50,10 +50,16 @@ const AccordionSection = (props) => {
 export default AccordionSection;
 
 AccordionSection.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
-  children: PropTypes.array.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]),
   heading: PropTypes.string.isRequired,
   expanded: PropTypes.bool.isRequired,
   locked: PropTypes.bool.isRequired,
   sectionKey: PropTypes.string.isRequired,
+};
+
+AccordionSection.defaultProps = {
+  children: null,
 };

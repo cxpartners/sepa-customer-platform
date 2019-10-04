@@ -21,8 +21,9 @@ const Toggle = (props) => {
 export default Toggle;
 
 Toggle.propTypes = {
-  children: PropTypes.element.isRequired,
-  onClick: PropTypes.func.isRequired,
+  children: PropTypes.string.isRequired,
+  // eslint-disable-next-line react/require-default-props
+  onClick: PropTypes.func,
   href: PropTypes.string.isRequired,
   modifier: PropTypes.string,
 };

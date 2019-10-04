@@ -28,10 +28,13 @@ import ActionBox from '../components/ActionBox/component';
 import FieldSet from '../components/FieldSet/component';
 import ActionBoxComplete from '../components/ActionBoxComplete/component';
 import Toggle from '../components/Toggle/component';
-import { TOGGLE_PRE_APP_SCREENING_SCROLL } from '../reducers';
+import { UPDATE_SCREENING_RADIO, TOGGLE_PRE_APP_SCREENING_SCROLL } from '../reducers';
 
 const PermitPage = () => {
   const showPreAppScreeningScroll = useSelector((state) => state.showPreAppScreeningScroll);
+  const eastingValue = useSelector((state) => state.eastingValue);
+  const northingValue = useSelector((state) => state.northingValue);
+  const radioScreeningValue = useSelector((state) => state.radioScreeningValue);
   const dispatch = useDispatch();
 
   let easting = 182980;
@@ -75,48 +78,53 @@ const PermitPage = () => {
                 </TabList>
                 <TabPanel id="overview" title="">
                   <Accordion>
-                    <AccordionSection expanded sectionKey="1" heading="Pre-application details" aria-expanded="true">
+                    <AccordionSection expanded locked={false} sectionKey="1" heading="Pre-application details" aria-expanded="true">
                       <Row>
                         <Column columnWidth="two-thirds">
                           <Heading level="h3">Company Secretary contact</Heading>
                           <SummaryList>
-                            <SummaryListRow listKey="Name">Company Secretary</SummaryListRow>
-                            <SummaryListRow listKey="Email">company.secretary@salmonandsalmon.com</SummaryListRow>
-                            <SummaryListRow listKey="Phone number">07824 325 572</SummaryListRow>
+                            <SummaryListRow key="Name" listKey="Name">Company Secretary</SummaryListRow>
+                            <SummaryListRow key="Email" listKey="Email">company.secretary@salmonandsalmon.com</SummaryListRow>
+                            <SummaryListRow key="Phone " listKey="Phone number">07824 325 572</SummaryListRow>
                           </SummaryList>
                           <Heading level="h3">Application contact</Heading>
                           <SummaryList>
-                            <SummaryListRow listKey="Name">Oliver Allen</SummaryListRow>
-                            <SummaryListRow listKey="Email">o.allen@salmonandsalmon.com</SummaryListRow>
-                            <SummaryListRow listKey="Phone number">07824 327 552</SummaryListRow>
+                            <SummaryListRow key="Name" listKey="Name">Oliver Allen</SummaryListRow>
+                            <SummaryListRow key="Email" listKey="Email">o.allen@salmonandsalmon.com</SummaryListRow>
+                            <SummaryListRow key="Phone " listKey="Phone number">07824 327 552</SummaryListRow>
                           </SummaryList>
                           <Heading level="h3">Marine pen fish farm details</Heading>
                           <SummaryList>
-                            <SummaryListRow listKey="Site name">Loch Mhòrair Salmon Farm</SummaryListRow>
-                            <SummaryListRow listKey="Water body name">Loch Mhòrair</SummaryListRow>
-                            <SummaryListRow listKey="Number of pens">11</SummaryListRow>
+                            <SummaryListRow key="Site" listKey="Site name">Loch Mhòrair Salmon Farm</SummaryListRow>
+                            <SummaryListRow key="Water" listKey="Water body name">Loch Mhòrair</SummaryListRow>
+                            <SummaryListRow key="Number" listKey="Number of pens">11</SummaryListRow>
                             {locationArray
                               .map((location) => (
-                                <SummaryListRow listKey={`Pen ${location.pen}`}>{`X ${location.easting} (Eastings), Y ${location.northing} (Northing)`}</SummaryListRow>
+                                <SummaryListRow key={location.pen} listKey={`Pen ${location.pen}`}>{`X ${location.easting} (Eastings), Y ${location.northing} (Northings)`}</SummaryListRow>
                               ))}
-                            <SummaryListRow listKey="Pen 11">X 182980 (Eastings), Y 790973 (Northing)</SummaryListRow>
+                            {
+                              eastingValue && northingValue
+                                ? (
+                                  <SummaryListRow key="11" listKey="Pen 11">{`X ${eastingValue} (Eastings), Y ${northingValue} (Northing)`}</SummaryListRow>
+                                ) : ''
+                            }
                           </SummaryList>
                           <Heading level="h3">Fish details</Heading>
                           <SummaryList>
-                            <SummaryListRow listKey="Species of fish to be farmed">Salmon</SummaryListRow>
-                            <SummaryListRow listKey="Maximum weight of fish (tonnes)">186,786</SummaryListRow>
-                            <SummaryListRow listKey="Maximum feeding rate (kf/t/d)">7</SummaryListRow>
+                            <SummaryListRow key="Species" listKey="Species of fish to be farmed">Salmon</SummaryListRow>
+                            <SummaryListRow key="Weight" listKey="Maximum weight of fish (tonnes)">186,786</SummaryListRow>
+                            <SummaryListRow key="Rate" listKey="Maximum feeding rate (kf/t/d)">7</SummaryListRow>
                           </SummaryList>
                           <Heading level="h3">Medicine details</Heading>
                           <SummaryList>
-                            <SummaryListRow listKey="Bath sea lice medicines required">
+                            <SummaryListRow key="Bath" listKey="Bath sea lice medicines required">
                               Cypermetrin
                               <br />
                               Deltametrin
                               <br />
                               Azamethiphos
                             </SummaryListRow>
-                            <SummaryListRow listKey="In-feed sea lice medicine required">Emamectin benzoate</SummaryListRow>
+                            <SummaryListRow key="Sea" listKey="In-feed sea lice medicine required">Emamectin benzoate</SummaryListRow>
                           </SummaryList>
                           <Heading level="h3">Additional information</Heading>
                           <br />
@@ -125,18 +133,18 @@ const PermitPage = () => {
                               ? <ScrollTo /> : ''
                           }
                           <ActionBoxComplete>Pre-application review</ActionBoxComplete>
-                          <ActionBox>
+                          <ActionBox locked={false}>
                             <Heading level="h3">Initial screening report</Heading>
                             <FieldSet legend="Does the pre-application meet the requirements to move to the next stage?" inBox error={false} errorMessage="">
                               <RadioGroup inline>
-                                <Radio value="Yes" />
-                                <Radio value="No" />
+                                <Radio name="screeningRadio" id="yes" value="Yes" checked={radioScreeningValue === 'Yes'} onChange={(e) => dispatch({ type: UPDATE_SCREENING_RADIO, payload: e.target.value })} />
+                                <Radio name="screeningRadio" id="no" value="No" checked={radioScreeningValue === 'No'} onChange={(e) => dispatch({ type: UPDATE_SCREENING_RADIO, payload: e.target.value })} />
                               </RadioGroup>
                               <br />
                             </FieldSet>
                           </ActionBox>
                         </Column>
-                        <Column>
+                        <Column columnWidth="one-third">
                           <Heading level="h3">Workflow tasks:</Heading>
                           <Toggle modifier="govuk-right govuk-clear-margin" href="/" className="" onClick={(e) => { e.preventDefault(); dispatch({ type: TOGGLE_PRE_APP_SCREENING_SCROLL }); }}>Complete initial screening report</Toggle>
                         </Column>
