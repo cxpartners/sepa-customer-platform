@@ -79,53 +79,53 @@ const PermitPage = () => {
                 </TabList>
                 <TabPanel id="overview" title="">
                   <Accordion>
-                    <AccordionSection expanded sectionKey="1" heading="Pre-application details" aria-expanded="true">
+                    <AccordionSection expanded sectionKey="1" heading="Pre-application details" aria-expanded="true" locked={false}>
                       <Row>
                         <Column columnWidth="two-thirds">
                           <Heading level="h3">Company Secretary contact</Heading>
                           <SummaryList>
-                            <SummaryListRow listKey="Name">Company Secretary</SummaryListRow>
-                            <SummaryListRow listKey="Email">company.secretary@salmonandsalmon.com</SummaryListRow>
-                            <SummaryListRow listKey="Phone number">07824 325 572</SummaryListRow>
+                            <SummaryListRow key="Name" listKey="Name">Company Secretary</SummaryListRow>
+                            <SummaryListRow key="Email" listKey="Email">company.secretary@salmonandsalmon.com</SummaryListRow>
+                            <SummaryListRow key="Phone " listKey="Phone number">07824 325 572</SummaryListRow>
                           </SummaryList>
                           <Heading level="h3">Application contact</Heading>
                           <SummaryList>
-                            <SummaryListRow listKey="Name">Oliver Allen</SummaryListRow>
-                            <SummaryListRow listKey="Email">o.allen@salmonandsalmon.com</SummaryListRow>
-                            <SummaryListRow listKey="Phone number">07824 327 552</SummaryListRow>
+                            <SummaryListRow key="Name" listKey="Name">Oliver Allen</SummaryListRow>
+                            <SummaryListRow key="Email" listKey="Email">o.allen@salmonandsalmon.com</SummaryListRow>
+                            <SummaryListRow key="Phone " listKey="Phone number">07824 327 552</SummaryListRow>
                           </SummaryList>
                           <Heading level="h3">Marine pen fish farm details</Heading>
                           <SummaryList>
-                            <SummaryListRow listKey="Site name">Loch Mhòrair Salmon Farm</SummaryListRow>
-                            <SummaryListRow listKey="Water body name">Loch Mhòrair</SummaryListRow>
-                            <SummaryListRow listKey="Number of pens">11</SummaryListRow>
+                            <SummaryListRow key="Site" listKey="Site name">Loch Mhòrair Salmon Farm</SummaryListRow>
+                            <SummaryListRow key="Water" listKey="Water body name">Loch Mhòrair</SummaryListRow>
+                            <SummaryListRow key="Number" listKey="Number of pens">11</SummaryListRow>
                             {locationArray
                               .map((location) => (
-                                <SummaryListRow listKey={`Pen ${location.pen}`}>{`X ${location.easting} (Eastings), Y ${location.northing} (Northings)`}</SummaryListRow>
+                                <SummaryListRow key={location.pen} listKey={`Pen ${location.pen}`}>{`X ${location.easting} (Eastings), Y ${location.northing} (Northings)`}</SummaryListRow>
                               ))}
                             {
                               eastingValue && northingValue
                                 ? (
-                                  <SummaryListRow listKey="Pen 11">{`X ${eastingValue} (Eastings), Y ${northingValue} (Northing)`}</SummaryListRow>
+                                  <SummaryListRow key="11" listKey="Pen 11">{`X ${eastingValue} (Eastings), Y ${northingValue} (Northing)`}</SummaryListRow>
                                 ) : ''
                             }
                           </SummaryList>
                           <Heading level="h3">Fish details</Heading>
                           <SummaryList>
-                            <SummaryListRow listKey="Species of fish to be farmed">Salmon</SummaryListRow>
-                            <SummaryListRow listKey="Maximum weight of fish (tonnes)">186,786</SummaryListRow>
-                            <SummaryListRow listKey="Maximum feeding rate (kf/t/d)">7</SummaryListRow>
+                            <SummaryListRow key="Species" listKey="Species of fish to be farmed">Salmon</SummaryListRow>
+                            <SummaryListRow key="Weight" listKey="Maximum weight of fish (tonnes)">186,786</SummaryListRow>
+                            <SummaryListRow key="Rate" listKey="Maximum feeding rate (kf/t/d)">7</SummaryListRow>
                           </SummaryList>
                           <Heading level="h3">Medicine details</Heading>
                           <SummaryList>
-                            <SummaryListRow listKey="Bath sea lice medicines required">
+                            <SummaryListRow key="Bath" listKey="Bath sea lice medicines required">
                               Cypermetrin
                               <br />
                               Deltametrin
                               <br />
                               Azamethiphos
                             </SummaryListRow>
-                            <SummaryListRow listKey="In-feed sea lice medicine required">Emamectin benzoate</SummaryListRow>
+                            <SummaryListRow key="Sea" listKey="In-feed sea lice medicine required">Emamectin benzoate</SummaryListRow>
                           </SummaryList>
                           <Heading level="h3">Additional information</Heading>
                           <br />
@@ -133,12 +133,12 @@ const PermitPage = () => {
                             showPreAppReviewScroll
                               ? <ScrollTo /> : ''
                           }
-                          <ActionBox>
+                          <ActionBox locked={false}>
                             <Heading level="h3">Complete your pre-application review</Heading>
                             <FieldSet legend="Does the pre-application meet the requirements to move to the next stage?" inBox error={false} errorMessage="">
                               <RadioGroup inline>
-                                <Radio value="Yes" checked={radioReviewValue === 'Yes'} onChange={(e) => dispatch({ type: UPDATE_REVIEW_RADIO, payload: e.target.value })} />
-                                <Radio value="No" checked={radioReviewValue === 'No'} onChange={(e) => dispatch({ type: UPDATE_REVIEW_RADIO, payload: e.target.value })} />
+                                <Radio id="yes" name="radioReview" value="Yes" checked={radioReviewValue === 'Yes'} onChange={(e) => dispatch({ type: UPDATE_REVIEW_RADIO, payload: e.target.value })} />
+                                <Radio id="no" name="radioReview" value="No" checked={radioReviewValue === 'No'} onChange={(e) => dispatch({ type: UPDATE_REVIEW_RADIO, payload: e.target.value })} />
                               </RadioGroup>
                               <br />
                             </FieldSet>
@@ -168,7 +168,7 @@ const PermitPage = () => {
                             <Heading level="h3">Initial screening report</Heading>
                           </ActionBox>
                         </Column>
-                        <Column>
+                        <Column columnWidth="one-third">
                           <Heading level="h3">Workflow tasks:</Heading>
                           <Toggle modifier="govuk-right govuk-clear-margin" href="/" className="" onClick={(e) => { e.preventDefault(); dispatch({ type: TOGGLE_PRE_APP_REVIEW_SCROLL }); }}>Complete pre-application review</Toggle>
                         </Column>

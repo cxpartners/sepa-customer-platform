@@ -29,16 +29,16 @@ const Permit = () => {
               <Button>Create new permit</Button>
               <Heading level="h2">Your permits</Heading>
               <PermitList caption="In progress (2)" dateColumn="Last updated">
-                <PermitListRow listKey="CAR/L/4336591" status="pre-application (2)" isActive href="/" siteName="Kimelford" waterBody="Loch Tarbot Gallaway" date="17/02/2020" />
-                <PermitListRow listKey="CAR/L/4336592" status="pre-application" href="/" siteName="Loch Katrine Salmon Farm" waterBody="Loch Katrine" date="17/02/2020" />
+                <PermitListRow key="1" listKey="CAR/L/4336591" status="pre-application (2)" isActive href="/" siteName="Kimelford" waterBody="Loch Tarbot Gallaway" date="17/02/2020" />
+                <PermitListRow key="2" listKey="CAR/L/4336592" status="pre-application" href="/" siteName="Loch Katrine Salmon Farm" waterBody="Loch Katrine" date="17/02/2020" />
               </PermitList>
               <PermitList caption="Awarded permits (4)" dateColumn="Review date">
-                <PermitListRow listKey="CAR/L/4336581" href="/permit-page" siteName="Loch Mhòrair Salmon Farm" waterBody="Loch Mhòrair" date="17/02/2020" />
-                <PermitListRow listKey="CAR/L/4336591" href="/permit-page" siteName="Kimelford" waterBody="Loch Tarbot Gallaway" date="17/02/2020" />
-                <PermitListRow listKey="CAR/L/4336322" href="/permit-page" siteName="Carpford" waterBody="Loch Mhòrair" date="17/02/2020" />
-                <PermitListRow listKey="CAR/L/4336323" href="/permit-page" siteName="Carradale (north)" waterBody="Loch Tarbot Gallaway" date="17/02/2020" />
+                <PermitListRow key="1" listKey="CAR/L/4336581" href="/permit-page" siteName="Loch Mhòrair Salmon Farm" waterBody="Loch Mhòrair" date="17/02/2020" />
+                <PermitListRow key="2" listKey="CAR/L/4336591" href="/permit-page" siteName="Kimelford" waterBody="Loch Tarbot Gallaway" date="17/02/2020" />
+                <PermitListRow key="3" listKey="CAR/L/4336322" href="/permit-page" siteName="Carpford" waterBody="Loch Mhòrair" date="17/02/2020" />
+                <PermitListRow key="4" listKey="CAR/L/4336323" href="/permit-page" siteName="Carradale (north)" waterBody="Loch Tarbot Gallaway" date="17/02/2020" />
               </PermitList>
-              <Details modifier="govuk-!-font-weight-bold" title="Expired permits" />
+              <Details modifier="govuk-!-font-weight-bold" title="Expired permits">&nbsp;</Details>
             </Column>
           </Row>
         </Main>

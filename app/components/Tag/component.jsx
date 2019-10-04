@@ -28,7 +28,7 @@ export default Tag;
 
 Tag.propTypes = {
   children: PropTypes.string.isRequired,
-  isStatus: PropTypes.bool,
+  isStatus: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   isActive: PropTypes.bool,
   modifier: PropTypes.string,
 };

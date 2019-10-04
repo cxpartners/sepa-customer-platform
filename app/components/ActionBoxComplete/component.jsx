@@ -29,5 +29,5 @@ const ActionBoxComplete = (props) => {
 export default ActionBoxComplete;
 
 ActionBoxComplete.propTypes = {
-  children: PropTypes.element.isRequired,
+  children: PropTypes.string.isRequired,
 };

@@ -28,7 +28,10 @@ const Link = (props) => {
 export default Link;
 
 Link.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]).isRequired,
   href: PropTypes.string.isRequired,
   noVisitedState: PropTypes.bool,
   onClick: PropTypes.func,

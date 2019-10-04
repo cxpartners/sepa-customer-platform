@@ -12,7 +12,7 @@ const SummaryListRow = (props) => {
   } = props;
 
   return (
-    <div className="govuk-summary-list__row">
+    <div key={listKey} className="govuk-summary-list__row">
       <dt className="govuk-summary-list__key">
         {listKey}
       </dt>
@@ -57,7 +57,7 @@ export default SummaryListRow;
 
 SummaryListRow.propTypes = {
   listKey: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   href: PropTypes.string,
   addLinks: PropTypes.bool,
   addEdit: PropTypes.bool,
@@ -65,6 +65,7 @@ SummaryListRow.propTypes = {
 
 SummaryListRow.defaultProps = {
   href: '#',
+  children: null,
   addLinks: false,
   addEdit: false,
 };

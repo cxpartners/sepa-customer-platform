@@ -70,36 +70,36 @@ const PermitPage = () => {
                 </TabList>
                 <TabPanel id="overview" title="">
                   <Accordion>
-                    <AccordionSection expanded sectionKey="1" heading="Pre-application details" aria-expanded="true">
+                    <AccordionSection expanded locked={false} sectionKey="1" heading="Pre-application details" aria-expanded="true">
                       <Row>
                         <Column columnWidth="two-thirds">
                           <Heading level="h3">Company secretary contact</Heading>
                           <SummaryList>
-                            <SummaryListRow listKey="Name">Company Secretary</SummaryListRow>
-                            <SummaryListRow listKey="Email">company.secretary@salmonandsalmon.com</SummaryListRow>
-                            <SummaryListRow listKey="Phone number">07824 325 572</SummaryListRow>
+                            <SummaryListRow key="1" listKey="Name">Company Secretary</SummaryListRow>
+                            <SummaryListRow key="2" listKey="Email">company.secretary@salmonandsalmon.com</SummaryListRow>
+                            <SummaryListRow key="3" listKey="Phone number">07824 325 572</SummaryListRow>
                           </SummaryList>
                           <Heading level="h3">Application contact</Heading>
                           <SummaryList>
-                            <SummaryListRow listKey="Name">Oliver Allen</SummaryListRow>
-                            <SummaryListRow listKey="Email">o.allen@salmonandsalmon.com</SummaryListRow>
-                            <SummaryListRow listKey="Phone number">07824 327 552</SummaryListRow>
+                            <SummaryListRow key="1" listKey="Name">Oliver Allen</SummaryListRow>
+                            <SummaryListRow key="2" listKey="Email">o.allen@salmonandsalmon.com</SummaryListRow>
+                            <SummaryListRow key="3" listKey="Phone number">07824 327 552</SummaryListRow>
                           </SummaryList>
                           <Heading level="h3">Marine pen fish farm details</Heading>
                           <SummaryList>
-                            <SummaryListRow listKey="Site name">Loch Mhòrair Salmon Farm</SummaryListRow>
-                            <SummaryListRow listKey="Water body name">Loch Mhòrair</SummaryListRow>
-                            <SummaryListRow listKey="Number of pens">10</SummaryListRow>
+                            <SummaryListRow key="1" listKey="Site name">Loch Mhòrair Salmon Farm</SummaryListRow>
+                            <SummaryListRow key="2" listKey="Water body name">Loch Mhòrair</SummaryListRow>
+                            <SummaryListRow key="3" listKey="Number of pens">10</SummaryListRow>
                             {locationArray
                               .map((location) => (
-                                <SummaryListRow listKey={`Pen ${location.pen}`}>{`X ${location.easting} (Eastings), Y ${location.northing} (Northings)`}</SummaryListRow>
+                                <SummaryListRow key={location.pen} listKey={`Pen ${location.pen}`}>{`X ${location.easting} (Eastings), Y ${location.northing} (Northings)`}</SummaryListRow>
                               ))}
                           </SummaryList>
                           <Heading level="h3">Fish details</Heading>
                           <SummaryList>
-                            <SummaryListRow listKey="Species of fish to be farmed">Salmon</SummaryListRow>
-                            <SummaryListRow listKey="Maximum weight of fish (tonnes)">186,786</SummaryListRow>
-                            <SummaryListRow listKey="Maximum feeding rate (kf/t/d)">7</SummaryListRow>
+                            <SummaryListRow key="1" listKey="Species of fish to be farmed">Salmon</SummaryListRow>
+                            <SummaryListRow key="2" listKey="Maximum weight of fish (tonnes)">186,786</SummaryListRow>
+                            <SummaryListRow key="3" listKey="Maximum feeding rate (kf/t/d)">7</SummaryListRow>
                           </SummaryList>
                           <Heading level="h3">Medicine details</Heading>
                           <SummaryList>
@@ -110,7 +110,7 @@ const PermitPage = () => {
                               <br />
                               Azamethiphos
                             </SummaryListRow>
-                            <SummaryListRow listKey="In-feed sea lice medicine required">Emamectin benzoate</SummaryListRow>
+                            <SummaryListRow key="1" listKey="In-feed sea lice medicine required">Emamectin benzoate</SummaryListRow>
                           </SummaryList>
                           <Heading level="h3">Additional information</Heading>
                           <br />
@@ -119,9 +119,9 @@ const PermitPage = () => {
                         </Column>
                       </Row>
                     </AccordionSection>
-                    <AccordionSection expanded={false} sectionKey="2" heading="Current data" />
-                    <AccordionSection expanded={false} sectionKey="3" heading="Modelling" />
-                    <AccordionSection expanded={false} sectionKey="4" heading="Baseline Survey" />
+                    <AccordionSection expanded={false} locked={false} sectionKey="2" heading="Current data" />
+                    <AccordionSection expanded={false} locked={false} sectionKey="3" heading="Modelling" />
+                    <AccordionSection expanded={false} locked={false} sectionKey="4" heading="Baseline Survey" />
                   </Accordion>
                 </TabPanel>
               </Tabs>
