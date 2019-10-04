@@ -89,14 +89,14 @@ class Index extends React.PureComponent {
               <Column columnWidth="one-half">
                 <Heading level="h2">Slice two</Heading>
                 <List>
-                  <IndexListItem image href="/user-types-slice-two">User types</IndexListItem>
+                  <IndexListItem done image href="/user-types-slice-two">User types</IndexListItem>
                 </List>
                 <Heading level="h3">Request for current data</Heading>
                 <List>
-                  <IndexListItem image href="/request-for-data-receives-email">Receives request for data email notification</IndexListItem>
-                  <IndexListItem image href="/request-for-data-email-notification">Receives request for data email notification</IndexListItem>
-                  <IndexListItem image done href="/request-for-data-switch-context">Switch from email</IndexListItem>
-                  <IndexListItem image href="/request-for-data-start-page">Start page</IndexListItem>
+                  <IndexListItem done image href="/request-for-data-receives-email">Receives request for data email notification</IndexListItem>
+                  <IndexListItem done image href="/request-for-data-email-notification">Receives request for data email notification</IndexListItem>
+                  <IndexListItem done image href="/request-for-data-switch-context">Switch from email</IndexListItem>
+                  <IndexListItem done image href="/request-for-data-start-page">Start page</IndexListItem>
                   <IndexListItem tech href="/request-for-data-add-files">Add files</IndexListItem>
                   <IndexListItem href="/request-for-data-confirmation-page">Confirmation page</IndexListItem>
                 </List>
