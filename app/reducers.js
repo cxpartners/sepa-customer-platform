@@ -32,6 +32,7 @@ export const TOGGLE_ADD_FILES_ACCORDION_ONE = 'TOGGLE_ADD_FILES_ACCORDION_ONE';
 export const TOGGLE_ADD_FILES_ACCORDION_TWO = 'TOGGLE_ADD_FILES_ACCORDION_TWO';
 export const TOGGLE_ADD_FILES_SCROLL = 'TOGGLE_ADD_FILES_SCROLL';
 export const TOGGLE_ADD_FILES_UPLOADING = 'TOGGLE_ADD_FILES_UPLOADING';
+export const UPDATE_ADD_FILES_UPLOAD_PROGRESS_VALUE = 'UPDATE_ADD_FILES_UPLOAD_PROGRESS_VALUE';
 
 const initialState = {
   radioValue: '',
@@ -68,6 +69,7 @@ const initialState = {
   showAddFilesAccordionOne: false,
   showAddFilesAccordionTwo: true,
   showAddFilesUploading: false,
+  uploadProgressValue: 0,
 };
 
 export default (state = initialState, action) => {
@@ -222,6 +224,11 @@ export default (state = initialState, action) => {
         ...state,
         showAddFilesUploading: !state.showAddFilesUploading,
       };
+    case UPDATE_ADD_FILES_UPLOAD_PROGRESS_VALUE:
+      return {
+        ...state,
+        uploadProgressValue: action.payload,
+      };
     default:
       return state;
   }
@@ -341,4 +348,8 @@ export const toggleAddFilesAccordion = () => (dispatch) => {
 
 export const toggleAddFilesUploading = () => (dispatch) => {
   dispatch({ type: TOGGLE_ADD_FILES_UPLOADING });
+};
+
+export const updateAddFilesUploadProgressValue = () => (dispatch) => {
+  dispatch({ type: UPDATE_ADD_FILES_UPLOAD_PROGRESS_VALUE });
 };

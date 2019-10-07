@@ -24,6 +24,7 @@ import ScrollTo from '../components/ScrollTo/component';
 import Toggle from '../components/Toggle/component';
 import FileInput from '../components/FileInput/component';
 import Paragraph from '../components/Paragraph/component';
+import ProgressBar from '../components/ProgressBar/component';
 import Details from '../components/Details/component';
 import ActionBox from '../components/ActionBox/component';
 import Warning from '../components/Warning/component';
@@ -32,17 +33,20 @@ import {
   TOGGLE_ADD_FILES_ACCORDION_TWO,
   TOGGLE_ADD_FILES_SCROLL,
   TOGGLE_ADD_FILES_UPLOADING,
+  UPDATE_ADD_FILES_UPLOAD_PROGRESS_VALUE,
 } from '../reducers';
+import UploadStatus from '../components/UploadStatus/component';
 
 
 const RequestForDataAddFiles = () => {
   const showAddFilesAccordionOne = useSelector((state) => state.showAddFilesAccordionOne);
   const showAddFilesAccordionTwo = useSelector((state) => state.showAddFilesAccordionTwo);
   const showAddFilesUploading = useSelector((state) => state.showAddFilesUploading);
-  const dispatch = useDispatch();
   const showAddFilesScroll = useSelector((state) => state.showAddFilesScroll);
+  const uploadProgressValue = useSelector((state) => state.uploadProgressValue);
   const eastingValue = useSelector((state) => state.eastingValue);
   const northingValue = useSelector((state) => state.northingValue);
+  const dispatch = useDispatch();
 
   let easting = 182980;
   let northing = 790973;
@@ -62,6 +66,12 @@ const RequestForDataAddFiles = () => {
     fileReader.onloadstart = () => {
       dispatch({ type: TOGGLE_ADD_FILES_UPLOADING });
     };
+    fileReader.onprogress = (data) => {
+      if (data.lengthComputable) {
+        const progress = parseInt(((data.loaded / data.total) * 100), 10);
+        dispatch({ type: UPDATE_ADD_FILES_UPLOAD_PROGRESS_VALUE, payload: progress });
+      }
+    };
     fileReader.onloadend = () => {
       dispatch({ type: TOGGLE_ADD_FILES_UPLOADING });
     };
@@ -75,7 +85,7 @@ const RequestForDataAddFiles = () => {
         <PhaseBanner />
         <BackLink href="/request-for-data-start-page" />
         {
-          showAddFilesUploading ? <Warning isInfo>File uploading. Please don’t close your browser window</Warning> : ''
+          showAddFilesUploading ? <Warning>File uploading. Please don’t close your browser window</Warning> : ''
         }
         <Main>
           <Row>
@@ -166,6 +176,15 @@ const RequestForDataAddFiles = () => {
                           <ActionBox locked={false}>
                             <Heading level="h4">Modelling data upload</Heading>
                             <FileInput id="file-upload" onChange={(e) => handleFileChosen(e.target.files[0])} />
+                            {
+                              showAddFilesUploading
+                                ? (
+                                  <>
+                                    <ProgressBar progressValue={uploadProgressValue} />
+                                    <UploadStatus>File uploading. Please don’t close your browser window</UploadStatus>
+                                  </>
+                                ) : ''
+                            }
                           </ActionBox>
                         </Column>
                         <Column columnWidth="one-third">

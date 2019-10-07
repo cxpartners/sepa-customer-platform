@@ -35,6 +35,7 @@ $govuk-assets-path: '/assets';
 @import "../components/Header/style.scss";
 @import "../components/Panel/style.scss";
 @import "../components/PhaseBanner/style.scss";
+@import "../components/ProgressBar/style.scss";
 @import "../components/Radio/style.scss";
 @import "../components/RadioGroup/style.scss";
 @import "../components/Reference/style.scss";
@@ -43,7 +44,9 @@ $govuk-assets-path: '/assets';
 @import "../components/Tag/style.scss";
 @import "../components/Toggle/style.scss";
 @import "../components/TimePasses/style.scss";
+@import "../components/UploadStatus/style.scss";
 @import "../components/Warning/style.scss";
+@import "../components/WarningSymbol/style.scss";
 
 /**
 * bring in custom global styles
