@@ -11,7 +11,6 @@ import Heading from '../components/Heading/component';
 import Footer from '../components/Footer/component';
 import BackLink from '../components/BackLink/component';
 import Reference from '../components/Reference/component';
-import Button from '../components/Button/component';
 import Tabs from '../components/Tabs/component';
 import TabList from '../components/TabList/component';
 import Tab from '../components/Tab/component';
@@ -27,12 +26,19 @@ import FileInput from '../components/FileInput/component';
 import Paragraph from '../components/Paragraph/component';
 import Details from '../components/Details/component';
 import ActionBox from '../components/ActionBox/component';
-import { TOGGLE_ADD_FILES_ACCORDION_ONE, TOGGLE_ADD_FILES_ACCORDION_TWO, TOGGLE_ADD_FILES_SCROLL } from '../reducers';
+import Warning from '../components/Warning/component';
+import {
+  TOGGLE_ADD_FILES_ACCORDION_ONE,
+  TOGGLE_ADD_FILES_ACCORDION_TWO,
+  TOGGLE_ADD_FILES_SCROLL,
+  TOGGLE_ADD_FILES_UPLOADING,
+} from '../reducers';
 
 
 const RequestForDataAddFiles = () => {
   const showAddFilesAccordionOne = useSelector((state) => state.showAddFilesAccordionOne);
   const showAddFilesAccordionTwo = useSelector((state) => state.showAddFilesAccordionTwo);
+  const showAddFilesUploading = useSelector((state) => state.showAddFilesUploading);
   const dispatch = useDispatch();
   const showAddFilesScroll = useSelector((state) => state.showAddFilesScroll);
   const eastingValue = useSelector((state) => state.eastingValue);
@@ -51,12 +57,26 @@ const RequestForDataAddFiles = () => {
     x += 1;
   } while (x < 10);
 
+  const handleFileChosen = (file) => {
+    const fileReader = new FileReader();
+    fileReader.onloadstart = () => {
+      dispatch({ type: TOGGLE_ADD_FILES_UPLOADING });
+    };
+    fileReader.onloadend = () => {
+      dispatch({ type: TOGGLE_ADD_FILES_UPLOADING });
+    };
+    fileReader.readAsText(file);
+  };
+
   return (
     <>
       <Header isNotification userName="Oliver Allen" />
       <Container>
         <PhaseBanner />
         <BackLink href="/request-for-data-start-page" />
+        {
+          showAddFilesUploading ? <Warning isInfo>File uploading. Please don’t close your browser window</Warning> : ''
+        }
         <Main>
           <Row>
             <Column columnWidth="two-thirds">
@@ -64,7 +84,6 @@ const RequestForDataAddFiles = () => {
                 Loch Mhòrair Salmon Farm
                 <Reference>CAR/L/4336581</Reference>
               </Heading>
-              <Button href="pre-app-form-start">Add permit variation</Button>
             </Column>
           </Row>
           <Row>
@@ -146,7 +165,7 @@ const RequestForDataAddFiles = () => {
                           }
                           <ActionBox locked={false}>
                             <Heading level="h4">Modelling data upload</Heading>
-                            <FileInput id="file-upload" />
+                            <FileInput id="file-upload" onChange={(e) => handleFileChosen(e.target.files[0])} />
                           </ActionBox>
                         </Column>
                         <Column columnWidth="one-third">

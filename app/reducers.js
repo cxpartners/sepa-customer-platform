@@ -31,6 +31,7 @@ export const TOGGLE_EMAMECTIN_BENZOATE_CHECKED = 'TOGGLE_EMAMECTIN_BENZOATE_CHEC
 export const TOGGLE_ADD_FILES_ACCORDION_ONE = 'TOGGLE_ADD_FILES_ACCORDION_ONE';
 export const TOGGLE_ADD_FILES_ACCORDION_TWO = 'TOGGLE_ADD_FILES_ACCORDION_TWO';
 export const TOGGLE_ADD_FILES_SCROLL = 'TOGGLE_ADD_FILES_SCROLL';
+export const TOGGLE_ADD_FILES_UPLOADING = 'TOGGLE_ADD_FILES_UPLOADING';
 
 const initialState = {
   radioValue: '',
@@ -66,6 +67,7 @@ const initialState = {
   showAddFilesScroll: false,
   showAddFilesAccordionOne: false,
   showAddFilesAccordionTwo: true,
+  showAddFilesUploading: false,
 };
 
 export default (state = initialState, action) => {
@@ -215,6 +217,11 @@ export default (state = initialState, action) => {
         ...state,
         showAddFilesAccordionTwo: !state.showAddFilesAccordionTwo,
       };
+    case TOGGLE_ADD_FILES_UPLOADING:
+      return {
+        ...state,
+        showAddFilesUploading: !state.showAddFilesUploading,
+      };
     default:
       return state;
   }
@@ -330,4 +337,8 @@ export const toggleAddFilesAccordionOne = () => (dispatch) => {
 
 export const toggleAddFilesAccordion = () => (dispatch) => {
   dispatch({ type: TOGGLE_ADD_FILES_ACCORDION_TWO });
+};
+
+export const toggleAddFilesUploading = () => (dispatch) => {
+  dispatch({ type: TOGGLE_ADD_FILES_UPLOADING });
 };
