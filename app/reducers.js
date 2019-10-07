@@ -28,6 +28,9 @@ export const TOGGLE_AZAMETHIPHOS_CHECKED = 'TOGGLE_AZAMETHIPHOS_CHECKED';
 export const TOGGLE_CYPERMETHRIN_CHECKED = 'TOGGLE_CYPERMETHRIN_CHECKED';
 export const TOGGLE_DELTAMETHRIN_CHECKED = 'TOGGLE_DELTAMETHRIN_CHECKED';
 export const TOGGLE_EMAMECTIN_BENZOATE_CHECKED = 'TOGGLE_EMAMECTIN_BENZOATE_CHECKED';
+export const TOGGLE_ADD_FILES_ACCORDION_ONE = 'TOGGLE_ADD_FILES_ACCORDION_ONE';
+export const TOGGLE_ADD_FILES_ACCORDION_TWO = 'TOGGLE_ADD_FILES_ACCORDION_TWO';
+export const TOGGLE_ADD_FILES_SCROLL = 'TOGGLE_ADD_FILES_SCROLL';
 
 const initialState = {
   radioValue: '',
@@ -60,6 +63,9 @@ const initialState = {
   cypermethrinChecked: true,
   deltamethrinChecked: true,
   emamectinBenzoateChecked: true,
+  showAddFilesScroll: false,
+  showAddFilesAccordionOne: false,
+  showAddFilesAccordionTwo: true,
 };
 
 export default (state = initialState, action) => {
@@ -194,6 +200,21 @@ export default (state = initialState, action) => {
         ...state,
         emamectinBenzoateChecked: !state.emamectinBenzoateChecked,
       };
+    case TOGGLE_ADD_FILES_SCROLL:
+      return {
+        ...state,
+        showAddFilesScroll: !state.showAddFilesScroll,
+      };
+    case TOGGLE_ADD_FILES_ACCORDION_ONE:
+      return {
+        ...state,
+        showAddFilesAccordionOne: !state.showAddFilesAccordionOne,
+      };
+    case TOGGLE_ADD_FILES_ACCORDION_TWO:
+      return {
+        ...state,
+        showAddFilesAccordionTwo: !state.showAddFilesAccordionTwo,
+      };
     default:
       return state;
   }
@@ -297,4 +318,16 @@ export const updateEastingsValue = () => (dispatch) => {
 
 export const updateNorthingsValue = () => (dispatch) => {
   dispatch({ type: UPDATE_NORTHINGS_VALUE });
+};
+
+export const toggleAddFilesScroll = () => (dispatch) => {
+  dispatch({ type: TOGGLE_ADD_FILES_SCROLL });
+};
+
+export const toggleAddFilesAccordionOne = () => (dispatch) => {
+  dispatch({ type: TOGGLE_ADD_FILES_ACCORDION_ONE });
+};
+
+export const toggleAddFilesAccordion = () => (dispatch) => {
+  dispatch({ type: TOGGLE_ADD_FILES_ACCORDION_TWO });
 };
