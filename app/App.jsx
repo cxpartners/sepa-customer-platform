@@ -57,6 +57,8 @@ import RequestForDataStartPage from './pages/RequestForDataStartPage';
 import RequestForDataAddFiles from './pages/RequestForDataAddFiles';
 import RequestForDataConfirmationPage from './pages/RequestForDataConfirmationPage';
 import ReceivesDataUploadNotification from './pages/ReceivesDataUploadNotification';
+import ApplicationStatusNotification from './pages/ApplicationStatusNotification';
+import ReceivesDataSubmissionEmailConfirmation from './pages/ReceivesDataSubmissionEmailConfirmation';
 import ReceivesDataUploadNotificationEmail from './pages/ReceivesDataUploadNotificationEmail';
 import DataReviewReceiveRequest from './pages/DataReviewReceiveRequest';
 import DataReviewEmailNotification from './pages/DataReviewEmailNotification';
@@ -127,9 +129,11 @@ const App = () => (
       <Route exact path="/request-for-data-add-files" component={RequestForDataAddFiles} />
       <Route exact path="/request-for-data-confirmation-page" component={RequestForDataConfirmationPage} />
       <Route exact path="/receives-data-upload-notification" component={ReceivesDataUploadNotification} />
+      <Route exact path="/receives-data-submission-email-confirmation" component={ReceivesDataSubmissionEmailConfirmation} />
       <Route exact path="/receives-data-upload-notification-email" component={ReceivesDataUploadNotificationEmail} />
       <Route exact path="/data-review-receive-request" component={DataReviewReceiveRequest} />
       <Route exact path="/data-review-email-notification" component={DataReviewEmailNotification} />
+      <Route exact path="/application-status-notification" component={ApplicationStatusNotification} />
       <Route exact path="/data-review-context-switch" component={DataReviewContextSwitch} />
       <Route exact path="/data-review-permit-page" component={DataReviewPermitPage} />
       <Route exact path="/applicant-reviewed-data-notification" component={ApplicantReviewedDataNotification} />
