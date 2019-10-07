@@ -1,4 +1,4 @@
-# 3. Provide frontend authentication using Azure Active Directory B2C using existing 'user flows'
+# 3. Provide frontend authentication for public users with Azure Active Directory B2C using existing 'user flows'
 
 * Status: proposed
 * Deciders: [TBC]
