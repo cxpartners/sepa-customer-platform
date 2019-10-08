@@ -55,7 +55,7 @@
     - "docker-compose down"
     - "docker-compose rm"
     - "docker system prune -af"
-    - "docker-compose up -d -f docker-compose.prod.yml --build --force-recreate"
+    - "docker-compose -f docker-compose.prod.yml up -d --build --force-recreate"
     run_as_script: true
     shell: "BASH"
     trigger_condition: "ALWAYS"
