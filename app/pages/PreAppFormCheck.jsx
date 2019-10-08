@@ -27,19 +27,7 @@ const PreAppFormCheck = () => {
   const fishValue = useSelector((state) => state.fishValue);
   const weightValue = useSelector((state) => state.weightValue);
   const feedingRateValue = useSelector((state) => state.feedingRateValue);
-
-  let easting = 182980;
-  let northing = 790973;
-  const locationArray = [];
-  let x = 0;
-  do {
-    locationArray.push({
-      pen: x + 1,
-      easting: easting += x * 2,
-      northing: northing += x * 3,
-    });
-    x += 1;
-  } while (x < 10);
+  const locationArray = useSelector((state) => state.locationArray);
 
   return (
     <>

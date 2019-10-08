@@ -20,18 +20,14 @@ import AccordionSection from '../components/AccordionSection/component';
 import SummaryList from '../components/SummaryList/component';
 import SummaryListRow from '../components/SummaryListRow/component';
 import ActionBoxComplete from '../components/ActionBoxComplete/component';
-import ScrollTo from '../components/ScrollTo/component';
-import Toggle from '../components/Toggle/component';
 import FileInput from '../components/FileInput/component';
 import Paragraph from '../components/Paragraph/component';
 import ProgressBar from '../components/ProgressBar/component';
-import Details from '../components/Details/component';
 import ActionBox from '../components/ActionBox/component';
 import Warning from '../components/Warning/component';
 import {
   TOGGLE_ADD_FILES_ACCORDION_ONE,
   TOGGLE_ADD_FILES_ACCORDION_TWO,
-  TOGGLE_ADD_FILES_SCROLL,
   TOGGLE_ADD_FILES_UPLOADING,
   UPDATE_ADD_FILES_UPLOAD_PROGRESS_VALUE,
 } from '../reducers';
@@ -42,24 +38,11 @@ const RequestForDataAddFiles = () => {
   const showAddFilesAccordionOne = useSelector((state) => state.showAddFilesAccordionOne);
   const showAddFilesAccordionTwo = useSelector((state) => state.showAddFilesAccordionTwo);
   const showAddFilesUploading = useSelector((state) => state.showAddFilesUploading);
-  const showAddFilesScroll = useSelector((state) => state.showAddFilesScroll);
   const uploadProgressValue = useSelector((state) => state.uploadProgressValue);
   const eastingValue = useSelector((state) => state.eastingValue);
   const northingValue = useSelector((state) => state.northingValue);
+  const locationArray = useSelector((state) => state.locationArray);
   const dispatch = useDispatch();
-
-  let easting = 182980;
-  let northing = 790973;
-  const locationArray = [];
-  let x = 0;
-  do {
-    locationArray.push({
-      pen: x + 1,
-      easting: easting += x * 2,
-      northing: northing += x * 3,
-    });
-    x += 1;
-  } while (x < 10);
 
   const handleFileChosen = (file) => {
     const fileReader = new FileReader();
@@ -89,7 +72,7 @@ const RequestForDataAddFiles = () => {
         }
         <Main>
           <Row>
-            <Column columnWidth="two-thirds">
+            <Column columnWidth="full">
               <Heading caption="Loch Mhòrair" level="h1">
                 Loch Mhòrair Salmon Farm
                 <Reference>CAR/L/4336581</Reference>
@@ -168,11 +151,6 @@ const RequestForDataAddFiles = () => {
                       <Row>
                         <Column columnWidth="two-thirds">
                           <Paragraph>This is where you’ll supply current meter data, and other data, which will be used by SEPA for modelling.</Paragraph>
-                          <Details title="Guidance">&nbsp;</Details>
-                          {
-                            showAddFilesScroll
-                              ? <ScrollTo /> : ''
-                          }
                           <ActionBox locked={false}>
                             <Heading level="h4">Modelling data upload</Heading>
                             <FileInput id="file-upload" onChange={(e) => handleFileChosen(e.target.files[0])} />
@@ -186,10 +164,6 @@ const RequestForDataAddFiles = () => {
                                 ) : ''
                             }
                           </ActionBox>
-                        </Column>
-                        <Column columnWidth="one-third">
-                          <Heading level="h3">Workflow tasks:</Heading>
-                          <Toggle modifier="govuk-right govuk-clear-margin" href="/" className="" onClick={(e) => { e.preventDefault(); dispatch({ type: TOGGLE_ADD_FILES_SCROLL }); }}>Upload modelling data</Toggle>
                         </Column>
                       </Row>
                     </AccordionSection>

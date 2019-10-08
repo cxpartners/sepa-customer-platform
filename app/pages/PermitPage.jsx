@@ -4,6 +4,7 @@
 /* eslint-disable no-nested-ternary */
 /* eslint-disable max-len */
 import React from 'react';
+import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import Header from '../components/Header/component';
 import Container from '../components/Container/component';
@@ -28,18 +29,7 @@ import Guidance from '../components/Guidance/component';
 import ActionBoxComplete from '../components/ActionBoxComplete/component';
 
 const PermitPage = () => {
-  let easting = 182980;
-  let northing = 790973;
-  const locationArray = [];
-  let x = 0;
-  do {
-    locationArray.push({
-      pen: x + 1,
-      easting: easting += x * 2,
-      northing: northing += x * 3,
-    });
-    x += 1;
-  } while (x < 10);
+  const locationArray = useSelector((state) => state.locationArray);
 
   return (
     <>

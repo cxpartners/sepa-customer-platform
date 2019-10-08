@@ -30,7 +30,6 @@ export const TOGGLE_DELTAMETHRIN_CHECKED = 'TOGGLE_DELTAMETHRIN_CHECKED';
 export const TOGGLE_EMAMECTIN_BENZOATE_CHECKED = 'TOGGLE_EMAMECTIN_BENZOATE_CHECKED';
 export const TOGGLE_ADD_FILES_ACCORDION_ONE = 'TOGGLE_ADD_FILES_ACCORDION_ONE';
 export const TOGGLE_ADD_FILES_ACCORDION_TWO = 'TOGGLE_ADD_FILES_ACCORDION_TWO';
-export const TOGGLE_ADD_FILES_SCROLL = 'TOGGLE_ADD_FILES_SCROLL';
 export const TOGGLE_ADD_FILES_UPLOADING = 'TOGGLE_ADD_FILES_UPLOADING';
 export const UPDATE_ADD_FILES_UPLOAD_PROGRESS_VALUE = 'UPDATE_ADD_FILES_UPLOAD_PROGRESS_VALUE';
 export const PERMITS_FETCH_DATA = 'PERMITS_FETCH_DATA';
@@ -43,6 +42,10 @@ export const PERMIT_FETCH_REQUESTING = 'PERMIT_FETCH_REQUESTING';
 export const PERMIT_FETCH_INVALID = 'PERMIT_FETCH_INVALID';
 export const PERMIT_FETCH_SUCCESS = 'PERMIT_FETCH_SUCCESS';
 export const PERMIT_FETCH_FAILED = 'PERMIT_FETCH_FAILED';
+
+
+let easting = 182980;
+let northing = 790973;
 
 const initialState = {
   radioValue: '',
@@ -75,7 +78,6 @@ const initialState = {
   cypermethrinChecked: true,
   deltamethrinChecked: true,
   emamectinBenzoateChecked: true,
-  showAddFilesScroll: false,
   showAddFilesAccordionOne: false,
   showAddFilesAccordionTwo: true,
   showAddFilesUploading: false,
@@ -91,7 +93,21 @@ const initialState = {
     conditions: [],
     locations: [],
   },
+  locationArray: [],
 };
+
+// fake some locations
+
+let x = 0;
+do {
+  initialState.locationArray.push({
+    pen: x + 1,
+    easting: easting += x * 2,
+    northing: northing += x * 3,
+  });
+  x += 1;
+} while (x < 10);
+
 
 export default (state = initialState, action) => {
   switch (action.type) {
@@ -224,11 +240,6 @@ export default (state = initialState, action) => {
       return {
         ...state,
         emamectinBenzoateChecked: !state.emamectinBenzoateChecked,
-      };
-    case TOGGLE_ADD_FILES_SCROLL:
-      return {
-        ...state,
-        showAddFilesScroll: !state.showAddFilesScroll,
       };
     case TOGGLE_ADD_FILES_ACCORDION_ONE:
       return {
@@ -372,10 +383,6 @@ export const updateEastingsValue = () => (dispatch) => {
 
 export const updateNorthingsValue = () => (dispatch) => {
   dispatch({ type: UPDATE_NORTHINGS_VALUE });
-};
-
-export const toggleAddFilesScroll = () => (dispatch) => {
-  dispatch({ type: TOGGLE_ADD_FILES_SCROLL });
 };
 
 export const toggleAddFilesAccordionOne = () => (dispatch) => {
