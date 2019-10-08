@@ -1,10 +1,12 @@
 version: '3'
 services:
-  api:
+  web:
     build: .
-    command: npm run start
-    image: '985122549210.dkr.ecr.eu-west-2.amazonaws.com/ec2-test:latest'
-    env_file:
-      - .env
+    image: 'sepa-prototype:latest'
+    volumes:
+      - '.:/app'
+      - '/app/node_modules'
     ports:
       - 3000:3000
+    environment:
+      - NODE_ENV=development

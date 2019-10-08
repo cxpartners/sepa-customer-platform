@@ -1,0 +1,13 @@
+.govuk-button {
+
+  background-color: $sepa-blue;
+
+  &:hover {
+    background-color: $sepa-dark-blue;
+  }
+}
+
+.govuk-button.govuk-button--secondary {
+  background-color: govuk-colour("light-grey");
+  margin-top: 35px;
+}
