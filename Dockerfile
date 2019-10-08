@@ -26,4 +26,4 @@ COPY . .
 EXPOSE 3000
 
 # Run when the container launches
-ENTRYPOINT ["npm", "run", "start-int"]
+ENTRYPOINT ["npm", "run", "start"]
