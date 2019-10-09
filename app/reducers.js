@@ -30,8 +30,11 @@ export const TOGGLE_DELTAMETHRIN_CHECKED = 'TOGGLE_DELTAMETHRIN_CHECKED';
 export const TOGGLE_EMAMECTIN_BENZOATE_CHECKED = 'TOGGLE_EMAMECTIN_BENZOATE_CHECKED';
 export const TOGGLE_ADD_FILES_ACCORDION_ONE = 'TOGGLE_ADD_FILES_ACCORDION_ONE';
 export const TOGGLE_ADD_FILES_ACCORDION_TWO = 'TOGGLE_ADD_FILES_ACCORDION_TWO';
+export const UPDATE_DATA_TYPE_VALUE = 'UPDATE_DATA_TYPE_VALUE';
 export const TOGGLE_ADD_FILES_UPLOADING = 'TOGGLE_ADD_FILES_UPLOADING';
 export const UPDATE_ADD_FILES_UPLOAD_PROGRESS_VALUE = 'UPDATE_ADD_FILES_UPLOAD_PROGRESS_VALUE';
+export const TOGGLE_FILE_UPLOAD_COMPLETE = 'TOGGLE_FILE_UPLOAD_COMPLETE';
+export const TOGGLE_FILE_SUBMISSION = 'TOGGLE_FILE_SUBMISSION';
 export const PERMITS_FETCH_DATA = 'PERMITS_FETCH_DATA';
 export const PERMITS_FETCH_REQUESTING = 'PERMITS_FETCH_REQUESTING';
 export const PERMITS_FETCH_INVALID = 'PERMITS_FETCH_INVALID';
@@ -42,7 +45,6 @@ export const PERMIT_FETCH_REQUESTING = 'PERMIT_FETCH_REQUESTING';
 export const PERMIT_FETCH_INVALID = 'PERMIT_FETCH_INVALID';
 export const PERMIT_FETCH_SUCCESS = 'PERMIT_FETCH_SUCCESS';
 export const PERMIT_FETCH_FAILED = 'PERMIT_FETCH_FAILED';
-
 
 let easting = 182980;
 let northing = 790973;
@@ -94,6 +96,9 @@ const initialState = {
     locations: [],
   },
   locationArray: [],
+  dataTypeValue: null,
+  fileUploadComplete: false,
+  filesSubmitted: false,
 };
 
 // fake some locations
@@ -256,10 +261,25 @@ export default (state = initialState, action) => {
         ...state,
         showAddFilesUploading: !state.showAddFilesUploading,
       };
+    case TOGGLE_FILE_SUBMISSION:
+      return {
+        ...state,
+        filesSubmitted: !state.filesSubmitted,
+      };
     case UPDATE_ADD_FILES_UPLOAD_PROGRESS_VALUE:
       return {
         ...state,
         uploadProgressValue: action.payload,
+      };
+    case TOGGLE_FILE_UPLOAD_COMPLETE:
+      return {
+        ...state,
+        fileUploadComplete: !state.fileUploadComplete,
+      };
+    case UPDATE_DATA_TYPE_VALUE:
+      return {
+        ...state,
+        dataTypeValue: action.payload,
       };
     case PERMITS_FETCH_DATA:
       return {
@@ -337,6 +357,10 @@ export const updatePreAppFormFeedingRateValue = () => (dispatch) => {
   dispatch({ type: UPDATE_PRE_APP_FORM_FEEDING_RATE_VALUE });
 };
 
+export const updateDataTypeValue = () => (dispatch) => {
+  dispatch({ type: UPDATE_DATA_TYPE_VALUE });
+};
+
 export const updateCreateAccountYourDetailsNumber = () => (dispatch) => {
   dispatch({ type: UPDATE_CREATE_ACCOUNT_YOUR_DETAILS_NUMBER });
 };
@@ -395,6 +419,14 @@ export const toggleAddFilesAccordion = () => (dispatch) => {
 
 export const toggleAddFilesUploading = () => (dispatch) => {
   dispatch({ type: TOGGLE_ADD_FILES_UPLOADING });
+};
+
+export const toggleFileSubmission = () => (dispatch) => {
+  dispatch({ type: TOGGLE_FILE_SUBMISSION });
+};
+
+export const toggleFileUploadComplete = () => (dispatch) => {
+  dispatch({ type: TOGGLE_FILE_UPLOAD_COMPLETE });
 };
 
 export const updateAddFilesUploadProgressValue = () => (dispatch) => {

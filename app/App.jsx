@@ -53,8 +53,9 @@ import UserTypesSliceTwo from './pages/UserTypesSliceTwo';
 import RequestForDataReceivesEmail from './pages/RequestForDataReceivesEmail';
 import RequestForDataEmailNotification from './pages/RequestForDataEmailNotification';
 import RequestForDataSwitchContext from './pages/RequestForDataSwitchContext';
-import RequestForDataStartPage from './pages/RequestForDataStartPage';
+import RequestForDataChooseType from './pages/RequestForDataChooseType';
 import RequestForDataAddFiles from './pages/RequestForDataAddFiles';
+import RequestForDataSubmitFiles from './pages/RequestForDataSubmitFiles';
 import RequestForDataConfirmationPage from './pages/RequestForDataConfirmationPage';
 import ReceivesDataUploadNotification from './pages/ReceivesDataUploadNotification';
 import ReceivesDataUploadNotificationEmail from './pages/ReceivesDataUploadNotificationEmail';
@@ -123,8 +124,9 @@ const App = () => (
       <Route exact path="/request-for-data-receives-email" component={RequestForDataReceivesEmail} />
       <Route exact path="/request-for-data-email-notification" component={RequestForDataEmailNotification} />
       <Route exact path="/request-for-data-switch-context" component={RequestForDataSwitchContext} />
-      <Route exact path="/request-for-data-start-page" component={RequestForDataStartPage} />
+      <Route exact path="/request-for-data-choose-type" component={RequestForDataChooseType} />
       <Route exact path="/request-for-data-add-files" component={RequestForDataAddFiles} />
+      <Route exact path="/request-for-data-submit-files" component={RequestForDataSubmitFiles} />
       <Route exact path="/request-for-data-confirmation-page" component={RequestForDataConfirmationPage} />
       <Route exact path="/receives-data-upload-notification" component={ReceivesDataUploadNotification} />
       <Route exact path="/receives-data-upload-notification-email" component={ReceivesDataUploadNotificationEmail} />
