@@ -96,20 +96,20 @@ class Index extends React.PureComponent {
                   <IndexListItem done image href="/request-for-data-receives-email">Receives request for data email notification</IndexListItem>
                   <IndexListItem done image href="/request-for-data-email-notification">Receives request for data email notification</IndexListItem>
                   <IndexListItem done image href="/request-for-data-switch-context">Switch from email</IndexListItem>
-                  <IndexListItem done image href="/request-for-data-start-page">Start page</IndexListItem>
+                  <IndexListItem href="/request-for-data-start-page">Start page</IndexListItem>
                   <IndexListItem tech href="/request-for-data-add-files">Add files</IndexListItem>
-                  <IndexListItem href="/request-for-data-confirmation-page">Confirmation page</IndexListItem>
+                  <IndexListItem done image href="/request-for-data-confirmation-page">Confirmation page</IndexListItem>
                 </List>
                 <Heading level="h3">Receive current data upload notification</Heading>
                 <List>
-                  <IndexListItem image href="/receives-data-upload-notification">Receives notification of data upload</IndexListItem>
-                  <IndexListItem image href="/receives-data-upload-notification-email">Email notification</IndexListItem>
+                  <IndexListItem done image href="/receives-data-upload-notification">Receives notification of data upload</IndexListItem>
+                  <IndexListItem done image href="/receives-data-upload-notification-email">Email notification</IndexListItem>
                 </List>
                 <Heading level="h3">Review current data</Heading>
                 <List>
-                  <IndexListItem image href="/data-review-receive-request">Receives current data request for review</IndexListItem>
-                  <IndexListItem image href="/data-review-email-notification">Email notification</IndexListItem>
-                  <IndexListItem image href="/data-review-context-switch">Follows link to Case file</IndexListItem>
+                  <IndexListItem image href="/data-review-receive-request">Receives current data request for review (Remove?)</IndexListItem>
+                  <IndexListItem image href="/data-review-email-notification">Email notification (Remove?)</IndexListItem>
+                  <IndexListItem image href="/data-review-context-switch">Follows link to Case file (Remove?)</IndexListItem>
                   <IndexListItem href="/data-review-permit-page">Data review on permit page</IndexListItem>
                 </List>
                 <Heading level="h3">Applicant receives notification of data review</Heading>
