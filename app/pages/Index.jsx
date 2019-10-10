@@ -98,7 +98,6 @@ class Index extends React.PureComponent {
                   <IndexListItem done image href="/request-for-data-switch-context">Switch from email</IndexListItem>
                   <IndexListItem tech href="/request-for-data-choose-type">Choose data type</IndexListItem>
                   <IndexListItem tech href="/request-for-data-add-files">Add files</IndexListItem>
-                  <IndexListItem tech href="/request-for-data-submit-files">Confirm and submit files</IndexListItem>
                   <IndexListItem href="/request-for-data-confirmation-page">Confirmation page</IndexListItem>
                 </List>
                 <Heading level="h3">Receive current data upload notification</Heading>

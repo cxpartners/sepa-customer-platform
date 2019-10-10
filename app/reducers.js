@@ -33,6 +33,8 @@ export const TOGGLE_ADD_FILES_ACCORDION_TWO = 'TOGGLE_ADD_FILES_ACCORDION_TWO';
 export const UPDATE_DATA_TYPE_VALUE = 'UPDATE_DATA_TYPE_VALUE';
 export const TOGGLE_ADD_FILES_UPLOADING = 'TOGGLE_ADD_FILES_UPLOADING';
 export const UPDATE_ADD_FILES_UPLOAD_PROGRESS_VALUE = 'UPDATE_ADD_FILES_UPLOAD_PROGRESS_VALUE';
+export const UPDATE_ADD_FILES_UPLOAD_FILE_NAME_VALUE = 'UPDATE_ADD_FILES_UPLOAD_FILE_NAME_VALUE';
+export const UPDATE_ADD_FILES_UPLOAD_FILE_SIZE_VALUE = 'UPDATE_ADD_FILES_UPLOAD_FILE_SIZE_VALUE';
 export const TOGGLE_FILE_UPLOAD_COMPLETE = 'TOGGLE_FILE_UPLOAD_COMPLETE';
 export const TOGGLE_FILE_SUBMISSION = 'TOGGLE_FILE_SUBMISSION';
 export const PERMITS_FETCH_DATA = 'PERMITS_FETCH_DATA';
@@ -99,6 +101,8 @@ const initialState = {
   dataTypeValue: null,
   fileUploadComplete: false,
   filesSubmitted: false,
+  uploadFileName: '',
+  uploadFileSize: 0,
 };
 
 // fake some locations
@@ -271,6 +275,16 @@ export default (state = initialState, action) => {
         ...state,
         uploadProgressValue: action.payload,
       };
+    case UPDATE_ADD_FILES_UPLOAD_FILE_NAME_VALUE:
+      return {
+        ...state,
+        uploadFileName: action.payload,
+      };
+    case UPDATE_ADD_FILES_UPLOAD_FILE_SIZE_VALUE:
+      return {
+        ...state,
+        uploadFileSize: action.payload,
+      };
     case TOGGLE_FILE_UPLOAD_COMPLETE:
       return {
         ...state,
@@ -431,4 +445,12 @@ export const toggleFileUploadComplete = () => (dispatch) => {
 
 export const updateAddFilesUploadProgressValue = () => (dispatch) => {
   dispatch({ type: UPDATE_ADD_FILES_UPLOAD_PROGRESS_VALUE });
+};
+
+export const updateAddFilesUploadFileNameValue = () => (dispatch) => {
+  dispatch({ type: UPDATE_ADD_FILES_UPLOAD_FILE_NAME_VALUE });
+};
+
+export const updateAddFilesUploadFileSizeValue = () => (dispatch) => {
+  dispatch({ type: UPDATE_ADD_FILES_UPLOAD_FILE_SIZE_VALUE });
 };

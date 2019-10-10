@@ -10,7 +10,7 @@ const FileInput = (props) => {
       <label className="govuk-label" htmlFor={id}>
         {label || 'Upload a file'}
       </label>
-      <input className="govuk-file-upload" id={id} name={id} type="file" onChange={onChange} />
+      <input className="govuk-file-upload" id={id} name={id} type="file" onChange={onChange} multiple />
     </div>
   );
 };
