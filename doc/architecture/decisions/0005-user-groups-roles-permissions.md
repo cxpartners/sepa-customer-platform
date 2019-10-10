@@ -1,81 +1,71 @@
-# [short title of solved problem and solution]
+# Manage user roles and permissions using Active Directory Groups
 
-* Status: [proposed | rejected | accepted | deprecated | … | superseded by [ADR-0005](0005-example.md)] <!-- optional -->
-* Deciders: [list everyone involved in the decision] <!-- optional -->
-* Date: [YYYY-MM-DD when the decision was last updated] <!-- optional -->
-
-Technical Story: [description | ticket/issue URL] <!-- optional -->
+* Status: proposed
+* Deciders:
+* Date: 2019-10-03
 
 ## Context and Problem Statement
 
-[Describe the context and problem statement, e.g., in free form using two to three sentences. You may want to articulate the problem in form of a question.]
+The application needs to control access permits & their supporting documents based on user roles.  As Active Directory and Active Directory B2C have been proposed as the authentication methods, SEPA needs to 
 
-## Decision Drivers <!-- optional -->
+## Decision Drivers 
 
-* [driver 1, e.g., a force, facing concern, …]
-* [driver 2, e.g., a force, facing concern, …]
-* … <!-- numbers of drivers can vary -->
+* Applicants and operators will be grouped by 'account' in the CRM, however SEPA should be able to differentiate between  organisation users & designate an 'administrator'.
+* SEPA staff will potentially require different access levels depending on the application, sensitive data requirements mean not at all staff should be able to view all documents connected to a permit.
 
 ## Considered Options
 
-* [option 1]
-* [option 2]
-* [option 3]
-* … <!-- numbers of options can vary -->
+* All user groups are managed through Active Directory groups
+* SEPA staff permissions are managed by Active Directory groups, operator and applicant permisisons are managed via their relationship to the CRM account.
 
 ## Decision Outcome
 
-Chosen option: "[option 1]", because [justification. e.g., only option, which meets k.o. criterion decision driver | which resolves force force | … | comes out best (see below)].
+SEPA staff should be assigned to Active Directory groups based on their roles, the following are suggested but need to be reviewed based on a more thorough investigation of roles:
 
-### Positive Consequences <!-- optional -->
+* SEPA Marine Pen application - administrators
+* SEPA Marine Pen application - users
 
-* [e.g., improvement of quality attribute satisfaction, follow-up decisions required, …]
-* …
+This setup would allow for additional license type grouping and segmentation in the future.
 
-### Negative Consequences <!-- optional -->
+Frontstage users (applicants and operators) should also be organised into group structures within the Azure Active Directory B2C, 
 
-* [e.g., compromising quality attribute, follow-up decisions required, …]
-* …
+* [Operator name] - administrators
+* [Operator name] - users
 
-## Pros and Cons of the Options <!-- optional -->
+This will provide a level of organisation hierachy and administration 
 
-### [option 1]
+### Positive Consequences
 
-[example | description | pointer to more information | …] <!-- optional -->
+* This option maintains a absic user hierachy outside of the Dynamics system, which would potentially be useful if the user accounts are used in other applications
 
-#### Positive
-* Good, because [argument a]
-* Good, because [argument b]
+### Negative Consequences
 
-#### Negative
-* Bad, because [argument c]
-* … <!-- numbers of pros and cons can vary -->
+* Potentially more overhead in terms of group management & to an extent duplication in terms of the CRM account to contact grouping.
 
-### [option 2]
+## Pros and Cons of the Options
 
-[example | description | pointer to more information | …] <!-- optional -->
+### All user groups are managed through Active Directory groups
+
+Groups are used for both Active Directory back stage users and Active Directory B2C front stage users.
 
 #### Positive
-* Good, because [argument a]
-* Good, because [argument b]
+* Provides flexiblity to assign additional permissions and actions to multiple operator administrators.
+* Provides greater organisation in Active Directory B2C (when viewed in isolation)
+* Potential to reuse account setup for other action not related to the CRM.
 
 #### Negative
-* Bad, because [argument c]
-* … <!-- numbers of pros and cons can vary -->
+* This would create an additional relationship between operator roles that is already possible in the CRM (primary/lead contact on the account entity).
 
-### [option 3]
+### SEPA staff permissions are managed by Active Directory groups, operator and applicant permisisons are managed via their relationship to the CRM account
 
-[example | description | pointer to more information | …] <!-- optional -->
+SEPA staff grouping to be provided by Active Directory groups, front stage users who authenticate using Active Directory B2C would be grouped together & given app permissions based on their user account link to their CRM contact entity.   CRM contacts will be linked to their organisation's account entity (providing the group structure) and administrators would be assigned using the 'primary contact' field on the account entity.
 
 #### Positive
-* Good, because [argument a]
-* Good, because [argument b]
+* No duplication of contact to account grouping, CRM is the single source of contact relationships & an organisation's lead contact.
 
 #### Negative
-* Bad, because [argument c]
-* … <!-- numbers of pros and cons can vary -->
+* Seen in isolation, the front stage Active Directory B2C would have no identifiable structure or links without querying the CRM data.
 
 ## Links <!-- optional -->
 
-* [Link type] [Link to ADR] <!-- example: Refined by [ADR-0005](0005-example.md) -->
-* … <!-- numbers of links can vary -->
+* [Microsoft Graph API for user & group management](https://docs.microsoft.com/en-gb/previous-versions/azure/ad/graph/api/users-operations)
