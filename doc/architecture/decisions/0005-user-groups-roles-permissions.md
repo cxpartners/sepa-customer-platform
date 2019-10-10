@@ -1,4 +1,4 @@
-# Manage user roles and permissions using Active Directory Groups
+# 5. Manage user roles and permissions using Active Directory Groups
 
 * Status: proposed
 * Deciders:
