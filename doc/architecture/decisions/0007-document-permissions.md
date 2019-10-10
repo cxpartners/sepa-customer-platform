@@ -1,4 +1,4 @@
-# Provide access to permit case file documents (Azure Blob storage) via Active Directory groups & Shared Access Signature tokens
+# 7. Provide access to permit case file documents (Azure Blob storage) via Active Directory groups & Shared Access Signature tokens
 
 * Status: proposed
 * Deciders: 
