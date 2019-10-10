@@ -1,81 +1,63 @@
-# [short title of solved problem and solution]
+# Provide access to permit case file documents (Azure Blob storage) via Active Directory groups & Shared Access Signature tokens
 
-* Status: [proposed | rejected | accepted | deprecated | … | superseded by [ADR-0005](0005-example.md)] <!-- optional -->
-* Deciders: [list everyone involved in the decision] <!-- optional -->
-* Date: [YYYY-MM-DD when the decision was last updated] <!-- optional -->
-
-Technical Story: [description | ticket/issue URL] <!-- optional -->
+* Status: proposed
+* Deciders: 
+* Date: 2019-10-03
 
 ## Context and Problem Statement
 
-[Describe the context and problem statement, e.g., in free form using two to three sentences. You may want to articulate the problem in form of a question.]
+Azure Blob Storage will be used to store all files associated with permit application.  Both front stage and back stage users need to be able to read and upload documents to a 'case file'.
 
 ## Decision Drivers <!-- optional -->
 
-* [driver 1, e.g., a force, facing concern, …]
-* [driver 2, e.g., a force, facing concern, …]
-* … <!-- numbers of drivers can vary -->
+* Back stage users should be able to see all files
+* Front stage users should only be able to view and download files that are relevant to them.
+* Sensitive data privacy / security requirements mean access to some documents should be restricted for both front stage and back stage users.
 
 ## Considered Options
 
-* [option 1]
-* [option 2]
-* [option 3]
-* … <!-- numbers of options can vary -->
+* Use active directory groups to manage all access to Azure Blob Storage containers
+* Use active directory groups to manage access to Azure Blob Storage containers for back stage users, create Shared Access Signature tokens for front stage users to provide temporary access, and also leverage SAS tokens for special sensitive document access
 
 ## Decision Outcome
 
-Chosen option: "[option 1]", because [justification. e.g., only option, which meets k.o. criterion decision driver | which resolves force force | … | comes out best (see below)].
+Using a combination of Active Directory groups and SAS tokens provides the greatest flexibility to manage document access. 
 
-### Positive Consequences <!-- optional -->
+### Positive Consequences
 
-* [e.g., improvement of quality attribute satisfaction, follow-up decisions required, …]
-* …
+* Front stage users are only able to access documents that are relevant to them, this would be managed by the frontend application & the document type attribute stored in the CRM / document metadata.
+* Using SAS tokens for sensitive documents also simplifies the private access.
 
-### Negative Consequences <!-- optional -->
+### Negative Consequences
 
-* [e.g., compromising quality attribute, follow-up decisions required, …]
-* …
+* SAS tokens would potentially need be generated for each file download.
 
 ## Pros and Cons of the Options <!-- optional -->
 
-### [option 1]
+### Use active directory groups to manage all access to Azure Blob Storage containers
 
-[example | description | pointer to more information | …] <!-- optional -->
-
-#### Positive
-* Good, because [argument a]
-* Good, because [argument b]
-
-#### Negative
-* Bad, because [argument c]
-* … <!-- numbers of pros and cons can vary -->
-
-### [option 2]
-
-[example | description | pointer to more information | …] <!-- optional -->
+Active Directory groups can be assigned roles on each container in Azure Blob Storage, therefore inheriting access from the Active Directory login.
 
 #### Positive
-* Good, because [argument a]
-* Good, because [argument b]
+* No need to grant any additional access permissions on files.
+* Active Directory groups are already proposed for separating user and admin roles for both front and back stage.
 
 #### Negative
-* Bad, because [argument c]
-* … <!-- numbers of pros and cons can vary -->
+* Multiple permit 'containers' would potentially be required to separate front stage files, back stage only files and any sensitive files. 
 
-### [option 3]
+### Use active directory groups to manage access to Azure Blob Storage containers for back stage users, create Shared Access Signature tokens for front stage users to provide temporary access, and also leverage SAS tokens for special sensitive document access
 
-[example | description | pointer to more information | …] <!-- optional -->
+Access to all non sensitive documents for back stage users is managed via Active Directory groups & roles.  When front stage users try to download any files within the container, the application will generate a temporary SAS token that allows the user to access the file.  A similar process can also be used to grant temporary access to specific 'sensitive' files for back stage users when required.
 
 #### Positive
-* Good, because [argument a]
-* Good, because [argument b]
+* When combined with Dynamics / metadata file type look up by the application, this solution provides the most flexibility for file access.
+* Maintains private managed access to all files.
+* Temporary / managed access to sensitive data is more easily managed.
 
 #### Negative
-* Bad, because [argument c]
-* … <!-- numbers of pros and cons can vary -->
+* Temporary access may require additional management from SEPA.
 
 ## Links <!-- optional -->
 
-* [Link type] [Link to ADR] <!-- example: Refined by [ADR-0005](0005-example.md) -->
-* … <!-- numbers of links can vary -->
+* [Authorize access to Azure blobs and queues using Azure Active Directory](https://docs.microsoft.com/en-us/azure/storage/common/storage-auth-aad)
+* [Grant limited access to Azure Storage resources using shared access signatures (SAS)](https://docs.microsoft.com/en-us/azure/storage/common/storage-sas-overview)
