@@ -9,7 +9,7 @@ Technical Story: CCP 1205 - Create Customer Account and Login
 ## Context
 
 Azure Cloud Services and Microsoft Dynamics 365 have been proposed to support the CCP case & contact management, therefore, to maximise vendor reuse 
-& interoperabiltiy, Azure's identity management system will be used to provide authentication for the frontend application.
+& interoperabiltiy, Azure's identity management system will be used to provide authentication for the frontend application (basktage/SEPA users).
 
 ## Decision Drivers
  
@@ -24,6 +24,8 @@ SEPA uses Active Directory for it's existing internal account management so prov
 
 SEPA should look to integrate Azure Active Directory with Dynamics to provide a shared idenity 'federation', where backstage (SEPA) users are able to access Dynamics data via the WebAPI & perform CRUD operations using their existing single sign on login.
 
+Dynamics users would therefore match the useres with the Active Directory, and SEPA would require a Dynamics license for each SEPA user.
+
 If SEPA's Active Directory is managed on premises, Azure AD connect can be used to auto sync existing Active Directory accounts to the Azure setup.
 
 ### Positive Consequences
@@ -32,7 +34,6 @@ If SEPA's Active Directory is managed on premises, Azure AD connect can be used 
 
 ### Negative Consequences
 * If Azure Active Directory connect is used to sync accounts, this would need to be monitored & managed by SEPA.
-
 
 ## Pros and Cons of the Options 
 
