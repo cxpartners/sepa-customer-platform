@@ -1,81 +1,67 @@
-# [short title of solved problem and solution]
+# Relate applicant and SEPA documents to the permit (CRM case entities)
 
-* Status: [proposed | rejected | accepted | deprecated | … | superseded by [ADR-0005](0005-example.md)] <!-- optional -->
-* Deciders: [list everyone involved in the decision] <!-- optional -->
-* Date: [YYYY-MM-DD when the decision was last updated] <!-- optional -->
-
-Technical Story: [description | ticket/issue URL] <!-- optional -->
+* Status: proposed
+* Deciders: 
+* Date: 2019-10-03
 
 ## Context and Problem Statement
 
-[Describe the context and problem statement, e.g., in free form using two to three sentences. You may want to articulate the problem in form of a question.]
+Document uploads will be stored in Azure Blob storage because of the requirement to store very large files & the fact that Azure Blob storage offers high availability and low costs.
+
+The Azure Blob storage system is a separate cloud service which is not directly linked to Dynamics CRM, therefore we need to consider how the permits, stored using CRM case/incident entities, will be linked to the the files within Azure.
 
 ## Decision Drivers <!-- optional -->
 
-* [driver 1, e.g., a force, facing concern, …]
-* [driver 2, e.g., a force, facing concern, …]
-* … <!-- numbers of drivers can vary -->
+* Files will be displayed to users via a web frontend, therefore the entity used to store the file reference attribute should be accessible and filterable via the WebAPI.
+* The existing Dynamics UI should be able to display links to the Azure files for administrators.
 
 ## Considered Options
 
-* [option 1]
-* [option 2]
-* [option 3]
-* … <!-- numbers of options can vary -->
+* Use the existing CRM 'annotation' entity
+* Create a new custom CRM entity 
 
 ## Decision Outcome
 
-Chosen option: "[option 1]", because [justification. e.g., only option, which meets k.o. criterion decision driver | which resolves force force | … | comes out best (see below)].
+Use the existing 'annontation' entity in the CRM where the following attributes are set to the Azure blob data:
 
-### Positive Consequences <!-- optional -->
+* [tbd] documentbody / filename / subject - Azure Blob storage URI
+* notetext - description of the upload time & file metadata
+* isdocument - true
+* objecttypecode - 'azureBlobStorageFile'
 
-* [e.g., improvement of quality attribute satisfaction, follow-up decisions required, …]
-* …
+### Positive Consequences
 
-### Negative Consequences <!-- optional -->
+* Minismises customisation of the CRM data, reuse of existing
 
-* [e.g., compromising quality attribute, follow-up decisions required, …]
-* …
+### Negative Consequences
 
-## Pros and Cons of the Options <!-- optional -->
+* Labelling within the CRM does not match the context of the upload.
 
-### [option 1]
+## Pros and Cons of the Options
 
-[example | description | pointer to more information | …] <!-- optional -->
+### Use the existing CRM 'annotation' entity
 
-#### Positive
-* Good, because [argument a]
-* Good, because [argument b]
-
-#### Negative
-* Bad, because [argument c]
-* … <!-- numbers of pros and cons can vary -->
-
-### [option 2]
-
-[example | description | pointer to more information | …] <!-- optional -->
+Once a file is uploaded via the application, a WebAPI call is made to create a new 'annotation' entity, the Azure Blob URI is stored as an existing attribute.
 
 #### Positive
-* Good, because [argument a]
-* Good, because [argument b]
+* Minimises customisation of the CRM
+* Reuse of existing entity which is used to store uploads on cases.
 
 #### Negative
-* Bad, because [argument c]
-* … <!-- numbers of pros and cons can vary -->
+* Labelling within the CRM UI will not be relevant.
 
-### [option 3]
+### Create a new custom CRM entity 
 
-[example | description | pointer to more information | …] <!-- optional -->
+Create a new 'azureBlobStorage' entity within the CRM, create a new instance via the WebAPI once the file upload is completed.
 
 #### Positive
-* Good, because [argument a]
-* Good, because [argument b]
+* The Dynamics UI and WebAPI entity are more closely related to the use case.
 
 #### Negative
-* Bad, because [argument c]
-* … <!-- numbers of pros and cons can vary -->
+* Customisation of the CRM could result in more difficult migration paths and bigger overheads in terms of management.
+* Custom workflow & UI work may be required to display the custom entity within Dynamics UI.
 
-## Links <!-- optional -->
+## Links 
 
-* [Link type] [Link to ADR] <!-- example: Refined by [ADR-0005](0005-example.md) -->
-* … <!-- numbers of links can vary -->
+* [Alternatives of Document storage in Dynamics CRM](https://community.dynamics.com/crm/b/dynamicscrmbestpractices/posts/alternatives-of-document-storage-in-dynamics-crm)
+* [Create an entity in Dynamics](https://docs.microsoft.com/en-us/dynamics365/customerengagement/on-premises/customize/create-entities)
