@@ -15,6 +15,17 @@ Azure Cloud Services and Microsoft Dynamics 365 have been proposed to support th
  
 SEPA uses Active Directory for it's existing internal account management so providing one unified single sign on login would improve security and usability.
 
+## Considered Options
+
+* Azure Active Directory
+* Dynamics user accounts
+
+## Decision Outcome
+
+SEPA should look to integrate Azure Active Directory with Dynamics to provide a shared idenity 'federation', where backstage (SEPA) users are able to access Dynamics data via the WebAPI & perform CRUD operations using their existing single sign on login.
+
+If SEPA's Active Directory is managed on premises, Azure AD connect can be used to auto sync existing Active Directory accounts to the Azure setup.
+
 ### Positive Consequences
 * Reuse of existing SEPA logins
 * Better backstage user experience
@@ -22,10 +33,6 @@ SEPA uses Active Directory for it's existing internal account management so prov
 ### Negative Consequences
 * If Azure Active Directory connect is used to sync accounts, this would need to be monitored & managed by SEPA.
 
-## Considered Options
-
-* Azure Active Directory
-* Dynamics user accounts
 
 ## Pros and Cons of the Options 
 
@@ -47,12 +54,6 @@ Use cloud based Azure Active Directory storage to store accounts.  Provide singl
 
 #### Negative
 * SEPA would need to setup new standalone logins for any Dynamics users and these would be managed in isolation.
-
-## Decision Outcome
-
-SEPA should look to integrate Azure Active Directory with Dynamics to provide a shared idenity 'federation', where backstage (SEPA) users are able to access Dynamics data via the WebAPI & perform CRUD operations using their existing single sign on login.
-
-If SEPA's Active Directory is managed on premises, Azure AD connect can be used to auto sync existing Active Directory accounts to the Azure setup.
 
 ## Links
 
