@@ -1,4 +1,4 @@
-# Relate applicant and SEPA documents to the permit (CRM case entities)
+# 6. Relate applicant and SEPA documents to the permit (CRM case entities)
 
 * Status: proposed
 * Deciders: 
