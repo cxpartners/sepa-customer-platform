@@ -6,6 +6,7 @@ import Main from '../components/Main/component';
 import Row from '../components/Row/component';
 import Column from '../components/Column/component';
 import Heading from '../components/Heading/component';
+import Select from '../components/Select/component';
 import Footer from '../components/Footer/component';
 import PermitList from '../components/PermitList/component';
 import PermitListRow from '../components/PermitListRow/component';
@@ -21,7 +22,18 @@ const Permit = () => (
         <Row>
           <Column columnWidth="full">
             <Warning>You have new notifications</Warning>
+          </Column>
+        </Row>
+        <Row>
+          <Column columnWidth="two-thirds">
             <Heading level="h1">All permits</Heading>
+          </Column>
+          <Column columnWidth="one-third">
+            <Select />
+          </Column>
+        </Row>
+        <Row>
+          <Column columnWidth="full">
             <PermitList caption="In progress (20)" dateColumn="Last updated">
               <PermitListRow key="1" listKey="CAR/L/4336591" status="pre-application (2)" isActive href="/" siteName="Kimelford" waterBody="Loch Tarbot Gallaway" date="17/02/2019" />
               <PermitListRow key="2" listKey="CAR/L/4336592" status="pre-application (1)" isActive href="/" siteName="Kimelford" waterBody="Loch Katrine" date="17/02/2019" />
