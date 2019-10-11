@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import FakePage from '../components/FakePage/component';
-import Image from '../assets/images/pages/slice-2-guide-card-16.png';
+import Image from '../assets/images/pages/slice-2-guide-card-13.png';
 
 class PermitOfficerReviewedDataNotification extends React.PureComponent {
   render() {
     return (
-      <RouterLink to="/permit-officer-reviewed-data-permits">
+      <RouterLink to="/data-review-receive-request">
         <FakePage src={Image} />
       </RouterLink>
     );
