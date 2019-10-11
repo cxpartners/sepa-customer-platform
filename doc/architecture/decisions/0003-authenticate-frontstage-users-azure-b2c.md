@@ -20,22 +20,28 @@ AD B2C provides existing 'user flows' and allows for creation of custom policies
 
 ## Considered Options
 
-* Custom resource policy setup to allow 'resource owner password credentials' (ROPC) flow. This allows us to handle all sign up and sign within CCP application.
-* Use an existing 'Sign up and sign in' policy & styled interfaced - redirects user to MS server to login
-* Use an existing 'Sign up and sign in' policy where the login page is hosted on a custom domain pointed to the Azure tenant (e.g. https://login.sepa.org.uk)
+1. Custom resource policy setup to allow 'resource owner password credentials' (ROPC) flow. This allows us to handle all sign up and sign within CCP application.
+2. Use an existing 'Sign up and sign in' policy & styled interfaced - redirects user to MS server to login
+3. Use an existing 'Sign up and sign in' policy where the login page is hosted on a custom domain pointed to the Azure tenant (e.g. https://login.sepa.org.uk)
 
 ## Decision Outcome
 
+Using Azure B2C with an existing 'Sign up and sign in' policy leverages the best out of the box authentication.  Users register and login using an Azure hosted service, users are redirected back to the application where a valid OAuth JWToken identifies who is currently logged in.
+
+A custom domains would be best option, but this seems to be unavailable at the time of writing.
 
 ### Positive Consequences
 
+* Leveraging best practice for auth.
+* Best trade off between styling and secure authentication.
 
 ### Negative Consequences
 
+* Additional policy customisations would be required to fully customise the flow of the registration and login process (see links).
 
 ## Pros and Cons of the Options
 
-### Custom resource policy
+### 1. Custom resource policy
 
 Custom resource policies can be setup to allow a 'resource own password credentials' flow, whereby the login is handled entirely 
 within the application without redirecting to Microsoft URLs & the username/password is forwarded to Azure AD B2C. 
@@ -59,7 +65,7 @@ within the application without redirecting to Microsoft URLs & the username/pass
 * Potentially less secure
 * This flow is based on 'existing trust relationship' with the client, "take special care when enabling this grant type and only allow it when other flows are not viable"
 
-### 'Sign up and sign in' on b2clogin.com
+### 2. 'Sign up and sign in' on b2clogin.com
 
 Sign up is managed on the application however the user will be redirected to a separate domain whenever they need to login or
 handle account changes (password reset).
@@ -74,7 +80,7 @@ handle account changes (password reset).
 * Separate code would need to be applied to the Microsoft page to maintain consistent branding.
 * Browser autofill wouldn't pick up any SEPA.org.uk domain logins  
 
-### 'Sign up and sign in' on custom domain
+### 3. 'Sign up and sign in' on custom domain
 
 Use an existing Azure AD B2C policy to manage sign up, sign in and account management, but create a subdomain
 (of sepa.org.uk) which is pointed to the Azure tenant so that the user journey, in terms of urls, is consistent. 
