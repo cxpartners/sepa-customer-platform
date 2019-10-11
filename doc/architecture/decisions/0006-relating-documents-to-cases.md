@@ -10,19 +10,19 @@ Document uploads will be stored in Azure Blob storage because of the requirement
 
 The Azure Blob storage system is a separate cloud service which is not directly linked to Dynamics CRM, therefore we need to consider how the permits, stored using CRM case/incident entities, will be linked to the the files within Azure.
 
-## Decision Drivers <!-- optional -->
+## Decision Drivers
 
 * Files will be displayed to users via a web frontend, therefore the entity used to store the file reference attribute should be accessible and filterable via the WebAPI.
 * The existing Dynamics UI should be able to display links to the Azure files for administrators.
 
 ## Considered Options
 
-* Use the existing CRM 'annotation' entity
-* Create a new custom CRM entity 
+1. Use the existing CRM 'annotation' entity
+2. Create a new custom CRM entity 
 
 ## Decision Outcome
 
-Use the existing 'annontation' entity in the CRM where the following attributes are set to the Azure blob data:
+[Option 1] Use the existing 'annontation' entity in the CRM where the following attributes are set to the Azure blob data:
 
 * [tbd] documentbody / filename / subject - Azure Blob storage URI
 * notetext - description of the upload time & file metadata
@@ -39,7 +39,7 @@ Use the existing 'annontation' entity in the CRM where the following attributes 
 
 ## Pros and Cons of the Options
 
-### Use the existing CRM 'annotation' entity
+### 1. Use the existing CRM 'annotation' entity
 
 Once a file is uploaded via the application, a WebAPI call is made to create a new 'annotation' entity, the Azure Blob URI is stored as an existing attribute.
 
@@ -50,7 +50,7 @@ Once a file is uploaded via the application, a WebAPI call is made to create a n
 #### Negative
 * Labelling within the CRM UI will not be relevant.
 
-### Create a new custom CRM entity 
+### 2. Create a new custom CRM entity 
 
 Create a new 'azureBlobStorage' entity within the CRM, create a new instance via the WebAPI once the file upload is completed.
 
