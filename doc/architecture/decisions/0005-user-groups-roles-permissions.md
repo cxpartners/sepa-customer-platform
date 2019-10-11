@@ -15,12 +15,12 @@ The application needs to control access permits & their supporting documents bas
 
 ## Considered Options
 
-* All user groups are managed through Active Directory groups
-* SEPA staff permissions are managed by Active Directory groups, operator and applicant permisisons are managed via their relationship to the CRM account.
+1. All user groups are managed through Active Directory groups
+2. SEPA staff permissions are managed by Active Directory groups, operator and applicant permisisons are managed via their relationship to the CRM account.
 
 ## Decision Outcome
 
-SEPA staff should be assigned to Active Directory groups based on their roles, the following are suggested but need to be reviewed based on a more thorough investigation of roles:
+[Option 1] SEPA staff should be assigned to Active Directory groups based on their roles, the following are suggested but need to be reviewed based on a more thorough investigation of roles:
 
 * SEPA Marine Pen application - administrators
 * SEPA Marine Pen application - users
@@ -44,7 +44,7 @@ This will provide a level of organisation hierachy and administration
 
 ## Pros and Cons of the Options
 
-### All user groups are managed through Active Directory groups
+### 1. All user groups are managed through Active Directory groups
 
 Groups are used for both Active Directory back stage users and Active Directory B2C front stage users.
 
@@ -56,7 +56,7 @@ Groups are used for both Active Directory back stage users and Active Directory 
 #### Negative
 * This would create an additional relationship between operator roles that is already possible in the CRM (primary/lead contact on the account entity).
 
-### SEPA staff permissions are managed by Active Directory groups, operator and applicant permisisons are managed via their relationship to the CRM account
+### 2. SEPA staff permissions are managed by Active Directory groups, operator and applicant permisisons are managed via their relationship to the CRM account
 
 SEPA staff grouping to be provided by Active Directory groups, front stage users who authenticate using Active Directory B2C would be grouped together & given app permissions based on their user account link to their CRM contact entity.   CRM contacts will be linked to their organisation's account entity (providing the group structure) and administrators would be assigned using the 'primary contact' field on the account entity.
 
