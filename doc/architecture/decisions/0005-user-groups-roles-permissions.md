@@ -6,17 +6,17 @@
 
 ## Context and Problem Statement
 
-The application needs to control access permits & their supporting documents based on user roles.  As Active Directory and Active Directory B2C have been proposed as the authentication methods, SEPA needs to 
+The application needs to control access to permits & their supporting documents based on user roles.
 
 ## Decision Drivers 
 
-* Applicants and operators will be grouped by 'account' in the CRM, however SEPA should be able to differentiate between  organisation users & designate an 'administrator'.
-* SEPA staff will potentially require different access levels depending on the application, sensitive data requirements mean not at all staff should be able to view all documents connected to a permit.
+* Applicants and operators will be grouped by 'account' in the CRM, however SEPA should be able to differentiate between an organisation's users & the lead contact  (administrator).
+* SEPA staff will potentially require different access levels depending on the application; sensitive data requirements means certain documents should require additional privileges.
 
 ## Considered Options
 
-1. All user groups are managed through Active Directory groups
-2. SEPA staff permissions are managed by Active Directory groups, operator and applicant permisisons are managed via their relationship to the CRM account.
+1. All user roles are managed through Active Directory groups
+2. SEPA staff permissions are managed according to the Active Directory group they are assigned to.  Operator / applicant permisisons are managed according to the account/contact relationship in Dynamics.
 
 ## Decision Outcome
 
@@ -44,9 +44,9 @@ This will provide a level of organisation hierachy and administration
 
 ## Pros and Cons of the Options
 
-### 1. All user groups are managed through Active Directory groups
+### 1. All user roles are managed through Active Directory groups.
 
-Groups are used for both Active Directory back stage users and Active Directory B2C front stage users.
+Groups are used for both Active Directory back stage users and Active Directory B2C front stage users.  Application permissions for each user are then inferred from the group.
 
 #### Positive
 * Provides flexiblity to assign additional permissions and actions to multiple operator administrators.
@@ -56,9 +56,9 @@ Groups are used for both Active Directory back stage users and Active Directory 
 #### Negative
 * This would create an additional relationship between operator roles that is already possible in the CRM (primary/lead contact on the account entity).
 
-### 2. SEPA staff permissions are managed by Active Directory groups, operator and applicant permisisons are managed via their relationship to the CRM account
+### 2. SEPA staff permissions are managed according to the Active Directory group they are assigned to.  Operator / applicant permisisons are managed according to the account/contact relationship in Dynamics.
 
-SEPA staff grouping to be provided by Active Directory groups, front stage users who authenticate using Active Directory B2C would be grouped together & given app permissions based on their user account link to their CRM contact entity.   CRM contacts will be linked to their organisation's account entity (providing the group structure) and administrators would be assigned using the 'primary contact' field on the account entity.
+SEPA staff roles & permissions to be inferred from the Active Directory groups they are assigned to.  Front stage users (who authenticate using Active Directory B2C) would be grouped together & assigned app permissions based on how their their user account links to their CRM contact entity.   CRM contacts will be linked to their organisation's account entity (providing the group structure) and administrators would be assigned using the 'primary contact' field on the account entity.
 
 #### Positive
 * No duplication of contact to account grouping, CRM is the single source of contact relationships & an organisation's lead contact.
