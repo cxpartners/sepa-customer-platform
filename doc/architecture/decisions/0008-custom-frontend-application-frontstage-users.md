@@ -46,7 +46,7 @@ A custom web frontend application pushes/pulls data either directly via the serv
 * Full control over styling, interactions and journey.
 * A modular / component based frontend build can be reused across other web projects.
 * Separates display logic from the data layer - all data is managed in the CRM then consumed and displayed using API endpoints.
-* Code is directly deployed from 
+* Custom build pipelines can be used to manage the deployment & testing directly from the code respository.
 
 #### Negative
 * Built from the ground up, requiring more up front development time and resource.
