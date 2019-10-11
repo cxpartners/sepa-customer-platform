@@ -29,6 +29,7 @@ The interface used by back stage users (SEPA modellers, registry, officers, regu
 
 * SEPA creates & relies upon a reusable set of back stage components that can be used by other project's requiring a web interface.
 * Least reliance / lock in to CRM vendor, both in terms of customisations but also in terms of the domain specific resources required.
+* Best support for evolutionary design & architecture - changing the standalone frontend application would be less costly  compared to changing the CRM interface.  Facilitate hypothesis driven development.
 
 ### Negative Consequences
 
