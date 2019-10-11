@@ -47,6 +47,7 @@ A custom web frontend application pushes/pulls data either directly via the serv
 * A modular / component based frontend build can be reused across other web projects.
 * Separates display logic from the data layer - all data is managed in the CRM then consumed and displayed using API endpoints.
 * Custom build pipelines can be used to manage the deployment & testing directly from the code respository.
+* Minimal domain specific knowledge required to configure and maintain frontend code.
 
 #### Negative
 * Built from the ground up, requiring more up front development time and resource.
@@ -67,6 +68,7 @@ styling, page elements & functionality can be customised using the open source t
 * Out of the box, CRM forms are targetted for sales, marketting and support so additional work is required to repurpose and restyle whats available.
 * Increases vendor lock in - frontend code is stored within the CRM system.
 * Without indepth experience of this solution, it is not initially clear how much Web portals can support a custom journey, and if so, how difficult it would be to build (what level of custom coding woudl be required?).
+* Potentially requires more domain specific knowledge & resources in terms of Dynamics, Portals & Liquid, to customise and maintain this solution.
 
 ## Links 
 [Deliver web engagement experiences with Dynamics 365 Portals](https://docs.microsoft.com/en-us/dynamics365/portals/administer-manage-portal-dynamics-365)
