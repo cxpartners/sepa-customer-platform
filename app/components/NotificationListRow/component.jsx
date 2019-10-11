@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import Tag from '../Tag/component';
 import Spinner from '../Spinner/component';
 
-const PermitListRow = (props) => {
+const NotificationListRow = (props) => {
   const {
     href,
     isActive,
@@ -33,9 +33,9 @@ const PermitListRow = (props) => {
   );
 };
 
-export default PermitListRow;
+export default NotificationListRow;
 
-PermitListRow.propTypes = {
+NotificationListRow.propTypes = {
   date: PropTypes.string,
   href: PropTypes.string,
   isActive: PropTypes.bool,
@@ -46,7 +46,7 @@ PermitListRow.propTypes = {
   respondBy: PropTypes.string,
 };
 
-PermitListRow.defaultProps = {
+NotificationListRow.defaultProps = {
   href: '/',
   date: null,
   listKey: null,

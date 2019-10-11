@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const PermitList = (props) => {
+const NotificationList = (props) => {
   const { children, caption } = props;
 
   return (
@@ -23,9 +23,9 @@ const PermitList = (props) => {
   );
 };
 
-export default PermitList;
+export default NotificationList;
 
-PermitList.propTypes = {
+NotificationList.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
