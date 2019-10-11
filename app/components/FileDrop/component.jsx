@@ -1,17 +1,21 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
+import FileInput from '../FileInput/component';
 import Paragraph from '../Paragraph/component';
-import Button from '../Button/component';
 
-const FileDrop = () => (
-  <div className="govuk-file-drop">
-    <Button aria-controls="filename" tabindex="0" modifier="govuk-button--secondary">Choose files</Button>
-    <Paragraph>Or drag and drop your files onto this window</Paragraph>
-  </div>
-);
+const FileDrop = (props) => {
+  const { onChange } = props;
+
+  return (
+    <div className="govuk-file-drop">
+      <FileInput id="file-upload" onChange={onChange} />
+      <Paragraph>Or drag and drop your files onto this window</Paragraph>
+    </div>
+  );
+};
 
 export default FileDrop;
 
-// FileDrop.propTypes = {
-//   children: PropTypes.element.isRequired,
-// };
+FileDrop.propTypes = {
+  onChange: PropTypes.func.isRequired,
+};

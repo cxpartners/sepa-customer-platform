@@ -1,3 +1,5 @@
+/* eslint-disable no-restricted-syntax */
+/* eslint-disable guard-for-in */
 /* eslint-disable no-nested-ternary */
 /* eslint-disable no-alert */
 /* eslint-disable jsx-a11y/anchor-is-valid */
@@ -16,7 +18,6 @@ import Heading from '../components/Heading/component';
 import Footer from '../components/Footer/component';
 import Button from '../components/Button/component';
 import BackLink from '../components/BackLink/component';
-import FileInput from '../components/FileInput/component';
 import Paragraph from '../components/Paragraph/component';
 import Warning from '../components/Warning/component';
 import Link from '../components/Link/component';
@@ -24,6 +25,7 @@ import UploadStatus from '../components/UploadStatus/component';
 import FileUploadStatus from '../components/FileUploadStatus/component';
 import FileUploadList from '../components/FileUploadList/component';
 import {
+  START_ADD_FILES_UPLOADING,
   TOGGLE_ADD_FILES_UPLOADING,
   UPDATE_ADD_FILES_UPLOAD_PROGRESS_VALUE,
   UPDATE_ADD_FILES_UPLOAD_FILE_NAME_VALUE,
@@ -32,6 +34,7 @@ import {
   TOGGLE_FILE_SUBMISSION,
 } from '../reducers';
 import List from '../components/List/component';
+import FileDrop from '../components/FileDrop/component';
 
 
 const RequestForDataAddFiles = () => {
@@ -44,24 +47,26 @@ const RequestForDataAddFiles = () => {
   const uploadFileSize = useSelector((state) => state.uploadFileSize);
   const dispatch = useDispatch();
 
-  const handleFileChosen = (file) => {
-    const fileReader = new FileReader();
-    fileReader.onloadstart = () => {
-      dispatch({ type: TOGGLE_ADD_FILES_UPLOADING });
-    };
-    fileReader.onprogress = (data) => {
-      if (data.lengthComputable) {
-        const progress = parseInt(((data.loaded / data.total) * 100), 10);
-        dispatch({ type: UPDATE_ADD_FILES_UPLOAD_PROGRESS_VALUE, payload: progress });
-        dispatch({ type: UPDATE_ADD_FILES_UPLOAD_FILE_NAME_VALUE, payload: file.name });
-        dispatch({ type: UPDATE_ADD_FILES_UPLOAD_FILE_SIZE_VALUE, payload: file.size });
-      }
-    };
-    fileReader.onloadend = () => {
-      dispatch({ type: TOGGLE_ADD_FILES_UPLOADING });
-      dispatch({ type: TOGGLE_FILE_UPLOAD_COMPLETE });
-    };
-    fileReader.readAsText(file);
+  const handleFileChosen = (files) => {
+    for (const file of files) {
+      const fileReader = new FileReader();
+      fileReader.onloadstart = () => {
+        dispatch({ type: START_ADD_FILES_UPLOADING });
+      };
+      fileReader.onprogress = (data) => {
+        if (data.lengthComputable) {
+          const progress = parseInt(((data.loaded / data.total) * 100), 10);
+          dispatch({ type: UPDATE_ADD_FILES_UPLOAD_PROGRESS_VALUE, payload: progress });
+          dispatch({ type: UPDATE_ADD_FILES_UPLOAD_FILE_NAME_VALUE, payload: file.name });
+          dispatch({ type: UPDATE_ADD_FILES_UPLOAD_FILE_SIZE_VALUE, payload: file.size });
+        }
+      };
+      fileReader.onloadend = () => {
+        dispatch({ type: TOGGLE_ADD_FILES_UPLOADING });
+        dispatch({ type: TOGGLE_FILE_UPLOAD_COMPLETE });
+      };
+      fileReader.readAsText(file);
+    }
   };
 
   return (
@@ -83,7 +88,7 @@ const RequestForDataAddFiles = () => {
             <Column columnWidth="two-thirds">
               <Heading level="h2">Upload files</Heading>
               <Paragraph>Submitted data will be used in the permitting process and included in the Modelling Data Collection report.</Paragraph>
-              <FileInput id="file-upload" onChange={(e) => handleFileChosen(e.target.files[0])} />
+              <FileDrop onChange={(e) => handleFileChosen(e.target.files)} />
               { showAddFilesUploading ? <UploadStatus>File uploading. Please don’t close your browser window</UploadStatus> : ''}
               {
                 showAddFilesUploading

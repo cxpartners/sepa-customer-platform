@@ -31,6 +31,7 @@ export const TOGGLE_EMAMECTIN_BENZOATE_CHECKED = 'TOGGLE_EMAMECTIN_BENZOATE_CHEC
 export const TOGGLE_ADD_FILES_ACCORDION_ONE = 'TOGGLE_ADD_FILES_ACCORDION_ONE';
 export const TOGGLE_ADD_FILES_ACCORDION_TWO = 'TOGGLE_ADD_FILES_ACCORDION_TWO';
 export const UPDATE_DATA_TYPE_VALUE = 'UPDATE_DATA_TYPE_VALUE';
+export const START_ADD_FILES_UPLOADING = 'START_ADD_FILES_UPLOADING';
 export const TOGGLE_ADD_FILES_UPLOADING = 'TOGGLE_ADD_FILES_UPLOADING';
 export const UPDATE_ADD_FILES_UPLOAD_PROGRESS_VALUE = 'UPDATE_ADD_FILES_UPLOAD_PROGRESS_VALUE';
 export const UPDATE_ADD_FILES_UPLOAD_FILE_NAME_VALUE = 'UPDATE_ADD_FILES_UPLOAD_FILE_NAME_VALUE';
@@ -265,6 +266,11 @@ export default (state = initialState, action) => {
         ...state,
         showAddFilesUploading: !state.showAddFilesUploading,
       };
+    case START_ADD_FILES_UPLOADING:
+      return {
+        ...state,
+        showAddFilesUploading: true,
+      };
     case TOGGLE_FILE_SUBMISSION:
       return {
         ...state,
@@ -433,6 +439,10 @@ export const toggleAddFilesAccordion = () => (dispatch) => {
 
 export const toggleAddFilesUploading = () => (dispatch) => {
   dispatch({ type: TOGGLE_ADD_FILES_UPLOADING });
+};
+
+export const startAddFilesUploading = () => (dispatch) => {
+  dispatch({ type: START_ADD_FILES_UPLOADING });
 };
 
 export const toggleFileSubmission = () => (dispatch) => {
