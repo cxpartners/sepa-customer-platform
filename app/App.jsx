@@ -67,6 +67,7 @@ import DataReviewPermitPage from './pages/DataReviewPermitPage';
 import ApplicantReviewedDataNotification from './pages/ApplicantReviewedDataNotification';
 import ApplicantReviewedDataPermits from './pages/ApplicantReviewedDataPermits';
 import ApplicantReviewedDataPermitPage from './pages/ApplicantReviewedDataPermitPage';
+import ApplicantViewsDataNotification from './pages/ApplicantViewsDataNotification';
 import PermitOfficerReviewedDataNotification from './pages/PermitOfficerReviewedDataNotification';
 import PermitOfficerReviewedDataPermits from './pages/PermitOfficerReviewedDataPermits';
 import PermitOfficerReviewedDataPermitPage from './pages/PermitOfficerReviewedDataPermitPage';
@@ -138,6 +139,7 @@ const App = () => (
       <Route exact path="/data-review-permit-page" component={DataReviewPermitPage} />
       <Route exact path="/applicant-reviewed-data-notification" component={ApplicantReviewedDataNotification} />
       <Route exact path="/applicant-reviewed-data-permits" component={ApplicantReviewedDataPermits} />
+      <Route exact path="/applicant-views-data-notification" component={ApplicantViewsDataNotification} />
       <Route exact path="/applicant-reviewed-data-permit-page" component={ApplicantReviewedDataPermitPage} />
       <Route exact path="/permit-officer-reviewed-data-notification" component={PermitOfficerReviewedDataNotification} />
       <Route exact path="/permit-officer-reviewed-data-permits" component={PermitOfficerReviewedDataPermits} />
