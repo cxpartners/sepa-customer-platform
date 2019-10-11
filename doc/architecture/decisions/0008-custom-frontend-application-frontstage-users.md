@@ -40,7 +40,7 @@ Avoiding the use of a hosted web application (MS Portals), by decoupling the fro
 
 ### 1. Create a custom web application 
 
-A custom web application communicates either directly with the service API (partially for Azure Blob Storage & authentication) or via an API gateway (built as part of the application).
+A custom web frontend application pushes/pulls data either directly via the service APIs (in the case of Azure Blob Storage & authentication services) or via a server side API gateway (built as part of the application).
 
 #### Positive
 * Full control over styling, interactions and journey.
