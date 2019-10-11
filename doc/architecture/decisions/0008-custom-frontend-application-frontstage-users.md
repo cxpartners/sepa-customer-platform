@@ -13,45 +13,46 @@ to support a good user experience.
 ## Decision Drivers
 
 * Data is stored in the CRM so all interactions must be compatible with the data entities available.
-* A custom user experience has been proposed so the solution needs to support custom journeys and styling as much as possible.
+* A user-centered design approach requires the technical solution to support custom journeys and styling as much as possible.
 
 ## Considered Options
 
-* Create a custom web application 
-* Use Microsoft's Dynamics 365 Web Portals to provide & manage the interface.
+1. Create a custom web application to interact with Dynamics & Azure APIs.
+2. Use Microsoft's Dynamics 365 Web Portals to provide & manage the interface.
 
 ## Decision Outcome
 
 A custom web application, combining a modern reactive frontend framework with a backend API gateway to interact with Dynamics and Azure services via restful webs APIs
 would provide the best support for optimising the user journey.
 
-Avoiding the use of a hosted web application reduces the reliance on a single platform.
+Avoiding the use of a hosted web application (MS Portals), by decoupling the frontend, reduces the reliance on a single platform.
 
 ### Positive Consequences
 
 * Complete control over the user interface and user journey.
+* SEPA can resuse & build upon shared web patterns & components.
 
-### Negative Consequences <!-- optional -->
+### Negative Consequences
 
-* Complete 
+* Additional overhead required for maintenace, testing and deployment.
 
-## Pros and Cons of the Options <!-- optional -->
+## Pros and Cons of the Options
 
-### Create a custom web application 
+### 1. Create a custom web application 
 
-A custom web application would communicate either directly with the service API (partially for Azure Blob Storage & authentication) or
-via an API gateway (built as part of the application).
+A custom web application communicates either directly with the service API (partially for Azure Blob Storage & authentication) or via an API gateway (built as part of the application).
 
 #### Positive
 * Full control over styling, interactions and journey.
 * A modular / component based frontend build can be reused across other web projects.
 * Separates display logic from the data layer - all data is managed in the CRM then consumed and displayed using API endpoints.
+* Code is directly deployed from 
 
 #### Negative
-* Built from the ground up
+* Built from the ground up, requiring more up front development time and resource.
 * Managed, updated and deployed by SEPA.
 
-### Use Microsoft's Dynamics 365 Web Portals to provide & manage the interface.
+### 2. Use Microsoft's Dynamics 365 Web Portals to provide & manage the interface.
 
 Microsoft Dynamics 365 Web Portals provide an 'out the box' customisable web interface for their Dynamics systems.  The
 styling and page elements can be customised using their templating system which is based on an open source library created by Shopify called Liquid.
