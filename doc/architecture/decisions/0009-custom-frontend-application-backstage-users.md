@@ -25,7 +25,7 @@ A custom frontend application has also been proposed for the front stage users (
 
 ## Decision Outcome
 
-[Option 1] Reusing the application's components and functionality built for the front stage users would provide both a unified best practice user experience, but a doucoupled frontend application which minimises the reliance upon and customisations required to the Dynamics CRM.  This adopts more of a microservice approach where the CRM is essentially a data store.
+[Option 1] Reusing the application's components and functionality built for the front stage users would provide both a unified best practice user experience, and a doucoupled frontend application that minimises the reliance upon and customisations required to the Dynamics CRM. 
 
 ### Positive Consequences
 
@@ -41,7 +41,7 @@ A custom frontend application has also been proposed for the front stage users (
 
 ### 1. Create a custom web application 
 
-A custom web frontend application pushes/pulls data either directly via the service APIs (in the case of Azure Blob Storage & authentication services) or via a server side API gateway (built as part of the application).
+A custom web frontend application pushes/pulls data either directly via the service APIs in the case where the user pushes files to Azure Blob Storage, or via a server side API gateway (built as part of the application) which utilises the Dynamics & Azure blob storage and Active Directory APIs.
 
 #### Positive
 * Full control over styling, interactions and journey.
