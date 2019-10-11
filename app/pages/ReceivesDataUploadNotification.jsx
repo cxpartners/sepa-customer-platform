@@ -6,7 +6,7 @@ import Image from '../assets/images/pages/slice-2-guidance-page-6.png';
 class ReceivesDataUploadNotification extends React.PureComponent {
   render() {
     return (
-      <RouterLink to="/data-review-receive-request">
+      <RouterLink to="/receives-data-submission-email-confirmation">
         <FakePage src={Image} />
       </RouterLink>
     );
