@@ -7,9 +7,7 @@
 ## Context and Problem Statement
 
 Microsoft Dynamics CRM has been proposed as the system to manage contacts, accounts & permits (cases) for the CCP prototype.  
-Back stage users (SEPA modellers, registry, officers, Users should be able to recognise that the service is provided by SEPA (styling) and the interface should be sufficiently customisable to support a good user experience.
-
-A custom frontend application has also been proposed for the front stage users (applicants).
+The interface used by back stage users (SEPA modellers, registry, officers, regulators) to process tasks and actions against permits should be sufficiently customisable to support a good user experience.
 
 ## Decision Drivers
 
