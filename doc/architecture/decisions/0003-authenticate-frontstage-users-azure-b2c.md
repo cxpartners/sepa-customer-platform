@@ -26,7 +26,7 @@ AD B2C provides existing 'user flows' and allows for creation of custom policies
 
 ## Decision Outcome
 
-Using Azure B2C with an existing 'Sign up and sign in' policy leverages the best out of the box authentication.  Users register and login using an Azure hosted service, users are redirected back to the application where a valid OAuth JWToken identifies who is currently logged in.
+[Option 2] Using Azure B2C with an existing 'Sign up and sign in' policy leverages the best out of the box authentication.  Users register and login using an Azure hosted service, users are redirected back to the application where a valid OAuth JWToken identifies who is currently logged in.
 
 A custom domains would be best option, but this seems to be unavailable at the time of writing.
 
