@@ -36,7 +36,7 @@ This will provide a level of organisation hierachy and administration
 
 ### Positive Consequences
 
-* This option maintains a absic user hierachy outside of the Dynamics system, which would potentially be useful if the user accounts are used in other applications
+* This option maintains a basic user hierachy outside of the Dynamics system, which would potentially be useful if the user accounts are used in other applications
 
 ### Negative Consequences
 
