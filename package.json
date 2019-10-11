@@ -10,11 +10,7 @@
   },
   "scripts": {
     "build": "webpack --config webpack.config.prod.js",
-    "dev": "webpack-dev-server --hot --config webpack.config.dev.js",
-    "int": "webpack-dev-server --config webpack.config.dev.js",
-    "serve": "node ./app/server/index.js localhost 5000",
-    "start-dev": "concurrently --kill-others \"npm run dev\" \"npm run serve\"",
-    "start-int": "concurrently --kill-others \"npm run int\" \"npm run serve\"",
+    "start": "webpack-dev-server --hot --config webpack.config.dev.js",
     "test": "eslint ."
   },
   "repository": {

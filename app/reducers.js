@@ -28,6 +28,16 @@ export const TOGGLE_AZAMETHIPHOS_CHECKED = 'TOGGLE_AZAMETHIPHOS_CHECKED';
 export const TOGGLE_CYPERMETHRIN_CHECKED = 'TOGGLE_CYPERMETHRIN_CHECKED';
 export const TOGGLE_DELTAMETHRIN_CHECKED = 'TOGGLE_DELTAMETHRIN_CHECKED';
 export const TOGGLE_EMAMECTIN_BENZOATE_CHECKED = 'TOGGLE_EMAMECTIN_BENZOATE_CHECKED';
+export const PERMITS_FETCH_DATA = 'PERMITS_FETCH_DATA';
+export const PERMITS_FETCH_REQUESTING = 'PERMITS_FETCH_REQUESTING';
+export const PERMITS_FETCH_INVALID = 'PERMITS_FETCH_INVALID';
+export const PERMITS_FETCH_SUCCESS = 'PERMITS_FETCH_SUCCESS';
+export const PERMITS_FETCH_FAILED = 'PERMITS_FETCH_FAILED';
+export const PERMIT_FETCH_DATA = 'PERMIT_FETCH_DATA';
+export const PERMIT_FETCH_REQUESTING = 'PERMIT_FETCH_REQUESTING';
+export const PERMIT_FETCH_INVALID = 'PERMIT_FETCH_INVALID';
+export const PERMIT_FETCH_SUCCESS = 'PERMIT_FETCH_SUCCESS';
+export const PERMIT_FETCH_FAILED = 'PERMIT_FETCH_FAILED';
 
 const initialState = {
   radioValue: '',
@@ -60,6 +70,17 @@ const initialState = {
   cypermethrinChecked: true,
   deltamethrinChecked: true,
   emamectinBenzoateChecked: true,
+  permits: {
+    readyStatus: PERMITS_FETCH_INVALID,
+    data: [],
+  },
+  permit: {
+    readyStatus: PERMIT_FETCH_INVALID,
+    license: {},
+    contacts: [],
+    conditions: [],
+    locations: [],
+  },
 };
 
 export default (state = initialState, action) => {
@@ -193,6 +214,25 @@ export default (state = initialState, action) => {
       return {
         ...state,
         emamectinBenzoateChecked: !state.emamectinBenzoateChecked,
+      };
+    case PERMITS_FETCH_DATA:
+      return {
+        ...state,
+        permits: {
+          readyStatus: action.readyStatus,
+          data: action.payload,
+        },
+      };
+    case PERMIT_FETCH_DATA:
+      return {
+        ...state,
+        permit: {
+          readyStatus: action.readyStatus,
+          license: action.license,
+          contacts: action.contacts,
+          conditions: action.conditions,
+          locations: action.locations,
+        },
       };
     default:
       return state;
