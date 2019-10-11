@@ -2,7 +2,7 @@ import React from 'react';
 
 const Select = () => (
 
-  <div className="govuk-form-group right">
+  <div className="govuk-form-group govuk-form-group__right">
     <select className="govuk-select" id="sort" name="sort">
       <option value="car-number">CAR number</option>
       <option value="sort-by" selected>Sort by</option>
