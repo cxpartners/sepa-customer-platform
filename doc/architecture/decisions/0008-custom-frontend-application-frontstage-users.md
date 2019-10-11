@@ -22,7 +22,7 @@ to support a good user experience.
 
 ## Decision Outcome
 
-A custom web application, combining a modern reactive frontend framework with a backend API gateway to interact with Dynamics and Azure services via restful webs APIs
+[Option 1] A custom web application, combining a modern reactive frontend framework with a backend API gateway to interact with Dynamics and Azure services via restful webs APIs
 would provide the best support for optimising the user journey.
 
 Avoiding the use of a hosted web application (MS Portals), by decoupling the frontend, reduces the reliance on a single platform.
