@@ -16,7 +16,7 @@ AD B2C provides existing 'user flows' and allows for creation of custom policies
 ## Decision Drivers
 
 * Identity management must allow for permission based access to MS Dynamics 365 & file storage solutions.
-* The level customisation of the sign up & sign in process should support the user journey being prototyped as much as possible. 
+* The level of customisation available for the sign up & sign in process should support the user journey being prototyped as much as possible. 
 
 ## Considered Options
 
