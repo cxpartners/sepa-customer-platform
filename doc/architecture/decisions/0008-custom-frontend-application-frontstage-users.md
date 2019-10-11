@@ -55,7 +55,7 @@ A custom web frontend application pushes/pulls data either directly via the serv
 ### 2. Use Microsoft's Dynamics 365 Web Portals to provide & manage the interface.
 
 Microsoft Dynamics 365 Web Portals provide an 'out the box' customisable web interface for their Dynamics systems.  The
-styling and page elements can be customised using their templating system which is based on an open source library created by Shopify called Liquid.
+styling, page elements & functionality can be customised using the open source templating library 'Liquid' which was created by Shopify.
 
 #### Positive
 * Web forms and lists can be setup for any custom workflow.
@@ -64,9 +64,9 @@ styling and page elements can be customised using their templating system which 
 * All infrastructure and code management is handled within the Dynamics portal.
 
 #### Negative
-* Out of the box, CRM forms are targetted for sales, marketting and support so a lot of work would need to be done to repurpose and restyle whats available.
+* Out of the box, CRM forms are targetted for sales, marketting and support so additional work is required to repurpose and restyle whats available.
 * Increases vendor lock in - frontend code is stored within the CRM system.
-* Not clear if a fully custom journey is possible, and if so, how difficult it would be to build (what level of custom coding woudl be required?)
+* Without indepth experience of this solution, it is not initially clear how much Web portals can support a custom journey, and if so, how difficult it would be to build (what level of custom coding woudl be required?).
 
 ## Links 
 [Deliver web engagement experiences with Dynamics 365 Portals](https://docs.microsoft.com/en-us/dynamics365/portals/administer-manage-portal-dynamics-365)
