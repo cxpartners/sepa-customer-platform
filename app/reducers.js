@@ -1,3 +1,6 @@
+/* eslint-disable no-unused-expressions */
+/* eslint-disable array-callback-return */
+/* eslint-disable no-confusing-arrow */
 export const TOGGLE_REDIRECT_YOUR_NAME = 'TOGGLE_REDIRECT_YOUR_NAME';
 export const UPDATE_YOUR_NAME = 'UPDATE_YOUR_NAME';
 export const TOGGLE_YOUR_NAME_ERROR = 'TOGGLE_YOUR_NAME_ERROR';
@@ -28,6 +31,16 @@ export const TOGGLE_AZAMETHIPHOS_CHECKED = 'TOGGLE_AZAMETHIPHOS_CHECKED';
 export const TOGGLE_CYPERMETHRIN_CHECKED = 'TOGGLE_CYPERMETHRIN_CHECKED';
 export const TOGGLE_DELTAMETHRIN_CHECKED = 'TOGGLE_DELTAMETHRIN_CHECKED';
 export const TOGGLE_EMAMECTIN_BENZOATE_CHECKED = 'TOGGLE_EMAMECTIN_BENZOATE_CHECKED';
+export const TOGGLE_ADD_FILES_ACCORDION_ONE = 'TOGGLE_ADD_FILES_ACCORDION_ONE';
+export const TOGGLE_ADD_FILES_ACCORDION_TWO = 'TOGGLE_ADD_FILES_ACCORDION_TWO';
+export const UPDATE_DATA_TYPE_VALUE = 'UPDATE_DATA_TYPE_VALUE';
+export const START_ADD_FILES_UPLOADING = 'START_ADD_FILES_UPLOADING';
+export const START_ADD_FILE_UPLOAD_VALUES = 'START_ADD_FILE_UPLOAD_VALUES';
+export const TOGGLE_ADD_FILES_UPLOADING = 'TOGGLE_ADD_FILES_UPLOADING';
+export const UPDATE_ADD_FILES_UPLOAD_PROGRESS_VALUE = 'UPDATE_ADD_FILES_UPLOAD_PROGRESS_VALUE';
+export const START_ADD_FILE_UPLOADING = 'START_ADD_FILE_UPLOADING';
+export const STOP_ADD_FILE_UPLOADING = 'STOP_ADD_FILE_UPLOADING';
+export const TOGGLE_FILE_SUBMISSION = 'TOGGLE_FILE_SUBMISSION';
 export const PERMITS_FETCH_DATA = 'PERMITS_FETCH_DATA';
 export const PERMITS_FETCH_REQUESTING = 'PERMITS_FETCH_REQUESTING';
 export const PERMITS_FETCH_INVALID = 'PERMITS_FETCH_INVALID';
@@ -38,6 +51,9 @@ export const PERMIT_FETCH_REQUESTING = 'PERMIT_FETCH_REQUESTING';
 export const PERMIT_FETCH_INVALID = 'PERMIT_FETCH_INVALID';
 export const PERMIT_FETCH_SUCCESS = 'PERMIT_FETCH_SUCCESS';
 export const PERMIT_FETCH_FAILED = 'PERMIT_FETCH_FAILED';
+
+let easting = 182980;
+let northing = 790973;
 
 const initialState = {
   radioValue: '',
@@ -70,6 +86,8 @@ const initialState = {
   cypermethrinChecked: true,
   deltamethrinChecked: true,
   emamectinBenzoateChecked: true,
+  showAddFilesAccordionOne: false,
+  showAddFilesAccordionTwo: true,
   permits: {
     readyStatus: PERMITS_FETCH_INVALID,
     data: [],
@@ -81,7 +99,29 @@ const initialState = {
     conditions: [],
     locations: [],
   },
+  locationArray: [],
+  files: [],
+  filesUploading: 0,
+  showAddFilesUploading: false,
+  dataTypeValue: null,
+  fileUploadComplete: false,
+  filesSubmitted: false,
+  uploadFileName: '',
+  uploadFileSize: 0,
 };
+
+// fake some locations
+
+let x = 0;
+do {
+  initialState.locationArray.push({
+    pen: x + 1,
+    easting: easting += x * 2,
+    northing: northing += x * 3,
+  });
+  x += 1;
+} while (x < 10);
+
 
 export default (state = initialState, action) => {
   switch (action.type) {
@@ -215,6 +255,64 @@ export default (state = initialState, action) => {
         ...state,
         emamectinBenzoateChecked: !state.emamectinBenzoateChecked,
       };
+    case TOGGLE_ADD_FILES_ACCORDION_ONE:
+      return {
+        ...state,
+        showAddFilesAccordionOne: !state.showAddFilesAccordionOne,
+      };
+    case TOGGLE_ADD_FILES_ACCORDION_TWO:
+      return {
+        ...state,
+        showAddFilesAccordionTwo: !state.showAddFilesAccordionTwo,
+      };
+    case UPDATE_DATA_TYPE_VALUE:
+      return {
+        ...state,
+        dataTypeValue: action.payload,
+      };
+    case TOGGLE_ADD_FILES_UPLOADING:
+      return {
+        ...state,
+        showAddFilesUploading: !state.showAddFilesUploading,
+      };
+    case START_ADD_FILES_UPLOADING:
+      return {
+        ...state,
+        showAddFilesUploading: true,
+      };
+    case TOGGLE_FILE_SUBMISSION:
+      return {
+        ...state,
+        filesSubmitted: !state.filesSubmitted,
+      };
+    case UPDATE_ADD_FILES_UPLOAD_PROGRESS_VALUE:
+      return {
+        ...state,
+        files: state.files.map((file) => file.key === action.payload.key ? {
+          key: action.payload.key,
+          progress: action.payload.progress,
+          size: action.payload.size,
+          name: action.payload.name,
+        } : file),
+      };
+    case START_ADD_FILE_UPLOADING:
+      return {
+        ...state,
+        filesUploading: state.filesUploading + 1,
+      };
+    case START_ADD_FILE_UPLOAD_VALUES:
+      return {
+        ...state,
+        files: [
+          ...state.files,
+          action.payload,
+        ],
+      };
+    case STOP_ADD_FILE_UPLOADING:
+      return {
+        ...state,
+        filesUploading: state.filesUploading - 1,
+      };
     case PERMITS_FETCH_DATA:
       return {
         ...state,
@@ -291,6 +389,10 @@ export const updatePreAppFormFeedingRateValue = () => (dispatch) => {
   dispatch({ type: UPDATE_PRE_APP_FORM_FEEDING_RATE_VALUE });
 };
 
+export const updateDataTypeValue = () => (dispatch) => {
+  dispatch({ type: UPDATE_DATA_TYPE_VALUE });
+};
+
 export const updateCreateAccountYourDetailsNumber = () => (dispatch) => {
   dispatch({ type: UPDATE_CREATE_ACCOUNT_YOUR_DETAILS_NUMBER });
 };
@@ -337,4 +439,40 @@ export const updateEastingsValue = () => (dispatch) => {
 
 export const updateNorthingsValue = () => (dispatch) => {
   dispatch({ type: UPDATE_NORTHINGS_VALUE });
+};
+
+export const toggleAddFilesAccordionOne = () => (dispatch) => {
+  dispatch({ type: TOGGLE_ADD_FILES_ACCORDION_ONE });
+};
+
+export const toggleAddFilesAccordion = () => (dispatch) => {
+  dispatch({ type: TOGGLE_ADD_FILES_ACCORDION_TWO });
+};
+
+export const toggleAddFilesUploading = () => (dispatch) => {
+  dispatch({ type: TOGGLE_ADD_FILES_UPLOADING });
+};
+
+export const startAddFilesUploading = () => (dispatch) => {
+  dispatch({ type: START_ADD_FILES_UPLOADING });
+};
+
+export const startAddFileUploadValues = () => (dispatch) => {
+  dispatch({ type: START_ADD_FILE_UPLOAD_VALUES });
+};
+
+export const toggleFileSubmission = () => (dispatch) => {
+  dispatch({ type: TOGGLE_FILE_SUBMISSION });
+};
+
+export const startAddFileUploading = () => (dispatch) => {
+  dispatch({ type: START_ADD_FILE_UPLOADING });
+};
+
+export const stopAddFileUploading = () => (dispatch) => {
+  dispatch({ type: STOP_ADD_FILE_UPLOADING });
+};
+
+export const updateAddFilesUploadProgressValue = () => (dispatch) => {
+  dispatch({ type: UPDATE_ADD_FILES_UPLOAD_PROGRESS_VALUE });
 };

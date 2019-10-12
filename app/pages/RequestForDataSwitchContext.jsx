@@ -6,7 +6,7 @@ import Image from '../assets/images/pages/slice-2-guide-card-3.png';
 class UserTypes extends React.PureComponent {
   render() {
     return (
-      <RouterLink to="/request-for-data-start-page">
+      <RouterLink to="/request-for-data-choose-type">
         <FakePage src={Image} />
       </RouterLink>
     );

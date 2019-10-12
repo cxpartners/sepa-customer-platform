@@ -1,0 +1,28 @@
+.govuk-file-upload-status {
+  border: solid medium govuk-colour("light-grey");
+  display: block;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+
+  div {
+    margin: 5px 0;
+    padding: 0 5%;
+    width: 90%;
+    clear: right;
+  }
+
+  span {
+    margin-bottom: 10px;
+  }
+}
+
+.govuk-file-upload-status--cancel {
+  float: right;
+}
+.govuk-file-upload-status--file-size {
+  float: right;
+}
+.govuk-file-upload-status--percent-uploaded {
+  color: #6F777B;
+}

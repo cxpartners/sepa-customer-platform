@@ -1,49 +1,56 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable max-len */
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import PropTypes from 'prop-types';
 import Header from '../components/Header/component';
 import Container from '../components/Container/component';
 import PhaseBanner from '../components/PhaseBanner/component';
 import Main from '../components/Main/component';
 import Row from '../components/Row/component';
 import Column from '../components/Column/component';
-import Footer from '../components/Footer/component';
 import Heading from '../components/Heading/component';
-import Paragraph from '../components/Paragraph/component';
-import SummaryList from '../components/SummaryList/component';
-import SummaryListRow from '../components/SummaryListRow/component';
-import Button from '../components/Button/component';
+import Footer from '../components/Footer/component';
+import BackLink from '../components/BackLink/component';
 import Reference from '../components/Reference/component';
 import Tabs from '../components/Tabs/component';
 import TabList from '../components/TabList/component';
 import Tab from '../components/Tab/component';
 import TabPanel from '../components/TabPanel/component';
-import Textarea from '../components/Textarea/component';
 import Accordion from '../components/Accordion/component';
 import AccordionSection from '../components/AccordionSection/component';
+import SummaryList from '../components/SummaryList/component';
+import SummaryListRow from '../components/SummaryListRow/component';
+import ActionBoxComplete from '../components/ActionBoxComplete/component';
+import Guidance from '../components/Guidance/component';
+import Paragraph from '../components/Paragraph/component';
+import {
+  TOGGLE_ADD_FILES_ACCORDION_ONE,
+  TOGGLE_ADD_FILES_ACCORDION_TWO,
+  UPDATE_DATA_TYPE_VALUE,
+} from '../reducers';
+import FieldSet from '../components/FieldSet/component';
 import RadioGroup from '../components/RadioGroup/component';
 import Radio from '../components/Radio/component';
-import ActionBox from '../components/ActionBox/component';
-import FieldSet from '../components/FieldSet/component';
-import { UPDATE_REVIEW_RADIO, TOGGLE_PRE_APP_REVIEW_SCROLL } from '../reducers';
-import ScrollTo from '../components/ScrollTo/component';
-import Toggle from '../components/Toggle/component';
+import Button from '../components/Button/component';
+import Details from '../components/Details/component';
+import Link from '../components/Link/component';
+import List from '../components/List/component';
 
-const PermitPage = () => {
-  const showPreAppReviewScroll = useSelector((state) => state.showPreAppReviewScroll);
-  const radioReviewValue = useSelector((state) => state.radioReviewValue);
+
+const RequestForDataAddFiles = () => {
+  const showAddFilesAccordionOne = useSelector((state) => state.showAddFilesAccordionOne);
+  const showAddFilesAccordionTwo = useSelector((state) => state.showAddFilesAccordionTwo);
   const eastingValue = useSelector((state) => state.eastingValue);
   const northingValue = useSelector((state) => state.northingValue);
   const locationArray = useSelector((state) => state.locationArray);
+  const dataTypeValue = useSelector((state) => state.dataTypeValue);
   const dispatch = useDispatch();
 
   return (
     <>
-      <Header isNotification={false} userName="Lauren McKenna" />
+      <Header isNotification userName="Oliver Allen" />
       <Container>
         <PhaseBanner />
+        <BackLink href="/request-for-data-start-page" />
         <Main>
           <Row>
             <Column columnWidth="full">
@@ -51,7 +58,6 @@ const PermitPage = () => {
                 Loch Mhòrair Salmon Farm
                 <Reference>CAR/L/4336581</Reference>
               </Heading>
-              <Button href="pre-app-form-start">Add permit variation</Button>
             </Column>
           </Row>
           <Row>
@@ -67,7 +73,7 @@ const PermitPage = () => {
                 </TabList>
                 <TabPanel id="overview" title="">
                   <Accordion>
-                    <AccordionSection expanded sectionKey="1" heading="Pre-application details" aria-expanded="true" locked={false}>
+                    <AccordionSection expanded={showAddFilesAccordionOne} locked={false} sectionKey="1" heading="Pre-application details" aria-expanded={showAddFilesAccordionOne ? 'true' : ''} onClick={(e) => { e.preventDefault(); dispatch({ type: TOGGLE_ADD_FILES_ACCORDION_ONE }); }}>
                       <Row>
                         <Column columnWidth="two-thirds">
                           <Heading level="h3">Company Secretary contact</Heading>
@@ -117,57 +123,45 @@ const PermitPage = () => {
                           </SummaryList>
                           <Heading level="h3">Additional information</Heading>
                           <br />
-                          {
-                            showPreAppReviewScroll
-                              ? <ScrollTo /> : ''
-                          }
-                          <ActionBox locked={false}>
-                            <Heading level="h3">Complete your pre-application review</Heading>
-                            <FieldSet legend="Does the pre-application meet the requirements to move to the next stage?" inBox error={false} errorMessage="">
-                              <RadioGroup inline>
-                                <Radio id="yes" name="radioReview" value="Yes" checked={radioReviewValue === 'Yes'} onChange={(e) => dispatch({ type: UPDATE_REVIEW_RADIO, payload: e.target.value })} />
-                                <Radio id="no" name="radioReview" value="No" checked={radioReviewValue === 'No'} onChange={(e) => dispatch({ type: UPDATE_REVIEW_RADIO, payload: e.target.value })} />
-                              </RadioGroup>
-                              <br />
-                            </FieldSet>
-                            {
-                              radioReviewValue === 'Yes'
-                                ? (
-                                  <>
-                                    <Button href="/receives-pre-app-review-email">Complete pre-application review</Button>
-                                    <Paragraph>By completing this review, the pre-application will be sent to modelling.</Paragraph>
-                                  </>
-                                ) : (
-                                  <>
-                                    {
-                                      radioReviewValue === 'No'
-                                        ? (
-                                          <>
-                                            <Textarea label="Please provide the applicant with feedback and request further information if needed." />
-                                            <Button href="/receives-pre-app-review-email">Send feedback</Button>
-                                          </>
-                                        ) : ''
-                                    }
-                                  </>
-                                )
-                            }
-                          </ActionBox>
-                          <ActionBox locked>
-                            <Heading level="h3">Initial screening report</Heading>
-                          </ActionBox>
-                        </Column>
-                        <Column columnWidth="one-third">
-                          <Heading level="h3">Workflow tasks:</Heading>
-                          <Toggle modifier="govuk-right govuk-clear-margin" href="/" className="" onClick={(e) => { e.preventDefault(); dispatch({ type: TOGGLE_PRE_APP_REVIEW_SCROLL }); }}>Complete pre-application review</Toggle>
+                          <ActionBoxComplete>Pre-application review</ActionBoxComplete>
+                          <ActionBoxComplete>Initial screening report</ActionBoxComplete>
                         </Column>
                       </Row>
                     </AccordionSection>
-                    <AccordionSection locked expanded={false} sectionKey="2" heading="Current data" />
+                    <AccordionSection locked={false} expanded={showAddFilesAccordionTwo} aria-expanded={showAddFilesAccordionTwo ? 'true' : ''} sectionKey="2" heading="Current data" onClick={(e) => { e.preventDefault(); dispatch({ type: TOGGLE_ADD_FILES_ACCORDION_TWO }); }}>
+                      <Row>
+                        <Column columnWidth="two-thirds">
+                          <Paragraph>We advise applicants to send data from their initial current meter deployment checks before the submission of full 90-day current meter data.</Paragraph>
+                          <Heading level="h3">Download templates</Heading>
+                          <Paragraph>Download this zip file containing spreadsheet and text file templates:</Paragraph>
+                          <List>
+                            <li>
+                              <Link href="/">Modelling Data Collection Reporting Templates</Link>
+                            </li>
+                          </List>
+                          <br />
+                          <FieldSet inPage legend="What data are you submitting?">
+                            <Details title="Question guidance">&nbsp;</Details>
+                            <RadioGroup>
+                              <Radio name="dataType" id="initial" value="Initial data" checked={dataTypeValue === 'Initial data'} onChange={(e) => dispatch({ type: UPDATE_DATA_TYPE_VALUE, payload: e.target.value })} />
+                              <Radio name="dataType" id="90-day" value="90-day data" checked={dataTypeValue === '90-day data'} onChange={(e) => dispatch({ type: UPDATE_DATA_TYPE_VALUE, payload: e.target.value })} />
+                            </RadioGroup>
+                            {
+                              dataTypeValue
+                                ? (
+                                  <Button href="/request-for-data-add-files">Start uploading</Button>
+                                ) : ''
+                            }
+                          </FieldSet>
+                        </Column>
+                      </Row>
+                    </AccordionSection>
                     <AccordionSection locked expanded={false} sectionKey="3" heading="Modelling" />
                     <AccordionSection locked expanded={false} sectionKey="4" heading="Baseline Survey" />
                   </Accordion>
                 </TabPanel>
               </Tabs>
+              <Guidance />
             </Column>
           </Row>
         </Main>
@@ -177,12 +171,4 @@ const PermitPage = () => {
   );
 };
 
-export default PermitPage;
-
-PermitPage.propTypes = {
-  match: PropTypes.shape({
-    params: PropTypes.shape({
-      licenceId: PropTypes.string,
-    }),
-  }).isRequired,
-};
+export default RequestForDataAddFiles;
