@@ -7,7 +7,6 @@ const FileUploadStatus = (props) => {
   const {
     fileName,
     fileSize,
-    onClick,
     uploadProgressValue,
   } = props;
 
@@ -36,7 +35,7 @@ const FileUploadStatus = (props) => {
       </div>
       <div>
         <span className="govuk-body govuk-file-upload-status--percent-uploaded">{`${uploadProgressValue}% uploaded`}</span>
-        <Link modifier="govuk-body govuk-file-upload-status--cancel" href="/" onClick={onClick}>Cancel</Link>
+        <Link modifier="govuk-body govuk-file-upload-status--cancel" href="/">Cancel</Link>
       </div>
       <ProgressBar progressValue={uploadProgressValue} />
     </div>
@@ -49,5 +48,4 @@ FileUploadStatus.propTypes = {
   uploadProgressValue: PropTypes.number.isRequired,
   fileName: PropTypes.string.isRequired,
   fileSize: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
 };

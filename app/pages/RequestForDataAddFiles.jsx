@@ -1,3 +1,5 @@
+/* eslint-disable no-loop-func */
+/* eslint-disable no-plusplus */
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable guard-for-in */
 /* eslint-disable no-nested-ternary */
@@ -25,13 +27,12 @@ import UploadStatus from '../components/UploadStatus/component';
 import FileUploadStatus from '../components/FileUploadStatus/component';
 import FileUploadList from '../components/FileUploadList/component';
 import {
-  START_ADD_FILES_UPLOADING,
-  TOGGLE_ADD_FILES_UPLOADING,
+  START_ADD_FILE_UPLOAD_VALUES,
+  START_ADD_FILE_UPLOADING,
+  STOP_ADD_FILE_UPLOADING,
   UPDATE_ADD_FILES_UPLOAD_PROGRESS_VALUE,
-  UPDATE_ADD_FILES_UPLOAD_FILE_NAME_VALUE,
-  UPDATE_ADD_FILES_UPLOAD_FILE_SIZE_VALUE,
-  TOGGLE_FILE_UPLOAD_COMPLETE,
   TOGGLE_FILE_SUBMISSION,
+  START_ADD_FILES_UPLOADING,
 } from '../reducers';
 import List from '../components/List/component';
 import FileDrop from '../components/FileDrop/component';
@@ -39,33 +40,45 @@ import FileDrop from '../components/FileDrop/component';
 
 const RequestForDataAddFiles = () => {
   const showAddFilesUploading = useSelector((state) => state.showAddFilesUploading);
-  const uploadProgressValue = useSelector((state) => state.uploadProgressValue);
+  const filesArray = useSelector((state) => state.files) || [];
+  const filesUploading = useSelector((state) => state.filesUploading);
   const dataTypeValue = useSelector((state) => state.dataTypeValue);
-  const fileUploadComplete = useSelector((state) => state.fileUploadComplete);
   const filesSubmitted = useSelector((state) => state.filesSubmitted);
-  const uploadFileName = useSelector((state) => state.uploadFileName);
-  const uploadFileSize = useSelector((state) => state.uploadFileSize);
   const dispatch = useDispatch();
 
   const handleFileChosen = (files) => {
-    for (const file of files) {
+    dispatch({ type: START_ADD_FILES_UPLOADING });
+    for (let i = 0; i < files.length; i++) {
       const fileReader = new FileReader();
       fileReader.onloadstart = () => {
-        dispatch({ type: START_ADD_FILES_UPLOADING });
+        dispatch({ type: START_ADD_FILE_UPLOADING });
+        dispatch({
+          type: START_ADD_FILE_UPLOAD_VALUES,
+          payload: {
+            key: i,
+            name: '',
+            size: 0,
+            progress: 0,
+          },
+        });
       };
       fileReader.onprogress = (data) => {
         if (data.lengthComputable) {
-          const progress = parseInt(((data.loaded / data.total) * 100), 10);
-          dispatch({ type: UPDATE_ADD_FILES_UPLOAD_PROGRESS_VALUE, payload: progress });
-          dispatch({ type: UPDATE_ADD_FILES_UPLOAD_FILE_NAME_VALUE, payload: file.name });
-          dispatch({ type: UPDATE_ADD_FILES_UPLOAD_FILE_SIZE_VALUE, payload: file.size });
+          dispatch({
+            type: UPDATE_ADD_FILES_UPLOAD_PROGRESS_VALUE,
+            payload: {
+              key: i,
+              name: files[i].name,
+              size: files[i].size,
+              progress: parseInt(((data.loaded / data.total) * 100), 10),
+            },
+          });
         }
       };
       fileReader.onloadend = () => {
-        dispatch({ type: TOGGLE_ADD_FILES_UPLOADING });
-        dispatch({ type: TOGGLE_FILE_UPLOAD_COMPLETE });
+        dispatch({ type: STOP_ADD_FILE_UPLOADING });
       };
-      fileReader.readAsText(file);
+      fileReader.readAsText(files[i]);
     }
   };
 
@@ -76,7 +89,7 @@ const RequestForDataAddFiles = () => {
         <PhaseBanner />
         <BackLink href="/request-for-data-choose-type" />
         {
-          showAddFilesUploading ? <Warning>File uploading. Please don’t close your browser window</Warning> : ''
+          (filesUploading > 0) ? <Warning>File uploading. Please don’t close your browser window</Warning> : ''
         }
         <Main>
           <Row>
@@ -88,23 +101,27 @@ const RequestForDataAddFiles = () => {
             <Column columnWidth="two-thirds">
               <Heading level="h2">Upload files</Heading>
               <Paragraph>Submitted data will be used in the permitting process and included in the Modelling Data Collection report.</Paragraph>
-              <FileDrop onChange={(e) => handleFileChosen(e.target.files)} />
-              { showAddFilesUploading ? <UploadStatus>File uploading. Please don’t close your browser window</UploadStatus> : ''}
+              { !filesSubmitted ? <FileDrop onChange={(e) => handleFileChosen(e.target.files)} /> : '' }
+              { (filesUploading > 0) ? <UploadStatus>File uploading. Please don’t close your browser window</UploadStatus> : ''}
               {
-                showAddFilesUploading
+                (showAddFilesUploading)
                   ? (
                     <FileUploadList>
-                      <FileUploadStatus fileName={uploadFileName} fileSize={uploadFileSize} uploadProgressValue={uploadProgressValue} onClick={() => alert('clickme')} />
+                      {
+                        filesArray.map((file) => (
+                          <FileUploadStatus fileName={file.name} fileSize={file.size} uploadProgressValue={file.progress} />
+                        ))
+                      }
                     </FileUploadList>
                   ) : ''
               }
-              { showAddFilesUploading ? <Paragraph>Files can be marked as ready for submission before they have completed uploading.</Paragraph> : '' }
-              { (showAddFilesUploading && !filesSubmitted) ? <Button onClick={(e) => { e.preventDefault(); dispatch({ type: TOGGLE_FILE_SUBMISSION }); }}>Submit files for review</Button> : '' }
-              { showAddFilesUploading && filesSubmitted ? <Paragraph>Files will be submitted when they have completed uploading <Link onClick={(e) => { e.preventDefault(); dispatch({ type: TOGGLE_FILE_SUBMISSION }); }}>Undo</Link></Paragraph> : ''}
-              { fileUploadComplete
+              { (filesUploading > 0) ? <Paragraph>Files can be marked as ready for submission before they have completed uploading.</Paragraph> : '' }
+              { ((filesUploading > 0) && !filesSubmitted) ? <Button onClick={(e) => { e.preventDefault(); dispatch({ type: TOGGLE_FILE_SUBMISSION }); }}>Submit files for review</Button> : '' }
+              { (filesUploading > 0) && filesSubmitted ? <Paragraph>Files will be submitted when they have completed uploading <Link onClick={(e) => { e.preventDefault(); dispatch({ type: TOGGLE_FILE_SUBMISSION }); }}>Undo</Link></Paragraph> : ''}
+              { showAddFilesUploading && (filesUploading < 1)
                 ? filesSubmitted
                   ? <Redirect to="/request-for-data-confirmation-page" />
-                  : <Button href="/request-for-data-confirmation-page">Submit files for review</Button>
+                  : <Button onClick={(e) => { e.preventDefault(); dispatch({ type: TOGGLE_FILE_SUBMISSION }); }}>Submit files for review</Button>
                 : ''}
             </Column>
           </Row>
