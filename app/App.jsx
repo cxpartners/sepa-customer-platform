@@ -57,6 +57,8 @@ import RequestForDataChooseType from './pages/RequestForDataChooseType';
 import RequestForDataAddFiles from './pages/RequestForDataAddFiles';
 import RequestForDataConfirmationPage from './pages/RequestForDataConfirmationPage';
 import ReceivesDataUploadNotification from './pages/ReceivesDataUploadNotification';
+import ApplicationStatusNotification from './pages/ApplicationStatusNotification';
+import ReceivesDataSubmissionEmailConfirmation from './pages/ReceivesDataSubmissionEmailConfirmation';
 import ReceivesDataUploadNotificationEmail from './pages/ReceivesDataUploadNotificationEmail';
 import DataReviewReceiveRequest from './pages/DataReviewReceiveRequest';
 import DataReviewEmailNotification from './pages/DataReviewEmailNotification';
@@ -65,6 +67,7 @@ import DataReviewPermitPage from './pages/DataReviewPermitPage';
 import ApplicantReviewedDataNotification from './pages/ApplicantReviewedDataNotification';
 import ApplicantReviewedDataPermits from './pages/ApplicantReviewedDataPermits';
 import ApplicantReviewedDataPermitPage from './pages/ApplicantReviewedDataPermitPage';
+import ApplicantViewsDataNotification from './pages/ApplicantViewsDataNotification';
 import PermitOfficerReviewedDataNotification from './pages/PermitOfficerReviewedDataNotification';
 import PermitOfficerReviewedDataPermits from './pages/PermitOfficerReviewedDataPermits';
 import PermitOfficerReviewedDataPermitPage from './pages/PermitOfficerReviewedDataPermitPage';
@@ -127,13 +130,16 @@ const App = () => (
       <Route exact path="/request-for-data-add-files" component={RequestForDataAddFiles} />
       <Route exact path="/request-for-data-confirmation-page" component={RequestForDataConfirmationPage} />
       <Route exact path="/receives-data-upload-notification" component={ReceivesDataUploadNotification} />
+      <Route exact path="/receives-data-submission-email-confirmation" component={ReceivesDataSubmissionEmailConfirmation} />
       <Route exact path="/receives-data-upload-notification-email" component={ReceivesDataUploadNotificationEmail} />
       <Route exact path="/data-review-receive-request" component={DataReviewReceiveRequest} />
       <Route exact path="/data-review-email-notification" component={DataReviewEmailNotification} />
+      <Route exact path="/application-status-notification" component={ApplicationStatusNotification} />
       <Route exact path="/data-review-context-switch" component={DataReviewContextSwitch} />
       <Route exact path="/data-review-permit-page" component={DataReviewPermitPage} />
       <Route exact path="/applicant-reviewed-data-notification" component={ApplicantReviewedDataNotification} />
       <Route exact path="/applicant-reviewed-data-permits" component={ApplicantReviewedDataPermits} />
+      <Route exact path="/applicant-views-data-notification" component={ApplicantViewsDataNotification} />
       <Route exact path="/applicant-reviewed-data-permit-page" component={ApplicantReviewedDataPermitPage} />
       <Route exact path="/permit-officer-reviewed-data-notification" component={PermitOfficerReviewedDataNotification} />
       <Route exact path="/permit-officer-reviewed-data-permits" component={PermitOfficerReviewedDataPermits} />
