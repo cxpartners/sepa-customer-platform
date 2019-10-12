@@ -51,6 +51,7 @@ export const PERMIT_FETCH_REQUESTING = 'PERMIT_FETCH_REQUESTING';
 export const PERMIT_FETCH_INVALID = 'PERMIT_FETCH_INVALID';
 export const PERMIT_FETCH_SUCCESS = 'PERMIT_FETCH_SUCCESS';
 export const PERMIT_FETCH_FAILED = 'PERMIT_FETCH_FAILED';
+export const UPDATE_DATA_REVIEW_RADIO = 'UPDATE_DATA_REVIEW_RADIO';
 
 let easting = 182980;
 let northing = 790973;
@@ -108,6 +109,7 @@ const initialState = {
   filesSubmitted: false,
   uploadFileName: '',
   uploadFileSize: 0,
+  dataReviewValue: null,
 };
 
 // fake some locations
@@ -332,6 +334,11 @@ export default (state = initialState, action) => {
           locations: action.locations,
         },
       };
+    case UPDATE_DATA_REVIEW_RADIO:
+      return {
+        ...state,
+        dataReviewValue: action.payload,
+      };
     default:
       return state;
   }
@@ -475,4 +482,8 @@ export const stopAddFileUploading = () => (dispatch) => {
 
 export const updateAddFilesUploadProgressValue = () => (dispatch) => {
   dispatch({ type: UPDATE_ADD_FILES_UPLOAD_PROGRESS_VALUE });
+};
+
+export const updateDataReviewRadio = () => (dispatch) => {
+  dispatch({ type: UPDATE_DATA_REVIEW_RADIO });
 };
