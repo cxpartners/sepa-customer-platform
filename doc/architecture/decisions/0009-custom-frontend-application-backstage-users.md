@@ -23,13 +23,13 @@ The interface used by back stage users (SEPA modellers, registry, officers, regu
 
 ## Decision Outcome
 
-[Option 1] Reusing the application's components and functionality built for the front stage users would provide both a unified best practice user experience, and a doucoupled frontend application that minimises the reliance upon and customisations required to the Dynamics CRM. 
+[Option 1] Reusing the application's components and functionality built for the front stage users would provide both a unified best practice user experience, and a decoupled frontend application that minimises the reliance upon and customisations required to the Dynamics CRM. 
 
 ### Positive Consequences
 
 * SEPA creates & relies upon a reusable set of back stage components that can be used by other project's requiring a web interface.
 * Least reliance / lock in to CRM vendor, both in terms of customisations but also in terms of the domain specific resources required.
-* Best support for evolutionary design & architecture - changing the standalone frontend application would be less costly  compared to changing the CRM interface.  Facilitate hypothesis driven development.
+* Best support for evolutionary design & architecture - changing the standalone frontend application would be less costly compared to changing the CRM interface.  Facilitates hypothesis driven development.
 
 ### Negative Consequences
 
@@ -47,17 +47,17 @@ A custom web frontend application pushes/pulls data either directly via the serv
 * Full control over styling, interactions and journey.
 * A modular / component based frontend build can be reused across other web projects.
 * Separates display logic from the data layer - all data is managed in the CRM then consumed and displayed using API endpoints.
-* Custom build pipelines can be used to manage the deployment & testing directly from the code respository.
+* Custom build pipelines can be used to manage the deployment & testing directly from the code repository.
 * Minimises the customisation of Dynamics, reduces vendor lock in.
 * Minimal domain specific knowledge required to configure and maintain frontend code.
 * Reuses the front stage components to build the majority of the application, most back stage specific logic is related to workflow.
 * Consistent best practice (reuse of gov.uk patterns) user experience for front and back stage users.
-* When taking into account the front stage interface, this would seem to require the least up amount front work.
+* When taking into account the front stage interface, this would seem to require the least amount of up front work.
 
 #### Negative
 * Built from the ground up, requiring more up front development time and resource.
-* Managed, updated and deployed by SEPA.
-* If Dynamics is not customised / configured to match the SEPA processes, it would Dyanmics UI with labels / context that do not match the web interface.
+* Additional time & effort require to manage, update and deploy as the codebase is managed by SEPA.  
+* If Dynamics is not customised / configured to match the SEPA processes, the Dynamics UI would show labels / context that do not match the web interface.
 
 ### 2. Use Microsoft's Dynamics 365 Web Portals to provide & manage the interface.
 
@@ -71,10 +71,10 @@ styling, page elements & functionality can be customised using the open source t
 * All infrastructure and code management is handled within the Dynamics portal.
 
 #### Negative
-* Out of the box, CRM forms are targetted for sales, marketting and support so additional work is required to repurpose and restyle whats available.
+* Out of the box, CRM forms are targeted for sales, marketing and support so additional work is required to repurpose and restyle whats available.
 * Increases vendor lock in - frontend code is stored within the CRM system.
-* Without indepth experience of this solution, it is not initially clear how much Web portals can support a custom journey, and if so, how difficult it would be to build (what level of custom coding woudl be required?).
-* Potentially requires more domain specific knowledge & resources in terms of Dynamics, Portals & Liquid, to customise and maintain this solution.
+* Without in-depth experience of this solution, it is not initially clear how much Web portals can support a custom journey, and if so, how difficult it would be to build (what level of custom coding woudl be required?).
+* Potentially requires more domain specific knowledge & resources in terms of Dynamics, Portals & Liquid templating language, to customise and maintain this solution.
 
 ### 3. Use Microsoft's Dynamics 365 Web Portals to provide & manage the interface.
 
@@ -87,10 +87,10 @@ Microsoft Dynamics 365 would be configured & customised to provide custom workfl
 * Depending on SEPA's level of Microsoft 365 product integration, the Dynamics UI could support a consistent 'Microsoft' admin experience (and depending on who speak to, that could be considered a positive or a negative).
 
 #### Negative
-* Out of the box, CRM forms are targetted for sales, marketting and support so additional work is required to relabel the CRM for a unified context.
-* Depending on the level of customisations implemented inside the Dyanmics UI, additional staff training would be required to use the existing interface.
+* Out of the box, CRM forms are targeted for sales, marketing and support so additional work is required to relabel the CRM for a unified context.
+* Depending on the level of customisations implemented inside the Dynamics UI, additional staff training would be required to use the existing interface.
 * Increases vendor lock in - all any customisations to CRM would likely require substantial work to port to / replication on a new system.
-* Without indepth experience of this solution, it is not initially clear how much Web portals can support a custom journey, and if so, how difficult it would be to build (what level of custom coding woudl be required?).
+* Without in-depth experience of this solution, it is not initially clear how much Web portals can support a custom journey, and if so, how difficult it would be to build (what level of custom coding woudl be required?).
 
 ## Links 
 * [Deliver web engagement experiences with Dynamics 365 Portals](https://docs.microsoft.com/en-us/dynamics365/portals/administer-manage-portal-dynamics-365)

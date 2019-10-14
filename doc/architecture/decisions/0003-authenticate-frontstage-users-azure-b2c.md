@@ -9,7 +9,7 @@ Technical Story: CCP 1205 - Create Customer Account and Login
 ## Context
 
 Azure Cloud Services and Microsoft Dynamics 365 have been proposed to support the CCP case & contact management, therefore, to maximise vendor reuse 
-& interoperabiltiy, Azure's identity management system will be used to provide authentication for the frontend application.
+& interoperability, Azure's identity management system will be used to provide authentication for the frontend application.
 
 Actve Directory B2C (business to consumer) provides existing 'user flows' and allows for creation of custom policies that configure & customise the authentication process.  Which option is most suitable needs to be considered taking into account security & support for the custom UX.
 
@@ -73,7 +73,7 @@ Once authenticated, the user is redirected back to the application with the rele
 #### Positive
 * 'Out the box' policies maintained by Microsoft
 * Security updates inherited from Microsoft
-* Authentication is potentially availble across multiple Azure tenats (i.e. applications)
+* Authentication is potentially available across multiple Azure tenants (i.e. applications)
 
 #### Negative
 * User is taken to a separate URL (negatively impacting trust?)
@@ -82,13 +82,13 @@ Once authenticated, the user is redirected back to the application with the rele
 
 ### 3. 'Sign up and sign in' on custom domain
 
-Similar journey to option 2 however the Azure domain can be customised so that a SEPA subdomain (e.g. login.sepa.org.uk) can be pointed to the Azure tenant. This would create a more consistent user journey. 
+Similar journey to option 2 however the Azure domain can be customised so that a SEPA sub-domain (e.g. login.sepa.org.uk) can be pointed to the Azure tenant. This would create a more consistent user journey. 
 
 [How can we improve Azure AD - customer-owned domains](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/15334317-customer-owned-domains)
 
 #### Positive
 * Consistent user journey is maintained - ui can be styled, user doesn't see any change in URL
-* The subdomain could be a central login point for all SEPA services requiring authentication.
+* The sub-domain could be a central login point for all SEPA services requiring authentication.
 * User's browser is able to apply user's stored SEPA login details whereas using a MS url this wouldn't be possible.  
 
 #### Negative

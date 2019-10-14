@@ -22,16 +22,11 @@ The Azure Blob storage system is a separate cloud service which is not directly 
 
 ## Decision Outcome
 
-[Option 1] Use the existing 'annontation' entity in the CRM where the following attributes are set to the Azure blob data:
-
-* [tbd] documentbody / filename / subject - Azure Blob storage URI
-* notetext - description of the upload time & file metadata
-* isdocument - true
-* objecttypecode - 'azureBlobStorageFile'
+[Option 1] Use the existing 'annotation' entity in the CRM & set the entity attributes to match Azure blob data.
 
 ### Positive Consequences
 
-* Minismises customisation of the CRM data, reuse of existing
+* Minimises customisation of the CRM data, reuse of existing
 
 ### Negative Consequences
 
@@ -41,7 +36,11 @@ The Azure Blob storage system is a separate cloud service which is not directly 
 
 ### 1. Use the existing CRM 'annotation' entity
 
-Once a file is uploaded via the application, a WebAPI call is made to create a new 'annotation' entity, the Azure Blob URI is stored as an existing attribute.
+Once a file is uploaded via the application, a WebAPI call is made to create a new 'annotation' entity in Dynamics, the Azure Blob data is stored on the entity using the following (suggested) attributes:
+* [tbd] documentbody / filename / subject - Azure Blob storage URI
+* notetext - description of the upload time & file metadata
+* isdocument - true
+* objecttypecode - 'azureBlobStorageFile'
 
 #### Positive
 * Minimises customisation of the CRM
@@ -52,7 +51,7 @@ Once a file is uploaded via the application, a WebAPI call is made to create a n
 
 ### 2. Create a new custom CRM entity 
 
-Create a new 'azureBlobStorage' entity within the CRM, create a new instance via the WebAPI once the file upload is completed.
+Create a new custom 'azureBlobStorage' entity within the CRM, create a new instance via the WebAPI once the file upload is completed.
 
 #### Positive
 * The Dynamics UI and WebAPI entity are more closely related to the use case.

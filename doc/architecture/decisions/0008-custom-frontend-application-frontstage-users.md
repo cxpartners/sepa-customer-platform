@@ -30,11 +30,11 @@ Avoiding the use of a hosted web application (MS Portals), by decoupling the fro
 ### Positive Consequences
 
 * Complete control over the user interface and user journey.
-* SEPA can resuse & build upon shared web patterns & components.
+* SEPA can reuse & build upon shared web patterns & components.
 
 ### Negative Consequences
 
-* Additional overhead required for maintenace, testing and deployment.
+* Additional overhead required for maintenance, testing and deployment.
 
 ## Pros and Cons of the Options
 
@@ -46,7 +46,7 @@ A custom web frontend application pushes/pulls data either directly via the serv
 * Full control over styling, interactions and journey.
 * A modular / component based frontend build can be reused across other web projects.
 * Separates display logic from the data layer - all data is managed in the CRM then consumed and displayed using API endpoints.
-* Custom build pipelines can be used to manage the deployment & testing directly from the code respository.
+* Custom build pipelines can be used to manage the deployment & testing directly from the code repository.
 * Minimal domain specific knowledge required to configure and maintain frontend code.
 
 #### Negative
@@ -65,9 +65,9 @@ styling, page elements & functionality can be customised using the open source t
 * All infrastructure and code management is handled within the Dynamics portal.
 
 #### Negative
-* Out of the box, CRM forms are targetted for sales, marketting and support so additional work is required to repurpose and restyle whats available.
+* Out of the box, CRM forms and portals are targeted for sales, marketing and support so additional work is required to repurpose and restyle whats available.
 * Increases vendor lock in - frontend code is stored within the CRM system.
-* Without indepth experience of this solution, it is not initially clear how much Web portals can support a custom journey, and if so, how difficult it would be to build (what level of custom coding woudl be required?).
+* Without in-depth experience of this solution, it is not initially clear how much Web portals can support a custom journey, and if so, how difficult it would be to build (what level of custom coding would be required?).
 * Potentially requires more domain specific knowledge & resources in terms of Dynamics, Portals & Liquid, to customise and maintain this solution.
 
 ## Links 

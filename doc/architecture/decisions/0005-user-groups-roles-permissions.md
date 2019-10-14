@@ -16,27 +16,15 @@ The application needs to control access to permits & their supporting documents 
 ## Considered Options
 
 1. All user roles are managed through Active Directory groups
-2. SEPA staff permissions are managed according to the Active Directory group they are assigned to.  Operator / applicant permisisons are managed according to the account/contact relationship in Dynamics.
+2. SEPA staff permissions are managed according to the Active Directory group they are assigned to.  Operator / applicant permissions are managed according to the account/contact relationship in Dynamics.
 
 ## Decision Outcome
 
-[Option 1] SEPA staff should be assigned to Active Directory groups based on their roles, the following are suggested but need to be reviewed based on a more thorough investigation of roles:
-
-* SEPA Marine Pen application - administrators
-* SEPA Marine Pen application - users
-
-This setup would allow for additional license type grouping and segmentation in the future.
-
-Frontstage users (applicants and operators) should also be organised into group structures within the Azure Active Directory B2C, 
-
-* [Operator name] - administrators
-* [Operator name] - users
-
-This will provide a level of organisation hierachy and administration 
+[Option 1] SEPA staff should be assigned to Active Directory groups based on their roles, the following are suggested but need to be reviewed based on a more thorough investigation of roles. 
 
 ### Positive Consequences
 
-* This option maintains a basic user hierachy outside of the Dynamics system, which would potentially be useful if the user accounts are used in other applications
+* This option maintains a basic user hierarchy that would be available outside of the Dynamics system that would potentially be useful if the accounts are used in other applications
 
 ### Negative Consequences
 
@@ -48,15 +36,29 @@ This will provide a level of organisation hierachy and administration
 
 Groups are used for both Active Directory back stage users and Active Directory B2C front stage users.  Application permissions for each user are then inferred from the group.
 
+Suggested group setup for back stage users: 
+
+* SEPA Marine Pen application - administrators
+* SEPA Marine Pen application - users
+
+This setup would allow for additional license type grouping and segmentation in the future.
+
+Front-stage users (applicants and operators) should also be organised into group structures within the Azure Active Directory B2C, 
+
+* [Operator name] - administrators
+* [Operator name] - users
+
+This will provide a level of organisation hierachy and administration.
+
 #### Positive
-* Provides flexiblity to assign additional permissions and actions to multiple operator administrators.
+* Provides flexibility to assign additional permissions and actions to multiple operator administrators.
 * Provides greater organisation in Active Directory B2C (when viewed in isolation)
 * Potential to reuse account setup for other action not related to the CRM.
 
 #### Negative
 * This would create an additional relationship between operator roles that is already possible in the CRM (primary/lead contact on the account entity).
 
-### 2. SEPA staff permissions are managed according to the Active Directory group they are assigned to.  Operator / applicant permisisons are managed according to the account/contact relationship in Dynamics.
+### 2. SEPA staff permissions are managed according to the Active Directory group they are assigned to.  Operator / applicant permissions are managed according to the account/contact relationship in Dynamics.
 
 SEPA staff roles & permissions to be inferred from the Active Directory groups they are assigned to.  Front stage users (who authenticate using Active Directory B2C) would be grouped together & assigned app permissions based on how their their user account links to their CRM contact entity.   CRM contacts will be linked to their organisation's account entity (providing the group structure) and administrators would be assigned using the 'primary contact' field on the account entity.
 

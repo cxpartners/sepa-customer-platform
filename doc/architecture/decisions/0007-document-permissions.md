@@ -10,9 +10,9 @@ Azure Blob Storage will be used to store all files associated with permit applic
 
 ## Decision Drivers
 
-* Back stage users should be able to see all files
+* Back stage users should be able to see all files relating to a permit
 * Front stage users should only be able to view and download files that are relevant to them.
-* Sensitive data privacy / security requirements mean access to some documents should be restricted for both front stage and back stage users.
+* Sensitive data privacy / security requirements mean access to certain documents should be restricted for both front stage and back stage users.
 
 ## Considered Options
 
@@ -36,7 +36,7 @@ Azure Blob Storage will be used to store all files associated with permit applic
 
 ### 1. Use active directory groups to manage all access to Azure Blob Storage containers
 
-Active Directory groups can be assigned roles on each container in Azure Blob Storage, therefore inheriting access from the Active Directory login.
+Active Directory groups can be assigned security roles on each container in Azure Blob Storage, therefore inheriting access from the Active Directory login.
 
 #### Positive
 * No need to grant any additional access permissions on files.
