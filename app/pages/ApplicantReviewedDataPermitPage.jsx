@@ -9,6 +9,10 @@ import Row from '../components/Row/component';
 import Column from '../components/Column/component';
 import Heading from '../components/Heading/component';
 import Footer from '../components/Footer/component';
+import PermitSmallList from '../components/PermitSmallList/component';
+import PermitSmallListRow from '../components/PermitSmallListRow/component';
+import SummaryList from '../components/SummaryList/component';
+import SummaryListRow from '../components/SummaryListRow/component';
 import Reference from '../components/Reference/component';
 import Tabs from '../components/Tabs/component';
 import TabList from '../components/TabList/component';
@@ -16,22 +20,12 @@ import Tab from '../components/Tab/component';
 import TabPanel from '../components/TabPanel/component';
 import Accordion from '../components/Accordion/component';
 import AccordionSection from '../components/AccordionSection/component';
-import SummaryList from '../components/SummaryList/component';
-import SummaryListRow from '../components/SummaryListRow/component';
 import ActionBoxComplete from '../components/ActionBoxComplete/component';
+import ActionBoxFitForPurpose from '../components/ActionBoxFitForPurpose/component';
 import Guidance from '../components/Guidance/component';
-import Paragraph from '../components/Paragraph/component';
-import FieldSet from '../components/FieldSet/component';
-import RadioGroup from '../components/RadioGroup/component';
-import Radio from '../components/Radio/component';
-import Button from '../components/Button/component';
-import ActionBox from '../components/ActionBox/component';
-import Textarea from '../components/Textarea/component';
-import FileInput from '../components/FileInput/component';
 import {
   TOGGLE_ADD_FILES_ACCORDION_ONE,
   TOGGLE_ADD_FILES_ACCORDION_TWO,
-  UPDATE_DATA_REVIEW_RADIO,
 } from '../reducers';
 
 
@@ -41,7 +35,6 @@ const ApplicantReviewedDataPermitPage = () => {
   const eastingValue = useSelector((state) => state.eastingValue);
   const northingValue = useSelector((state) => state.northingValue);
   const locationArray = useSelector((state) => state.locationArray);
-  const dataReviewValue = useSelector((state) => state.dataReviewValue);
   const dispatch = useDispatch();
 
   return (
@@ -128,39 +121,18 @@ const ApplicantReviewedDataPermitPage = () => {
                     </AccordionSection>
                     <AccordionSection locked={false} expanded={showAddFilesAccordionTwo} aria-expanded={showAddFilesAccordionTwo ? 'true' : ''} sectionKey="2" heading="Current data" onClick={(e) => { e.preventDefault(); dispatch({ type: TOGGLE_ADD_FILES_ACCORDION_TWO }); }}>
                       <Row>
+                        <Column columnWidth="full">
+                          <Heading level="h3">90 day data</Heading>
+                          <PermitSmallList>
+                            <PermitSmallListRow key="1" fileName="CurrentMeterData_siteName_Bottom2019.xlsx" href="/applicant-reviewed-data-permit-page" uploadDate="08/10/2019" date="Download" />
+                            <PermitSmallListRow key="2" fileName="CurrentMeterData_siteName_Top2019.xlsx" href="/" uploadDate="08/10/2019" date="Download" />
+                            <PermitSmallListRow key="3" fileName="CurrentMeterData_siteName_Surface2019.xlsx" href="/" uploadDate="08/10/2019" date="Download" />
+                            <PermitSmallListRow key="4" fileName="CurrentMeterData_siteName_DepthSound2019.xlsx" href="/" uploadDate="08/10/2019" date="Download" />
+                            <PermitSmallListRow key="5" fileName="CurrentMeterData_siteName_Modelling2019.xlsx" href="/" uploadDate="08/10/2019" date="Download" />
+                          </PermitSmallList>
+                        </Column>
                         <Column columnWidth="two-thirds">
-                          <ActionBox locked={false}>
-                            <Heading level="h3">Record feedback for uploaded data</Heading>
-                            <FieldSet legend="Does the data upload meet the requirements to move to the next stage?" inBox error={false} errorMessage="">
-                              <RadioGroup inline>
-                                <Radio id="yes" name="radioReview" value="Yes" checked={dataReviewValue === 'Yes'} onChange={(e) => dispatch({ type: UPDATE_DATA_REVIEW_RADIO, payload: e.target.value })} />
-                                <Radio id="no" name="radioReview" value="No" checked={dataReviewValue === 'No'} onChange={(e) => dispatch({ type: UPDATE_DATA_REVIEW_RADIO, payload: e.target.value })} />
-                              </RadioGroup>
-                              <br />
-                            </FieldSet>
-                            {
-                              dataReviewValue === 'Yes'
-                                ? (
-                                  <>
-                                    <Button href="/permit-officer-reviewed-data-notification">Mark as fit for purpose</Button>
-                                    <Paragraph>By marking the data uploaded as ‘fit for purpose’ a notification will be sent to the permitting officer and the applicant.</Paragraph>
-                                  </>
-                                ) : (
-                                  <>
-                                    {
-                                      dataReviewValue === 'No'
-                                        ? (
-                                          <>
-                                            <Textarea label="Please provide the applicant with feedback and request further information if needed." />
-                                            <FileInput />
-                                            <Button href="/permit-officer-reviewed-data-notification">Send feedback</Button>
-                                          </>
-                                        ) : ''
-                                    }
-                                  </>
-                                )
-                            }
-                          </ActionBox>
+                          <ActionBoxFitForPurpose>Current data status</ActionBoxFitForPurpose>
                         </Column>
                       </Row>
                     </AccordionSection>
