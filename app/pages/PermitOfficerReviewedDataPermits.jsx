@@ -15,13 +15,13 @@ import Details from '../components/Details/component';
 
 const Permit = () => (
   <>
-    <Header isNotification userName="Oliver Allen" />
+    <Header isNotification userName="Lauren McKenna" />
     <Container>
       <PhaseBanner />
       <Main>
         <Row>
           <Column columnWidth="full">
-            <Warning>You have new notifications</Warning>
+            <Warning isInfo>You have new notifications</Warning>
           </Column>
         </Row>
         <Row>
