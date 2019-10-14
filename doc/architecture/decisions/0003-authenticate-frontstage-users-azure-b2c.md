@@ -11,7 +11,7 @@ Technical Story: CCP 1205 - Create Customer Account and Login
 Azure Cloud Services and Microsoft Dynamics 365 have been proposed to support the CCP case & contact management, therefore, to maximise vendor reuse 
 & interoperabiltiy, Azure's identity management system will be used to provide authentication for the frontend application.
 
-AD B2C provides existing 'user flows' and allows for creation of custom policies that configure & customise the authentication process.  Which option is most suitable needs to be considered taking into account security & support for the custom UX.
+Actve Directory B2C (business to consumer) provides existing 'user flows' and allows for creation of custom policies that configure & customise the authentication process.  Which option is most suitable needs to be considered taking into account security & support for the custom UX.
 
 ## Decision Drivers
 
@@ -20,7 +20,7 @@ AD B2C provides existing 'user flows' and allows for creation of custom policies
 
 ## Considered Options
 
-1. Custom resource policy setup to allow 'resource owner password credentials' (ROPC) flow. This allows us to handle all sign up and sign within CCP application.
+1. Custom resource policy setup to allow 'resource owner password credentials' (ROPC) flow. This allows us to handle all sign up and sign within the CCP application.
 2. Use an existing 'Sign up and sign in' policy & styled interfaced - redirects user to MS server to login
 3. Use an existing 'Sign up and sign in' policy where the login page is hosted on a custom domain pointed to the Azure tenant (e.g. https://login.sepa.org.uk)
 
@@ -32,12 +32,12 @@ A custom domains would be best option, but this seems to be unavailable at the t
 
 ### Positive Consequences
 
-* Leveraging best practice for auth.
-* Best trade off between styling and secure authentication.
+* Leverages best practice for auth now and in the future.
 
 ### Negative Consequences
 
 * Additional policy customisations would be required to fully customise the flow of the registration and login process (see links).
+* Standalone HTML/CSS files will be need to be managed and uploaded to / updated in the Azure Directory  
 
 ## Pros and Cons of the Options
 
@@ -67,8 +67,8 @@ within the application without redirecting to Microsoft URLs & the username/pass
 
 ### 2. 'Sign up and sign in' on b2clogin.com
 
-Sign up is managed on the application however the user will be redirected to a separate domain whenever they need to login or
-handle account changes (password reset).
+Sign up & login are initialised within the application but the user is redirected to a separate Azure domain where authentication happens.
+Once authenticated, the user is redirected back to the application with the relevant authentication information stored in their browser as an OAuth token.
 
 #### Positive
 * 'Out the box' policies maintained by Microsoft
@@ -82,8 +82,7 @@ handle account changes (password reset).
 
 ### 3. 'Sign up and sign in' on custom domain
 
-Use an existing Azure AD B2C policy to manage sign up, sign in and account management, but create a subdomain
-(of sepa.org.uk) which is pointed to the Azure tenant so that the user journey, in terms of urls, is consistent. 
+Similar journey to option 2 however the Azure domain can be customised so that a SEPA subdomain (e.g. login.sepa.org.uk) can be pointed to the Azure tenant. This would create a more consistent user journey. 
 
 [How can we improve Azure AD - customer-owned domains](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/15334317-customer-owned-domains)
 

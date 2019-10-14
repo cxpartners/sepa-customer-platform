@@ -24,7 +24,7 @@ SEPA uses Active Directory for it's existing internal account management so prov
 
 [Option 1] SEPA should look to integrate Azure Active Directory with Dynamics to provide a shared idenity 'federation', where backstage (SEPA) users are able to access Dynamics data via the WebAPI & perform CRUD operations using their existing single sign on login.
 
-Dynamics users would therefore match the useres with the Active Directory, and SEPA would require a Dynamics license for each SEPA user.
+Dynamics users would therefore match the users within the Active Directory, and SEPA would require a Dynamics license for each SEPA user.
 
 If SEPA's Active Directory is managed on premises, Azure AD connect can be used to auto sync existing Active Directory accounts to the Azure setup.
 
@@ -49,11 +49,14 @@ Use cloud based Azure Active Directory storage to store accounts.  Provide singl
 * If SEPA have a hosted AD setup, AD Connect would need to be used to keep the logins in sync.  Any syncing operation introducs a possible point of failure which would need to be managed.
 
 ### 2. Dynamics user accounts
+Managing user accounts directly in Dynamics.  This option can only be used if the back stage users are logging into the Dynamics interface directly, it 
+cannot be used for external access via the WebAPI.  
 
 #### Positive
 * Simple setup, reduces need for multiple linked 'account entities'.
 
 #### Negative
+* Does not support WebAPI access, therefore does not support a custom back stage user experience
 * SEPA would need to setup new standalone logins for any Dynamics users and these would be managed in isolation.
 
 ## Links

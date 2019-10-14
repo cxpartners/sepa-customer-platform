@@ -10,8 +10,8 @@ The application needs to control access to permits & their supporting documents 
 
 ## Decision Drivers 
 
-* Applicants and operators will be grouped by 'account' in the CRM, however SEPA should be able to differentiate between an organisation's users & the lead contact  (administrator).
-* SEPA staff will potentially require different access levels depending on the application; sensitive data requirements means certain documents should require additional privileges.
+* Applicants and operators will be grouped by 'account' in the CRM, however SEPA should be able to differentiate between an organisation's users & it's lead contacts  (administrators).
+* SEPA staff will potentially require different access levels depending on the permit application; sensitive data requirements means certain documents should only be accessible to users with specific privileges.
 
 ## Considered Options
 
@@ -36,7 +36,7 @@ This will provide a level of organisation hierachy and administration
 
 ### Positive Consequences
 
-* This option maintains a absic user hierachy outside of the Dynamics system, which would potentially be useful if the user accounts are used in other applications
+* This option maintains a basic user hierachy outside of the Dynamics system, which would potentially be useful if the user accounts are used in other applications
 
 ### Negative Consequences
 
