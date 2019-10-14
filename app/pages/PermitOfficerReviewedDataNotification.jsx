@@ -6,7 +6,7 @@ import Image from '../assets/images/pages/slice-2-guide-card-13.png';
 class PermitOfficerReviewedDataNotification extends React.PureComponent {
   render() {
     return (
-      <RouterLink to="/data-review-receive-request">
+      <RouterLink to="/permit-officer-reviewed-data-permits">
         <FakePage src={Image} />
       </RouterLink>
     );
