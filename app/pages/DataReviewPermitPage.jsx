@@ -142,7 +142,7 @@ const DataReviewPermitPage = () => {
                               dataReviewValue === 'Yes'
                                 ? (
                                   <>
-                                    <Button href="/receives-pre-app-review-email">Mark as fit for purpose</Button>
+                                    <Button href="/application-status-notification">Mark as fit for purpose</Button>
                                     <Paragraph>By marking the data uploaded as ‘fit for purpose’ a notification will be sent to the permitting officer and the applicant.</Paragraph>
                                   </>
                                 ) : (
@@ -153,7 +153,7 @@ const DataReviewPermitPage = () => {
                                           <>
                                             <Textarea label="Please provide the applicant with feedback and request further information if needed." />
                                             <FileInput />
-                                            <Button href="/receives-pre-app-review-email">Send feedback</Button>
+                                            <Button href="/application-status-notification">Send feedback</Button>
                                           </>
                                         ) : ''
                                     }

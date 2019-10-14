@@ -63,7 +63,7 @@ const Permit = () => (
         </Row>
       </Main>
     </Container>
-    <Footer href="/permits-time-passes" />
+    <Footer href="/user-types-slice-two" />
   </>
 );
 
