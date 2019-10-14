@@ -46,7 +46,7 @@ const DataReviewPermitPage = () => {
 
   return (
     <>
-      <Header isNotification userName="Craig Read" />
+      <Header isNotification userName="Craig Reid" />
       <Container>
         <PhaseBanner />
         <Main>

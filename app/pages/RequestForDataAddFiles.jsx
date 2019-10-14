@@ -84,7 +84,7 @@ const RequestForDataAddFiles = () => {
 
   return (
     <>
-      <Header isNotification userName="Oliver Allen" />
+      <Header isNotification={false} userName="Oliver Allen" />
       <Container>
         <PhaseBanner />
         <BackLink href="/request-for-data-choose-type" />
