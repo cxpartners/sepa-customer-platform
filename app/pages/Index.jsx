@@ -104,19 +104,19 @@ class Index extends React.PureComponent {
                 <List>
                   <IndexListItem done image href="/receives-data-upload-notification">Receives notification of data upload</IndexListItem>
                   <IndexListItem done image href="/receives-data-upload-notification-email">Email notification</IndexListItem>
-                  <IndexListItem href="/data-review-permit-page">Data review on permit page</IndexListItem>
+                  <IndexListItem done href="/data-review-permit-page">Data review on permit page</IndexListItem>
                 </List>
                 <Heading level="h3">Applicant receives notification of data review</Heading>
                 <List>
                   <IndexListItem done image href="/application-status-notification">Switch to dashboard (Applicant)</IndexListItem>
-                  <IndexListItem href="/applicant-reviewed-data-permits">Permits status</IndexListItem>
-                  <IndexListItem href="/applicant-views-data-notification">Views notifications in dashboard</IndexListItem>
-                  <IndexListItem href="/applicant-reviewed-data-permit-page">Permit with review status</IndexListItem>
+                  <IndexListItem done href="/applicant-reviewed-data-permits">Permits status</IndexListItem>
+                  <IndexListItem done href="/applicant-views-data-notification">Views notifications in dashboard</IndexListItem>
+                  <IndexListItem done href="/applicant-reviewed-data-permit-page">Permit with review status</IndexListItem>
                 </List>
                 <Heading level="h3">Permit officer receives notification of data review</Heading>
                 <List>
                   <IndexListItem done image href="/permit-officer-reviewed-data-notification">Receives notification in dashboard</IndexListItem>
-                  <IndexListItem href="/permit-officer-reviewed-data-permits">Permits status</IndexListItem>
+                  <IndexListItem done href="/permit-officer-reviewed-data-permits">Permits status</IndexListItem>
                 </List>
               </Column>
             </Row>
