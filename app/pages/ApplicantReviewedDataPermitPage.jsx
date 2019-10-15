@@ -39,7 +39,7 @@ const ApplicantReviewedDataPermitPage = () => {
 
   return (
     <>
-      <Header isNotification userName="Craig Reid" />
+      <Header isNotification userName="Oliver Allen" />
       <Container>
         <PhaseBanner />
         <Main>
