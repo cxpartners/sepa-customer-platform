@@ -117,6 +117,8 @@ class Index extends React.PureComponent {
                 <List>
                   <IndexListItem done image href="/permit-officer-reviewed-data-notification">Receives notification in dashboard</IndexListItem>
                   <IndexListItem done href="/permit-officer-reviewed-data-permits">Permits status</IndexListItem>
+                  <IndexListItem done href="/permit-officer-reviewed-data-permits-all">Permits status - All</IndexListItem>
+                  <IndexListItem done href="/permit-officer-sort">Permits status - Sort by: Assigned officer</IndexListItem>
                 </List>
               </Column>
             </Row>
