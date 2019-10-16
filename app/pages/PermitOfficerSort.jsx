@@ -29,13 +29,13 @@ const Permit = () => (
         </Row>
         <Tabs title="Tab List">
           <TabList>
-            <Tab href="assigned-permits" title="Your assigned permits" selected />
-            <Tab href="/permit-officer-reviewed-data-permits-all" title="All permits" />
+            <Tab href="/permit-officer-reviewed-data-permits" title="Your assigned permits" />
+            <Tab href="all-permits" title="All permits" selected />
           </TabList>
         </Tabs>
         <Row>
           <Column columnWidth="two-thirds">
-            <Heading level="h1">Your permits</Heading>
+            <Heading level="h1">All permits - sort</Heading>
           </Column>
           <Column columnWidth="one-third">
             <Select />

@@ -1,6 +1,7 @@
 import { hot } from 'react-hot-loader/root';
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Router, Route, Switch } from 'react-router-dom';
+import History from './history';
 
 import ScrollToTop from './components/ScrollToTop/component';
 
@@ -70,10 +71,12 @@ import ApplicantReviewedDataPermitPage from './pages/ApplicantReviewedDataPermit
 import ApplicantViewsDataNotification from './pages/ApplicantViewsDataNotification';
 import PermitOfficerReviewedDataNotification from './pages/PermitOfficerReviewedDataNotification';
 import PermitOfficerReviewedDataPermits from './pages/PermitOfficerReviewedDataPermits';
+import PermitOfficerReviewedDataPermitsAll from './pages/PermitOfficerReviewedDataPermitsAll';
 import PermitOfficerReviewedDataPermitPage from './pages/PermitOfficerReviewedDataPermitPage';
+import PermitOfficerSort from './pages/PermitOfficerSort';
 
 const App = () => (
-  <Router>
+  <Router history={History}>
     <ScrollToTop />
     <Switch>
       <Route exact path="/" component={Index} />
@@ -143,7 +146,9 @@ const App = () => (
       <Route exact path="/applicant-reviewed-data-permit-page" component={ApplicantReviewedDataPermitPage} />
       <Route exact path="/permit-officer-reviewed-data-notification" component={PermitOfficerReviewedDataNotification} />
       <Route exact path="/permit-officer-reviewed-data-permits" component={PermitOfficerReviewedDataPermits} />
+      <Route exact path="/permit-officer-reviewed-data-permits-all" component={PermitOfficerReviewedDataPermitsAll} />
       <Route exact path="/permit-officer-reviewed-data-permit-page" component={PermitOfficerReviewedDataPermitPage} />
+      <Route exact path="/permit-officer-sort" component={PermitOfficerSort} />
     </Switch>
   </Router>
 );

@@ -15,7 +15,7 @@ const Tab = (props) => {
 
   return (
     <li className={tabClassNames}>
-      <a className="govuk-tabs__tab" href={`#${href}`}>
+      <a className="govuk-tabs__tab" href={href}>
         {title}
       </a>
     </li>
