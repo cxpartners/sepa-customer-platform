@@ -11,8 +11,8 @@ import TabList from '../components/TabList/component';
 import Tab from '../components/Tab/component';
 import Select from '../components/Select/component';
 import Footer from '../components/Footer/component';
-import PermitList from '../components/PermitList/component';
-import PermitListRow from '../components/PermitListRow/component';
+import AssignedList from '../components/AssignedList/component';
+import AssignedListRow from '../components/AssignedListRow/component';
 import Warning from '../components/Warning/component';
 import Details from '../components/Details/component';
 
@@ -35,7 +35,7 @@ const Permit = () => (
         </Tabs>
         <Row>
           <Column columnWidth="two-thirds">
-            <Heading level="h1">Your permits</Heading>
+            <Heading level="h1">Your assigned permits</Heading>
           </Column>
           <Column columnWidth="one-third">
             <Select />
@@ -43,12 +43,12 @@ const Permit = () => (
         </Row>
         <Row>
           <Column columnWidth="full">
-            <PermitList caption="In progress (4)" dateColumn="Last updated">
-              <PermitListRow key="1" listKey="CAR/L/4336581" status="pre-application (2)" isActive href="/" siteName="Kimelford" waterBody="Lauren McKenna" date="17/02/2019" />
-              <PermitListRow key="2" listKey="CAR/L/4336580" status="pre-application (1)" isActive href="/" siteName="Ardfern" waterBody="Lauren McKenna" date="15/02/2019" />
-              <PermitListRow key="3" listKey="CAR/L/4336579" status="application" href="/" siteName="Kimelford" waterBody="Lauren McKenna" date="15/01/2019" />
-              <PermitListRow key="4" listKey="CAR/L/4336578" status="application" href="/" siteName="Kimelford" waterBody="Lauren McKenna" date="12/01/2019" />
-            </PermitList>
+            <AssignedList caption="In progress (4)" dateColumn="Last updated">
+              <AssignedListRow key="1" listKey="CAR/L/4336581" status="pre-application (2)" isActive href="/" siteName="Kimelford" assignedOfficer="Lauren McKenna" date="17/02/2019" />
+              <AssignedListRow key="2" listKey="CAR/L/4336580" status="pre-application (1)" isActive href="/" siteName="Ardfern" assignedOfficer="Lauren McKenna" date="15/02/2019" />
+              <AssignedListRow key="3" listKey="CAR/L/4336579" status="application" href="/" siteName="Kimelford" assignedOfficer="Lauren McKenna" date="15/01/2019" />
+              <AssignedListRow key="4" listKey="CAR/L/4336578" status="application" href="/" siteName="Kimelford" assignedOfficer="Lauren McKenna" date="12/01/2019" />
+            </AssignedList>
             <Details modifier="govuk-!-font-weight-bold" title="Awarded permits (21)">&nbsp;</Details>
           </Column>
         </Row>
