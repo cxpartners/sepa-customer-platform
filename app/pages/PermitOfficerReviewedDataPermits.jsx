@@ -57,7 +57,7 @@ const Permit = () => (
               <PermitListRow key="20" listKey="CAR/L/4336592" status="monitoring" isActive href="/" siteName="Kimelford" waterBody="Loch Katrine" date="17/02/2019" />
             </PermitList>
             <Details modifier="govuk-!-font-weight-bold" title="Awarded permits (207)">&nbsp;</Details>
-            <Details modifier="govuk-!-font-weight-bold" title="Surrendered permits (622)">&nbsp;</Details>
+            <Details modifier="govuk-!-font-weight-bold" title="Surrendered permits (22)">&nbsp;</Details>
 
           </Column>
         </Row>
