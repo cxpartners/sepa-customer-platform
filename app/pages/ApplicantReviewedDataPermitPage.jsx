@@ -26,12 +26,14 @@ import Guidance from '../components/Guidance/component';
 import {
   TOGGLE_ADD_FILES_ACCORDION_ONE,
   TOGGLE_ADD_FILES_ACCORDION_TWO,
+  TOGGLE_ADD_FILES_ACCORDION_THREE,
 } from '../reducers';
 
 
 const ApplicantReviewedDataPermitPage = () => {
   const showAddFilesAccordionOne = useSelector((state) => state.showAddFilesAccordionOne);
   const showAddFilesAccordionTwo = useSelector((state) => state.showAddFilesAccordionTwo);
+  const showAddFilesAccordionThree = useSelector((state) => state.showAddFilesAccordionThree);
   const eastingValue = useSelector((state) => state.eastingValue);
   const northingValue = useSelector((state) => state.northingValue);
   const locationArray = useSelector((state) => state.locationArray);
@@ -136,7 +138,9 @@ const ApplicantReviewedDataPermitPage = () => {
                         </Column>
                       </Row>
                     </AccordionSection>
-                    <AccordionSection locked expanded={false} sectionKey="3" heading="Modelling" />
+                    <AccordionSection expanded={false} sectionKey="3" heading="Modelling" aria-expanded={showAddFilesAccordionThree ? 'true' : ''} onClick={(e) => { e.preventDefault(); dispatch({ type: TOGGLE_ADD_FILES_ACCORDION_THREE }); }}>
+                      <Heading level="h3">Additional information</Heading>
+                    </AccordionSection>
                     <AccordionSection locked expanded={false} sectionKey="4" heading="Baseline Survey" />
                   </Accordion>
                 </TabPanel>

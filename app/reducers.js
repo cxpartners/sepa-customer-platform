@@ -33,6 +33,7 @@ export const TOGGLE_DELTAMETHRIN_CHECKED = 'TOGGLE_DELTAMETHRIN_CHECKED';
 export const TOGGLE_EMAMECTIN_BENZOATE_CHECKED = 'TOGGLE_EMAMECTIN_BENZOATE_CHECKED';
 export const TOGGLE_ADD_FILES_ACCORDION_ONE = 'TOGGLE_ADD_FILES_ACCORDION_ONE';
 export const TOGGLE_ADD_FILES_ACCORDION_TWO = 'TOGGLE_ADD_FILES_ACCORDION_TWO';
+export const TOGGLE_ADD_FILES_ACCORDION_THREE = 'TOGGLE_ADD_FILES_ACCORDION_THREE';
 export const UPDATE_DATA_TYPE_VALUE = 'UPDATE_DATA_TYPE_VALUE';
 export const START_ADD_FILES_UPLOADING = 'START_ADD_FILES_UPLOADING';
 export const START_ADD_FILE_UPLOAD_VALUES = 'START_ADD_FILE_UPLOAD_VALUES';
@@ -89,6 +90,7 @@ const initialState = {
   emamectinBenzoateChecked: true,
   showAddFilesAccordionOne: false,
   showAddFilesAccordionTwo: true,
+  showAddFilesAccordionThree: false,
   permits: {
     readyStatus: PERMITS_FETCH_INVALID,
     data: [],
@@ -266,6 +268,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         showAddFilesAccordionTwo: !state.showAddFilesAccordionTwo,
+      };
+    case TOGGLE_ADD_FILES_ACCORDION_THREE:
+      return {
+        ...state,
+        showAddFilesAccordionThree: !state.showAddFilesAccordionThree,
       };
     case UPDATE_DATA_TYPE_VALUE:
       return {
