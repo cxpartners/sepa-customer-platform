@@ -44,17 +44,17 @@ const Permit = () => (
         <Row>
           <Column columnWidth="full">
             <AssignedList caption="In progress (22)" dateColumn="Last updated">
-              <AssignedListRow key="8" listKey="CAR/L/4336574" status="application" href="/" siteName="Stirling" assignedOfficer="Brandon Clark" date="08/11/2018" />
+              <AssignedListRow key="8" listKey="CAR/L/4336574" status="application" isActive href="/" siteName="Stirling" assignedOfficer="Brandon Clark" date="08/11/2018" />
               <AssignedListRow key="12" listKey="CAR/L/4336570" status="assessment" href="/" siteName="Stirling" assignedOfficer="Brandon Clark" date="18/09/2018" />
               <AssignedListRow key="16" listKey="CAR/L/4336566" status="consultation" href="/" siteName="Stirling" assignedOfficer="Brandon Clark" date="05/08/2018" />
               <AssignedListRow key="19" listKey="CAR/L/4336563" status="permit" href="/" siteName="Stirling" assignedOfficer="Brandon Clark" date="24/07/2018" />
-              <AssignedListRow key="5" listKey="CAR/L/4336577" status="application" href="/" siteName="Oban" assignedOfficer="Edith Duffy" date="04/01/2019" />
+              <AssignedListRow key="5" listKey="CAR/L/4336577" status="application" isActive href="/" siteName="Oban" assignedOfficer="Edith Duffy" date="04/01/2019" />
               <AssignedListRow key="7" listKey="CAR/L/4336575" status="application" href="/" siteName="Oban" assignedOfficer="Edith Duffy" date="14/12/2018" />
               <AssignedListRow key="11" listKey="CAR/L/4336571" status="assessment" href="/" siteName="Oban" assignedOfficer="Edith Duffy" date="22/09/2018" />
               <AssignedListRow key="15" listKey="CAR/L/4336567" status="consultation" href="/" siteName="Oban" assignedOfficer="Edith Duffy" date="24/08/2018" />
               <AssignedListRow key="22" listKey="CAR/L/4336560" status="monitoring" href="/" siteName="Oban" assignedOfficer="Edith Duffy" date="09/07/2018" />
               <AssignedListRow key="6" listKey="CAR/L/4336576" status="application" href="/" siteName="Dumfries" assignedOfficer="Adam McGill" date="22/12/2018" />
-              <AssignedListRow key="10" listKey="CAR/L/4336572" status="assessment" href="/" siteName="Dumfries" assignedOfficer="Adam McGill" date="08/10/2018" />
+              <AssignedListRow key="10" listKey="CAR/L/4336572" status="assessment" isActive href="/" siteName="Dumfries" assignedOfficer="Adam McGill" date="08/10/2018" />
               <AssignedListRow key="14" listKey="CAR/L/4336568" status="consultation" href="/" siteName="Dumfries" assignedOfficer="Adam McGill" date="27/08/2018" />
               <AssignedListRow key="18" listKey="CAR/L/4336564" status="permit" href="/" siteName="Kyle" assignedOfficer="Adam McGill" date="28/07/2018" />
               <AssignedListRow key="21" listKey="CAR/L/4336561" status="monitoring" href="/" siteName="Kyle" assignedOfficer="Adam McGill" date="15/07/2018" />

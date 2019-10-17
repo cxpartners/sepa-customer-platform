@@ -44,14 +44,14 @@ const Permit = () => (
         <Row>
           <Column columnWidth="full">
             <AssignedList caption="In progress (22)" dateColumn="Last updated">
-              <AssignedListRow key="1" listKey="CAR/L/4336581" status="pre-application (2)" isActive href="/" siteName="Kimelford" assignedOfficer="Lauren McKenna" date="17/02/2019" />
-              <AssignedListRow key="2" listKey="CAR/L/4336580" status="pre-application (1)" isActive href="/" siteName="Ardfern" assignedOfficer="Lauren McKenna" date="15/02/2019" />
+              <AssignedListRow key="1" listKey="CAR/L/4336581" status="pre-application (2)" isActive href="/" siteName="Loch Mhòrair Salmon Farm" assignedOfficer="Lauren McKenna" date="17/02/2019" />
+              <AssignedListRow key="2" listKey="CAR/L/4336580" status="pre-application" isActive href="/" siteName="Ardfern" assignedOfficer="Lauren McKenna" date="15/02/2019" />
               <AssignedListRow key="3" listKey="CAR/L/4336579" status="application" href="/" siteName="Kimelford" assignedOfficer="Lauren McKenna" date="15/01/2019" />
               <AssignedListRow key="4" listKey="CAR/L/4336578" status="application" href="/" siteName="Kimelford" assignedOfficer="Lauren McKenna" date="12/01/2019" />
-              <AssignedListRow key="5" listKey="CAR/L/4336577" status="application" href="/" siteName="Oban" assignedOfficer="Edith Duffy" date="04/01/2019" />
+              <AssignedListRow key="5" listKey="CAR/L/4336577" status="application" isActive href="/" siteName="Oban" assignedOfficer="Edith Duffy" date="04/01/2019" />
               <AssignedListRow key="6" listKey="CAR/L/4336576" status="application" href="/" siteName="Dumfries" assignedOfficer="Adam McGill" date="22/12/2018" />
               <AssignedListRow key="7" listKey="CAR/L/4336575" status="application" href="/" siteName="Oban" assignedOfficer="Edith Duffy" date="14/12/2018" />
-              <AssignedListRow key="8" listKey="CAR/L/4336574" status="application" href="/" siteName="Stirling" assignedOfficer="Brandon Clark" date="08/11/2018" />
+              <AssignedListRow key="8" listKey="CAR/L/4336574" status="application" isActive href="/" siteName="Stirling" assignedOfficer="Brandon Clark" date="08/11/2018" />
               <AssignedListRow key="9" listKey="CAR/L/4336573" status="application" href="/" siteName="Kimelford" assignedOfficer="Lauren McKenna" date="02/10/2018" />
               <AssignedListRow key="10" listKey="CAR/L/4336572" status="assessment" href="/" siteName="Dumfries" assignedOfficer="Adam McGill" date="08/10/2018" />
               <AssignedListRow key="11" listKey="CAR/L/4336571" status="assessment" href="/" siteName="Oban" assignedOfficer="Edith Duffy" date="22/09/2018" />

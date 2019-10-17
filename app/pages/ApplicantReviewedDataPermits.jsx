@@ -29,14 +29,14 @@ const Permit = () => {
               <Button>Create new permit</Button>
               <Heading level="h2">Your permits</Heading>
               <PermitList caption="In progress (2)" dateColumn="Last updated">
-                <PermitListRow key="1" listKey="CAR/L/4336581" status="pre-application (2)" isActive href="/applicant-views-data-notification" siteName="Loch Mhòrair Salmon Farm" waterBody="Loch Mhòrair" date="17/02/2020" />
-                <PermitListRow key="2" listKey="CAR/L/4336580" status="pre-application" href="/" siteName="Loch Katrine Farm" waterBody="Loch Katrine" date="17/02/2020" />
+                <PermitListRow key="1" listKey="CAR/L/4336581" status="pre-application (2)" isActive href="/applicant-views-data-notification" siteName="Loch Mhòrair Salmon Farm" waterBody="Loch Mhòrair" date="17/10/2019" />
+                <PermitListRow key="2" listKey="CAR/L/4336580" status="pre-application" href="/" siteName="Loch Katrine Farm" waterBody="Loch Katrine" date="15/09/2019" />
               </PermitList>
               <PermitList caption="Awarded permits (4)" dateColumn="Review date">
-                <PermitListRow key="1" listKey="CAR/L/4336567" siteName="Loch Mhòrair Salmon Farm" waterBody="Loch Mhòrair" date="17/02/2020" />
-                <PermitListRow key="2" listKey="CAR/L/4336551" siteName="Kimelford" waterBody="Loch Tarbot" date="17/02/2020" />
-                <PermitListRow key="3" listKey="CAR/L/4336322" siteName="Carpford" waterBody="Loch Mhòrair" date="17/02/2020" />
-                <PermitListRow key="4" listKey="CAR/L/4336223" siteName="Carradale (north)" waterBody="Loch Tarbot" date="17/02/2020" />
+                <PermitListRow key="1" listKey="CAR/L/4336567" siteName="Loch Mhòrair Salmon Farm" waterBody="Loch Mhòrair" date="22/02/2019" />
+                <PermitListRow key="2" listKey="CAR/L/4336551" siteName="Kimelford" waterBody="Loch Tarbot" date="08/07/2019" />
+                <PermitListRow key="3" listKey="CAR/L/4336322" siteName="Carpford" waterBody="Loch Mhòrair" date="19/06/2019" />
+                <PermitListRow key="4" listKey="CAR/L/4336223" siteName="Carradale (north)" waterBody="Loch Tarbot" date="04/06/2019" />
               </PermitList>
               <Details modifier="govuk-!-font-weight-bold" title="Surrendered permits">&nbsp;</Details>
             </Column>
