@@ -20,6 +20,7 @@ import Tab from '../components/Tab/component';
 import TabPanel from '../components/TabPanel/component';
 import Accordion from '../components/Accordion/component';
 import AccordionSection from '../components/AccordionSection/component';
+import AccordionSectionAction from '../components/AccordionSectionAction/component';
 import ActionBoxComplete from '../components/ActionBoxComplete/component';
 import ActionBoxFitForPurpose from '../components/ActionBoxFitForPurpose/component';
 import Guidance from '../components/Guidance/component';
@@ -126,11 +127,11 @@ const ApplicantReviewedDataPermitPage = () => {
                         <Column columnWidth="full">
                           <Heading level="h3">90 day data</Heading>
                           <PermitSmallList>
-                            <PermitSmallListRow key="1" fileName="CurrentMeterData_siteName_Bottom2019.xlsx" href="/applicant-reviewed-data-permit-page" uploadDate="08/10/2019" date="Download" />
-                            <PermitSmallListRow key="2" fileName="CurrentMeterData_siteName_Top2019.xlsx" href="/" uploadDate="08/10/2019" date="Download" />
-                            <PermitSmallListRow key="3" fileName="CurrentMeterData_siteName_Surface2019.xlsx" href="/" uploadDate="08/10/2019" date="Download" />
-                            <PermitSmallListRow key="4" fileName="CurrentMeterData_siteName_DepthSound2019.xlsx" href="/" uploadDate="08/10/2019" date="Download" />
-                            <PermitSmallListRow key="5" fileName="CurrentMeterData_siteName_Modelling2019.xlsx" href="/" uploadDate="08/10/2019" date="Download" />
+                            <PermitSmallListRow key="1" fileName="CurrentMeterData_siteName_Bottom2019.xlsx" href="/applicant-rev6iewed-data-permit-page" uploadDate="12/08/2019" date="Download" />
+                            <PermitSmallListRow key="2" fileName="CurrentMeterData_siteName_Top2019.xlsx" href="/" uploadDate="12/08/2019" date="Download" />
+                            <PermitSmallListRow key="3" fileName="CurrentMeterData_siteName_Surface2019.xlsx" href="/" uploadDate="12/08/2019" date="Download" />
+                            <PermitSmallListRow key="4" fileName="CurrentMeterData_siteName_DepthSound2019.xlsx" href="/" uploadDate="12/08/2019" date="Download" />
+                            <PermitSmallListRow key="5" fileName="CurrentMeterData_siteName_Modelling2019.xlsx" href="/" uploadDate="12/08/2019" date="Download" />
                           </PermitSmallList>
                         </Column>
                         <Column columnWidth="two-thirds">
@@ -138,9 +139,7 @@ const ApplicantReviewedDataPermitPage = () => {
                         </Column>
                       </Row>
                     </AccordionSection>
-                    <AccordionSection expanded={false} sectionKey="3" heading="Modelling" aria-expanded={showAddFilesAccordionThree ? 'true' : ''} onClick={(e) => { e.preventDefault(); dispatch({ type: TOGGLE_ADD_FILES_ACCORDION_THREE }); }}>
-                      <Heading level="h3">Additional information</Heading>
-                    </AccordionSection>
+                    <AccordionSectionAction expanded={false} sectionKey="3" heading="Modelling" aria-expanded={showAddFilesAccordionThree ? 'true' : ''} onClick={(e) => { e.preventDefault(); dispatch({ type: TOGGLE_ADD_FILES_ACCORDION_THREE }); }} />
                     <AccordionSection locked expanded={false} sectionKey="4" heading="Baseline Survey" />
                   </Accordion>
                 </TabPanel>
