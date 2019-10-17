@@ -30,7 +30,12 @@ import Button from '../components/Button/component';
 import ActionBox from '../components/ActionBox/component';
 import Textarea from '../components/Textarea/component';
 import FileInput from '../components/FileInput/component';
+import CheckBox from '../components/CheckBox/component';
+import CheckBoxGroup from '../components/CheckBoxGroup/component';
+
 import {
+  TOGGLE_AZAMETHIPHOS_CHECKED,
+  TOGGLE_CYPERMETHRIN_CHECKED,
   TOGGLE_ADD_FILES_ACCORDION_ONE,
   TOGGLE_ADD_FILES_ACCORDION_TWO,
   UPDATE_DATA_REVIEW_RADIO,
@@ -44,6 +49,8 @@ const DataReviewPermitPage = () => {
   const northingValue = useSelector((state) => state.northingValue);
   const locationArray = useSelector((state) => state.locationArray);
   const dataReviewValue = useSelector((state) => state.dataReviewValue);
+  const cypermethrinChecked = useSelector((state) => state.cypermethrinChecked);
+  const deltamethrinChecked = useSelector((state) => state.deltamethrinChecked);
   const dispatch = useDispatch();
 
   return (
@@ -148,12 +155,18 @@ const DataReviewPermitPage = () => {
                                 <Radio id="yes" name="radioReview" value="Yes" checked={dataReviewValue === 'Yes'} onChange={(e) => dispatch({ type: UPDATE_DATA_REVIEW_RADIO, payload: e.target.value })} />
                                 <Radio id="no" name="radioReview" value="No" checked={dataReviewValue === 'No'} onChange={(e) => dispatch({ type: UPDATE_DATA_REVIEW_RADIO, payload: e.target.value })} />
                               </RadioGroup>
-                              <br />
                             </FieldSet>
                             {
                               dataReviewValue === 'Yes'
                                 ? (
                                   <>
+                                    <Paragraph>Based on your current data review, which modelling data should be collected next?</Paragraph>
+                                    <CheckBoxGroup>
+                                      <CheckBox value="Depomod modelling data" unchecked={cypermethrinChecked} onChange={(e) => dispatch({ type: TOGGLE_AZAMETHIPHOS_CHECKED, payload: e.target.value })} />
+                                      <CheckBox value="Marine modelling data" unchecked={deltamethrinChecked} onChange={(e) => dispatch({ type: TOGGLE_CYPERMETHRIN_CHECKED, payload: e.target.value })} />
+                                    </CheckBoxGroup>
+                                    <br />
+                                    <br />
                                     <Button href="/application-status-notification">Complete current data review</Button>
                                     <Paragraph>By completing the data uploaded review, a notification of the outcome will be sent to the permitting officer and the applicant.</Paragraph>
                                   </>
