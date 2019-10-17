@@ -26,6 +26,6 @@ Azure Blob Storage also supports file metadata and this should be used to store 
 
 ## Consequences
 
-Azure Blob Storage retains 'uncomittedblocks' (or unfinished file uploads) for a week before they are removed, so there is additional management (and potentially cost) considerations involved.
+Azure Blob Storage retains 'uncomittedblocks' (or unfinished file uploads) for a week before they are removed, so there are additional management (and potentially cost) considerations involved.
 
 Uploading via file chunks is part of the HTML5 specification and therefore is supported by modern browsers, however there may be additional work required to 'polyfill' certain browsers which do not offer full support for the File API features. 
