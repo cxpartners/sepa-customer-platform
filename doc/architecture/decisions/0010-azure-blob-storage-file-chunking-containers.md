@@ -16,10 +16,10 @@ How the documents are uploaded & stored needs to be considered taking into accou
 ## Decision
 
 Azure Blob storage supports file uploads via block 'chunks' where a file is split into smaller parts that are uploaded and recommitted into the full file once all 
-blocks have uploaded.  This enabels the following:
+blocks have uploaded.  This enables the following:
 * browser upload limits are avoided as the file is usually split into 4-5 MB chunks
 * more efficient uploads as multiple chunks can be uploaded in parallel
-* in the case of the failed or interupted uploads, the number of successfully uploaded blocks for a file can be requested from Azure.  Using this information the application can then resume an upload by sending only the remaining blocks, before committing the entire file.
+* in the case of the failed or interrupted uploads, the number of successfully uploaded blocks for a file can be requested from Azure.  Using this information the application can then resume an upload by sending only the remaining blocks, before committing the entire file.
 
 Azure Blob Storage supports grouping files together into 'containers', essentially a folder structure.  SEPA should create a container for each permit application naming it with the CLAS CAR reference number.
 Azure Blob Storage also supports file metadata and this should be used to store additional user information (user id) and the CAR reference.
