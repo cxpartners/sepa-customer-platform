@@ -36,6 +36,7 @@ import {
 } from '../reducers';
 import List from '../components/List/component';
 import FileDrop from '../components/FileDrop/component';
+import Details from '../components/Details/component';
 
 
 const RequestForDataAddFiles = () => {
@@ -99,8 +100,16 @@ const RequestForDataAddFiles = () => {
           </Row>
           <Row>
             <Column columnWidth="two-thirds">
+              <Heading level="h4">Download current data templates</Heading>
+              <Paragraph>Download this zip file containing spreadsheet and text file templates:</Paragraph>
+              <List>
+                <li>
+                  <Link href="/">Modelling Data Collection Reporting Templates</Link>
+                </li>
+              </List>
               <Heading level="h2">Upload files</Heading>
               <Paragraph>Submitted data will be used in the permitting process and included in the Modelling Data Collection report.</Paragraph>
+              <Details title="Question guidance">&nbsp;</Details>
               { !filesSubmitted ? <FileDrop onChange={(e) => handleFileChosen(e.target.files)} /> : '' }
               { (filesUploading > 0) ? <UploadStatus>File uploading. Please don’t close your browser window</UploadStatus> : ''}
               {
