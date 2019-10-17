@@ -131,14 +131,8 @@ const RequestForDataAddFiles = () => {
                     <AccordionSection locked={false} expanded={showAddFilesAccordionTwo} aria-expanded={showAddFilesAccordionTwo ? 'true' : ''} sectionKey="2" heading="Current data" onClick={(e) => { e.preventDefault(); dispatch({ type: TOGGLE_ADD_FILES_ACCORDION_TWO }); }}>
                       <Row>
                         <Column columnWidth="two-thirds">
+                          <Heading level="h3">Please submit current data</Heading>
                           <Paragraph>We advise applicants to send data from their initial current meter deployment checks before the submission of full 90-day current meter data.</Paragraph>
-                          <Heading level="h3">Download templates</Heading>
-                          <Paragraph>Download this zip file containing spreadsheet and text file templates:</Paragraph>
-                          <List>
-                            <li>
-                              <Link href="/">Modelling Data Collection Reporting Templates</Link>
-                            </li>
-                          </List>
                           <br />
                           <FieldSet inPage legend="What data are you submitting?">
                             <Details title="Question guidance">&nbsp;</Details>
@@ -153,6 +147,15 @@ const RequestForDataAddFiles = () => {
                                 ) : ''
                             }
                           </FieldSet>
+                          <br />
+                          <Heading level="h4">Download current data templates</Heading>
+                          <Paragraph>Download this zip file containing spreadsheet and text file templates:</Paragraph>
+                          <List>
+                            <li>
+                              <Link href="/">Modelling Data Collection Reporting Templates</Link>
+                            </li>
+                          </List>
+                          <br />
                         </Column>
                       </Row>
                     </AccordionSection>
