@@ -10,8 +10,8 @@ Azure Blob Storage has been proposed as the storage mechanism for CCP case & sup
 
 How the documents are uploaded & stored needs to be considered taking into account the following:
 
-1. How will large file uploads be supported that can be restarted in the case of connection error, or in the case of a user closing their browser, resumed?
-2. How can the files be grouped & related to the Dynamics case (permit)?
+1. How will large file uploads be supported that can be restarted in the case of connection error, or resumed in the case of a user closing their browser?
+2. How can the files be grouped & related to the Dynamics case (permit), in isolation within the Azure Blob Storage service?
 
 ## Decision
 
@@ -22,7 +22,7 @@ blocks have uploaded.  This enabels the following:
 * in the case of the failed or interupted uploads, the number of successfully uploaded blocks for a file can be requested from Azure.  Using this information the application can then resume an upload by sending only the remaining blocks, before committing the entire file.
 
 Azure Blob Storage supports grouping files together into 'containers', essentially a folder structure.  SEPA should create a container for each permit application naming it with the CLAS CAR reference number.
-Azure Blob Storage also file metadata and this should be used to store additional user information (their user id) and the CAR reference.
+Azure Blob Storage also supports file metadata and this should be used to store additional user information (user id) and the CAR reference.
 
 ## Consequences
 
