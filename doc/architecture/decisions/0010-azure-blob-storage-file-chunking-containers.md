@@ -6,7 +6,7 @@ Proposed
 
 ## Context
 
-Azure Blob Storage have been proposed as the storage mechanism for CCP because of the interoperability with other Azure & Microsoft (Dynamics) services.
+Azure Blob Storage has been proposed as the storage mechanism for CCP case & supporting files because of the interoperability with other Azure & Microsoft (Dynamics) services.
 
 How the documents are uploaded & stored needs to be considered taking into account the following:
 
