@@ -29,8 +29,8 @@ const Permit = () => {
               <Button>Create new permit</Button>
               <Heading level="h2">Your permits</Heading>
               <PermitList caption="In progress (2)" dateColumn="Last updated">
-                <PermitListRow key="1" listKey="CAR/L/4336581" status="pre-application (2)" isActive href="/" siteName="Loch Mhòrair Salmon Farm" waterBody="Loch Mhòrair" date="17/02/2020" />
-                <PermitListRow key="2" listKey="CAR/L/4336580" status="pre-application (1)" isActive href="/" siteName="Loch Katrine Farm" waterBody="Loch Katrine" date="17/02/2020" />
+                <PermitListRow key="1" listKey="CAR/L/4336581" status="pre-application (2)" isActive href="/applicant-views-data-notification" siteName="Loch Mhòrair Salmon Farm" waterBody="Loch Mhòrair" date="17/02/2020" />
+                <PermitListRow key="2" listKey="CAR/L/4336580" status="pre-application" href="/" siteName="Loch Katrine Farm" waterBody="Loch Katrine" date="17/02/2020" />
               </PermitList>
               <PermitList caption="Awarded permits (4)" dateColumn="Review date">
                 <PermitListRow key="1" listKey="CAR/L/4336567" siteName="Loch Mhòrair Salmon Farm" waterBody="Loch Mhòrair" date="17/02/2020" />

@@ -18,7 +18,7 @@ const ActionBoxFitForPurpose = (props) => {
           <Row>
             <div className="govuk-!-margin-top-3">
               <Column columnWidth="full">
-                <Paragraph modifier="govuk-right"><span className="govuk-!-font-weight-bold">Date completed:</span> 17/02/2020</Paragraph>
+                <Paragraph modifier="govuk-right"><span className="govuk-!-font-weight-bold">Date completed:</span> 17/08/2019</Paragraph>
               </Column>
             </div>
           </Row>
