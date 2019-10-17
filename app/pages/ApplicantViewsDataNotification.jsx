@@ -26,9 +26,8 @@ const Permit = () => {
             <Column columnWidth="full">
               <Heading caption="Account reference number: 860120" level="h1">{name}</Heading>
               <NotificationList caption="New notifications (3)" dateColumn="Last updated">
-                <NotificationListRow key="1" listKey="CAR/L/4336581" status="pre-application" isActive href="/applicant-reviewed-data-permit-page" notificationType="Data marked fit for purpose" date="n/a" respondBy="10/10/2019" />
-                <NotificationListRow key="2" listKey="CAR/L/4336580" status="pre-application" isActive href="/" notificationType="Data upload" date="16/10/2019" respondBy="02/10/219" />
-                <NotificationListRow key="2" listKey="CAR/L/4336580" status="pre-application" isActive href="/" notificationType="Data review" date="02/10/2019" respondBy="18/09/2019" />
+                <NotificationListRow key="1" listKey="CAR/L/4336581" status="pre-application" isActive href="/applicant-reviewed-data-permit-page" notificationType="Modelling data request" date="26/10/2019" respondBy="12/10/2019" />
+                <NotificationListRow key="2" listKey="CAR/L/4336580" status="pre-application" isActive href="/" notificationType="Current data meets requirements" date="16/10/2019" respondBy="02/10/219" />
               </NotificationList>
               <Details modifier="govuk-!-font-weight-bold" title="Older notifications">&nbsp;</Details>
             </Column>
