@@ -142,8 +142,8 @@ const DataReviewPermitPage = () => {
                         </Column>
                         <Column columnWidth="two-thirds">
                           <ActionBox locked={false}>
-                            <Heading level="h3">Record feedback for uploaded data</Heading>
-                            <FieldSet legend="Does the data upload meet the requirements to move to the next stage?" inBox error={false} errorMessage="">
+                            <Heading level="h3">Record feedback for current data</Heading>
+                            <FieldSet legend="Do the uploaded files meet the current data requirements?" inBox error={false} errorMessage="">
                               <RadioGroup inline>
                                 <Radio id="yes" name="radioReview" value="Yes" checked={dataReviewValue === 'Yes'} onChange={(e) => dispatch({ type: UPDATE_DATA_REVIEW_RADIO, payload: e.target.value })} />
                                 <Radio id="no" name="radioReview" value="No" checked={dataReviewValue === 'No'} onChange={(e) => dispatch({ type: UPDATE_DATA_REVIEW_RADIO, payload: e.target.value })} />
@@ -154,8 +154,8 @@ const DataReviewPermitPage = () => {
                               dataReviewValue === 'Yes'
                                 ? (
                                   <>
-                                    <Button href="/application-status-notification">Mark as fit for purpose</Button>
-                                    <Paragraph>By marking the data uploaded as ‘fit for purpose’ a notification will be sent to the permitting officer and the applicant.</Paragraph>
+                                    <Button href="/application-status-notification">Complete current data review</Button>
+                                    <Paragraph>By completing the data uploaded review, a notification of the outcome will be sent to the permitting officer and the applicant.</Paragraph>
                                   </>
                                 ) : (
                                   <>
