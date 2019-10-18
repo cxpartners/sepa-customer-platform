@@ -124,7 +124,7 @@ const RequestForDataAddFiles = () => {
                     </FileUploadList>
                   ) : ''
               }
-              { (filesUploading > 0) ? <Paragraph>Files can be marked as ready for submission before they have completed uploading.</Paragraph> : '' }
+              { (filesUploading > 0) ? <Paragraph>You can submit your files now while they’re uploading and they’ll automatically be sent to Sepa for review.</Paragraph> : '' }
               { ((filesUploading > 0) && !filesSubmitted) ? <Button onClick={(e) => { e.preventDefault(); dispatch({ type: TOGGLE_FILE_SUBMISSION }); }}>Submit files for review</Button> : '' }
               { (filesUploading > 0) && filesSubmitted ? <Paragraph>Files will be submitted when they have completed uploading <Link onClick={(e) => { e.preventDefault(); dispatch({ type: TOGGLE_FILE_SUBMISSION }); }}>Undo</Link></Paragraph> : ''}
               { showAddFilesUploading && (filesUploading < 1)
