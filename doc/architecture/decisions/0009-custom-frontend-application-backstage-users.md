@@ -35,7 +35,7 @@ The interface used by back stage users (SEPA modellers, registry, officers, regu
 
 * The Dynamics UI would retain it's default labelling, which could sit out of the context of 'permitting'.
 * Additional resources required to maintain the standalone frontend application.
-* A custom backstage needs to be considered in the wider SEPA architectural perspective.
+* A custom backstage needs to be considered in the wider SEPA architectural context.
 
 ## Pros and Cons of the Options
 
