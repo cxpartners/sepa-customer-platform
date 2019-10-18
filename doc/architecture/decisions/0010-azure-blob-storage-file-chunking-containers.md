@@ -1,5 +1,7 @@
 # Use Azure Blob Storage features to support large file uploads via file 'chunks' & containers to represent permit case files
 
+Date: 2019-10-17
+
 ## Status
 
 Proposed
