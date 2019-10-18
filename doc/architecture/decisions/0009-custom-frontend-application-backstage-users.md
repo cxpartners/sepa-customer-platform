@@ -76,7 +76,7 @@ styling, page elements & functionality can be customised using the open source t
 * Without in-depth experience of this solution, it is not initially clear how much Web portals can support a custom journey, and if so, how difficult it would be to build (what level of custom coding would be required?).
 * Potentially requires more domain specific knowledge & resources in terms of Dynamics, Portals & Liquid templating language, to customise and maintain this solution.
 
-### 3. Use Microsoft's Dynamics 365 Web Portals to provide & manage the interface.
+### 3. Use Microsoft's Dynamics existing UI and add custom workflows, apps and UI components to support the permit workflow.
 
 Microsoft Dynamics 365 would be configured & customised to provide custom workflows and custom UI elements using the Unified Interface.
 
@@ -90,7 +90,7 @@ Microsoft Dynamics 365 would be configured & customised to provide custom workfl
 * Out of the box, CRM forms are targeted for sales, marketing and support so additional work is required to relabel the CRM for a unified context.
 * Depending on the level of customisations implemented inside the Dynamics UI, additional staff training would be required to use the existing interface.
 * Increases vendor lock in - all any customisations to CRM would likely require substantial work to port to / replication on a new system.
-* Without in-depth experience of this solution, it is not initially clear how much Web portals can support a custom journey, and if so, how difficult it would be to build (what level of custom coding would be required?).
+* Without in-depth experience of this solution, it is not initially clear how much the Dynamics UI can support a custom journey, and if so, how difficult it would be to build (what level of custom coding would be required?).
 
 ## Links 
 * [Deliver web engagement experiences with Dynamics 365 Portals](https://docs.microsoft.com/en-us/dynamics365/portals/administer-manage-portal-dynamics-365)
