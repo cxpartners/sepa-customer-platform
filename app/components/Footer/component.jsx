@@ -11,7 +11,7 @@ const Footer = (props) => {
         <div className="govuk-footer__meta">
           <div className="govuk-footer__meta-item govuk-footer__meta-item--grow">
             <span className="govuk-footer__links">
-              <a className="govuk-link" href="/">Cookies</a> | <a className="govuk-link" href="/">Privacy Policy</a> | <a className="govuk-link" href="/">Accessibility</a>
+              <Link to={href} className="govuk-link">Cookies</Link> | <Link to={href} className="govuk-link">Privacy Policy</Link> | <Link to={href} className="govuk-link">Accessibility</Link>
             </span>
             <span className="govuk-footer__licence-description block govuk-!-padding-top-3">
             &copy; Lorem ipsum dolor sit amet delor amet. Sit dolus.
