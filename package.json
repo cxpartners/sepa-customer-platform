@@ -16,7 +16,6 @@
     "test": "eslint .",
     "deploy": "gh-pages -d dist -o sepa-origin",
     "cxdeploy": "gh-pages -d dist -o origin",
-    "deployh": "gh-pages --help"
   },
   "repository": {
     "type": "git",
