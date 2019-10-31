@@ -1,0 +1,15 @@
+.govuk-warning-text {
+    background-color: govuk-colour("light-grey");
+    border-left: 7px solid govuk-colour("blue");
+}
+
+.govuk-warning-text--warning {
+    background-color: govuk-colour("light-grey");
+    border-left: 7px solid govuk-colour("red");
+}
+
+.govuk-warning-text__icon {
+    background-color: govuk-colour("blue");
+    border: none;
+    margin-top: -15px;
+}

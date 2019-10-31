@@ -1,0 +1,34 @@
+.govuk-header {
+    background-color: $sepa-dark-blue;
+    border-bottom: 0;
+}
+
+.govuk-header__links {
+    float: right;
+    span a {
+        color: govuk-colour("white");
+        margin-left: 15px;
+    }
+}
+
+.govuk-header__logo {
+    width: 23%;
+}
+
+.govuk-header__content {
+    width: 77%;
+}
+
+.govuk-header__container {
+    margin-bottom: 0;
+    border-bottom: 0;
+}
+
+.govuk-header__logotype-text--signed-in {
+    a {
+        text-decoration: none;
+        &::after {
+            content: '▼';
+        }
+    }
+}
