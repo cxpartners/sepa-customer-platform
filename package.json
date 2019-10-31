@@ -1,5 +1,6 @@
 {
   "name": "sepa-customer-platform",
+  "homepage": "http://scottish-environment-protection-agency.github.io/Customer-Platform/",
   "version": "1.0.0",
   "description": "node express react prototyping kit using GDS components",
   "main": "index.jsx",
@@ -10,12 +11,16 @@
   },
   "scripts": {
     "build": "webpack --config webpack.config.prod.js",
+    "cxbuild": "webpack --config webpack.config.cxprod.js",
     "start": "webpack-dev-server --hot --config webpack.config.dev.js",
-    "test": "eslint ."
+    "test": "eslint .",
+    "deploy": "gh-pages -d dist -o sepa-origin",
+    "cxdeploy": "gh-pages -d dist -o origin",
+    "deployh": "gh-pages --help"
   },
   "repository": {
     "type": "git",
-    "url": "sepa-customer-platform"
+    "url": "Customer-Platform"
   },
   "keywords": [
     "gds",
@@ -32,6 +37,7 @@
     "classnames": "^2.2.6",
     "core-js": "^2.6.9",
     "express": "^4.17.1",
+    "gh-pages": "^2.1.1",
     "govuk-frontend": "^3.1.0",
     "history": "^4.10.1",
     "promise-polyfill": "8.1.3",
