@@ -1,6 +1,6 @@
 {
   "name": "sepa-customer-platform",
-  "homepage": "http://scottish-environment-protection-agency.github.io/Customer-Platform/",
+  "homepage": "https://alpha.ccp.sepa.cxp.io/",
   "version": "1.0.0",
   "description": "node express react prototyping kit using GDS components",
   "main": "index.jsx",
