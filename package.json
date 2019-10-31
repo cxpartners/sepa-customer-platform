@@ -15,7 +15,7 @@
     "start": "webpack-dev-server --hot --config webpack.config.dev.js",
     "test": "eslint .",
     "deploy": "gh-pages -d dist -o sepa-origin",
-    "cxdeploy": "gh-pages -d dist -o origin",
+    "cxdeploy": "gh-pages -d dist -o origin"
   },
   "repository": {
     "type": "git",
