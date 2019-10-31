@@ -12,7 +12,7 @@ const Select = () => (
       <option value="car-number">CAR number</option>
       <option value="sort-by" selected>Sort by</option>
       <option value="site-name">Site name</option>
-      <option value="/permit-officer-sort">Assigned officer (A - Z)</option>
+      <option value="/#/permit-officer-sort">Assigned officer (A - Z)</option>
       <option value="last-updated">Last updated</option>
     </select>
   </div>

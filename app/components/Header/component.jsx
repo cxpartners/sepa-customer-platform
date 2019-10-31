@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const Header = (props) => {
   const { isNotification, userName } = props;
@@ -9,7 +10,7 @@ const Header = (props) => {
     <header className="govuk-header " role="banner" data-module="govuk-header">
       <div className="govuk-header__container govuk-width-container">
         <div className="govuk-header__logo">
-          <a href="/" className="govuk-header govuk-header--homepage">
+          <Link to="/" className="govuk-header govuk-header--homepage">
             <span className="govuk-header__logotype">
               <svg role="presentation" focusable="false" className="govuk-header__logotype-crown" width="92" height="58" xmlns="http://www.w3.org/2000/svg">
                 <g fill="#FFF" fillRule="nonzero">
@@ -17,7 +18,7 @@ const Header = (props) => {
                 </g>
               </svg>
             </span>
-          </a>
+          </Link>
         </div>
         <div className="govuk-header__content govuk-!-padding-top-3">
           <span className="govuk-header govuk-header__link--service-name">Apply for a marine pen fish farm permit</span>
@@ -26,7 +27,7 @@ const Header = (props) => {
               isNotification
                 ? (
                   <span className="govuk-header__logotype-text">
-                    <a className="govuk-!-font-size-14 govuk-!-font-weight-bold govuk-routerlink" href="/applicant-views-data-notification">Notifications (2)</a>
+                    <Link className="govuk-!-font-size-14 govuk-!-font-weight-bold govuk-routerlink" to="/applicant-views-data-notification">Notifications (2)</Link>
                   </span>
                 )
                 : ''
@@ -35,11 +36,11 @@ const Header = (props) => {
               userName
                 ? (
                   <span className="govuk-header__logotype-text govuk-header__logotype-text--signed-in">
-                    <a className="govuk-!-font-size-14 govuk-!-font-weight-bold" href="/">{userName}</a>
+                    <Link className="govuk-!-font-size-14 govuk-!-font-weight-bold" to="/">{userName}</Link>
                   </span>
                 ) : (
                   <span className="govuk-header__logotype-text">
-                    <a className="govuk-!-font-size-14 govuk-!-font-weight-bold" href="/">Sign in</a>
+                    <Link className="govuk-!-font-size-14 govuk-!-font-weight-bold" to="/">Sign in</Link>
                   </span>
                 )
             }
