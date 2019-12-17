@@ -35,20 +35,8 @@ const PermitPage = () => {
   const eastingValue = useSelector((state) => state.eastingValue);
   const northingValue = useSelector((state) => state.northingValue);
   const radioScreeningValue = useSelector((state) => state.radioScreeningValue);
+  const locationArray = useSelector((state) => state.locationArray);
   const dispatch = useDispatch();
-
-  let easting = 182980;
-  let northing = 790973;
-  const locationArray = [];
-  let x = 0;
-  do {
-    locationArray.push({
-      pen: x + 1,
-      easting: easting += x * 2,
-      northing: northing += x * 3,
-    });
-    x += 1;
-  } while (x < 10);
 
   return (
     <>

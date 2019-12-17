@@ -24,7 +24,7 @@ const Permit = () => {
         <Main>
           <Row>
             <Column columnWidth="full">
-              <Warning>You have new notifications</Warning>
+              <Warning isInfo>You have new notifications</Warning>
               <Heading caption="Account reference number: 860120" level="h1">{name}</Heading>
               <Button>Create new permit</Button>
               <Heading level="h2">Your permits</Heading>

@@ -1,296 +1,82 @@
 import { hot } from 'react-hot-loader/root';
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Loadable from 'react-loadable';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
+import History from './history';
 
 import ScrollToTop from './components/ScrollToTop/component';
-import Spinner from './components/Spinner/component';
 
-const Index = Loadable({
-  loader: () => import('./pages/Index'),
-  loading() {
-    return <Spinner />;
-  },
-});
-const UserTypes = Loadable({
-  loader: () => import('./pages/UserTypes'),
-  loading() {
-    return <Spinner />;
-  },
-});
-const ArrivesAtStartPage = Loadable({
-  loader: () => import('./pages/ArrivesAtStartPage'),
-  loading() {
-    return <Spinner />;
-  },
-});
-const StartPage = Loadable({
-  loader: () => import('./pages/StartPage'),
-  loading() {
-    return <Spinner />;
-  },
-});
-const SepaHomePage = Loadable({
-  loader: () => import('./pages/SepaHomePage'),
-  loading() {
-    return <Spinner />;
-  },
-});
-const SignUpSwitchContext = Loadable({
-  loader: () => import('./pages/SignUpSwitchContext'),
-  loading() {
-    return <Spinner />;
-  },
-});
-const AccountPageSwitchContext = Loadable({
-  loader: () => import('./pages/AccountPageSwitchContext'),
-  loading() {
-    return <Spinner />;
-  },
-});
-const Check = Loadable({
-  loader: () => import('./pages/Check'),
-  loading() {
-    return <Spinner />;
-  },
-});
-const RadioForm = Loadable({
-  loader: () => import('./pages/RadioForm'),
-  loading() {
-    return <Spinner />;
-  },
-});
-const SignUp = Loadable({
-  loader: () => import('./pages/SignUp'),
-  loading() {
-    return <Spinner />;
-  },
-});
-const SignUpConfirmation = Loadable({
-  loader: () => import('./pages/SignUpConfirmation'),
-  loading() {
-    return <Spinner />;
-  },
-});
-const SignUpTimePasses = Loadable({
-  loader: () => import('./pages/SignUpTimePasses'),
-  loading() {
-    return <Spinner />;
-  },
-});
-const ReturnsToAddVariation = Loadable({
-  loader: () => import('./pages/ReturnsToAddVariation'),
-  loading() {
-    return <Spinner />;
-  },
-});
-const SignUpEmailNotification = Loadable({
-  loader: () => import('./pages/SignUpEmailNotification'),
-  loading() {
-    return <Spinner />;
-  },
-});
-const CreateAccountChoosePassword = Loadable({
-  loader: () => import('./pages/CreateAccountChoosePassword'),
-  loading() {
-    return <Spinner />;
-  },
-});
-const CreateAccountAddCompanyDetails = Loadable({
-  loader: () => import('./pages/CreateAccountAddCompanyDetails'),
-  loading() {
-    return <Spinner />;
-  },
-});
-const CreateAccountYourDetails = Loadable({
-  loader: () => import('./pages/CreateAccountYourDetails'),
-  loading() {
-    return <Spinner />;
-  },
-});
-const CreateAccountConfirmation = Loadable({
-  loader: () => import('./pages/CreateAccountConfirmation'),
-  loading() {
-    return <Spinner />;
-  },
-});
-const Permits = Loadable({
-  loader: () => import('./pages/Permits'),
-  loading() {
-    return <Spinner />;
-  },
-});
-const PermitsWithNotifications = Loadable({
-  loader: () => import('./pages/PermitsWithNotifications'),
-  loading() {
-    return <Spinner />;
-  },
-});
-const PermitPage = Loadable({
-  loader: () => import('./pages/PermitPage'),
-  loading() {
-    return <Spinner />;
-  },
-});
-const PermitPageClas = Loadable({
-  loader: () => import('./pages/PermitPageClas'),
-  loading() {
-    return <Spinner />;
-  },
-});
-const PreAppFormEnterCardDetails = Loadable({
-  loader: () => import('./pages/PreAppFormEnterCardDetails'),
-  loading() {
-    return <Spinner />;
-  },
-});
-const PreAppFormConfirmation = Loadable({
-  loader: () => import('./pages/PreAppFormConfirmation'),
-  loading() {
-    return <Spinner />;
-  },
-});
-const ReceivesPreAppFormEmail = Loadable({
-  loader: () => import('./pages/ReceivesPreAppFormEmail'),
-  loading() {
-    return <Spinner />;
-  },
-});
-const PreAppFormStart = Loadable({
-  loader: () => import('./pages/PreAppFormStart'),
-  loading() {
-    return <Spinner />;
-  },
-});
-const PreAppFormEmailNotification = Loadable({
-  loader: () => import('./pages/PreAppFormEmailNotification'),
-  loading() {
-    return <Spinner />;
-  },
-});
-const PreAppFormLink = Loadable({
-  loader: () => import('./pages/PreAppFormLink'),
-  loading() {
-    return <Spinner />;
-  },
-});
-const ReceivesPreAppReviewEmail = Loadable({
-  loader: () => import('./pages/ReceivesPreAppReviewEmail'),
-  loading() {
-    return <Spinner />;
-  },
-});
-const PreAppReviewEmailNotification = Loadable({
-  loader: () => import('./pages/PreAppReviewEmailNotification'),
-  loading() {
-    return <Spinner />;
-  },
-});
-const PreAppReviewLink = Loadable({
-  loader: () => import('./pages/PreAppReviewLink'),
-  loading() {
-    return <Spinner />;
-  },
-});
-const PreAppReview = Loadable({
-  loader: () => import('./pages/PreAppReview'),
-  loading() {
-    return <Spinner />;
-  },
-});
-const PreAppScreening = Loadable({
-  loader: () => import('./pages/PreAppScreening'),
-  loading() {
-    return <Spinner />;
-  },
-});
-const ArrivesAtManagementDashboard = Loadable({
-  loader: () => import('./pages/ArrivesAtManagementDashboard'),
-  loading() {
-    return <Spinner />;
-  },
-});
-const ManagementDashboard = Loadable({
-  loader: () => import('./pages/ManagementDashboard'),
-  loading() {
-    return <Spinner />;
-  },
-});
-const PermitsTimePasses = Loadable({
-  loader: () => import('./pages/PermitsTimePasses'),
-  loading() {
-    return <Spinner />;
-  },
-});
-const PreAppFormContactDetails = Loadable({
-  loader: () => import('./pages/PreAppFormContactDetails'),
-  loading() {
-    return <Spinner />;
-  },
-});
-const PreAppFormSiteName = Loadable({
-  loader: () => import('./pages/PreAppFormSiteName'),
-  loading() {
-    return <Spinner />;
-  },
-});
-const PreAppFormWaterBodyName = Loadable({
-  loader: () => import('./pages/PreAppFormWaterBodyName'),
-  loading() {
-    return <Spinner />;
-  },
-});
-const PreAppFormEastingNorthing = Loadable({
-  loader: () => import('./pages/PreAppFormEastingsNorthings'),
-  loading() {
-    return <Spinner />;
-  },
-});
-const PreAppFormSpecies = Loadable({
-  loader: () => import('./pages/PreAppFormSpecies'),
-  loading() {
-    return <Spinner />;
-  },
-});
-const PreAppFormWeight = Loadable({
-  loader: () => import('./pages/PreAppFormWeight'),
-  loading() {
-    return <Spinner />;
-  },
-});
-const PreAppFormFeedingRate = Loadable({
-  loader: () => import('./pages/PreAppFormFeedingRate'),
-  loading() {
-    return <Spinner />;
-  },
-});
-const PreAppFormFeedMedicines = Loadable({
-  loader: () => import('./pages/PreAppFormFeedMedicines'),
-  loading() {
-    return <Spinner />;
-  },
-});
-const PreAppFormBathMedicines = Loadable({
-  loader: () => import('./pages/PreAppFormBathMedicines'),
-  loading() {
-    return <Spinner />;
-  },
-});
-const PreAppFormAdditional = Loadable({
-  loader: () => import('./pages/PreAppFormAdditional'),
-  loading() {
-    return <Spinner />;
-  },
-});
-const PreAppFormCheck = Loadable({
-  loader: () => import('./pages/PreAppFormCheck'),
-  loading() {
-    return <Spinner />;
-  },
-});
+import Index from './pages/Index';
+import UserTypes from './pages/UserTypes';
+import ArrivesAtStartPage from './pages/ArrivesAtStartPage';
+import StartPage from './pages/StartPage';
+import SepaHomePage from './pages/SepaHomePage';
+import SignUpSwitchContext from './pages/SignUpSwitchContext';
+import AccountPageSwitchContext from './pages/AccountPageSwitchContext';
+import SignUp from './pages/SignUp';
+import SignUpConfirmation from './pages/SignUpConfirmation';
+import SignUpTimePasses from './pages/SignUpTimePasses';
+import ReturnsToAddVariation from './pages/ReturnsToAddVariation';
+import SignUpEmailNotification from './pages/SignUpEmailNotification';
+import CreateAccountChoosePassword from './pages/CreateAccountChoosePassword';
+import CreateAccountAddCompanyDetails from './pages/CreateAccountAddCompanyDetails';
+import CreateAccountYourDetails from './pages/CreateAccountYourDetails';
+import CreateAccountConfirmation from './pages/CreateAccountConfirmation';
+import Permits from './pages/Permits';
+import PermitsWithNotifications from './pages/PermitsWithNotifications';
+import PermitPage from './pages/PermitPage';
+import PermitPageClas from './pages/PermitPageClas';
+import PreAppFormEnterCardDetails from './pages/PreAppFormEnterCardDetails';
+import PreAppFormConfirmation from './pages/PreAppFormConfirmation';
+import ReceivesPreAppFormEmail from './pages/ReceivesPreAppFormEmail';
+import PreAppFormStart from './pages/PreAppFormStart';
+import PreAppFormEmailNotification from './pages/PreAppFormEmailNotification';
+import PreAppFormLink from './pages/PreAppFormLink';
+import ReceivesPreAppReviewEmail from './pages/ReceivesPreAppReviewEmail';
+import PreAppReviewEmailNotification from './pages/PreAppReviewEmailNotification';
+import PreAppReviewLink from './pages/PreAppReviewLink';
+import PreAppReview from './pages/PreAppReview';
+import PreAppScreening from './pages/PreAppScreening';
+import ArrivesAtManagementDashboard from './pages/ArrivesAtManagementDashboard';
+import ManagementDashboard from './pages/ManagementDashboard';
+import PermitsTimePasses from './pages/PermitsTimePasses';
+import PreAppFormContactDetails from './pages/PreAppFormContactDetails';
+import PreAppFormSiteName from './pages/PreAppFormSiteName';
+import PreAppFormWaterBodyName from './pages/PreAppFormWaterBodyName';
+import PreAppFormEastingNorthing from './pages/PreAppFormEastingsNorthings';
+import PreAppFormSpecies from './pages/PreAppFormSpecies';
+import PreAppFormWeight from './pages/PreAppFormWeight';
+import PreAppFormFeedingRate from './pages/PreAppFormFeedingRate';
+import PreAppFormFeedMedicines from './pages/PreAppFormFeedMedicines';
+import PreAppFormBathMedicines from './pages/PreAppFormBathMedicines';
+import PreAppFormAdditional from './pages/PreAppFormAdditional';
+import PreAppFormCheck from './pages/PreAppFormCheck';
+import UserTypesSliceTwo from './pages/UserTypesSliceTwo';
+import RequestForDataReceivesEmail from './pages/RequestForDataReceivesEmail';
+import RequestForDataEmailNotification from './pages/RequestForDataEmailNotification';
+import RequestForDataSwitchContext from './pages/RequestForDataSwitchContext';
+import RequestForDataChooseType from './pages/RequestForDataChooseType';
+import RequestForDataAddFiles from './pages/RequestForDataAddFiles';
+import RequestForDataConfirmationPage from './pages/RequestForDataConfirmationPage';
+import ReceivesDataUploadNotification from './pages/ReceivesDataUploadNotification';
+import ApplicationStatusNotification from './pages/ApplicationStatusNotification';
+import ReceivesDataSubmissionEmailConfirmation from './pages/ReceivesDataSubmissionEmailConfirmation';
+import ReceivesDataUploadNotificationEmail from './pages/ReceivesDataUploadNotificationEmail';
+import DataReviewReceiveRequest from './pages/DataReviewReceiveRequest';
+import DataReviewEmailNotification from './pages/DataReviewEmailNotification';
+import DataReviewContextSwitch from './pages/DataReviewContextSwitch';
+import DataReviewPermitPage from './pages/DataReviewPermitPage';
+import ApplicantReviewedDataNotification from './pages/ApplicantReviewedDataNotification';
+import ApplicantReviewedDataPermits from './pages/ApplicantReviewedDataPermits';
+import ApplicantReviewedDataPermitPage from './pages/ApplicantReviewedDataPermitPage';
+import ApplicantViewsDataNotification from './pages/ApplicantViewsDataNotification';
+import PermitOfficerReviewedDataNotification from './pages/PermitOfficerReviewedDataNotification';
+import PermitOfficerReviewedDataPermits from './pages/PermitOfficerReviewedDataPermits';
+import PermitOfficerReviewedDataPermitsAll from './pages/PermitOfficerReviewedDataPermitsAll';
+import PermitOfficerReviewedDataPermitPage from './pages/PermitOfficerReviewedDataPermitPage';
+import PermitOfficerSort from './pages/PermitOfficerSort';
 
 const App = () => (
-  <Router>
+  <Router history={History}>
     <ScrollToTop />
     <Switch>
       <Route exact path="/" component={Index} />
@@ -339,8 +125,30 @@ const App = () => (
       <Route exact path="/pre-app-screening" component={PreAppScreening} />
       <Route exact path="/arrives-at-management-dashboard" component={ArrivesAtManagementDashboard} />
       <Route exact path="/management-dashboard" component={ManagementDashboard} />
-      <Route exact path="/radioform" component={RadioForm} />
-      <Route exact path="/check" component={Check} />
+      <Route exact path="/user-types-slice-two" component={UserTypesSliceTwo} />
+      <Route exact path="/request-for-data-receives-email" component={RequestForDataReceivesEmail} />
+      <Route exact path="/request-for-data-email-notification" component={RequestForDataEmailNotification} />
+      <Route exact path="/request-for-data-switch-context" component={RequestForDataSwitchContext} />
+      <Route exact path="/request-for-data-choose-type" component={RequestForDataChooseType} />
+      <Route exact path="/request-for-data-add-files" component={RequestForDataAddFiles} />
+      <Route exact path="/request-for-data-confirmation-page" component={RequestForDataConfirmationPage} />
+      <Route exact path="/receives-data-upload-notification" component={ReceivesDataUploadNotification} />
+      <Route exact path="/receives-data-submission-email-confirmation" component={ReceivesDataSubmissionEmailConfirmation} />
+      <Route exact path="/receives-data-upload-notification-email" component={ReceivesDataUploadNotificationEmail} />
+      <Route exact path="/data-review-receive-request" component={DataReviewReceiveRequest} />
+      <Route exact path="/data-review-email-notification" component={DataReviewEmailNotification} />
+      <Route exact path="/application-status-notification" component={ApplicationStatusNotification} />
+      <Route exact path="/data-review-context-switch" component={DataReviewContextSwitch} />
+      <Route exact path="/data-review-permit-page" component={DataReviewPermitPage} />
+      <Route exact path="/applicant-reviewed-data-notification" component={ApplicantReviewedDataNotification} />
+      <Route exact path="/applicant-reviewed-data-permits" component={ApplicantReviewedDataPermits} />
+      <Route exact path="/applicant-views-data-notification" component={ApplicantViewsDataNotification} />
+      <Route exact path="/applicant-reviewed-data-permit-page" component={ApplicantReviewedDataPermitPage} />
+      <Route exact path="/permit-officer-reviewed-data-notification" component={PermitOfficerReviewedDataNotification} />
+      <Route exact path="/permit-officer-reviewed-data-permits" component={PermitOfficerReviewedDataPermits} />
+      <Route exact path="/permit-officer-reviewed-data-permits-all" component={PermitOfficerReviewedDataPermitsAll} />
+      <Route exact path="/permit-officer-reviewed-data-permit-page" component={PermitOfficerReviewedDataPermitPage} />
+      <Route exact path="/permit-officer-sort" component={PermitOfficerSort} />
     </Switch>
   </Router>
 );

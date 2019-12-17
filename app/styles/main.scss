@@ -29,21 +29,31 @@ $govuk-assets-path: '/assets';
 @import "../components/AccordionSection/style.scss";
 @import "../components/ActionBox/style.scss";
 @import "../components/ActionBoxComplete/style.scss";
+@import "../components/ActionBoxFitForPurpose/style.scss";
+@import "../components/AssignedList/style.scss";
 @import "../components/Button/style.scss";
 @import "../components/FakePage/style.scss";
+@import "../components/FileDrop/style.scss";
+@import "../components/FileUploadList/style.scss";
+@import "../components/FileUploadStatus/style.scss";
 @import "../components/Footer/style.scss";
 @import "../components/Header/style.scss";
 @import "../components/Panel/style.scss";
 @import "../components/PhaseBanner/style.scss";
+@import "../components/ProgressBar/style.scss";
 @import "../components/Radio/style.scss";
 @import "../components/RadioGroup/style.scss";
 @import "../components/Reference/style.scss";
+@import "../components/Select/style.scss";
 @import "../components/Spinner/style.scss";
 @import "../components/TabPanel/style.scss";
+@import "../components/Tab/style.scss";
 @import "../components/Tag/style.scss";
 @import "../components/Toggle/style.scss";
 @import "../components/TimePasses/style.scss";
+@import "../components/UploadStatus/style.scss";
 @import "../components/Warning/style.scss";
+@import "../components/WarningSymbol/style.scss";
 
 /**
 * bring in custom global styles

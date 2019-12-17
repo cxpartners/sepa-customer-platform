@@ -1,3 +1,6 @@
+/* eslint-disable no-unused-expressions */
+/* eslint-disable array-callback-return */
+/* eslint-disable no-confusing-arrow */
 export const TOGGLE_REDIRECT_YOUR_NAME = 'TOGGLE_REDIRECT_YOUR_NAME';
 export const UPDATE_YOUR_NAME = 'UPDATE_YOUR_NAME';
 export const TOGGLE_YOUR_NAME_ERROR = 'TOGGLE_YOUR_NAME_ERROR';
@@ -18,7 +21,7 @@ export const UPDATE_NORTHINGS_VALUE = 'UPDATE_NORTHINGS_VALUE';
 export const TOGGLE_LOCATION_INPUT = 'TOGGLE_LOCATION_INPUT';
 export const TOGGLE_PRE_APP_SCREENING_SCROLL = 'TOGGLE_PRE_APP_SCREENING_SCROLL';
 export const TOGGLE_PRE_APP_REVIEW_SCROLL = 'TOGGLE_PRE_APP_REVIEW_SCROLL';
-export const TOGGLE_LOCATION_ROW = 'TOGGLE_LOCATION_ROW';
+export const UPDATE_LOCATION_ARRAY = 'UPDATE_LOCATION_ARRAY';
 export const UPDATE_PRE_APP_FORM_SITE_NAME = 'UPDATE_PRE_APP_FORM_SITE_NAME';
 export const UPDATE_PRE_APP_FORM_WATER_BODY_NAME = 'UPDATE_PRE_APP_FORM_WATER_BODY_NAME';
 export const UPDATE_PRE_APP_FORM_FISH_VALUE_NAME = 'UPDATE_PRE_APP_FORM_FISH_VALUE_NAME';
@@ -28,6 +31,31 @@ export const TOGGLE_AZAMETHIPHOS_CHECKED = 'TOGGLE_AZAMETHIPHOS_CHECKED';
 export const TOGGLE_CYPERMETHRIN_CHECKED = 'TOGGLE_CYPERMETHRIN_CHECKED';
 export const TOGGLE_DELTAMETHRIN_CHECKED = 'TOGGLE_DELTAMETHRIN_CHECKED';
 export const TOGGLE_EMAMECTIN_BENZOATE_CHECKED = 'TOGGLE_EMAMECTIN_BENZOATE_CHECKED';
+export const TOGGLE_ADD_FILES_ACCORDION_ONE = 'TOGGLE_ADD_FILES_ACCORDION_ONE';
+export const TOGGLE_ADD_FILES_ACCORDION_TWO = 'TOGGLE_ADD_FILES_ACCORDION_TWO';
+export const TOGGLE_ADD_FILES_ACCORDION_THREE = 'TOGGLE_ADD_FILES_ACCORDION_THREE';
+export const UPDATE_DATA_TYPE_VALUE = 'UPDATE_DATA_TYPE_VALUE';
+export const START_ADD_FILES_UPLOADING = 'START_ADD_FILES_UPLOADING';
+export const START_ADD_FILE_UPLOAD_VALUES = 'START_ADD_FILE_UPLOAD_VALUES';
+export const TOGGLE_ADD_FILES_UPLOADING = 'TOGGLE_ADD_FILES_UPLOADING';
+export const UPDATE_ADD_FILES_UPLOAD_PROGRESS_VALUE = 'UPDATE_ADD_FILES_UPLOAD_PROGRESS_VALUE';
+export const START_ADD_FILE_UPLOADING = 'START_ADD_FILE_UPLOADING';
+export const STOP_ADD_FILE_UPLOADING = 'STOP_ADD_FILE_UPLOADING';
+export const TOGGLE_FILE_SUBMISSION = 'TOGGLE_FILE_SUBMISSION';
+export const PERMITS_FETCH_DATA = 'PERMITS_FETCH_DATA';
+export const PERMITS_FETCH_REQUESTING = 'PERMITS_FETCH_REQUESTING';
+export const PERMITS_FETCH_INVALID = 'PERMITS_FETCH_INVALID';
+export const PERMITS_FETCH_SUCCESS = 'PERMITS_FETCH_SUCCESS';
+export const PERMITS_FETCH_FAILED = 'PERMITS_FETCH_FAILED';
+export const PERMIT_FETCH_DATA = 'PERMIT_FETCH_DATA';
+export const PERMIT_FETCH_REQUESTING = 'PERMIT_FETCH_REQUESTING';
+export const PERMIT_FETCH_INVALID = 'PERMIT_FETCH_INVALID';
+export const PERMIT_FETCH_SUCCESS = 'PERMIT_FETCH_SUCCESS';
+export const PERMIT_FETCH_FAILED = 'PERMIT_FETCH_FAILED';
+export const UPDATE_DATA_REVIEW_RADIO = 'UPDATE_DATA_REVIEW_RADIO';
+
+let easting = 182980;
+let northing = 790973;
 
 const initialState = {
   radioValue: '',
@@ -60,7 +88,44 @@ const initialState = {
   cypermethrinChecked: true,
   deltamethrinChecked: true,
   emamectinBenzoateChecked: true,
+  showAddFilesAccordionOne: false,
+  showAddFilesAccordionTwo: true,
+  showAddFilesAccordionThree: false,
+  permits: {
+    readyStatus: PERMITS_FETCH_INVALID,
+    data: [],
+  },
+  permit: {
+    readyStatus: PERMIT_FETCH_INVALID,
+    license: {},
+    contacts: [],
+    conditions: [],
+    locations: [],
+  },
+  locationArray: [],
+  files: [],
+  filesUploading: 0,
+  showAddFilesUploading: false,
+  dataTypeValue: null,
+  fileUploadComplete: false,
+  filesSubmitted: false,
+  uploadFileName: '',
+  uploadFileSize: 0,
+  dataReviewValue: null,
 };
+
+// fake some locations
+
+let x = 0;
+do {
+  initialState.locationArray.push({
+    pen: x + 1,
+    easting: easting += x * 2,
+    northing: northing += x * 3,
+  });
+  x += 1;
+} while (x < 10);
+
 
 export default (state = initialState, action) => {
   switch (action.type) {
@@ -159,10 +224,12 @@ export default (state = initialState, action) => {
         ...state,
         showLocationInput: !state.showLocationInput,
       };
-    case TOGGLE_LOCATION_ROW:
+    case UPDATE_LOCATION_ARRAY:
       return {
         ...state,
-        showLocationRow: !state.showLocationRow,
+        locationArray: [...state.locationArray, action.payload],
+        northingValue: '',
+        eastingValue: '',
       };
     case TOGGLE_PRE_APP_SCREENING_SCROLL:
       return {
@@ -193,6 +260,93 @@ export default (state = initialState, action) => {
       return {
         ...state,
         emamectinBenzoateChecked: !state.emamectinBenzoateChecked,
+      };
+    case TOGGLE_ADD_FILES_ACCORDION_ONE:
+      return {
+        ...state,
+        showAddFilesAccordionOne: !state.showAddFilesAccordionOne,
+      };
+    case TOGGLE_ADD_FILES_ACCORDION_TWO:
+      return {
+        ...state,
+        showAddFilesAccordionTwo: !state.showAddFilesAccordionTwo,
+      };
+    case TOGGLE_ADD_FILES_ACCORDION_THREE:
+      return {
+        ...state,
+        showAddFilesAccordionThree: !state.showAddFilesAccordionThree,
+      };
+    case UPDATE_DATA_TYPE_VALUE:
+      return {
+        ...state,
+        dataTypeValue: action.payload,
+      };
+    case TOGGLE_ADD_FILES_UPLOADING:
+      return {
+        ...state,
+        showAddFilesUploading: !state.showAddFilesUploading,
+      };
+    case START_ADD_FILES_UPLOADING:
+      return {
+        ...state,
+        showAddFilesUploading: true,
+      };
+    case TOGGLE_FILE_SUBMISSION:
+      return {
+        ...state,
+        filesSubmitted: !state.filesSubmitted,
+      };
+    case UPDATE_ADD_FILES_UPLOAD_PROGRESS_VALUE:
+      return {
+        ...state,
+        files: state.files.map((file) => file.key === action.payload.key ? {
+          key: action.payload.key,
+          progress: action.payload.progress,
+          size: action.payload.size,
+          name: action.payload.name,
+        } : file),
+      };
+    case START_ADD_FILE_UPLOADING:
+      return {
+        ...state,
+        filesUploading: state.filesUploading + 1,
+      };
+    case START_ADD_FILE_UPLOAD_VALUES:
+      return {
+        ...state,
+        files: [
+          ...state.files,
+          action.payload,
+        ],
+      };
+    case STOP_ADD_FILE_UPLOADING:
+      return {
+        ...state,
+        filesUploading: state.filesUploading - 1,
+      };
+    case PERMITS_FETCH_DATA:
+      return {
+        ...state,
+        permits: {
+          readyStatus: action.readyStatus,
+          data: action.payload,
+        },
+      };
+    case PERMIT_FETCH_DATA:
+      return {
+        ...state,
+        permit: {
+          readyStatus: action.readyStatus,
+          license: action.license,
+          contacts: action.contacts,
+          conditions: action.conditions,
+          locations: action.locations,
+        },
+      };
+    case UPDATE_DATA_REVIEW_RADIO:
+      return {
+        ...state,
+        dataReviewValue: action.payload,
       };
     default:
       return state;
@@ -251,6 +405,10 @@ export const updatePreAppFormFeedingRateValue = () => (dispatch) => {
   dispatch({ type: UPDATE_PRE_APP_FORM_FEEDING_RATE_VALUE });
 };
 
+export const updateDataTypeValue = () => (dispatch) => {
+  dispatch({ type: UPDATE_DATA_TYPE_VALUE });
+};
+
 export const updateCreateAccountYourDetailsNumber = () => (dispatch) => {
   dispatch({ type: UPDATE_CREATE_ACCOUNT_YOUR_DETAILS_NUMBER });
 };
@@ -263,8 +421,8 @@ export const toggleLocationInput = () => (dispatch) => {
   dispatch({ type: TOGGLE_LOCATION_INPUT });
 };
 
-export const toggleLocationRow = () => (dispatch) => {
-  dispatch({ type: TOGGLE_LOCATION_ROW });
+export const updateLocationArray = () => (dispatch) => {
+  dispatch({ type: UPDATE_LOCATION_ARRAY });
 };
 
 export const togglePreAppScreeningScroll = () => (dispatch) => {
@@ -297,4 +455,44 @@ export const updateEastingsValue = () => (dispatch) => {
 
 export const updateNorthingsValue = () => (dispatch) => {
   dispatch({ type: UPDATE_NORTHINGS_VALUE });
+};
+
+export const toggleAddFilesAccordionOne = () => (dispatch) => {
+  dispatch({ type: TOGGLE_ADD_FILES_ACCORDION_ONE });
+};
+
+export const toggleAddFilesAccordion = () => (dispatch) => {
+  dispatch({ type: TOGGLE_ADD_FILES_ACCORDION_TWO });
+};
+
+export const toggleAddFilesUploading = () => (dispatch) => {
+  dispatch({ type: TOGGLE_ADD_FILES_UPLOADING });
+};
+
+export const startAddFilesUploading = () => (dispatch) => {
+  dispatch({ type: START_ADD_FILES_UPLOADING });
+};
+
+export const startAddFileUploadValues = () => (dispatch) => {
+  dispatch({ type: START_ADD_FILE_UPLOAD_VALUES });
+};
+
+export const toggleFileSubmission = () => (dispatch) => {
+  dispatch({ type: TOGGLE_FILE_SUBMISSION });
+};
+
+export const startAddFileUploading = () => (dispatch) => {
+  dispatch({ type: START_ADD_FILE_UPLOADING });
+};
+
+export const stopAddFileUploading = () => (dispatch) => {
+  dispatch({ type: STOP_ADD_FILE_UPLOADING });
+};
+
+export const updateAddFilesUploadProgressValue = () => (dispatch) => {
+  dispatch({ type: UPDATE_ADD_FILES_UPLOAD_PROGRESS_VALUE });
+};
+
+export const updateDataReviewRadio = () => (dispatch) => {
+  dispatch({ type: UPDATE_DATA_REVIEW_RADIO });
 };

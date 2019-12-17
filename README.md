@@ -31,6 +31,17 @@ A feature branch branching strategy is in use, specifically:
 - Manually run the CI server so that the master is deployed to production.
 - Create a new `release/vX.Y.Z` where the release number relates to the semantic version of the release.
 
+## Github pages
+
+https://alpha.ccp.sepa.cxp.io/
+
+Rebuild the ghpages version:
+
+```
+npm run cxbuild
+npm run cxdeploy
+```
+
 ## CI
 
 BuddyCI is used for the CI server (see `buddy.yaml`)

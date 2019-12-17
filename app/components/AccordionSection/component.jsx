@@ -9,6 +9,7 @@ const AccordionSection = (props) => {
     expanded,
     sectionKey,
     locked,
+    onClick,
   } = props;
 
   const accordionSectionClassNames = classNames({
@@ -18,7 +19,13 @@ const AccordionSection = (props) => {
 
   return (
     <div className={accordionSectionClassNames}>
-      <div className="govuk-accordion__section-header">
+      <div
+        className="govuk-accordion__section-header"
+        onClick={onClick}
+        onKeyPress={onClick}
+        role="button"
+        tabIndex={0}
+      >
         <h2 className="govuk-accordion__section-heading govuk-!-font-size-27">
           <span className="govuk-accordion__section-key">
             {`${sectionKey}/4`}
@@ -58,8 +65,13 @@ AccordionSection.propTypes = {
   expanded: PropTypes.bool.isRequired,
   locked: PropTypes.bool.isRequired,
   sectionKey: PropTypes.string.isRequired,
+  onClick: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.string,
+  ]),
 };
 
 AccordionSection.defaultProps = {
   children: null,
+  onClick: '',
 };
