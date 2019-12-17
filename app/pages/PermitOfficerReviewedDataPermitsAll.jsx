@@ -43,7 +43,7 @@ const Permit = () => (
         </Row>
         <Row>
           <Column columnWidth="full">
-            <AssignedList caption="In progress (22)" dateColumn="Last updated">
+            <AssignedList caption="In progress (22)" dateColumn="Last updated" href="permit-officer-sort">
               <AssignedListRow key="1" listKey="CAR/L/4336581" status="pre-application (2)" isActive href="/" siteName="Loch Mhòrair Salmon Farm" assignedOfficer="Lauren McKenna" date="17/02/2019" />
               <AssignedListRow key="2" listKey="CAR/L/4336580" status="pre-application" isActive href="/" siteName="Ardfern" assignedOfficer="Lauren McKenna" date="15/02/2019" />
               <AssignedListRow key="3" listKey="CAR/L/4336579" status="application" href="/" siteName="Kimelford" assignedOfficer="Lauren McKenna" date="15/01/2019" />

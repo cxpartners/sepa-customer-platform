@@ -134,7 +134,7 @@ const PermitPage = ({ match: { params: { licenceId } } }) => {
                       </Heading>
                     </>
                   )}
-                  <Button href="permitss-time-passes">Add permits variation</Button>
+                  <Button href="/permits-time-passes">Add permits variation</Button>
                 </Column>
               </Row>
               <Row>

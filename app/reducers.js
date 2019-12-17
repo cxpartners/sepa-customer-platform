@@ -21,7 +21,7 @@ export const UPDATE_NORTHINGS_VALUE = 'UPDATE_NORTHINGS_VALUE';
 export const TOGGLE_LOCATION_INPUT = 'TOGGLE_LOCATION_INPUT';
 export const TOGGLE_PRE_APP_SCREENING_SCROLL = 'TOGGLE_PRE_APP_SCREENING_SCROLL';
 export const TOGGLE_PRE_APP_REVIEW_SCROLL = 'TOGGLE_PRE_APP_REVIEW_SCROLL';
-export const TOGGLE_LOCATION_ROW = 'TOGGLE_LOCATION_ROW';
+export const UPDATE_LOCATION_ARRAY = 'UPDATE_LOCATION_ARRAY';
 export const UPDATE_PRE_APP_FORM_SITE_NAME = 'UPDATE_PRE_APP_FORM_SITE_NAME';
 export const UPDATE_PRE_APP_FORM_WATER_BODY_NAME = 'UPDATE_PRE_APP_FORM_WATER_BODY_NAME';
 export const UPDATE_PRE_APP_FORM_FISH_VALUE_NAME = 'UPDATE_PRE_APP_FORM_FISH_VALUE_NAME';
@@ -224,10 +224,12 @@ export default (state = initialState, action) => {
         ...state,
         showLocationInput: !state.showLocationInput,
       };
-    case TOGGLE_LOCATION_ROW:
+    case UPDATE_LOCATION_ARRAY:
       return {
         ...state,
-        showLocationRow: !state.showLocationRow,
+        locationArray: [...state.locationArray, action.payload],
+        northingValue: '',
+        eastingValue: '',
       };
     case TOGGLE_PRE_APP_SCREENING_SCROLL:
       return {
@@ -419,8 +421,8 @@ export const toggleLocationInput = () => (dispatch) => {
   dispatch({ type: TOGGLE_LOCATION_INPUT });
 };
 
-export const toggleLocationRow = () => (dispatch) => {
-  dispatch({ type: TOGGLE_LOCATION_ROW });
+export const updateLocationArray = () => (dispatch) => {
+  dispatch({ type: UPDATE_LOCATION_ARRAY });
 };
 
 export const togglePreAppScreeningScroll = () => (dispatch) => {
