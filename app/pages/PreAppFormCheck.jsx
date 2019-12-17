@@ -22,8 +22,6 @@ const PreAppFormCheck = () => {
   const contactDetailsValue = useSelector((state) => state.contactDetailsValue);
   const siteNameValue = useSelector((state) => state.siteNameValue);
   const waterBodyNameValue = useSelector((state) => state.waterBobyNameValue);
-  const eastingValue = useSelector((state) => state.eastingValue);
-  const northingValue = useSelector((state) => state.northingValue);
   const fishValue = useSelector((state) => state.fishValue);
   const weightValue = useSelector((state) => state.weightValue);
   const feedingRateValue = useSelector((state) => state.feedingRateValue);
@@ -61,15 +59,11 @@ const PreAppFormCheck = () => {
                 <SummaryListRow key="-2" addLinks listKey="Site name">{siteNameValue}</SummaryListRow>
                 <SummaryListRow key="-1" addLinks listKey="Water body name">{waterBodyNameValue}</SummaryListRow>
                 <SummaryListRow key="0" addLinks listKey="Number of pens">11</SummaryListRow>
-                {locationArray
+                {
+                locationArray
                   .map((location) => (
                     <SummaryListRow key={location.pen} listKey={`Pen ${location.pen}`}>{`X ${location.easting} (Eastings), Y ${location.northing} (Northings)`}</SummaryListRow>
-                  ))}
-                {
-                  eastingValue && northingValue
-                    ? (
-                      <SummaryListRow key="11" listKey="Pen 11">{`X ${eastingValue} (Eastings), Y ${northingValue} (Northing)`}</SummaryListRow>
-                    ) : ''
+                  ))
                 }
               </SummaryList>
               <Heading level="h3">Fish details</Heading>
