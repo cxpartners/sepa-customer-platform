@@ -1,8 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const AssignedList = (props) => {
-  const { children, caption, dateColumn } = props;
+  const {
+    children,
+    caption,
+    dateColumn,
+    href,
+  } = props;
 
   return (
     <table className="govuk-table">
@@ -12,7 +18,7 @@ const AssignedList = (props) => {
           <th scope="col" className="govuk-table__header">CAR Number</th>
           <th scope="col" className="govuk-table__header govuk-!-width-one-quarter">&nbsp;</th>
           <th scope="col" className="govuk-table__header">Site name</th>
-          <th scope="col" className="govuk-table__header">Assigned officer</th>
+          <th scope="col" className="govuk-table__header"><Link className="govuk-table__header--link" to={href}>Assigned officer</Link></th>
           <th scope="col" className="govuk-table__header govuk-table__header--numeric">{dateColumn}</th>
         </tr>
       </thead>
@@ -32,4 +38,5 @@ AssignedList.propTypes = {
   ]).isRequired,
   caption: PropTypes.string.isRequired,
   dateColumn: PropTypes.string.isRequired,
+  href: PropTypes.string.isRequired,
 };

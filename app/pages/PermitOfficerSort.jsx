@@ -43,7 +43,7 @@ const Permit = () => (
         </Row>
         <Row>
           <Column columnWidth="full">
-            <AssignedList caption="In progress (22)" dateColumn="Last updated">
+            <AssignedList caption="In progress (22)" dateColumn="Last updated" href="permit-officer-reviewed-data-permits-all">
               <AssignedListRow key="8" listKey="CAR/L/4336574" status="application" isActive href="/" siteName="Stirling" assignedOfficer="Brandon Clark" date="08/11/2018" />
               <AssignedListRow key="12" listKey="CAR/L/4336570" status="assessment" href="/" siteName="Stirling" assignedOfficer="Brandon Clark" date="18/09/2018" />
               <AssignedListRow key="16" listKey="CAR/L/4336566" status="consultation" href="/" siteName="Stirling" assignedOfficer="Brandon Clark" date="05/08/2018" />
@@ -58,7 +58,7 @@ const Permit = () => (
               <AssignedListRow key="14" listKey="CAR/L/4336568" status="consultation" href="/" siteName="Dumfries" assignedOfficer="Adam McGill" date="27/08/2018" />
               <AssignedListRow key="18" listKey="CAR/L/4336564" status="permit" href="/" siteName="Kyle" assignedOfficer="Adam McGill" date="28/07/2018" />
               <AssignedListRow key="21" listKey="CAR/L/4336561" status="monitoring" href="/" siteName="Kyle" assignedOfficer="Adam McGill" date="15/07/2018" />
-              <AssignedListRow key="1" listKey="CAR/L/4336581" status="pre-application (2)" isActive href="/" siteName="Kimelford" assignedOfficer="Lauren McKenna" date="17/02/2019" />
+              <AssignedListRow key="1" listKey="CAR/L/4336581" status="pre-application (2)" isActive href="/" siteName="Loch Mhòrair Salmon Farm" assignedOfficer="Lauren McKenna" date="17/02/2019" />
               <AssignedListRow key="2" listKey="CAR/L/4336580" status="pre-application (1)" isActive href="/" siteName="Ardfern" assignedOfficer="Lauren McKenna" date="15/02/2019" />
               <AssignedListRow key="3" listKey="CAR/L/4336579" status="application" href="/" siteName="Kimelford" assignedOfficer="Lauren McKenna" date="15/01/2019" />
               <AssignedListRow key="4" listKey="CAR/L/4336578" status="application" href="/" siteName="Kimelford" assignedOfficer="Lauren McKenna" date="12/01/2019" />
